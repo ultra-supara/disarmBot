@@ -1,0 +1,100 @@
+[
+    [
+        [
+            "TK0010 Create personas"
+        ],
+        [
+            "TK0011 Recruit contractors"
+        ],
+        [
+            "TK0012 Recruit partisans"
+        ],
+        [
+            "TK0013 find influencers"
+        ],
+        [
+            "TK0033 OPSEC for TA03"
+        ]
+    ],
+    [
+        [
+            "T0010 Map Target Audience Information Environment"
+        ],
+        [
+            "T0011 Identify Social and Technical Vulnerabilities"
+        ],
+        [
+            "T0012 Segment Audiences"
+        ]
+    ],
+    [
+        [
+            "C00036 Infiltrate the in-group to discredit leaders (divide)",
+            "D02"
+        ],
+        [
+            "C00040 third party verification for people",
+            "D02"
+        ],
+        [
+            "C00051 Counter social engineering training",
+            "D02"
+        ],
+        [
+            "C00058 Report crowdfunder as violator",
+            "D02"
+        ],
+        [
+            "C00155 Ban incident actors from funding sites",
+            "D02"
+        ],
+        [
+            "C00160 find and train influencers",
+            "D02"
+        ],
+        [
+            "C00197 remove suspicious accounts",
+            "D02"
+        ],
+        [
+            "C00044 Keep people from posting to social media immediately",
+            "D03"
+        ],
+        [
+            "C00067 Denigrate the recipient/ project (of online funding)",
+            "D03"
+        ],
+        [
+            "C00077 Active defence: run TA03 \"develop people” - not recommended",
+            "D03"
+        ],
+        [
+            "C00133 Deplatform Account*",
+            "D03"
+        ],
+        [
+            "C00034 Create more friction at account creation",
+            "D04"
+        ],
+        [
+            "C00042 Address truth contained in narratives",
+            "D04"
+        ],
+        [
+            "C00046 Marginalise and discredit extremist groups",
+            "D04"
+        ],
+        [
+            "C00189 Ensure that platforms are taking down flagged accounts",
+            "D06"
+        ],
+        [
+            "C00048 Name and Shame Influencers",
+            "D07"
+        ],
+        [
+            "C00093 Influencer code of conduct",
+            "D07"
+        ]
+    ]
+]

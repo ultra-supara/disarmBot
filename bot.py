@@ -92,6 +92,19 @@ async def on_ready():
 async def discuss(ctx: discord.ApplicationContext, msg: str):
     await ctx.respond("AIアシスタントがデータを学習分析し、偽情報に関する議論を行います...")
     c = run_assistant()
+    for hist in c.chat_history:
+        name = hist['name']
+        content = hist['content']
+        lines = str(content).split("\n")
+        for line in lines:
+            while True:
+                if len(line) <= 2000:
+                    await ctx.send(embed=discord.Embed(title=name, description=line))
+                    break
+                else:
+                    await ctx.send(embed=discord.Embed(title=name, description=line[:2000]))
+                    line = line[2000:]
+        await ctx.send(embed=discord.Embed(title=name, description=content))
     text = str(c)
     print(text)
     lines = text.split("\n")

@@ -1,0 +1,1119 @@
+[
+    [
+        [
+            "C00006",
+            "Charge for social media",
+            "Include a paid-for privacy option, e.g. pay Facebook for an option of them not collecting your personal information. There are examples of this not working, e.g. most people don’t use proton mail etc.",
+            "M004 - Friction",
+            "TA01 Strategic Planning",
+            "D02"
+        ],
+        [
+            "C00008",
+            "Create shared fact-checking database",
+            "Share fact-checking resources - tips, responses, countermessages, across respose groups.",
+            "M006 - Scoring",
+            "TA01 Strategic Planning",
+            "D04"
+        ],
+        [
+            "C00009",
+            "Educate high profile influencers on best practices",
+            "Find online influencers. Provide training in the mechanisms of disinformation, how to spot campaigns, and/or how to contribute to responses by countermessaging, boosting information sites etc.",
+            "M001 - Resilience",
+            "TA02 Objective Planning",
+            "D02"
+        ],
+        [
+            "C00010",
+            "Enhanced privacy regulation for social media",
+            "Implement stronger privacy standards, to reduce the ability to microtarget community members.",
+            "M004 - Friction",
+            "TA01 Strategic Planning",
+            "D02"
+        ],
+        [
+            "C00011",
+            "Media literacy. Games to identify fake news",
+            "Create and use games to show people the mechanics of disinformation, and how to counter them.",
+            "M001 - Resilience",
+            "TA02 Objective Planning",
+            "D02"
+        ],
+        [
+            "C00012",
+            "Platform regulation",
+            "Empower existing regulators to govern social media. Also covers Destroy. Includes: Include the role of social media in the regulatory framework for media. The U.S. approach will need to be carefully crafted to protect First Amendment principles, create needed transparency, ensure liability, and impose costs for noncompliance. Includes Create policy that makes social media police disinformation. Includes: Use fraud legislation to clean up social media",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D02"
+        ],
+        [
+            "C00013",
+            "Rating framework for news",
+            "This is \"strategic innoculation\", raising the standards of what people expect in terms of evidence when consuming news. Example: journalistic ethics, or journalistic licencing body. Include full transcripts, link source, add items.",
+            "M006 - Scoring",
+            "TA01 Strategic Planning",
+            "D02"
+        ],
+        [
+            "C00014",
+            "Real-time updates to fact-checking database",
+            "Update fact-checking databases and resources in real time. Especially import for time-limited events like natural disasters.",
+            "M006 - Scoring",
+            "TA06 Develop Content",
+            "D04"
+        ],
+        [
+            "C00016",
+            "Censorship",
+            "Alter and/or block the publication/dissemination of information controlled by disinformation creators. Not recommended.",
+            "M005 - Removal",
+            "TA01 Strategic Planning",
+            "D02"
+        ],
+        [
+            "C00017",
+            "Repair broken social connections",
+            "For example, use a media campaign to promote in-group to out-group in person communication / activities . Technique could be in terms of forcing a reality-check by talking to people instead of reading about bogeymen.",
+            "M010 - Countermessaging",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00019",
+            "Reduce effect of division-enablers",
+            "includes Promote constructive communication by shaming division-enablers, and Promote playbooks to call out division-enablers",
+            "M003 - Daylight",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00021",
+            "Encourage in-person communication",
+            "Encourage offline communication",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D04"
+        ],
+        [
+            "C00022",
+            "Innoculate. Positive campaign to promote feeling of safety",
+            "Used to counter ability based and fear based attacks",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D04"
+        ],
+        [
+            "C00024",
+            "Promote healthy narratives",
+            "Includes promoting constructive narratives i.e. not polarising (e.g. pro-life, pro-choice, pro-USA). Includes promoting identity neutral narratives.",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D04"
+        ],
+        [
+            "C00026",
+            "Shore up democracy based messages",
+            "Messages about e.g. peace, freedom. And make it sexy. Includes Deploy Information and Narrative-Building in Service of Statecraft: Promote a narrative of transparency, truthfulness, liberal values, and democracy. Implement a compelling narrative via effective mechanisms of communication. Continually reassess messages, mechanisms, and audiences over time. Counteract efforts to manipulate media, undermine free markets, and suppress political freedoms via public diplomacy",
+            "M010 - Countermessaging",
+            "TA01 Strategic Planning",
+            "D04"
+        ],
+        [
+            "C00027",
+            "Create culture of civility",
+            "This is passive. Includes promoting civility as an identity that people will defend.",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D07"
+        ],
+        [
+            "C00028",
+            "Make information provenance available",
+            "Blockchain audit log and validation with collaborative decryption to post comments. Use blockchain technology to require collaborative validation before posts or comments are submitted. This could be used to adjust upvote weight via a trust factor of people and organisations you trust, or other criteria.",
+            "M011 - Verification",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00029",
+            "Create fake website to issue counter narrative and counter narrative through physical merchandise",
+            "Create websites in disinformation voids - spaces where people are looking for known disinformation.",
+            "M002 - Diversion",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00030",
+            "Develop a compelling counter narrative (truth based)",
+            "M002 - Diversion",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00031",
+            "Dilute the core narrative - create multiple permutations, target / amplify",
+            "Create competing narratives. Included \"Facilitate State Propaganda\" as diluting the narrative could have an effect on the pro-state narrative used by volunteers, or lower their involvement.",
+            "M009 - Dilution",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00032",
+            "Hijack content and link to truth- based info",
+            "Link to platform",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00034",
+            "Create more friction at account creation",
+            "Counters fake account",
+            "M004 - Friction",
+            "TA15 - Establish Assets",
+            "D04"
+        ],
+        [
+            "C00036",
+            "Infiltrate the in-group to discredit leaders (divide)",
+            "All of these would be highly affected by infiltration or false-claims of infiltration.",
+            "M013 - Targeting",
+            "TA15 - Establish Assets",
+            "D02"
+        ],
+        [
+            "C00040",
+            "third party verification for people",
+            "counters fake experts",
+            "M011 - Verification",
+            "TA15 - Establish Assets",
+            "D02"
+        ],
+        [
+            "C00042",
+            "Address truth contained in narratives",
+            "Focus on and boost truths in misinformation narratives, removing misinformation from them.",
+            "M010 - Countermessaging",
+            "TA15 Establish Assets",
+            "D04"
+        ],
+        [
+            "C00044",
+            "Keep people from posting to social media immediately",
+            "Platforms can introduce friction to slow down activities, force a small delay between posts, or replies to posts.",
+            "M004 - Friction",
+            "TA15 - Establish Assets",
+            "D03"
+        ],
+        [
+            "C00046",
+            "Marginalise and discredit extremist groups",
+            "Reduce the credibility of extremist groups posting misinformation.",
+            "M013 - Targeting",
+            "TA15 - Establish Assets",
+            "D04"
+        ],
+        [
+            "C00047",
+            "Honeypot with coordinated inauthentics",
+            "Flood disinformation spaces with obviously fake content, to dilute core misinformation narratives in them.",
+            "M008 - Data Pollution",
+            "TA15 Establish Assets",
+            "D05"
+        ],
+        [
+            "C00048",
+            "Name and Shame Influencers",
+            "Think about the different levels: individual vs state-sponsored account. Includes “call them out” and “name and shame”. Identify social media accounts as sources of propaganda—“calling them out”— might be helpful to prevent the spread of their message to audiences that otherwise would consider them factual. Identify, monitor, and, if necessary, target externally-based nonattributed social media accounts. Impact of and Dealing with Trolls - \"Chatham House has observed that trolls also sometimes function as decoys, as a way of “keeping the infantry busy” that “aims to wear down the other side” (Lough et al., 2014). Another type of troll involves “false accounts posing as authoritative information sources on social media”.",
+            "M003 - Daylight",
+            "TA15 - Establish Assets",
+            "D07"
+        ],
+        [
+            "C00051",
+            "Counter social engineering training",
+            "Includes anti-elicitation training, phishing prevention education.",
+            "M001 - Resilience",
+            "TA15 - Establish Assets",
+            "D02"
+        ],
+        [
+            "C00052",
+            "Infiltrate platforms",
+            "Detect and degrade",
+            "M013 - Targeting",
+            "TA15 Establish Assets",
+            "D04"
+        ],
+        [
+            "C00053",
+            "Delete old accounts / Remove unused social media accounts",
+            "remove or remove access to (e.g. stop the ability to update) old social media accounts, to reduce the pool of accounts available for takeover, botnets etc.",
+            "M012 - Cleaning",
+            "TA15 Establish Assets",
+            "D04"
+        ],
+        [
+            "C00056",
+            "Encourage people to leave social media",
+            "Encourage people to leave spcial media. We don't expect this to work",
+            "M004 - Friction",
+            "TA15 Establish Assets",
+            "D02"
+        ],
+        [
+            "C00058",
+            "Report crowdfunder as violator",
+            "counters crowdfunding. Includes ‘Expose online funding as fake”.",
+            "M005 - Removal",
+            "TA15 - Establish Assets",
+            "D02"
+        ],
+        [
+            "C00059",
+            "Verification of project before posting fund requests",
+            "third-party verification of projects posting funding campaigns before those campaigns can be posted.",
+            "M011 - Verification",
+            "TA15 Establish Assets",
+            "D02"
+        ],
+        [
+            "C00060",
+            "Legal action against for-profit engagement factories",
+            "Take legal action against for-profit \"factories\" creating misinformation.",
+            "M013 - Targeting",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00062",
+            "Free open library sources worldwide",
+            "Open-source libraries could be created that aid in some way for each technique. Even for Strategic Planning, some open-source frameworks such as DISARM can be created to counter the adversarial efforts.",
+            "M010 - Countermessaging",
+            "TA15 Establish Assets",
+            "D04"
+        ],
+        [
+            "C00065",
+            "Reduce political targeting",
+            "Includes “ban political micro targeting” and “ban political ads”",
+            "M005 - Removal",
+            "TA05 Microtargeting",
+            "D03"
+        ],
+        [
+            "C00066",
+            "Co-opt a hashtag and drown it out (hijack it back)",
+            "Flood a disinformation-related hashtag with other content.",
+            "M009 - Dilution",
+            "TA05 Microtargeting",
+            "D03"
+        ],
+        [
+            "C00067",
+            "Denigrate the recipient/ project (of online funding)",
+            "Reduce the credibility of groups behind misinformation-linked funding campaigns.",
+            "M013 - Targeting",
+            "TA15 Establish Assets",
+            "D03"
+        ],
+        [
+            "C00070",
+            "Block access to disinformation resources",
+            "Resources = accounts, channels etc. Block access to platform. DDOS an attacker. TA02*: DDOS at the critical time, to deny an adversary's time-bound objective. T0008: A quick response to a proto-viral story will affect it's ability to spread and raise questions about their legitimacy. Hashtag: Against the platform, by drowning the hashtag. T0046 - Search Engine Optimisation: Sub-optimal website performance affect its search engine rank, which I interpret as \"blocking access to a platform\".",
+            "M005 - Removal",
+            "TA02 Objective Planning",
+            "D02"
+        ],
+        [
+            "C00071",
+            "Block source of pollution",
+            "Block websites, accounts, groups etc connected to misinformation and other information pollution.",
+            "M005 - Removal",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00072",
+            "Remove non-relevant content from special interest groups - not recommended",
+            "Check special-interest groups (e.g. medical, knitting) for unrelated and misinformation-linked content, and remove it.",
+            "M005 - Removal",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00073",
+            "Inoculate populations through media literacy training",
+            "Use training to build the resilience of at-risk populations. Educate on how to handle info pollution. Push out targeted education on why it's pollution. Build cultural resistance to false content, e.g. cultural resistance to bullshit. Influence literacy training, to inoculate against “cult” recruiting. Media literacy training: leverage librarians / library for media literacy training. Inoculate at language. Strategic planning included as inoculating population has strategic value. Concepts of media literacy to a mass audience that authorities launch a public information campaign that teaches the programme will take time to develop and establish impact, recommends curriculum-based training. Covers detect, deny, and degrade.",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D02"
+        ],
+        [
+            "C00074",
+            "Identify and delete or rate limit identical content",
+            "C00000",
+            "M012 - Cleaning",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00075",
+            "normalise language",
+            "normalise the language around disinformation and misinformation; give people the words for artefact and effect types.",
+            "M010 - Countermessaging",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00076",
+            "Prohibit images in political discourse channels",
+            "Make political discussion channels text-only.",
+            "M005 - Removal",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00077",
+            "Active defence: run TA15 \"develop people” - not recommended",
+            "Develop networks of communities and influencers around counter-misinformation. Match them to misinformation creators",
+            "M013 - Targeting",
+            "TA15 - Establish Assets",
+            "D03"
+        ],
+        [
+            "C00078",
+            "Change Search Algorithms for Disinformation Content",
+            "Includes “change image search algorithms for hate groups and extremists” and “Change search algorithms for hate and extremist queries to show content sympathetic to opposite side”",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00080",
+            "Create competing narrative",
+            "Create counternarratives, or narratives that compete in the same spaces as misinformation narratives. Could also be degrade",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00081",
+            "Highlight flooding and noise, and explain motivations",
+            "Discredit by pointing out the \"noise\" and informing public that \"flooding\" is a technique of disinformation campaigns; point out intended objective of \"noise\"",
+            "M003 - Daylight",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00082",
+            "Ground truthing as automated response to pollution",
+            "Also inoculation.",
+            "M010 - Countermessaging",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00084",
+            "Modify disinformation narratives, and rebroadcast them",
+            "Includes “poison pill recasting of message” and “steal their truths”. Many techniques involve promotion which could be manipulated. For example, online fundings or rallies could be advertised, through compromised or fake channels, as being associated with \"far-up/down/left/right\" actors. \"Long Game\" narratives could be subjected in a similar way with negative connotations. Can also replay technique T0003.",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00085",
+            "Mute content",
+            "Rate-limit disinformation content. Reduces its effects, whilst not running afoul of censorship concerns. Online archives of content (archives of websites, social media profiles, media, copies of published advertisements; or archives of comments attributed to bad actors, as well as anonymized metadata about users who interacted with them and analysis of the effect) is useful for intelligence analysis and public transparency, but will need similar muting or tagging/ shaming as associated with bad actors.",
+            "M003 - Daylight",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00086",
+            "Distract from noise with addictive content",
+            "Example: Interject addictive links or contents into discussions of disinformation materials and measure a \"conversion rate\" of users who engage with your content and away from the social media channel's \"information bubble\" around the disinformation item. Use bots to amplify and upvote the addictive content.",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D04"
+        ],
+        [
+            "C00087",
+            "Make more noise than the disinformation",
+            "M009 - Dilution",
+            "TA06 Develop Content",
+            "D04"
+        ],
+        [
+            "C00090",
+            "Fake engagement system",
+            "Create honeypots for misinformation creators to engage with, and reduce the resources they have available for misinformation campaigns.",
+            "M002 - Diversion",
+            "TA07 Channel Selection",
+            "D05"
+        ],
+        [
+            "C00091",
+            "Honeypot social community",
+            "Set honeypots, e.g. communities, in networks likely to be used for disinformation.",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D05"
+        ],
+        [
+            "C00092",
+            "Establish a truth teller reputation score for influencers",
+            "Includes \"Establish a truth teller reputation score for influencers” and “Reputation scores for social media users”. Influencers are individuals or accounts with many followers.",
+            "M006 - Scoring",
+            "TA02 Objective Planning",
+            "D07"
+        ],
+        [
+            "C00093",
+            "Influencer code of conduct",
+            "Establish tailored code of conduct for individuals with many followers. Can be platform code of conduct; can also be community code.",
+            "M001 - Resilience",
+            "TA15 - Establish Assets",
+            "D07"
+        ],
+        [
+            "C00094",
+            "Force full disclosure on corporate sponsor of research",
+            "Accountability move: make sure research is published with its funding sources.",
+            "M003 - Daylight",
+            "TA06 Develop Content",
+            "D04"
+        ],
+        [
+            "C00096",
+            "Strengthen institutions that are always truth tellers",
+            "Increase credibility, visibility, and reach of positive influencers in the information space.",
+            "M006 - Scoring",
+            "TA01 Strategic Planning",
+            "D07"
+        ],
+        [
+            "C00097",
+            "Require use of verified identities to contribute to poll or comment",
+            "Reduce poll flooding by online taking comments or poll entries from verified accounts.",
+            "M004 - Friction",
+            "TA07 Channel Selection",
+            "D02"
+        ],
+        [
+            "C00098",
+            "Revocation of allowlisted or \"verified\" status",
+            "remove blue checkmarks etc from known misinformation accounts.",
+            "M004 - Friction",
+            "TA07 Channel Selection",
+            "D02"
+        ],
+        [
+            "C00099",
+            "Strengthen verification methods",
+            "Improve content veerification methods available to groups, individuals etc.",
+            "M004 - Friction",
+            "TA07 Channel Selection",
+            "D02"
+        ],
+        [
+            "C00100",
+            "Hashtag jacking",
+            "Post large volumes of unrelated content on known misinformation hashtags",
+            "M002 - Diversion",
+            "TA08 Pump Priming",
+            "D03"
+        ],
+        [
+            "C00101",
+            "Create friction by rate-limiting engagement",
+            "Create participant friction. Includes Make repeat voting hard, and throttle number of forwards.",
+            "M004 - Friction",
+            "TA07 Channel Selection",
+            "D04"
+        ],
+        [
+            "C00103",
+            "Create a bot that engages / distract trolls",
+            "This is reactive, not active measure (honeypots are active). It's a platform controlled measure.",
+            "M002 - Diversion",
+            "TA07 Channel Selection",
+            "D05"
+        ],
+        [
+            "C00105",
+            "Buy more advertising than misinformation creators",
+            "Shift influence and algorithms by posting more adverts into spaces than misinformation creators.",
+            "M009 - Dilution",
+            "TA07 Channel Selection",
+            "D03"
+        ],
+        [
+            "C00106",
+            "Click-bait centrist content",
+            "Create emotive centrist content that gets more clicks",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D03"
+        ],
+        [
+            "C00107",
+            "Content moderation",
+            "includes social media content take-downs, e.g. facebook or Twitter content take-downs",
+            "M006 - Scoring, M005 - Removal",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00109",
+            "Dampen Emotional Reaction",
+            "Reduce emotional responses to misinformation through calming messages, etc.",
+            "M001 - Resilience",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00111",
+            "Reduce polarisation by connecting and presenting sympathetic renditions of opposite views",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D04"
+        ],
+        [
+            "C00112",
+            "\"Prove they are not an op!\"",
+            "Challenge misinformation creators to prove they're not an information operation.",
+            "M004 - Friction",
+            "TA08 Pump Priming",
+            "D02"
+        ],
+        [
+            "C00113",
+            "Debunk and defuse a fake expert / credentials.",
+            "Debunk fake experts, their credentials, and potentially also their audience quality",
+            "M003 - Daylight",
+            "TA08 Pump Priming",
+            "D02"
+        ],
+        [
+            "C00114",
+            "Don't engage with payloads",
+            "Stop passing on misinformation",
+            "M004 - Friction",
+            "TA08 Pump Priming",
+            "D02"
+        ],
+        [
+            "C00115",
+            "Expose actor and intentions",
+            "Debunk misinformation creators and posters.",
+            "M003 - Daylight",
+            "TA08 Pump Priming",
+            "D02"
+        ],
+        [
+            "C00116",
+            "Provide proof of involvement",
+            "Build and post information about groups etc's involvement in misinformation incidents.",
+            "M003 - Daylight",
+            "TA08 Pump Priming",
+            "D02"
+        ],
+        [
+            "C00117",
+            "Downgrade / de-amplify so message is seen by fewer people",
+            "Label promote counter to disinformation",
+            "M010 - Countermessaging",
+            "TA08 Pump Priming",
+            "D04"
+        ],
+        [
+            "C00118",
+            "Repurpose images with new text",
+            "Add countermessage text to iamges used in misinformation incidents.",
+            "M010 - Countermessaging",
+            "TA08 Pump Priming",
+            "D04"
+        ],
+        [
+            "C00119",
+            "Engage payload and debunk.",
+            "debunk misinformation content. Provide link to facts.",
+            "M010 - Countermessaging",
+            "TA08 Pump Priming",
+            "D07"
+        ],
+        [
+            "C00120",
+            "Open dialogue about design of platforms to produce different outcomes",
+            "Redesign platforms and algorithms to reduce the effectiveness of disinformation",
+            "M007 - Metatechnique",
+            "TA08 Pump Priming",
+            "D07"
+        ],
+        [
+            "C00121",
+            "Tool transparency and literacy for channels people follow.",
+            "Make algorithms in platforms explainable, and visible to people using those platforms.",
+            "M001 - Resilience",
+            "TA08 Pump Priming",
+            "D07"
+        ],
+        [
+            "C00122",
+            "Content moderation",
+            "Beware: content moderation misused becomes censorship.",
+            "M004 - Friction",
+            "TA09 Exposure",
+            "D02"
+        ],
+        [
+            "C00123",
+            "Remove or rate limit botnets",
+            "reduce the visibility of known botnets online.",
+            "M004 - Friction",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00124",
+            "Don't feed the trolls",
+            "Don't engage with individuals relaying misinformation.",
+            "M004 - Friction",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00125",
+            "Prebunking",
+            "Produce material in advance of misinformation incidents, by anticipating the narratives used in them, and debunking them.",
+            "M001 - Resilience",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00126",
+            "Social media amber alert",
+            "Create an alert system around disinformation and misinformation artefacts, narratives, and incidents",
+            "M003 - Daylight",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00128",
+            "Create friction by marking content with ridicule or other \"decelerants\"",
+            "Repost or comment on misinformation artefacts, using ridicule or other content to reduce the likelihood of reposting.",
+            "M009 - Dilution",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00129",
+            "Use banking to cut off access",
+            "fiscal sanctions; parallel to counter terrorism",
+            "M014 - Reduce Resources",
+            "TA09 Exposure",
+            "D02"
+        ],
+        [
+            "C00130",
+            "Mentorship: elders, youth, credit. Learn vicariously.",
+            "Train local influencers in countering misinformation.",
+            "M001 - Resilience",
+            "TA05 Microtargeting",
+            "D07"
+        ],
+        [
+            "C00131",
+            "Seize and analyse botnet servers",
+            "Take botnet servers offline by seizing them.",
+            "M005 - Removal",
+            "TA11 Persistence",
+            "D02"
+        ],
+        [
+            "C00133",
+            "Deplatform Account*",
+            "Note: Similar to Deplatform People but less generic. Perhaps both should be left.",
+            "M005 - Removal",
+            "TA15 - Establish Assets",
+            "D03"
+        ],
+        [
+            "C00135",
+            "Deplatform message groups and/or message boards",
+            "Merged two rows here.",
+            "M005 - Removal",
+            "TA15 Establish Assets",
+            "D03"
+        ],
+        [
+            "C00136",
+            "Microtarget most likely targets then send them countermessages",
+            "Find communities likely to be targetted by misinformation campaigns, and send them countermessages or pointers to information sources.",
+            "M010 - Countermessaging",
+            "TA08 Pump Priming",
+            "D03"
+        ],
+        [
+            "C00138",
+            "Spam domestic actors with lawsuits",
+            "File multiple lawsuits against known misinformation creators and posters, to distract them from disinformation creation.",
+            "M014 - Reduce Resources",
+            "TA11 Persistence",
+            "D03"
+        ],
+        [
+            "C00139",
+            "Weaponise youtube content matrices",
+            "God knows what this is. Keeping temporarily in case we work it out.",
+            "M004 - Friction",
+            "TA11 Persistence",
+            "D03"
+        ],
+        [
+            "C00140",
+            "\"Bomb\" link shorteners with lots of calls",
+            "Applies to most of the content used by exposure techniques except \"T0055 - Use hashtag”. Applies to analytics",
+            "M008 - Data Pollution",
+            "TA12 Measure Effectiveness",
+            "D03"
+        ],
+        [
+            "C00142",
+            "Platform adds warning label and decision point when sharing content",
+            "Includes “this has been disproved: do you want to forward it”. Includes “\"Hey this story is old\" popup when messaging with old URL” - this assumes that this technique is based on visits to an URL shortener or a captured news site that can publish a message of our choice. Includes “mark clickbait visually”.",
+            "M004 - Friction",
+            "TA06 Develop Content",
+            "D04"
+        ],
+        [
+            "C00143",
+            "(botnet) DMCA takedown requests to waste group time",
+            "Use copyright infringement claims to remove videos etc.",
+            "M013 - Targeting",
+            "TA11 Persistence",
+            "D04"
+        ],
+        [
+            "C00144",
+            "Buy out troll farm employees / offer them jobs",
+            "Degrade the infrastructure. Could e.g. pay to not act for 30 days. Not recommended",
+            "M014 - Reduce Resources",
+            "TA02 Objective Planning",
+            "D04"
+        ],
+        [
+            "C00147",
+            "Make amplification of social media posts expire (e.g. can't like/ retweet after n days)",
+            "Stop new community activity (likes, comments) on old social media posts.",
+            "M004 - Friction",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00148",
+            "Add random links to network graphs",
+            "If creators are using network analysis to determine how to attack networks, then adding random extra links to those networks might throw that analysis out enough to change attack outcomes. Unsure which DISARM techniques.",
+            "M008 - Data Pollution",
+            "TA12 Measure Effectiveness",
+            "D04"
+        ],
+        [
+            "C00149",
+            "Poison the monitoring & evaluation data",
+            "Includes Pollute the AB-testing data feeds: Polluting A/B testing requires knowledge of MOEs and MOPs. A/B testing must be caught early when there is relatively little data available so infiltration of TAs and understanding of how content is migrated from testing to larger audiences is fundamental.",
+            "M008 - Data Pollution",
+            "TA12 Measure Effectiveness",
+            "D04"
+        ],
+        [
+            "C00153",
+            "Take pre-emptive action against actors' infrastructure",
+            "Align offensive cyber action with information operations and counter disinformation approaches, where appropriate.",
+            "M013 - Targeting",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00154",
+            "Ask media not to report false information",
+            "Train media to spot and respond to misinformation, and ask them not to post or transmit misinformation they've found.",
+            "M005 - Removal",
+            "TA08 Pump Priming",
+            "D02"
+        ],
+        [
+            "C00155",
+            "Ban incident actors from funding sites",
+            "Ban misinformation creators and posters from funding sites",
+            "M005 - Removal",
+            "TA15 - Establish Assets",
+            "D02"
+        ],
+        [
+            "C00156",
+            "Better tell your country or organisation story",
+            "Civil engagement activities conducted on the part of EFP forces. NATO should likewise provide support and training, where needed, to local public affairs and other communication personnel. Local government and military public affairs personnel can play their part in creating and disseminating entertaining and sharable content that supports the EFP mission.",
+            "M010 - Countermessaging",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00159",
+            "Have a disinformation response plan",
+            "e.g. Create a campaign plan and toolkit for competition short of armed conflict (this used to be called “the grey zone”). The campaign plan should account for own vulnerabilities and strengths, and not over-rely on any one tool of statecraft or line of effort. It will identify and employ a broad spectrum of national power to deter, compete, and counter (where necessary) other countries’ approaches, and will include understanding of own capabilities, capabilities of disinformation creators, and international standards of conduct to compete in, shrink the size, and ultimately deter use of competition short of armed conflict.",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00160",
+            "find and train influencers",
+            "Identify key influencers (e.g. use network analysis), then reach out to identified users and offer support, through either training or resources.",
+            "M001 - Resilience",
+            "TA15 - Establish Assets",
+            "D02"
+        ],
+        [
+            "C00161",
+            "Coalition Building with stakeholders and Third-Party Inducements",
+            "Advance coalitions across borders and sectors, spanning public and private, as well as foreign and domestic, divides. Improve mechanisms to collaborate, share information, and develop coordinated approaches with the private sector at home and allies and partners abroad.",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D07"
+        ],
+        [
+            "C00162",
+            "Unravel/target the Potemkin villages",
+            "Kremlin’s narrative spin extends through constellations of “civil society” organisations, political parties, churches, and other actors. Moscow leverages think tanks, human rights groups, election observers, Eurasianist integration groups, and orthodox groups. A collection of Russian civil society organisations, such as the Federal Agency for the Commonwealth of Independent States Affairs, Compatriots Living Abroad, and International Humanitarian Cooperation, together receive at least US$100 million per year, in addition to government-organized nongovernmental organisations (NGOs), at least 150 of which are funded by Russian presidential grants totaling US$70 million per year.",
+            "M013 - Targeting",
+            "TA15 Establish Assets",
+            "D03"
+        ],
+        [
+            "C00164",
+            "compatriot policy",
+            "protect the interests of this population and, more importantly, influence the population to support pro-Russia causes and effectively influence the politics of its neighbours",
+            "M013 - Targeting",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00165",
+            "Ensure integrity of official documents",
+            "e.g. for leaked legal documents, use court motions to limit future discovery actions",
+            "M004 - Friction",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00169",
+            "develop a creative content hub",
+            "international donors will donate to a basket fund that will pay a committee of local experts who will, in turn, manage and distribute the money to Russian-language producers and broadcasters that pitch various projects.",
+            "M010 - Countermessaging",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00170",
+            "elevate information as a critical domain of statecraft",
+            "Shift from reactive to proactive response, with priority on sharing relevant information with the public and mobilising private-sector engagement. Recent advances in data-driven technologies have elevated information as a source of power to influence the political and economic environment, to foster economic growth, to enable a decision-making advantage over competitors, and to communicate securely and quickly.",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00172",
+            "social media source removal",
+            "Removing accounts, pages, groups, e.g. facebook page removal",
+            "M005 - Removal",
+            "TA15 Establish Assets",
+            "D02"
+        ],
+        [
+            "C00174",
+            "Create a healthier news environment",
+            "Free and fair press: create bipartisan, patriotic commitment to press freedom. Note difference between news and editorialising. Build alternative news sources: create alternative local-language news sources to counter local-language propaganda outlets. Delegitimize the 24 hour news cycle. includes Provide an alternative to disinformation content by expanding and improving local content: Develop content that can displace geopolitically-motivated narratives in the entire media environment, both new and old media alike.",
+            "M007 - Metatechnique, M002 - Diversion",
+            "TA01 Strategic Planning",
+            "D02"
+        ],
+        [
+            "C00176",
+            "Improve Coordination amongst stakeholders: public and private",
+            "Coordinated disinformation challenges are increasingly multidisciplinary, there are few organisations within the national security structures that are equipped with the broad-spectrum capability to effectively counter large-scale conflict short of war tactics in real-time. Institutional hurdles currently impede diverse subject matter experts, hailing from outside of the traditional national security and foreign policy disciplines (e.g., physical science, engineering, media, legal, and economics fields), from contributing to the direct development of national security countermeasures to emerging conflict short of war threat vectors. A Cognitive Security Action Group (CSAG), akin to the Counterterrorism Security Group (CSG), could drive interagency alignment across equivalents of DHS, DoS, DoD, Intelligence Community, and other implementing agencies, in areas including strategic narrative, and the nexus of cyber and information operations.",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D07"
+        ],
+        [
+            "C00178",
+            "Fill information voids with non-disinformation content",
+            "1) Pollute the data voids with wholesome content (Kittens! Babyshark!). 2) fill data voids with relevant information, e.g. increase Russian-language programming in areas subject to Russian disinformation.",
+            "M009 - Dilution, M008 - Data Pollution",
+            "TA05 Microtargeting",
+            "D04"
+        ],
+        [
+            "C00182",
+            "Redirection / malware detection/ remediation",
+            "Detect redirction or malware, then quarantine or delete.",
+            "M005 - Removal",
+            "TA09 Exposure",
+            "D02"
+        ],
+        [
+            "C00184",
+            "Media exposure",
+            "highlight misinformation activities and actors in media",
+            "M003 - Daylight",
+            "TA08 Pump Priming",
+            "D04"
+        ],
+        [
+            "C00188",
+            "Newsroom/Journalist training to counter influence moves",
+            "Includes SEO influence. Includes promotion of a “higher standard of journalism”: journalism training “would be helpful, especially for the online community. Includes Strengthen local media: Improve effectiveness of local media outlets.",
+            "M001 - Resilience",
+            "TA08 Pump Priming",
+            "D03"
+        ],
+        [
+            "C00189",
+            "Ensure that platforms are taking down flagged accounts",
+            "Use ongoing analysis/monitoring of \"flagged\" profiles. Confirm whether platforms are actively removing flagged accounts, and raise pressure via e.g. government organisations to encourage removal",
+            "M003 - Daylight",
+            "TA15 - Establish Assets",
+            "D06"
+        ],
+        [
+            "C00190",
+            "open engagement with civil society",
+            "Government open engagement with civil society as an independent check on government action and messaging. Government seeks to coordinate and synchronise narrative themes with allies and partners while calibrating action in cases where elements in these countries may have been co-opted by competitor nations. Includes “fight in the light”: Use leadership in the arts, entertainment, and media to highlight and build on fundamental tenets of democracy.",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00195",
+            "Redirect searches away from disinformation or extremist content",
+            "Use Google AdWords to identify instances in which people search Google about particular fake-news stories or propaganda themes. Includes Monetize centrist SEO by subsidising the difference in greater clicks towards extremist content.",
+            "M002 - Diversion",
+            "TA07 Channel Selection",
+            "D02"
+        ],
+        [
+            "C00197",
+            "remove suspicious accounts",
+            "Standard reporting for false profiles (identity issues). Includes detecting hijacked accounts and reallocating them - if possible, back to original owners.",
+            "M005 - Removal",
+            "TA15 - Establish Assets",
+            "D02"
+        ],
+        [
+            "C00200",
+            "Respected figure (influencer) disavows misinfo",
+            "FIXIT: standardise language used for influencer/ respected figure.",
+            "M010 - Countermessaging",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00202",
+            "Set data 'honeytraps'",
+            "Set honeytraps in content likely to be accessed for disinformation.",
+            "M002 - Diversion",
+            "TA06 Develop Content",
+            "D02"
+        ],
+        [
+            "C00203",
+            "Stop offering press credentials to propaganda outlets",
+            "Remove access to official press events from known misinformation actors.",
+            "M004 - Friction",
+            "TA15 Establish Assets",
+            "D03"
+        ],
+        [
+            "C00205",
+            "strong dialogue between the federal government and private sector to encourage better reporting",
+            "Increase civic resilience by partnering with business community to combat grey zone threats and ensuring adequate reporting and enforcement mechanisms.",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00207",
+            "Run a competing disinformation campaign - not recommended",
+            "M013 - Targeting",
+            "TA02 Objective Planning",
+            "D07"
+        ],
+        [
+            "C00211",
+            "Use humorous counter-narratives",
+            "M010 - Countermessaging",
+            "TA09 Exposure",
+            "D03"
+        ],
+        [
+            "C00212",
+            "build public resilience by making civil society more vibrant",
+            "Increase public service experience, and support wider civics and history education.",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00216",
+            "Use advertiser controls to stem flow of funds to bad actors",
+            "Prevent ad revenue going to disinformation domains",
+            "M014 - Reduce Resources",
+            "TA05 Microtargeting",
+            "D02"
+        ],
+        [
+            "C00219",
+            "Add metadata to content that’s out of the control of disinformation creators",
+            "Steganography. Adding date, signatures etc to stop issue of photo relabelling etc.",
+            "M003 - Daylight",
+            "TA06 Develop Content",
+            "D04"
+        ],
+        [
+            "C00220",
+            "Develop a monitoring and intelligence plan",
+            "Create a plan for misinformation and disinformation response, before it's needed. Include connections / contacts needed, expected counteremessages etc.",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00221",
+            "Run a disinformation red team, and design mitigation factors",
+            "Include PACE plans - Primary, Alternate, Contingency, Emergency",
+            "M007 - Metatechnique",
+            "TA01 Strategic Planning",
+            "D03"
+        ],
+        [
+            "C00222",
+            "Tabletop simulations",
+            "Simulate misinformation and disinformation campaigns, and responses to them, before campaigns happen.",
+            "M007 - Metatechnique",
+            "TA02 Objective Planning",
+            "D03"
+        ],
+        [
+            "C00223",
+            "Strengthen Trust in social media platforms",
+            "Improve trust in the misinformation responses from social media and other platforms. Examples include creating greater transparancy on their actions and algorithms.",
+            "M001 - Resilience",
+            "TA01 Strategic Planning",
+            "D03"
+        ]
+    ]
+]

@@ -1,0 +1,20 @@
+[
+    [
+        [
+            "C00140 \"Bomb\" link shorteners with lots of calls",
+            "D03"
+        ],
+        [
+            "C00148 Add random links to network graphs",
+            "D04"
+        ],
+        [
+            "C00149 Poison the monitoring & evaluation data",
+            "D04"
+        ],
+        [
+            "C00047 Honeypot with coordinated inauthentics",
+            "D05"
+        ]
+    ]
+]

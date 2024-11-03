@@ -1,0 +1,256 @@
+[
+    [
+        [
+            "TK0001",
+            "Goal setting",
+            "Set the goals for this incident.",
+            "TA01"
+        ],
+        [
+            "TK0002",
+            "Population research / audience analysis (centre of gravity)",
+            "Research intended audience. Includes audience segmentation, hot-button issues etc.",
+            "TA01"
+        ],
+        [
+            "TK0003",
+            "Campaign design (objective design)",
+            "Design the campaign(s) needed to meet the incident goals",
+            "TA01"
+        ],
+        [
+            "TK0031",
+            "OPSEC for TA01",
+            "OPSEC for TA01",
+            "TA01"
+        ],
+        [
+            "TK0004",
+            "Identify target subgroups",
+            "Identify groups that can best be used to meet incident goals",
+            "TA02"
+        ],
+        [
+            "TK0005",
+            "Analyse subgroups",
+            "Analyse subgroups",
+            "TA02"
+        ],
+        [
+            "TK0006",
+            "create master narratives",
+            "create master narratives",
+            "TA02"
+        ],
+        [
+            "TK0007",
+            "Decide on techniques (4Ds etc)",
+            "Decide on techniques (4Ds etc)",
+            "TA02"
+        ],
+        [
+            "TK0008",
+            "Create subnarratives",
+            "Create subnarratives",
+            "TA02"
+        ],
+        [
+            "TK0009",
+            "4chan/8chan coordinating content",
+            "4chan/8chan coordinating content",
+            "TA02"
+        ],
+        [
+            "TK0032",
+            "OPSEC for TA02",
+            "OPSEC for TA02",
+            "TA02"
+        ],
+        [
+            "TK0010",
+            "Present Persona",
+            "Present Persona",
+            "TA15"
+        ],
+        [
+            "TK0011",
+            "Recruit contractors",
+            "Recruit contractors",
+            "TA15"
+        ],
+        [
+            "TK0012",
+            "Recruit partisans",
+            "Recruit partisans",
+            "TA15"
+        ],
+        [
+            "TK0013",
+            "find influencers",
+            "find influencers",
+            "TA15"
+        ],
+        [
+            "TK0033",
+            "OPSEC for TA15",
+            "OPSEC for TA15",
+            "TA15"
+        ],
+        [
+            "TK0014",
+            "Network building",
+            "Network building",
+            "TA15"
+        ],
+        [
+            "TK0015",
+            "Network infiltration",
+            "Network infiltration",
+            "TA15"
+        ],
+        [
+            "TK0016",
+            "identify targets - susceptible audience members in networks",
+            "identify targets - susceptible audience members in networks",
+            "TA15"
+        ],
+        [
+            "TK0034",
+            "OPSEC for TA15",
+            "OPSEC for TA15",
+            "TA15"
+        ],
+        [
+            "TK0035",
+            "OPSEC for TA05",
+            "OPSEC for TA05",
+            "TA05"
+        ],
+        [
+            "TK0017",
+            "content creation",
+            "content creation",
+            "TA06"
+        ],
+        [
+            "TK0018",
+            "content appropriation",
+            "content appropriation",
+            "TA06"
+        ],
+        [
+            "TK0036",
+            "OPSEC for TA06",
+            "OPSEC for TA06",
+            "TA06"
+        ],
+        [
+            "TK0037",
+            "OPSEC for TA07",
+            "OPSEC for TA07",
+            "TA07"
+        ],
+        [
+            "TK0019",
+            "anchor trust / credibility",
+            "anchor trust / credibility",
+            "TA08"
+        ],
+        [
+            "TK0020",
+            "insert themes",
+            "insert themes",
+            "TA08"
+        ],
+        [
+            "TK0038",
+            "OPSEC for TA08",
+            "OPSEC for TA08",
+            "TA08"
+        ],
+        [
+            "TK0021",
+            "deamplification (suppression, censoring)",
+            "deamplification (suppression, censoring)",
+            "TA09"
+        ],
+        [
+            "TK0022",
+            "amplification",
+            "amplification",
+            "TA09"
+        ],
+        [
+            "TK0039",
+            "OPSEC for TA09",
+            "OPSEC for TA09",
+            "TA09"
+        ],
+        [
+            "TK0040",
+            "OPSEC for TA10",
+            "OPSEC for TA10",
+            "TA10"
+        ],
+        [
+            "TK0023",
+            "retention",
+            "retention",
+            "TA11"
+        ],
+        [
+            "TK0024",
+            "customer relationship",
+            "customer relationship",
+            "TA11"
+        ],
+        [
+            "TK0025",
+            "advocacy/ zealotry",
+            "advocacy/ zealotry",
+            "TA11"
+        ],
+        [
+            "TK0026",
+            "conversion",
+            "conversion",
+            "TA11"
+        ],
+        [
+            "TK0027",
+            "keep recruiting/prospecting",
+            "keep recruiting/prospecting",
+            "TA11"
+        ],
+        [
+            "TK0041",
+            "OPSEC for TA11",
+            "OPSEC for TA11",
+            "TA11"
+        ],
+        [
+            "TK0028",
+            "evaluation",
+            "evaluation",
+            "TA12"
+        ],
+        [
+            "TK0029",
+            "post-mortem",
+            "post-mortem",
+            "TA12"
+        ],
+        [
+            "TK0030",
+            "after-action analysis",
+            "after-action analysis",
+            "TA12"
+        ],
+        [
+            "TK0042",
+            "OPSEC for TA12",
+            "OPSEC for TA12",
+            "TA12"
+        ]
+    ]
+]

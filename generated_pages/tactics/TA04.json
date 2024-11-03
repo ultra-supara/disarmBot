@@ -1,0 +1,81 @@
+[
+    [
+        [
+            "TK0014 Network building"
+        ],
+        [
+            "TK0015 Network infiltration"
+        ],
+        [
+            "TK0016 identify targets - susceptible audience members in networks"
+        ],
+        [
+            "TK0034 OPSEC for TA04"
+        ]
+    ],
+    [
+        [
+            "T0013 Develop New Narratives"
+        ],
+        [
+            "T0014 Leverage Existing Narratives"
+        ],
+        [
+            "T0015 Develop Competing Narratives"
+        ],
+        [
+            "T0016 Leverage Conspiracy Theory Narratives"
+        ],
+        [
+            "T0017 Integrate Target Audience Vulnerabilities into Narrative"
+        ],
+        [
+            "T0018 Respond to Breaking News Event or Active Crisis"
+        ],
+        [
+            "T0019 Demand insurmountable proof"
+        ]
+    ],
+    [
+        [
+            "C00056 Encourage people to leave social media",
+            "D02"
+        ],
+        [
+            "C00059 Verification of project before posting fund requests",
+            "D02"
+        ],
+        [
+            "C00172 social media source removal",
+            "D02"
+        ],
+        [
+            "C00135 Deplatform message groups and/or message boards",
+            "D03"
+        ],
+        [
+            "C00162 Unravel/target the Potemkin villages",
+            "D03"
+        ],
+        [
+            "C00203 Stop offering press credentials to propaganda outlets",
+            "D03"
+        ],
+        [
+            "C00052 Infiltrate platforms",
+            "D04"
+        ],
+        [
+            "C00053 Delete old accounts / Remove unused social media accounts",
+            "D04"
+        ],
+        [
+            "C00062 Free open library sources worldwide",
+            "D04"
+        ],
+        [
+            "C00047 Honeypot with coordinated inauthentics",
+            "D05"
+        ]
+    ]
+]

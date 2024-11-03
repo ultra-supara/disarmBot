@@ -1,0 +1,100 @@
+[
+    [
+        [
+            "TA01",
+            "Plan Strategy",
+            "Define the desired end state, i.e. the set of required conditions that defines achievement of all objectives.",
+            "P01"
+        ],
+        [
+            "TA02",
+            "Plan Objectives",
+            "Set clearly defined, measurable, and achievable objectives. In some cases achieving objectives ties execution of tactical tasks to reaching the desired strategic end state. In other cases, where there is no clearly defined strategic end state, the tactical objective may stand on its own. The objective statement should not specify the way and means of accomplishment but rather the goal the threat actor wishes to achieve.",
+            "P01"
+        ],
+        [
+            "TA05",
+            "Microtarget",
+            "Actions taken which help target content to specific audiences identified and analysed as part of TA13: Target Audience Analysis.",
+            "P02"
+        ],
+        [
+            "TA06",
+            "Develop Content",
+            "Create or acquire text, images, and other content",
+            "P02"
+        ],
+        [
+            "TA07",
+            "Select Channels and Affordances",
+            "Selecting platforms and affordances assesses which online or offline platforms and their associated affordances maximise an influence operation’s ability to reach its target audience. To select the most appropriate platform(s), an operation may assess the technological affordances including platform algorithms, terms of service, permitted content types, or other attributes that determine platform usability and accessibility. Selecting platforms includes both choosing platforms on which the operation will publish its own content and platforms on which the operation will attempt to restrict adversarial content.",
+            "P02"
+        ],
+        [
+            "TA08",
+            "Conduct Pump Priming",
+            "Release content on a targetted small scale, prior to general release, including releasing seed. Used for preparation before broader release, and as message honing. Used for preparation before broader release, and as message honing.",
+            "P03"
+        ],
+        [
+            "TA09",
+            "Deliver Content",
+            "Release content to general public or larger population",
+            "P03"
+        ],
+        [
+            "TA10",
+            "Drive Offline Activity",
+            "Move incident/campaign from online to offline. Encouraging users to move from the platform on which they initially viewed operation content and engage in the physical information space or offline world. This may include operation-aligned rallies or protests, radio, newspaper, or billboards. An influence operation may drive to physical forums to diversify its information channels and facilitate spaces where the target audience can engage with both operation content and like-minded individuals offline.",
+            "P03"
+        ],
+        [
+            "TA11",
+            "Persist in the Information Environment",
+            "Persist in the Information Space refers to taking measures that allow an operation to maintain its presence and avoid takedown by an external entity. Techniques in Persist in the Information Space help campaigns operate without detection and appear legitimate to the target audience and platform monitoring services. Influence operations on social media often persist online by varying the type of information assets and platforms used throughout the campaign.",
+            "P03"
+        ],
+        [
+            "TA12",
+            "Assess Effectiveness",
+            "Assess effectiveness of action, for use in future plans",
+            "P04"
+        ],
+        [
+            "TA13",
+            "Target Audience Analysis",
+            "Identifying and analysing the target audience examines target audience member locations, political affiliations, financial situations, and other attributes that an influence operation may incorporate into its messaging strategy. During this tactic, influence operations may also identify existing similarities and differences between target audience members to unite like groups and divide opposing groups. Identifying and analysing target audience members allows influence operations to tailor operation strategy and content to their analysis.",
+            "P01"
+        ],
+        [
+            "TA14",
+            "Develop Narratives",
+            "The promotion of beneficial master narratives is perhaps the most effective method for achieving long-term strategic narrative dominance. From a \"\"whole of society\"\" perspective the promotion of the society's core master narratives should occupy a central strategic role. From a misinformation campaign / cognitive security perpectve the tactics around master narratives centre more precisely on the day-to-day promotion and reinforcement of this messaging. In other words, beneficial, high-coverage master narratives are a central strategic goal and their promotion constitutes an ongoing tactical struggle carried out at a whole-of-society level. Tactically, their promotion covers a broad spectrum of activities both on- and offline.",
+            "P02"
+        ],
+        [
+            "TA15",
+            "Establish Assets",
+            "Establishing information assets generates messaging tools, including social media accounts, operation personnel, and organisations, including directly and indirectly managed assets. For assets under their direct control, the operation can add, change, or remove these assets at will. Establishing information assets allows an influence operation to promote messaging directly to the target audience without navigating through external entities. Many online influence operations create or compromise social media accounts as a primary vector of information dissemination.\n\nThis Tactic was previously called Establish Social Assets.",
+            "P02"
+        ],
+        [
+            "TA16",
+            "Establish Legitimacy",
+            "Establish assets that create trust",
+            "P02"
+        ],
+        [
+            "TA17",
+            "Maximise Exposure",
+            "Maximise exposure of the target audience to incident/campaign content via flooding, amplifying, and cross-posting.",
+            "P03"
+        ],
+        [
+            "TA18",
+            "Drive Online Harms",
+            "Actions taken by an influence operation to harm their opponents in online spaces through harassment, suppression, releasing private information, and controlling the information space through offensive cyberspace operations.",
+            "P03"
+        ]
+    ]
+]

@@ -1,0 +1,1978 @@
+[
+    [
+        [
+            "T0002",
+            "Facilitate State Propaganda",
+            "Organise citizens around pro-state messaging. Coordinate paid or volunteer groups to push state propaganda.",
+            "TA02"
+        ],
+        [
+            "T0003",
+            "Leverage Existing Narratives",
+            "Use or adapt existing narrative themes, where narratives are the baseline stories of a target audience. Narratives form the bedrock of our worldviews. New information is understood through a process firmly grounded in this bedrock. If new information is not consitent with the prevailing narratives of an audience, it will be ignored. Effective campaigns will frame their misinformation in the context of these narratives. Highly effective campaigns will make extensive use of audience-appropriate archetypes and meta-narratives throughout their content creation and amplifiction practices.",
+            "TA14"
+        ],
+        [
+            "T0004",
+            "Develop Competing Narratives",
+            "Advance competing narratives connected to same issue ie: on one hand deny incident while at same time expresses dismiss. Suppressing or discouraging narratives already spreading requires an alternative. The most simple set of narrative techniques in response would be the construction and promotion of contradictory alternatives centred on denial, deflection, dismissal, counter-charges, excessive standards of proof, bias in prohibition or enforcement, and so on. These competing narratives allow loyalists cover, but are less compelling to opponents and fence-sitters than campaigns built around existing narratives or highly explanatory master narratives. Competing narratives, as such, are especially useful in the \"firehose of misinformation\" approach.",
+            "TA14"
+        ],
+        [
+            "T0007",
+            "Create Inauthentic Social Media Pages and Groups",
+            "Create key social engineering assets needed to amplify content, manipulate algorithms, fool public and/or specific incident/campaign targets. Computational propaganda depends substantially on false perceptions of credibility and acceptance. By creating fake users and groups with a variety of interests and commitments, attackers can ensure that their messages both come from trusted sources and appear more widely adopted than they actually are.",
+            "TA15"
+        ],
+        [
+            "T0010",
+            "Cultivate Ignorant Agents",
+            "Cultivate propagandists for a cause, the goals of which are not fully comprehended, and who are used cynically by the leaders of the cause. Independent actors use social media and specialised web sites to strategically reinforce and spread messages compatible with their own. Their networks are infiltrated and used by state media disinformation organisations to amplify the state’s own disinformation strategies against target populations. Many are traffickers in conspiracy theories or hoaxes, unified by a suspicion of Western governments and mainstream media. Their narratives, which appeal to leftists hostile to globalism and military intervention and nationalists against immigration, are frequently infiltrated and shaped by state-controlled trolls and altered news items from agencies such as RT and Sputnik. Also know as \"useful idiots\" or \"unwitting agents\".",
+            "TA15"
+        ],
+        [
+            "T0013",
+            "Create Inauthentic Websites",
+            "Create media assets to support inauthentic organisations (e.g. think tank), people (e.g. experts) and/or serve as sites to distribute malware/launch phishing operations.",
+            "TA15"
+        ],
+        [
+            "T0014",
+            "Prepare Fundraising Campaigns",
+            "Fundraising campaigns refer to an influence operation’s systematic effort to seek financial support for a charity, cause, or other enterprise using online activities that further promote operation information pathways while raising a profit. Many influence operations have engaged in crowdfunding services on platforms including Tipee, Patreon, and GoFundMe. An operation may use its previously prepared fundraising campaigns (see: Develop Information Pathways) to promote operation messaging while raising money to support its activities.",
+            "TA15"
+        ],
+        [
+            "T0014.001",
+            "Raise Funds from Malign Actors",
+            "Raising funds from malign actors may include contributions from foreign agents, cutouts or proxies, shell companies, dark money groups, etc.",
+            "TA15"
+        ],
+        [
+            "T0014.002",
+            "Raise Funds from Ignorant Agents",
+            "Raising funds from ignorant agents may include scams, donations intended for one stated purpose but then used for another, etc.",
+            "TA15"
+        ],
+        [
+            "T0015",
+            "Create Hashtags and Search Artefacts",
+            "Create one or more hashtags and/or hashtag groups. Many incident-based campaigns will create hashtags to promote their fabricated event. Creating a hashtag for an incident can have two important effects: 1. Create a perception of reality around an event. Certainly only \"real\" events would be discussed in a hashtag. After all, the event has a name!, and 2. Publicise the story more widely through trending lists and search behaviour. Asset needed to direct/control/manage \"conversation\" connected to launching new incident/campaign with new hashtag for applicable social media sites).",
+            "TA06"
+        ],
+        [
+            "T0016",
+            "Create Clickbait",
+            "Create attention grabbing headlines (outrage, doubt, humour) required to drive traffic & engagement. This is a key asset.",
+            "TA05"
+        ],
+        [
+            "T0017",
+            "Conduct Fundraising",
+            "Fundraising campaigns refer to an influence operation’s systematic effort to seek financial support for a charity, cause, or other enterprise using online activities that further promote operation information pathways while raising a profit. Many influence operations have engaged in crowdfunding services166 on platforms including Tipee, Patreon, and GoFundMe. An operation may use its previously prepared fundraising campaigns to promote operation messaging while raising money to support its activities.",
+            "TA10"
+        ],
+        [
+            "T0017.001",
+            "Conduct Crowdfunding Campaigns",
+            "An influence operation may Conduct Crowdfunding Campaigns on platforms such as GoFundMe, GiveSendGo, Tipeee, Patreon, etc.",
+            "TA10"
+        ],
+        [
+            "T0018",
+            "Purchase Targeted Advertisements",
+            "Create or fund advertisements targeted at specific populations",
+            "TA05"
+        ],
+        [
+            "T0020",
+            "Trial Content",
+            "Iteratively test incident performance (messages, content etc), e.g. A/B test headline/content enagagement metrics; website and/or funding campaign conversion rates",
+            "TA08"
+        ],
+        [
+            "T0022",
+            "Leverage Conspiracy Theory Narratives",
+            "\"Conspiracy narratives\" appeal to the human desire for explanatory order, by invoking the participation of poweful (often sinister) actors in pursuit of their own political goals. These narratives are especially appealing when an audience is low-information, marginalised or otherwise inclined to reject the prevailing explanation. Conspiracy narratives are an important component of the \"firehose of falsehoods\" model.",
+            "TA14"
+        ],
+        [
+            "T0022.001",
+            "Amplify Existing Conspiracy Theory Narratives",
+            "An influence operation may amplify an existing conspiracy theory narrative that aligns with its incident or campaign goals. By amplifying existing conspiracy theory narratives, operators can leverage the power of the existing communities that support and propagate those theories without needing to expend resources creating new narratives or building momentum and buy in around new narratives.",
+            "TA14"
+        ],
+        [
+            "T0022.002",
+            "Develop Original Conspiracy Theory Narratives",
+            "While this requires more resources than amplifying existing conspiracy theory narratives, an influence operation may develop original conspiracy theory narratives in order to achieve greater control and alignment over the narrative and their campaign goals. Prominent examples include the USSR's Operation INFEKTION disinformation campaign run by the KGB in the 1980s to plant the idea that the United States had invented HIV/AIDS as part of a biological weapons research project at Fort Detrick, Maryland. More recently, Fort Detrick featured prominently in a new conspiracy theory narratives around the origins of the COVID-19 outbreak and pandemic.",
+            "TA14"
+        ],
+        [
+            "T0023",
+            "Distort Facts",
+            "Change, twist, or exaggerate existing facts to construct a narrative that differs from reality. Examples: images and ideas can be distorted by being placed in an improper content",
+            "TA06"
+        ],
+        [
+            "T0023.001",
+            "Reframe Context",
+            "Reframing context refers to removing an event from its surrounding context to distort its intended meaning. Rather than deny that an event occurred, reframing context frames an event in a manner that may lead the target audience to draw a different conclusion about its intentions.",
+            "TA06"
+        ],
+        [
+            "T0023.002",
+            "Edit Open-Source Content",
+            "An influence operation may edit open-source content, such as collaborative blogs or encyclopaedias, to promote its narratives on outlets with existing credibility and audiences. Editing open-source content may allow an operation to post content on platforms without dedicating resources to the creation and maintenance of its own assets.",
+            "TA06"
+        ],
+        [
+            "T0029",
+            "Online Polls",
+            "Create fake online polls, or manipulate existing online polls. Data gathering tactic to target those who engage, and potentially their networks of friends/followers as well",
+            "TA07"
+        ],
+        [
+            "T0039",
+            "Bait Influencer",
+            "Influencers are people on social media platforms who have large audiences. Threat Actors can try to trick Influencers such as celebrities, journalists, or local leaders who aren’t associated with their campaign into amplifying campaign content. This gives them access to the Influencer’s audience without having to go through the effort of building it themselves, and it helps legitimise their message by associating it with the Influencer, benefitting from their audience’s trust in them.",
+            "TA17"
+        ],
+        [
+            "T0040",
+            "Demand Insurmountable Proof",
+            "Campaigns often leverage tactical and informational asymmetries on the threat surface, as seen in the Distort and Deny strategies, and the \"firehose of misinformation\". Specifically, conspiracy theorists can be repeatedly wrong, but advocates of the truth need to be perfect. By constantly escalating demands for proof, propagandists can effectively leverage this asymmetry while also priming its future use, often with an even greater asymmetric advantage. The conspiracist is offered freer rein for a broader range of \"questions\" while the truth teller is burdened with higher and higher standards of proof.",
+            "TA14"
+        ],
+        [
+            "T0042",
+            "Seed Kernel of Truth",
+            "Wrap lies or altered context/facts around truths. Influence campaigns pursue a variety of objectives with respect to target audiences, prominent among them: 1. undermine a narrative commonly referenced in the target audience; or 2. promote a narrative less common in the target audience, but preferred by the attacker. In both cases, the attacker is presented with a heavy lift. They must change the relative importance of various narratives in the interpretation of events, despite contrary tendencies. When messaging makes use of factual reporting to promote these adjustments in the narrative space, they are less likely to be dismissed out of hand; when messaging can juxtapose a (factual) truth about current affairs with the (abstract) truth explicated in these narratives, propagandists can undermine or promote them selectively. Context matters.",
+            "TA08"
+        ],
+        [
+            "T0043",
+            "Chat Apps",
+            "Direct messaging via chat app is an increasing method of delivery. These messages are often automated and new delivery and storage methods make them anonymous, viral, and ephemeral. This is a difficult space to monitor, but also a difficult space to build acclaim or notoriety.",
+            "TA07"
+        ],
+        [
+            "T0043.001",
+            "Use Encrypted Chat Apps",
+            "Examples include Signal, WhatsApp, Discord, Wire, etc.",
+            "TA07"
+        ],
+        [
+            "T0043.002",
+            "Use Unencrypted Chats Apps",
+            "Examples include SMS, etc.",
+            "TA07"
+        ],
+        [
+            "T0044",
+            "Seed Distortions",
+            "Try a wide variety of messages in the early hours surrounding an incident or event, to give a misleading account or impression.",
+            "TA08"
+        ],
+        [
+            "T0045",
+            "Use Fake Experts",
+            "Use the fake experts that were set up during Establish Legitimacy. Pseudo-experts are disposable assets that often appear once and then disappear. Give \"credility\" to misinformation. Take advantage of credential bias",
+            "TA08"
+        ],
+        [
+            "T0046",
+            "Use Search Engine Optimisation",
+            "Manipulate content engagement metrics (ie: Reddit & Twitter) to influence/impact news search results (e.g. Google), also elevates RT & Sputnik headline into Google news alert emails. aka \"Black-hat SEO\"",
+            "TA08"
+        ],
+        [
+            "T0047",
+            "Censor Social Media as a Political Force",
+            "Use political influence or the power of state to stop critical social media comments. Government requested/driven content take downs (see Google Transperancy reports).",
+            "TA18"
+        ],
+        [
+            "T0048",
+            "Harass",
+            "Threatening or harassing believers of opposing narratives refers to the use of intimidation techniques, including cyberbullying and doxing, to discourage opponents from voicing their dissent. An influence operation may threaten or harass believers of the opposing narratives to deter individuals from posting or proliferating conflicting content.",
+            "TA18"
+        ],
+        [
+            "T0048.001",
+            "Boycott/\"Cancel\" Opponents",
+            "Cancel culture refers to the phenomenon in which individuals collectively refrain from supporting an individual, organisation, business, or other entity, usually following a real or falsified controversy. An influence operation may exploit cancel culture by emphasising an adversary’s problematic or disputed behaviour and presenting its own content as an alternative.",
+            "TA18"
+        ],
+        [
+            "T0048.002",
+            "Harass People Based on Identities",
+            "Examples include social identities like gender, sexuality, race, ethnicity, religion, ability, nationality, etc. as well as roles and occupations like journalist or activist.",
+            "TA18"
+        ],
+        [
+            "T0048.003",
+            "Threaten to Dox",
+            "Doxing refers to online harassment in which individuals publicly release private information about another individual, including names, addresses, employment information, pictures, family members, and other sensitive information. An influence operation may dox its opposition to encourage individuals aligned with operation narratives to harass the doxed individuals themselves or otherwise discourage the doxed individuals from posting or proliferating conflicting content.",
+            "TA18"
+        ],
+        [
+            "T0048.004",
+            "Dox",
+            "Doxing refers to online harassment in which individuals publicly release private information about another individual, including names, addresses, employment information, pictures, family members, and other sensitive information. An influence operation may dox its opposition to encourage individuals aligned with operation narratives to harass the doxed individuals themselves or otherwise discourage the doxed individuals from posting or proliferating conflicting content.",
+            "TA18"
+        ],
+        [
+            "T0049",
+            "Flood Information Space",
+            "Flooding sources of information (e.g. Social Media feeds) with a high volume of inauthentic content. This can be done to control/shape online conversations, drown out opposing points of view, or make it harder to find legitimate information. Bots and/or patriotic trolls are effective tools to achieve this effect. This Technique previously used the name Flooding the Information Space.",
+            "TA17"
+        ],
+        [
+            "T0049.001",
+            "Trolls Amplify and Manipulate",
+            "Use trolls to amplify narratives and/or manipulate narratives. Fake profiles/sockpuppets operating to support individuals/narratives from the entire political spectrum (left/right binary). Operating with increased emphasis on promoting local content and promoting real Twitter users generating their own, often divisive political content, as it's easier to amplify existing content than create new/original content. Trolls operate where ever there's a socially divisive issue (issues that can/are be politicized).",
+            "TA17"
+        ],
+        [
+            "T0049.002",
+            "Flood Existing Hashtag",
+            "Hashtags can be used by communities to collate information they post about particular topics (such as their interests, or current events) and users can find communities to join by exploring hashtags they’re interested in. Threat actors can flood an existing hashtag to try to ruin hashtag functionality, posting content unrelated to the hashtag alongside it, making it a less reliable source of relevant information. They may also try to flood existing hashtags with campaign content, with the intent of maximising exposure to users. This Technique covers cases where threat actors flood existing hashtags with campaign content. This Technique covers behaviours previously documented by T0019.002: Hijack Hashtags, which has since been deprecated. This Technique was previously called Hijack Existing Hashtag.",
+            "TA17"
+        ],
+        [
+            "T0049.003",
+            "Bots Amplify via Automated Forwarding and Reposting",
+            "Automated forwarding and reposting refer to the proliferation of operation content using automated means, such as artificial intelligence or social media bots. An influence operation may use automated activity to increase content exposure without dedicating the resources, including personnel and time, traditionally required to forward and repost content. Use bots to amplify narratives above algorithm thresholds. Bots are automated/programmed profiles designed to amplify content (ie: automatically retweet or like) and give appearance it's more \"popular\" than it is. They can operate as a network, to function in a coordinated/orchestrated manner. In some cases (more so now) they are an inexpensive/disposable assets used for minimal deployment as bot detection tools improve and platforms are more responsive.",
+            "TA17"
+        ],
+        [
+            "T0049.004",
+            "Utilise Spamoflauge",
+            "Spamoflauge refers to the practice of disguising spam messages as legitimate. Spam refers to the use of electronic messaging systems to send out unrequested or unwanted messages in bulk. Simple methods of spamoflauge include replacing letters with numbers to fool keyword-based email spam filters, for example, \"you've w0n our jackp0t!\". Spamoflauge may extend to more complex techniques such as modifying the grammar or word choice of the language, casting messages as images which spam detectors cannot automatically read, or encapsulating messages in password protected attachments, such as .pdf or .zip files. Influence operations may use spamoflauge to avoid spam filtering systems and increase the likelihood of the target audience receiving operation messaging.",
+            "TA17"
+        ],
+        [
+            "T0049.005",
+            "Conduct Swarming",
+            "Swarming refers to the coordinated use of accounts to overwhelm the information space with operation content. Unlike information flooding, swarming centres exclusively around a specific event or actor rather than a general narrative. Swarming relies on “horizontal communication” between information assets rather than a top-down, vertical command-and-control approach.",
+            "TA17"
+        ],
+        [
+            "T0049.006",
+            "Conduct Keyword Squatting",
+            "Keyword squatting refers to the creation of online content, such as websites, articles, or social media accounts, around a specific search engine-optimized term to overwhelm the search results of that term. An influence may keyword squat to increase content exposure to target audience members who query the exploited term in a search engine and manipulate the narrative around the term.",
+            "TA17"
+        ],
+        [
+            "T0049.007",
+            "Inauthentic Sites Amplify News and Narratives",
+            "Inauthentic sites circulate cross-post stories and amplify narratives. Often these sites have no masthead, bylines or attribution.",
+            "TA17"
+        ],
+        [
+            "T0049.008",
+            "Generate Information Pollution",
+            "Information Pollution occurs when threat actors attempt to ruin a source of information by flooding it with lots of inauthentic or unreliable content, intending to make it harder for legitimate users to find the information they’re looking for. This sub-technique’s objective is to reduce exposure to target information, rather than promoting exposure to campaign content, for which the parent Technique T0049 can be used. Analysts will need to infer what the motive for flooding an information space was when deciding whether to use T0049 or T0049.008 to tag a case when an information space is flooded. If such inference is not possible, default to T0049. This Technique previously used the ID T0019.",
+            "TA17"
+        ],
+        [
+            "T0057",
+            "Organise Events",
+            "Coordinate and promote real-world events across media platforms, e.g. rallies, protests, gatherings in support of incident narratives.",
+            "TA10"
+        ],
+        [
+            "T0057.001",
+            "Pay for Physical Action",
+            "Paying for physical action occurs when an influence operation pays individuals to act in the physical realm. An influence operation may pay for physical action to create specific situations and frame them in a way that supports operation narratives, for example, paying a group of people to burn a car to later post an image of the burning car and frame it as an act of protest.",
+            "TA10"
+        ],
+        [
+            "T0057.002",
+            "Conduct Symbolic Action",
+            "Symbolic action refers to activities specifically intended to advance an operation’s narrative by signalling something to the audience, for example, a military parade supporting a state’s narrative of military superiority. An influence operation may use symbolic action to create falsified evidence supporting operation narratives in the physical information space.",
+            "TA10"
+        ],
+        [
+            "T0059",
+            "Play the Long Game",
+            "Play the long game refers to two phenomena: 1. To plan messaging and allow it to grow organically without conducting your own amplification. This is methodical and slow and requires years for the message to take hold 2. To develop a series of seemingly disconnected messaging narratives that eventually combine into a new narrative.",
+            "TA11"
+        ],
+        [
+            "T0060",
+            "Continue to Amplify",
+            "continue narrative or message amplification after the main incident work has finished",
+            "TA11"
+        ],
+        [
+            "T0061",
+            "Sell Merchandise",
+            "Sell mechandise refers to getting the message or narrative into physical space in the offline world while making money",
+            "TA10"
+        ],
+        [
+            "T0065",
+            "Prepare Physical Broadcast Capabilities",
+            "Create or coopt broadcast capabilities (e.g. TV, radio etc).",
+            "TA15"
+        ],
+        [
+            "T0066",
+            "Degrade Adversary",
+            "Plan to degrade an adversary’s image or ability to act. This could include preparation and use of harmful information about the adversary’s actions or reputation.",
+            "TA02"
+        ],
+        [
+            "T0068",
+            "Respond to Breaking News Event or Active Crisis",
+            "Media attention on a story or event is heightened during a breaking news event, where unclear facts and incomplete information increase speculation, rumours, and conspiracy theories, which are all vulnerable to manipulation.",
+            "TA14"
+        ],
+        [
+            "T0072",
+            "Segment Audiences",
+            "Create audience segmentations by features of interest to the influence campaign, including political affiliation, geographic location, income, demographics, and psychographics.",
+            "TA13"
+        ],
+        [
+            "T0072.001",
+            "Geographic Segmentation",
+            "An influence operation may target populations in a specific geographic location, such as a region, state, or city. An influence operation may use geographic segmentation to Create Localised Content (see: Establish Legitimacy).",
+            "TA13"
+        ],
+        [
+            "T0072.002",
+            "Demographic Segmentation",
+            "An influence operation may target populations based on demographic segmentation, including age, gender, and income. Demographic segmentation may be useful for influence operations aiming to change state policies that affect a specific population sector. For example, an influence operation attempting to influence Medicare funding in the United States would likely target U.S. voters over 65 years of age.",
+            "TA13"
+        ],
+        [
+            "T0072.003",
+            "Economic Segmentation",
+            "An influence operation may target populations based on their income bracket, wealth, or other financial or economic division.",
+            "TA13"
+        ],
+        [
+            "T0072.004",
+            "Psychographic Segmentation",
+            "An influence operation may target populations based on psychographic segmentation, which uses audience values and decision-making processes. An operation may individually gather psychographic data with its own surveys or collection tools or externally purchase data from social media companies or online surveys, such as personality quizzes.",
+            "TA13"
+        ],
+        [
+            "T0072.005",
+            "Political Segmentation",
+            "An influence operation may target populations based on their political affiliations, especially when aiming to manipulate voting or change policy.",
+            "TA13"
+        ],
+        [
+            "T0073",
+            "Determine Target Audiences",
+            "Determining the target audiences (segments of the population) who will receive campaign narratives and artefacts intended to achieve the strategic ends.",
+            "TA01"
+        ],
+        [
+            "T0074",
+            "Determine Strategic Ends",
+            "These are the long-term end-states the campaign aims to bring about. They typically involve an advantageous position vis-a-vis competitors in terms of power or influence.  The strategic goal may be to improve or simply to hold one’s position. Competition occurs in the public sphere in the domains of war, diplomacy, politics, economics, and ideology, and can play out between armed groups, nation-states, political parties, corporations, interest groups, or individuals.",
+            "TA01"
+        ],
+        [
+            "T0074.001",
+            "Geopolitical Advantage",
+            "Favourable position on the international stage in terms of great power politics or regional rivalry. Geopolitics plays out in the realms of foreign policy, national security, diplomacy, and intelligence. It involves nation-state governments, heads of state, foreign ministers, intergovernmental organisations, and regional security alliances.",
+            "TA01"
+        ],
+        [
+            "T0074.002",
+            "Domestic Political Advantage",
+            "Favourable position vis-à-vis national or sub-national political opponents such as political parties, interest groups, politicians, candidates.",
+            "TA01"
+        ],
+        [
+            "T0074.003",
+            "Economic Advantage",
+            "Favourable position domestically or internationally in the realms of commerce, trade, finance, industry. Economics involves nation-states, corporations, banks, trade blocs, industry associations, cartels.",
+            "TA01"
+        ],
+        [
+            "T0074.004",
+            "Ideological Advantage",
+            "Favourable position domestically or internationally in the market for ideas, beliefs, and world views. Competition plays out among faith systems, political systems, and value systems. It can involve sub-national, national or supra-national movements.",
+            "TA01"
+        ],
+        [
+            "T0075",
+            "Dismiss",
+            "Push back against criticism by dismissing your critics. This might be arguing that the critics use a different standard for you than with other actors or themselves; or arguing that their criticism is biassed.",
+            "TA02"
+        ],
+        [
+            "T0075.001",
+            "Discredit Credible Sources",
+            "Plan to delegitimize the media landscape and degrade public trust in reporting, by discrediting credible sources. This makes it easier to promote influence operation content.",
+            "TA02"
+        ],
+        [
+            "T0076",
+            "Distort",
+            "Twist the narrative. Take information, or artefacts like images, and change the framing around them.",
+            "TA02"
+        ],
+        [
+            "T0077",
+            "Distract",
+            "Shift attention to a different narrative or actor, for instance by accusing critics of the same activity that they’ve accused you of (e.g. police brutality).",
+            "TA02"
+        ],
+        [
+            "T0078",
+            "Dismay",
+            "Threaten the critic or narrator of events. For instance, threaten journalists or news outlets reporting on a story.",
+            "TA02"
+        ],
+        [
+            "T0079",
+            "Divide",
+            "Create conflict between subgroups, to widen divisions in a community",
+            "TA02"
+        ],
+        [
+            "T0080",
+            "Map Target Audience Information Environment",
+            "Mapping the target audience information environment analyses the information space itself, including social media analytics, web traffic, and media surveys. Mapping the information environment may help the influence operation determine the most realistic and popular information channels to reach its target audience. Mapping the target audience information environment aids influence operations in determining the most vulnerable areas of the information space to target with messaging.",
+            "TA13"
+        ],
+        [
+            "T0080.001",
+            "Monitor Social Media Analytics",
+            "An influence operation may use social media analytics to determine which factors will increase the operation content’s exposure to its target audience on social media platforms, including views, interactions, and sentiment relating to topics and content types. The social media platform itself or a third-party tool may collect the metrics.",
+            "TA13"
+        ],
+        [
+            "T0080.002",
+            "Evaluate Media Surveys",
+            "An influence operation may evaluate its own or third-party media surveys to determine what type of content appeals to its target audience. Media surveys may provide insight into an audience’s political views, social class, general interests, or other indicators used to tailor operation messaging to its target audience.",
+            "TA13"
+        ],
+        [
+            "T0080.003",
+            "Identify Trending Topics/Hashtags",
+            "An influence operation may identify trending hashtags on social media platforms for later use in boosting operation content. A hashtag40 refers to a word or phrase preceded by the hash symbol (#) on social media used to identify messages and posts relating to a specific topic. All public posts that use the same hashtag are aggregated onto a centralised page dedicated to the word or phrase and sorted either chronologically or by popularity.",
+            "TA13"
+        ],
+        [
+            "T0080.004",
+            "Conduct Web Traffic Analysis",
+            "An influence operation may conduct web traffic analysis to determine which search engines, keywords, websites, and advertisements gain the most traction with its target audience.",
+            "TA13"
+        ],
+        [
+            "T0080.005",
+            "Assess Degree/Type of Media Access",
+            "An influence operation may survey a target audience’s Internet availability and degree of media freedom to determine which target audience members will have access to operation content and on which platforms. An operation may face more difficulty targeting an information environment with heavy restrictions and media control than an environment with independent media, freedom of speech and of the press, and individual liberties.",
+            "TA13"
+        ],
+        [
+            "T0081",
+            "Identify Social and Technical Vulnerabilities",
+            "Identifying social and technical vulnerabilities determines weaknesses within the target audience information environment for later exploitation. Vulnerabilities include decisive political issues, weak cybersecurity infrastructure, search engine data voids, and other technical and non technical weaknesses in the target information environment. Identifying social and technical vulnerabilities facilitates the later exploitation of the identified weaknesses to advance operation objectives.",
+            "TA13"
+        ],
+        [
+            "T0081.001",
+            "Find Echo Chambers",
+            "Find or plan to create areas (social media groups, search term groups, hashtag groups etc) where individuals only engage with people they agree with.",
+            "TA13"
+        ],
+        [
+            "T0081.002",
+            "Identify Data Voids",
+            "A data void refers to a word or phrase that results in little, manipulative, or low-quality search engine data. Data voids are hard to detect and relatively harmless until exploited by an entity aiming to quickly proliferate false or misleading information during a phenomenon that causes a high number of individuals to query the term or phrase. In the Plan phase, an influence operation may identify data voids for later exploitation in the operation. A 2019 report by Michael Golebiewski identifies five types of data voids. (1) “Breaking news” data voids occur when a keyword gains popularity during a short period of time, allowing an influence operation to publish false content before legitimate news outlets have an opportunity to publish relevant information. (2) An influence operation may create a “strategic new terms” data void by creating their own terms and publishing information online before promoting their keyword to the target audience. (3) An influence operation may publish content on “outdated terms” that have decreased in popularity, capitalising on most search engines’ preferences for recency. (4) “Fragmented concepts” data voids separate connections between similar ideas, isolating segment queries to distinct search engine results. (5) An influence operation may use “problematic queries” that previously resulted in disturbing or inappropriate content to promote messaging until mainstream media recontextualizes the term.",
+            "TA13"
+        ],
+        [
+            "T0081.003",
+            "Identify Existing Prejudices",
+            "An influence operation may exploit existing racial, religious, demographic, or social prejudices to further polarise its target audience from the rest of the public.",
+            "TA13"
+        ],
+        [
+            "T0081.004",
+            "Identify Existing Fissures",
+            "An influence operation may identify existing fissures to pit target populations against one another or facilitate a “divide-and-conquer\" approach to tailor operation narratives along the divides.",
+            "TA13"
+        ],
+        [
+            "T0081.005",
+            "Identify Existing Conspiracy Narratives/Suspicions",
+            "An influence operation may assess preexisting conspiracy theories or suspicions in a population to identify existing narratives that support operational objectives.",
+            "TA13"
+        ],
+        [
+            "T0081.006",
+            "Identify Wedge Issues",
+            "A wedge issue is a divisive political issue, usually concerning a social phenomenon, that divides individuals along a defined line. An influence operation may exploit wedge issues by intentionally polarising the public along the wedge issue line and encouraging opposition between factions.",
+            "TA13"
+        ],
+        [
+            "T0081.007",
+            "Identify Target Audience Adversaries",
+            "An influence operation may identify or create a real or imaginary adversary to centre operation narratives against. A real adversary may include certain politicians or political parties while imaginary adversaries may include falsified “deep state”62 actors that, according to conspiracies, run the state behind public view.",
+            "TA13"
+        ],
+        [
+            "T0081.008",
+            "Identify Media System Vulnerabilities",
+            "An influence operation may exploit existing weaknesses in a target’s media system. These weaknesses may include existing biases among media agencies, vulnerability to false news agencies on social media, or existing distrust of traditional media sources. An existing distrust among the public in the media system’s credibility holds high potential for exploitation by an influence operation when establishing alternative news agencies to spread operation content.",
+            "TA13"
+        ],
+        [
+            "T0082",
+            "Develop New Narratives",
+            "Actors may develop new narratives to further strategic or tactical goals, especially when existing narratives adequately align with the campaign goals. New narratives provide more control in terms of crafting the message to achieve specific goals. However, new narratives may require more effort to disseminate than adapting or adopting existing narratives.",
+            "TA14"
+        ],
+        [
+            "T0083",
+            "Integrate Target Audience Vulnerabilities into Narrative",
+            "An influence operation may seek to exploit the preexisting weaknesses, fears, and enemies of the target audience for integration into the operation’s narratives and overall strategy. Integrating existing vulnerabilities into the operational approach conserves resources by exploiting already weak areas of the target information environment instead of forcing the operation to create new vulnerabilities in the environment.",
+            "TA14"
+        ],
+        [
+            "T0084",
+            "Reuse Existing Content",
+            "When an operation recycles content from its own previous operations or plagiarises from external operations. An operation may launder information to conserve resources that would have otherwise been utilised to develop new content.",
+            "TA06"
+        ],
+        [
+            "T0084.001",
+            "Use Copypasta",
+            "Copypasta refers to a piece of text that has been copied and pasted multiple times across various online platforms. A copypasta’s final form may differ from its original source text as users add, delete, or otherwise edit the content as they repost the text.",
+            "TA06"
+        ],
+        [
+            "T0084.002",
+            "Plagiarise Content",
+            "An influence operation may take content from other sources without proper attribution. This content may be either misinformation content shared by others without malicious intent but now leveraged by the campaign as disinformation or disinformation content from other sources.",
+            "TA06"
+        ],
+        [
+            "T0084.003",
+            "Deceptively Labelled or Translated",
+            "An influence operation may take authentic content from other sources and add deceptive labels or deceptively translate the content into other langauges.",
+            "TA06"
+        ],
+        [
+            "T0084.004",
+            "Appropriate Content",
+            "An influence operation may take content from other sources with proper attribution. This content may be either misinformation content shared by others without malicious intent but now leveraged by the campaign as disinformation or disinformation content from other sources. Examples include the appropriation of content from one inauthentic news site to another inauthentic news site or network in ways that align with the originators licencing or terms of service.",
+            "TA06"
+        ],
+        [
+            "T0085",
+            "Develop Text-Based Content",
+            "Creating and editing false or misleading text-based artefacts, often aligned with one or more specific narratives, for use in a disinformation campaign.",
+            "TA06"
+        ],
+        [
+            "T0085.001",
+            "Develop AI-Generated Text",
+            "AI-generated texts refers to synthetic text composed by computers using text-generating AI technology. Autonomous generation refers to content created by a bot without human input, also known as bot-created content generation. Autonomous generation represents the next step in automation after language generation and may lead to automated journalism. An influence operation may use read fakes or autonomous generation to quickly develop and distribute content to the target audience.Associated Techniques and Sub-techniques:T0085.008: Machine Translated Text: Use this sub-technique when AI has been used to generate a translation of a piece of text.",
+            "TA06"
+        ],
+        [
+            "T0085.003",
+            "Develop Inauthentic News Articles",
+            "An influence operation may develop false or misleading news articles aligned to their campaign goals or narratives.",
+            "TA06"
+        ],
+        [
+            "T0085.004",
+            "Develop Document",
+            "Produce text in the form of a document.",
+            "TA06"
+        ],
+        [
+            "T0085.005",
+            "Develop Book",
+            "Produce text content in the form of a book.  This technique covers both e-books and physical books, however, the former is more easily deployed by threat actors given the lower cost to develop.",
+            "TA06"
+        ],
+        [
+            "T0085.006",
+            "Develop Opinion Article",
+            "Opinion articles (aka “Op-Eds” or “Editorials”) are articles or regular columns flagged as “opinion” posted to news sources, and can be contributed by people outside the organisation.  Flagging articles as opinions allow news organisations to distinguish them from the typical expectations of objective news reporting while distancing the presented opinion from the organisation or its employees.  The use of this technique is not by itself an indication of malicious or inauthentic content; Op-eds are a common format in media. However, threat actors exploit op-eds to, for example, submit opinion articles to local media to promote their narratives.  Examples from the perspective of a news site involve publishing op-eds from perceived prestigious voices to give legitimacy to an inauthentic publication, or supporting causes by hosting op-eds from actors aligned with the organisation’s goals.",
+            "TA06"
+        ],
+        [
+            "T0085.007",
+            "Create Fake Research",
+            "Create fake academic research. Example: fake social science research is often aimed at hot-button social issues such as gender, race and sexuality. Fake science research can target Climate Science debate or pseudoscience like anti-vaxx. This Technique previously used the ID T0019.001.",
+            "TA06"
+        ],
+        [
+            "T0085.008",
+            "Machine Translated Text",
+            "Text which has been translated into another language using machine translation tools, such as AI.",
+            "TA06"
+        ],
+        [
+            "T0086",
+            "Develop Image-Based Content",
+            "Creating and editing false or misleading visual artefacts, often aligned with one or more specific narratives, for use in a disinformation campaign. This may include photographing staged real-life situations, repurposing existing digital images, or using image creation and editing technologies.",
+            "TA06"
+        ],
+        [
+            "T0086.001",
+            "Develop Memes",
+            "Memes are one of the most important single artefact types in all of computational propaganda. Memes in this framework denotes the narrow image-based definition. But that naming is no accident, as these items have most of the important properties of Dawkins' original conception as a self-replicating unit of culture. Memes pull together reference and commentary; image and narrative; emotion and message. Memes are a powerful tool and the heart of modern influence campaigns.",
+            "TA06"
+        ],
+        [
+            "T0086.002",
+            "Develop AI-Generated Images (Deepfakes)",
+            "Deepfakes refer to AI-generated falsified photos, videos, or soundbites. An influence operation may use deepfakes to depict an inauthentic situation by synthetically recreating an individual’s face, body, voice, and physical gestures. Associated Techniques and Sub-techniques: T0145.002: AI-Generated Account Imagery: Analysts should use this sub-technique to document use of AI generated imagery in accounts’ profile pictures or other account imagery.",
+            "TA06"
+        ],
+        [
+            "T0086.003",
+            "Deceptively Edit Images (Cheap Fakes)",
+            "Cheap fakes utilise less sophisticated measures of altering an image, video, or audio for example, slowing, speeding, or cutting footage to create a false context surrounding an image or event.",
+            "TA06"
+        ],
+        [
+            "T0086.004",
+            "Aggregate Information into Evidence Collages",
+            "Image files that aggregate positive evidence (Joan Donovan)",
+            "TA06"
+        ],
+        [
+            "T0087",
+            "Develop Video-Based Content",
+            "Creating and editing false or misleading video artefacts, often aligned with one or more specific narratives, for use in a disinformation campaign. This may include staging videos of purportedly real situations, repurposing existing video artefacts, or using AI-generated video creation and editing technologies (including deepfakes).",
+            "TA06"
+        ],
+        [
+            "T0087.001",
+            "Develop AI-Generated Videos (Deepfakes)",
+            "Deepfakes refer to AI-generated falsified photos, videos, or soundbites. An influence operation may use deepfakes to depict an inauthentic situation by synthetically recreating an individual’s face, body, voice, and physical gestures.",
+            "TA06"
+        ],
+        [
+            "T0087.002",
+            "Deceptively Edit Video (Cheap Fakes)",
+            "Cheap fakes utilise less sophisticated measures of altering an image, video, or audio for example, slowing, speeding, or cutting footage to create a false context surrounding an image or event.",
+            "TA06"
+        ],
+        [
+            "T0088",
+            "Develop Audio-Based Content",
+            "Creating and editing false or misleading audio artefacts, often aligned with one or more specific narratives, for use in a disinformation campaign. This may include creating completely new audio content, repurposing existing audio artefacts (including cheap fakes), or using AI-generated audio creation and editing technologies (including deepfakes).",
+            "TA06"
+        ],
+        [
+            "T0088.001",
+            "Develop AI-Generated Audio (Deepfakes)",
+            "Deepfakes refer to AI-generated falsified photos, videos, or soundbites. An influence operation may use deepfakes to depict an inauthentic situation by synthetically recreating an individual’s face, body, voice, and physical gestures.",
+            "TA06"
+        ],
+        [
+            "T0088.002",
+            "Deceptively Edit Audio (Cheap Fakes)",
+            "Cheap fakes utilise less sophisticated measures of altering an image, video, or audio for example, slowing, speeding, or cutting footage to create a false context surrounding an image or event.",
+            "TA06"
+        ],
+        [
+            "T0089",
+            "Obtain Private Documents",
+            "Procuring documents that are not publicly available, by whatever means -- whether legal or illegal, highly-resourced or less so. These documents can include authentic non-public documents, authentic non-public documents have been altered, or inauthentic documents intended to appear as if they are authentic non-public documents. All of these types of documents can be \"leaked\" during later stages in the operation.",
+            "TA06"
+        ],
+        [
+            "T0089.001",
+            "Obtain Authentic Documents",
+            "Procure authentic documents that are not publicly available, by whatever means -- whether legal or illegal, highly-resourced or less so. These documents can be \"leaked\" during later stages in the operation.",
+            "TA06"
+        ],
+        [
+            "T0089.003",
+            "Alter Authentic Documents",
+            "Alter authentic documents (public or non-public) to achieve campaign goals. The altered documents are intended to appear as if they are authentic and can be \"leaked\" during later stages in the operation.",
+            "TA06"
+        ],
+        [
+            "T0090",
+            "Create Inauthentic Accounts",
+            "Inauthentic accounts include bot accounts, cyborg accounts, sockpuppet accounts, and anonymous accounts.",
+            "TA15"
+        ],
+        [
+            "T0090.001",
+            "Create Anonymous Accounts",
+            "Anonymous accounts or anonymous users refer to users that access network resources without providing a username or password. An influence operation may use anonymous accounts to spread content without direct attribution to the operation.",
+            "TA15"
+        ],
+        [
+            "T0090.002",
+            "Create Cyborg Accounts",
+            "Cyborg accounts refer to partly manned, partly automated social media accounts. Cyborg accounts primarily act as bots, but a human operator periodically takes control of the account to engage with real social media users by responding to comments and posting original content. Influence operations may use cyborg accounts to reduce the amount of direct human input required to maintain a regular account but increase the apparent legitimacy of the cyborg account by occasionally breaking its bot-like behaviour with human interaction.",
+            "TA15"
+        ],
+        [
+            "T0090.003",
+            "Create Bot Accounts",
+            "Bots refer to autonomous internet users that interact with systems or other users while imitating traditional human behaviour. Bots use a variety of tools to stay active without direct human operation, including artificial intelligence and big data analytics. For example, an individual may programme a Twitter bot to retweet a tweet every time it contains a certain keyword or hashtag. An influence operation may use bots to increase its exposure and artificially promote its content across the internet without dedicating additional time or human resources. Amplifier bots promote operation content through reposts, shares, and likes to increase the content’s online popularity. Hacker bots are traditionally covert bots running on computer scripts that rarely engage with users and work primarily as agents of larger cyberattacks, such as a Distributed Denial of Service attacks. Spammer bots are programmed to post content on social media or in comment sections, usually as a supplementary tool. Impersonator bots102 pose as real people by mimicking human behaviour, complicating their detection.",
+            "TA15"
+        ],
+        [
+            "T0090.004",
+            "Create Sockpuppet Accounts",
+            "Sockpuppet accounts refer to falsified accounts that either promote the influence operation’s own material or attack critics of the material online. Individuals who control sockpuppet accounts also man at least one other user account.67 Sockpuppet accounts help legitimise operation narratives by providing an appearance of external support for the material and discrediting opponents of the operation.",
+            "TA15"
+        ],
+        [
+            "T0091",
+            "Recruit Malign Actors",
+            "Operators recruit bad actors paying recruiting, or exerting control over individuals includes trolls, partisans, and contractors.",
+            "TA15"
+        ],
+        [
+            "T0091.001",
+            "Recruit Contractors",
+            "Operators recruit paid contractor to support the campaign.",
+            "TA15"
+        ],
+        [
+            "T0091.002",
+            "Recruit Partisans",
+            "Operators recruit partisans (ideologically-aligned individuals) to support the campaign.",
+            "TA15"
+        ],
+        [
+            "T0091.003",
+            "Enlist Troll Accounts",
+            "An influence operation may hire trolls, or human operators of fake accounts that aim to provoke others by posting and amplifying content about controversial issues. Trolls can serve to discredit an influence operation’s opposition or bring attention to the operation’s cause through debate. Classic trolls refer to regular people who troll for personal reasons, such as attention-seeking or boredom. Classic trolls may advance operation narratives by coincidence but are not directly affiliated with any larger operation. Conversely, hybrid trolls act on behalf of another institution, such as a state or financial organisation, and post content with a specific ideological goal. Hybrid trolls may be highly advanced and institutionalised or less organised and work for a single individual.",
+            "TA15"
+        ],
+        [
+            "T0092",
+            "Build Network",
+            "Operators build their own network, creating links between accounts -- whether authentic or inauthentic -- in order amplify and promote narratives and artefacts, and encourage further growth of ther network, as well as the ongoing sharing and engagement with operational content.",
+            "TA15"
+        ],
+        [
+            "T0092.001",
+            "Create Organisations",
+            "Influence operations may establish organisations with legitimate or falsified hierarchies, staff, and content to structure operation assets, provide a sense of legitimacy to the operation, or provide institutional backing to operation activities.",
+            "TA15"
+        ],
+        [
+            "T0092.002",
+            "Use Follow Trains",
+            "A follow train is a group of people who follow each other on a social media platform, often as a way for an individual or campaign to grow its social media following. Follow trains may be a violation of platform Terms of Service. They are also known as follow-for-follow groups.",
+            "TA15"
+        ],
+        [
+            "T0092.003",
+            "Create Community or Sub-Group",
+            "When there is not an existing community or sub-group that meets a campaign's goals, an influence operation may seek to create a community or sub-group.",
+            "TA15"
+        ],
+        [
+            "T0093",
+            "Acquire/Recruit Network",
+            "Operators acquire an existing network by paying, recruiting, or exerting control over the leaders of the existing network.",
+            "TA15"
+        ],
+        [
+            "T0093.001",
+            "Fund Proxies",
+            "An influence operation may fund proxies, or external entities that work for the operation. An operation may recruit/train users with existing sympathies towards the operation’s narratives and/or goals as proxies. Funding proxies serves various purposes including: - Diversifying operation locations to complicate attribution - Reducing the workload for direct operation assets",
+            "TA15"
+        ],
+        [
+            "T0093.002",
+            "Acquire Botnets",
+            "A botnet is a group of bots that can function in coordination with each other.",
+            "TA15"
+        ],
+        [
+            "T0094",
+            "Infiltrate Existing Networks",
+            "Operators deceptively insert social assets into existing networks as group members in order to influence the members of the network and the wider information environment that the network impacts.",
+            "TA15"
+        ],
+        [
+            "T0094.001",
+            "Identify Susceptible Targets in Networks",
+            "When seeking to infiltrate an existing network, an influence operation may identify individuals and groups that might be susceptible to being co-opted or influenced.",
+            "TA15"
+        ],
+        [
+            "T0094.002",
+            "Utilise Butterfly Attacks",
+            "Butterfly attacks occur when operators pretend to be members of a certain social group, usually a group that struggles for representation. An influence operation may mimic a group to insert controversial statements into the discourse, encourage the spread of operation content, or promote harassment among group members. Unlike astroturfing, butterfly attacks aim to infiltrate and discredit existing grassroots movements, organisations, and media campaigns.",
+            "TA15"
+        ],
+        [
+            "T0095",
+            "Develop Owned Media Assets",
+            "An owned media asset refers to an agency or organisation through which an influence operation may create, develop, and host content and narratives. Owned media assets include websites, blogs, social media pages, forums, and other platforms that facilitate the creation and organisation of content.",
+            "TA15"
+        ],
+        [
+            "T0096",
+            "Leverage Content Farms",
+            "Using the services of large-scale content providers for creating and amplifying campaign artefacts at scale.",
+            "TA15"
+        ],
+        [
+            "T0096.001",
+            "Create Content Farms",
+            "An influence operation may create an organisation for creating and amplifying campaign artefacts at scale.",
+            "TA15"
+        ],
+        [
+            "T0096.002",
+            "Outsource Content Creation to External Organisations",
+            "An influence operation may outsource content creation to external companies to avoid attribution, increase the rate of content creation, or improve content quality, i.e., by employing an organisation that can create content in the target audience’s native language. Employed organisations may include marketing companies for tailored advertisements or external content farms for high volumes of targeted media.",
+            "TA15"
+        ],
+        [
+            "T0097",
+            "Present Persona",
+            "This Technique contains different types of personas commonly taken on by threat actors during influence operations.Analysts should use T0097’s sub-techniques to document the type of persona which an account is presenting. For example, an account which describes itself as being a journalist can be tagged with T0097.102: Journalist Persona.Personas presented by individuals include:T0097.100: Individual PersonaT0097.101: Local PersonaT0097.102: Journalist PersonaT0097.103: Activist PersonaT0097.104: Hacktivist PersonaT0097.105: Military Personnel PersonaT0097.106: Recruiter PersonaT0097.107: Researcher PersonaT0097.108: Expert PersonaT0097.109: Romantic Suitor PersonaT0097.110: Party Official PersonaT0097.111: Government Official PersonaT0097.112: Government Employee PersonaThis Technique also houses institutional personas commonly taken on by threat actors:T0097.200: Institutional PersonaT0097.201: Local Institution PersonaT0097.202: News Outlet PersonaT0097.203: Fact Checking Organisation PersonaT0097.204: Think Tank PersonaT0097.205: Business PersonaT0097.206: Government Institution PersonaT0097.207: NGO PersonaT0097.208: Social Cause PersonaBy using a persona, a threat actor is adding the perceived legitimacy of the persona to their narratives and activities.",
+            "TA16"
+        ],
+        [
+            "T0097.100",
+            "Individual Persona",
+            "This sub-technique can be used to indicate that an entity is presenting itself as an individual. If the person is presenting themselves as having one of the personas listed below then these sub-techniques should be used instead, as they indicate both the type of persona they presented and that the entity presented itself as an individual:T0097.101: Local PersonaT0097.102: Journalist PersonaT0097.103: Activist PersonaT0097.104: Hacktivist PersonaT0097.105: Military Personnel PersonaT0097.106: Recruiter PersonaT0097.107: Researcher PersonaT0097.108: Expert PersonaT0097.109: Romantic Suitor PersonaT0097.110: Party Official PersonaT0097.111: Government Official PersonaT0097.112: Government Employee Persona",
+            "TA16"
+        ],
+        [
+            "T0097.101",
+            "Local Persona",
+            "A person with a local persona presents themselves as living in a particular geography or having local knowledge relevant to a narrative.While presenting as a local is not an indication of inauthentic behaviour,  an influence operation may have its narratives amplified by people presenting as local to a target area. Threat actors can fabricate locals (T0143.002: Fabricated Persona, T0097.101: Local Persona) to add credibility to their narratives, or to misrepresent the real opinions of locals in the area.People who are legitimate locals (T0143.001: Authentic Persona, T0097.101: Local Persona) can use their persona for malicious purposes, or be exploited by threat actors. For example, someone could take money for using their position as a local to provide legitimacy to a false narrative or be tricked into doing so without their knowledge.Associated Techniques and Sub-techniquesT0097.201: Local Institution Persona: Analysts should use this sub-technique to catalogue cases where an institution is presenting as a local, such as a local news organisation or local business.",
+            "TA16"
+        ],
+        [
+            "T0097.102",
+            "Journalist Persona",
+            "A person with a journalist persona presents themselves as a reporter or journalist delivering news, conducting interviews, investigations etc.While presenting as a journalist is not an indication of inauthentic behaviour, an influence operation may have its narratives amplified by people presenting as journalists. Threat actors can fabricate journalists to give the appearance of legitimacy, justifying the actor’s requests for interviews, etc (T0143.002: Fabricated Persona, T0097.102: Journalist Persona).People who have legitimately developed a persona as a journalist (T0143.001: Authentic Persona, T0097.102: Journalist Persona) can use it for malicious purposes, or be exploited by threat actors. For example, someone could take money for using their position as a trusted journalist to provide legitimacy to a false narrative or be tricked into doing so without the journalist’s knowledge.Associated Techniques and Sub-techniquesT0097.202: News Organisation Persona: People with a journalist persona may present as being part of a news organisation.T0097.101: Local Persona: People with a journalist persona may present themselves as local reporters.",
+            "TA16"
+        ],
+        [
+            "T0097.103",
+            "Activist Persona",
+            "A person with an activist persona presents themselves as an activist; an individual who campaigns for a political cause, organises related events, etc.While presenting as an activist is not an indication of inauthentic behaviour, an influence operation may have its narratives amplified by people presenting as activists. Threat actors can fabricate activists to give the appearance of popular support for an evolving grassroots movement (see T0143.002: Fabricated Persona, T0097.103: Activist Persona).People who are legitimate activists can use this persona for malicious purposes, or be exploited by threat actors. For example, someone could take money for using their position as an activist to provide visibility to a false narrative or be tricked into doing so without their knowledge (T0143.001: Authentic Persona, T0097.103: Activist Persona).Associated Techniques and Sub-techniquesT0097.104: Hacktivist Persona: Analysts should use this sub-technique to catalogue cases where an individual is presenting themselves as someone engaged in activism who uses technical tools and methods, including building technical infrastructure and conducting offensive cyber operations, to achieve their goals.T0097.207: NGO Persona: People with an activist persona may present as being part of an NGO.T0097.208: Social Cause Persona: Analysts should use this sub-technique to catalogue cases where an online account is presenting as posting content related to a particular social cause, while not presenting as an individual.",
+            "TA16"
+        ],
+        [
+            "T0097.104",
+            "Hacktivist Persona",
+            "A person with a hacktivist persona presents themselves as an activist who conducts offensive cyber operations or builds technical infrastructure for political purposes, rather than the financial motivations commonly attributed to hackers; hacktivists are hacker activists who use their technical knowledge to take political action.Hacktivists can build technical infrastructure to support other activists, including secure communication channels and surveillance and censorship circumvention. They can also conduct DDOS attacks and other offensive cyber operations, aiming to take down digital assets or gain access to proprietary information. An influence operation may use hacktivist personas to support their operational narratives and legitimise their operational activities.Fabricated Hacktivists are sometimes referred to as “Faketivists”.Associated Techniques and Sub-techniquesT0097.103: Activist Persona: Analysts should use this sub-technique to catalogue cases where an individual is presenting themselves as someone engaged in activism but doesn’t present themselves as using technical tools and methods to achieve their goals.",
+            "TA16"
+        ],
+        [
+            "T0097.105",
+            "Military Personnel Persona",
+            "A person with a military personnel persona presents themselves as a serving member or veteran of a military organisation operating in an official capacity on behalf of a government.While presenting as military personnel is not an indication of inauthentic behaviour,  an influence operation may have its narratives amplified by people presenting as military personnel. Threat actors can fabricate military personnel (T0143.002: Fabricated Persona, T0097.105: Military Personnel Persona) to pose as experts on military topics, or to discredit geopolitical adversaries by pretending to be one of their military personnel and spreading discontent.People who have legitimately developed a military persona (T0143.001: Authentic Persona, T0097.105: Military Personnel Persona) can use it for malicious purposes, or be exploited by threat actors. For example, someone could take money for using their position as a member of the military to provide legitimacy to a false narrative or be tricked into doing so without their knowledge.",
+            "TA16"
+        ],
+        [
+            "T0097.106",
+            "Recruiter Persona",
+            "A person with a recruiter persona presents themselves as a potential employer or provider of freelance work.While presenting as a recruiter is not an indication of inauthentic behaviour, threat actors fabricate recruiters (T0143.002: Fabricated Persona, T0097.106: Recruiter Persona) to justify asking for personal information from their targets or to trick targets into working for the threat actors (without revealing who they are).Associated Techniques and Sub-techniquesT0097.205: Business Persona: People with a recruiter persona may present as being part of a business which they are recruiting for.",
+            "TA16"
+        ],
+        [
+            "T0097.107",
+            "Researcher Persona",
+            "A person with a researcher persona presents themselves as conducting research (e.g. for academic institutions, or think tanks), or having previously conducted research.While presenting as a researcher is not an indication of inauthentic behaviour,  an influence operation may have its narratives amplified by people presenting as researchers. Threat actors can fabricate researchers (T0143.002: Fabricated Persona, T0097.107: Researcher Persona) to add credibility to their narratives.People who are legitimate researchers (T0143.001: Authentic Persona, T0097.107: Researcher Persona) can use their persona for malicious purposes, or be exploited by threat actors. For example, someone could take money for using their position as a Researcher to provide legitimacy to a false narrative or be tricked into doing so without their knowledge.Associated Techniques and Sub-techniquesT0097.204: Think Tank Persona: People with a researcher persona may present as being part of a think tank.T0097.108: Expert Persona: People who present as researching a given topic are likely to also present as having expertise in the area.",
+            "TA16"
+        ],
+        [
+            "T0097.108",
+            "Expert Persona",
+            "A person with an expert persona presents themselves as having expertise or experience in a field. Commonly the persona’s expertise will be called upon to add credibility to a given narrative.While presenting as an expert is not an indication of inauthentic behaviour,  an influence operation may have its narratives amplified by people presenting as experts. Threat actors can fabricate experts (T0143.002: Fabricated Persona, T0097.107: Researcher Persona) to add credibility to their narratives.People who are legitimate experts (T0143.001: Authentic Persona, T0097.107: Researcher Persona) can make mistakes, use their persona for malicious purposes, or be exploited by threat actors. For example, someone could take money for using their position as an expert to provide legitimacy to a false narrative or be tricked into doing so without their knowledge.Associated Techniques and Sub-techniquesT0097.107: Researcher Persona: People who present as experts may also present as conducting or having conducted research into their specialist subject.T0097.204: Think Tank Persona: People with an expert persona may present as being part of a think tank.",
+            "TA16"
+        ],
+        [
+            "T0097.109",
+            "Romantic Suitor Persona",
+            "A person with a romantic suitor persona presents themselves as seeking a romantic or physical connection with another person.While presenting as seeking a romantic or physical connection is not an indication of inauthentic behaviour, threat actors can use dating apps, social media channels or dating websites to fabricate romantic suitors to lure targets they can blackmail, extract information from, deceive or trick into giving them money (T0143.002: Fabricated Persona, T0097.109: Romantic Suitor Persona).Honeypotting in espionage and Big Butchering in scamming are commonly associated with romantic suitor personas.Associated Techniques and Sub-techniquesT0104.002: Dating App: Analysts can use this sub-technique for tagging cases where an account has been identified as using a dating platform.",
+            "TA16"
+        ],
+        [
+            "T0097.110",
+            "Party Official Persona",
+            "A person who presents as an official member of a political party, such as leaders of political parties, candidates standing to represent constituents, and campaign staff.Presenting as an official of a political party is not an indication of inauthentic behaviour, however threat actors may fabricate individuals who work in political parties to add credibility to their narratives (T0143.002: Fabricated Persona, T0097.110: Party Official Persona). They may also impersonate existing officials of political parties (T0143.003: Impersonated Persona, T0097.110: Party Official Persona).Legitimate members of political parties could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.110: Party Official Persona). For example, an electoral candidate could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge.Associated Techniques and Sub-techniquesT0097.111: Government Official Persona: Analysts should use this sub-technique to catalogue cases where an individual is presenting as a member of a government. Some party officials will also be government officials. For example, in the United Kingdom the head of government is commonly also the head of their political party.Some party officials won’t be government officials. For example, members of a party standing in an election, or party officials who work outside of government (e.g. campaign staff).",
+            "TA16"
+        ],
+        [
+            "T0097.111",
+            "Government Official Persona",
+            "A person who presents as an active or previous government official has the government official persona. These are officials serving in government, such as heads of government departments, leaders of countries, and members of government selected to represent constituents. Presenting as a government official is not an indication of inauthentic behaviour, however threat actors may fabricate individuals who work in government to add credibility to their narratives (T0143.002: Fabricated Persona, T0097.111: Government Official Persona). They may also impersonate existing members of government (T0143.003: Impersonated Persona, T0097.111: Government Official Persona). Legitimate government officials could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.111: Government Official Persona). For example, a government official could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge. Associated Techniques and Sub-techniques T0097.110: Party Official Persona: Analysts should use this sub-technique to catalogue cases where an individual is presenting as a member of a political party.  Not all government officials are political party officials (such as outside experts brought into government) and not all political party officials are government officials (such as people standing for office who are not yet working in government). T0097.206: Government Institution Persona: People presenting as members of a government may also represent a government institution which they are associated with. T0097.112: Government Employee Persona: Analysts should use this sub-technique to document people presenting as professionals hired to serve in government institutions and departments, not officials selected to represent constituents, or assigned official roles in government (such as heads of departments).",
+            "TA16"
+        ],
+        [
+            "T0097.112",
+            "Government Employee Persona",
+            "A person who presents as an active or previous civil servant has the government employee persona. These are professionals hired to serve in government institutions and departments, not officials selected to represent constituents, or assigned official roles in government (such as heads of departments). Presenting as a government employee is not an indication of inauthentic behaviour, however threat actors may fabricate individuals who work in government to add credibility to their narratives (T0143.002: Fabricated Persona, T0097.112: Government Employee Persona). They may also impersonate existing government employees (T0143.003: Impersonated Persona, T0097.112: Government Employee Persona). Legitimate government employees could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.112: Government Employee Persona). For example, a government employee could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge. Associated Techniques and Sub-techniques T0097.111: Government Official Persona: Analysts should use this technique to document people who present as an active or previous government official, such as heads of government departments, leaders of countries, and members of government selected to represent constituents. T0097.206: Government Institution Persona: People presenting as members of a government may also present a government institution which they are associated with.",
+            "TA16"
+        ],
+        [
+            "T0097.200",
+            "Institutional Persona",
+            "This Technique can be used to indicate that an entity is presenting itself as an institution. If the organisation is presenting itself as having one of the personas listed below then these Techniques should be used instead, as they indicate both that the entity presented itself as an institution, and the type of persona they presented: T0097.201: Local Institution Persona T0097.202: News Outlet Persona T0097.203: Fact Checking Organisation Persona T0097.204: Think Tank Persona T0097.205: Business Persona T0097.206: Government Institution Persona T0097.207: NGO Persona T0097.208: Social Cause Persona",
+            "TA16"
+        ],
+        [
+            "T0097.201",
+            "Local Institution Persona",
+            "Institutions which present themselves as operating in a particular geography, or as having local knowledge relevant to a narrative, are presenting a local institution persona. While presenting as a local institution is not an indication of inauthentic behaviour, threat actors may present themselves as such (T0143.002: Fabricated Persona, T0097.201: Local Institution Persona) to add credibility to their narratives, or misrepresent the real opinions of locals in the area. Legitimate local institutions could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.201: Local Institution Persona). For example, a local institution could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge. Associated Techniques and Sub-techniques T0097.101: Local Persona: Institutions presenting as local may also present locals working within the organisation.",
+            "TA16"
+        ],
+        [
+            "T0097.202",
+            "News Outlet Persona",
+            "An institution with a news outlet persona presents itself as an organisation which delivers new information to its target audience. While presenting as a news outlet is not an indication of inauthentic behaviour, an influence operation may have its narratives amplified by news organisations. Threat actors can fabricate news organisations (T0143.002: Fabricated Persona, T0097.202: News Outlet Persona), or they can impersonate existing news outlets (T0143.003: Impersonated Persona, T0097.202: News Outlet Persona). Legitimate news organisations could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.202: News Outlet Persona). Associated Techniques and Sub-techniques T0097.102: Journalist Persona: Institutions presenting as news outlets may also present journalists working within the organisation. T0097.201: Local Institution Persona: Institutions presenting as news outlets may present as being a local news outlet. T0097.203: Fact Checking Organisation Persona: Institutions presenting as news outlets may also deliver a fact checking service (e.g. The UK’s BBC News has the fact checking service BBC Verify). When an actor presents as the fact checking arm of a news outlet, they are presenting both a News Outlet Persona and a Fact Checking Organisation Persona.",
+            "TA16"
+        ],
+        [
+            "T0097.203",
+            "Fact Checking Organisation Persona",
+            "An institution with a fact checking organisation persona presents itself as an organisation which produces reports which assess the validity of others’ reporting / statements. While presenting as a fact checking organisation is not an indication of inauthentic behaviour, an influence operation may have its narratives amplified by fact checking organisations. Threat actors can fabricate fact checking organisations (T0143.002: Fabricated Persona, T0097.202: News Outlet Persona), or they can impersonate existing fact checking outlets (T0143.003: Impersonated Persona, T0097.202: News Outlet Persona). Legitimate fact checking organisations could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.202: News Outlet Persona). Associated Techniques and Sub-techniques T0097.102: Journalist Persona: Institutions presenting as fact checking organisations may also present journalists working within the organisation. T0097.202: News Outlet Persona: Fact checking organisations may present as operating as part of a larger news outlet (e.g. The UK’s BBC News has the fact checking service BBC Verify). When an actor presents as the fact checking arm of a news outlet, they are presenting both a News Outlet Persona and a Fact Checking Organisation Persona.",
+            "TA16"
+        ],
+        [
+            "T0097.204",
+            "Think Tank Persona",
+            "An institution with a think tank persona presents itself as a think tank; an organisation that aims to conduct original research and propose new policies or solutions, especially for social and scientific problems. While presenting as a think tank is not an indication of inauthentic behaviour, think tank personas are commonly used by threat actors as a front for their operational activity (T0143.002: Fabricated Persona, T0097.204: Think Tank Persona). They may be created to give legitimacy to narratives and allow them to suggest politically beneficial solutions to societal issues. Legitimate think tanks could have a political bias that they may not be transparent about, they could use their persona for malicious purposes, or they could be exploited by threat actors (T0143.001: Authentic Persona, T0097.204: Think Tank Persona). For example, a think tank could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge. Associated Techniques and Sub-techniques T0097.107: Researcher Persona: Institutions presenting as think tanks may also present researchers working within the organisation.",
+            "TA16"
+        ],
+        [
+            "T0097.205",
+            "Business Persona",
+            "An institution with a business persona presents itself as a for-profit organisation which provides goods or services for a price. While presenting as a business is not an indication of inauthentic behaviour, business personas may be used by threat actors as a front for their operational activity (T0143.002: Fabricated Persona, T0097.205: Business Persona). Threat actors may also impersonate existing businesses (T0143.003: Impersonated Persona, T0097.205: Business Persona) to exploit their brand or cause reputational damage. Legitimate businesses could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.205: Business Persona). For example, a business could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge.",
+            "TA16"
+        ],
+        [
+            "T0097.206",
+            "Government Institution Persona",
+            "Institutions which present themselves as governments, or government ministries, are presenting a government institution persona. While presenting as a government institution is not an indication of inauthentic behaviour, threat actors may impersonate existing government institutions as part of their operation (T0143.003: Impersonated Persona, T0097.206: Government Institution Persona), to add legitimacy to their narratives, or discredit the government. Legitimate government institutions could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.206: Government Institution Persona). For example, a government institution could be used by elected officials to spread inauthentic narratives. Associated Techniques and Sub-techniques T0097.111: Government Official Persona: Institutions presenting as governments may also present officials working within the organisation. T0097.112: Government Employee Persona: Institutions presenting as governments may also present employees working within the organisation.",
+            "TA16"
+        ],
+        [
+            "T0097.207",
+            "NGO Persona",
+            "Institutions which present themselves as an NGO (Non-Governmental Organisation), an organisation which provides services or advocates for public policy (while not being directly affiliated with any government), are presenting an NGO persona. While presenting as an NGO is not an indication of inauthentic behaviour, NGO personas are commonly used by threat actors (such as intelligence services) as a front for their operational activity (T0143.002: Fabricated Persona, T0097.207: NGO Persona). They are created to give legitimacy to the influence operation and potentially infiltrate grassroots movements Legitimate NGOs could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.207: NGO Persona). For example, an NGO could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge. Associated Techniques and Sub-techniques: T0097.103: Activist Persona: Institutions presenting as activist groups may also present activists working within the organisation.",
+            "TA16"
+        ],
+        [
+            "T0097.208",
+            "Social Cause Persona",
+            "Online accounts which present themselves as focusing on a social cause are presenting the Social Cause Persona. Examples include accounts which post about current affairs, such as discrimination faced by minorities. While presenting as an account invested in a social cause is not an indication of inauthentic behaviour, such personas have been used by threat actors to exploit peoples’ legitimate emotional investment regarding social causes that matter to them (T0143.002: Fabricated Persona, T0097.208: Social Cause Persona). Legitimate accounts focused on a social cause could use their persona for malicious purposes, or be exploited by threat actors (T0143.001: Authentic Persona, T0097.208: Social Cause Persona). For example, the account holders could take money for using their position to provide legitimacy to a false narrative, or be tricked into doing so without their knowledge. Associated Techniques and Sub-techniques: T0097.103: Activist Persona: Analysts should use this sub-technique to catalogue cases where an individual is presenting themselves as an activist related to a social cause. Accounts with social cause personas do not present themselves as individuals, but may have activists controlling the accounts.",
+            "TA16"
+        ],
+        [
+            "T0098",
+            "Establish Inauthentic News Sites",
+            "Modern computational propaganda makes use of a cadre of imposter news sites spreading globally. These sites, sometimes motivated by concerns other than propaganda--for instance, click-based revenue--often have some superficial markers of authenticity, such as naming and site-design. But many can be quickly exposed with reference to their owenership, reporting history and adverstising details.",
+            "TA16"
+        ],
+        [
+            "T0098.001",
+            "Create Inauthentic News Sites",
+            "Create Inauthentic News Sites",
+            "TA16"
+        ],
+        [
+            "T0098.002",
+            "Leverage Existing Inauthentic News Sites",
+            "Leverage Existing Inauthentic News Sites",
+            "TA16"
+        ],
+        [
+            "T0100",
+            "Co-Opt Trusted Sources",
+            "An influence operation may co-opt trusted sources by infiltrating or repurposing a source to reach a target audience through existing, previously reliable networks. Co-opted trusted sources may include: - National or local new outlets - Research or academic publications - Online blogs or websites",
+            "TA16"
+        ],
+        [
+            "T0100.001",
+            "Co-Opt Trusted Individuals",
+            "Co-Opt Trusted Individuals",
+            "TA16"
+        ],
+        [
+            "T0100.002",
+            "Co-Opt Grassroots Groups",
+            "Co-Opt Grassroots Groups",
+            "TA16"
+        ],
+        [
+            "T0100.003",
+            "Co-Opt Influencers",
+            "Co-opt Influencers",
+            "TA16"
+        ],
+        [
+            "T0101",
+            "Create Localised Content",
+            "Localised content refers to content that appeals to a specific community of individuals, often in defined geographic areas. An operation may create localised content using local language and dialects to resonate with its target audience and blend in with other local news and social media. Localised content may help an operation increase legitimacy, avoid detection, and complicate external attribution.",
+            "TA05"
+        ],
+        [
+            "T0102",
+            "Leverage Echo Chambers/Filter Bubbles",
+            "An echo chamber refers to an internet subgroup, often along ideological lines, where individuals only engage with “others with which they are already in agreement.” A filter bubble refers to an algorithm's placement of an individual in content that they agree with or regularly engage with, possibly entrapping the user into a bubble of their own making. An operation may create these isolated areas of the internet by match existing groups, or aggregating individuals into a single target audience based on shared interests, politics, values, demographics, and other characteristics. Echo chambers and filter bubbles help to reinforce similar biases and content to the same target audience members.",
+            "TA05"
+        ],
+        [
+            "T0102.001",
+            "Use Existing Echo Chambers/Filter Bubbles",
+            "Use existing Echo Chambers/Filter Bubbles",
+            "TA05"
+        ],
+        [
+            "T0102.002",
+            "Create Echo Chambers/Filter Bubbles",
+            "Create Echo Chambers/Filter Bubbles",
+            "TA05"
+        ],
+        [
+            "T0102.003",
+            "Exploit Data Voids",
+            "A data void refers to a word or phrase that results in little, manipulative, or low-quality search engine data. Data voids are hard to detect and relatively harmless until exploited by an entity aiming to quickly proliferate false or misleading information during a phenomenon that causes a high number of individuals to query the term or phrase. In the Plan phase, an influence operation may identify data voids for later exploitation in the operation. A 2019 report by Michael Golebiewski identifies five types of data voids. (1) “Breaking news” data voids occur when a keyword gains popularity during a short period of time, allowing an influence operation to publish false content before legitimate news outlets have an opportunity to publish relevant information. (2) An influence operation may create a “strategic new terms” data void by creating their own terms and publishing information online before promoting their keyword to the target audience. (3) An influence operation may publish content on “outdated terms” that have decreased in popularity, capitalising on most search engines’ preferences for recency. (4) “Fragmented concepts” data voids separate connections between similar ideas, isolating segment queries to distinct search engine results. (5) An influence operation may use “problematic queries” that previously resulted in disturbing or inappropriate content to promote messaging until mainstream media recontextualizes the term.",
+            "TA05"
+        ],
+        [
+            "T0103",
+            "Livestream",
+            "A livestream refers to an online broadcast capability that allows for real-time communication to closed or open networks.",
+            "TA07"
+        ],
+        [
+            "T0103.001",
+            "Video Livestream",
+            "A video livestream refers to an online video broadcast capability that allows for real-time communication to closed or open networks.",
+            "TA07"
+        ],
+        [
+            "T0103.002",
+            "Audio Livestream",
+            "An audio livestream refers to an online audio broadcast capability that allows for real-time communication to closed or open networks.",
+            "TA07"
+        ],
+        [
+            "T0104",
+            "Social Networks",
+            "Social media are interactive digital channels that facilitate the creation and sharing of information, ideas, interests, and other forms of expression through virtual communities and networks.",
+            "TA07"
+        ],
+        [
+            "T0104.001",
+            "Mainstream Social Networks",
+            "Examples include Facebook, Twitter, LinkedIn, etc.",
+            "TA07"
+        ],
+        [
+            "T0104.002",
+            "Dating App",
+            "“Dating App” refers to any platform (or platform feature) in which the ostensive purpose is for users to develop a physical/romantic relationship with other users. Threat Actors can exploit users’ quest for love to trick them into doing things like revealing sensitive information or giving them money. Examples include Tinder, Bumble, Grindr, Facebook Dating, Tantan, Badoo, Plenty of Fish, hinge, LOVOO, OkCupid, happn, and Mamba. Associated Techniques and Sub-techniques T0097.109: Romantic Suitor Persona: Analysts can use this sub-technique for tagging cases where an account presents itself as seeking a romantic or physical connection with another person.",
+            "TA07"
+        ],
+        [
+            "T0104.003",
+            "Private/Closed Social Networks",
+            "Social networks that are not open to people outside of family, friends, neighbours, or co-workers. Non-work-related examples include Couple, FamilyWall, 23snaps, and Nextdoor.  Some of the larger social network platforms enable closed communities: examples are Instagram Close Friends and Twitter (X) Circle. Work-related examples of private social networks include LinkedIn, Facebook Workplace, and enterprise communication platforms such as Slack or Microsoft Teams.",
+            "TA07"
+        ],
+        [
+            "T0104.004",
+            "Interest-Based Networks",
+            "Examples include smaller and niche networks including Gettr, Truth Social, Parler, etc.",
+            "TA07"
+        ],
+        [
+            "T0104.005",
+            "Use Hashtags",
+            "Use a dedicated, existing hashtag for the campaign/incident.",
+            "TA07"
+        ],
+        [
+            "T0104.006",
+            "Create Dedicated Hashtag",
+            "Create a campaign/incident specific hashtag.",
+            "TA07"
+        ],
+        [
+            "T0105",
+            "Media Sharing Networks",
+            "Media sharing networks refer to services whose primary function is the hosting and sharing of specific forms of media. Examples include Instagram, Snapchat, TikTok, Youtube, SoundCloud.",
+            "TA07"
+        ],
+        [
+            "T0105.001",
+            "Photo Sharing",
+            "Examples include Instagram, Snapchat, Flickr, etc",
+            "TA07"
+        ],
+        [
+            "T0105.002",
+            "Video Sharing",
+            "Examples include Youtube, TikTok, ShareChat, Rumble, etc",
+            "TA07"
+        ],
+        [
+            "T0105.003",
+            "Audio Sharing",
+            "Examples include podcasting apps, Soundcloud, etc.",
+            "TA07"
+        ],
+        [
+            "T0106",
+            "Discussion Forums",
+            "Platforms for finding, discussing, and sharing information and opinions. Examples include Reddit, Quora, Digg, message boards, interest-based discussion forums, etc.",
+            "TA07"
+        ],
+        [
+            "T0106.001",
+            "Anonymous Message Boards",
+            "Examples include the Chans",
+            "TA07"
+        ],
+        [
+            "T0107",
+            "Bookmarking and Content Curation",
+            "Platforms for searching, sharing, and curating content and media. Examples include Pinterest, Flipboard, etc.",
+            "TA07"
+        ],
+        [
+            "T0108",
+            "Blogging and Publishing Networks",
+            "Examples include WordPress, Blogger, Weebly, Tumblr, Medium, etc.",
+            "TA07"
+        ],
+        [
+            "T0109",
+            "Consumer Review Networks",
+            "Platforms for finding, reviewing, and sharing information about brands, products, services, restaurants, travel destinations, etc. Examples include Yelp, TripAdvisor, etc.",
+            "TA07"
+        ],
+        [
+            "T0110",
+            "Formal Diplomatic Channels",
+            "Leveraging formal, traditional, diplomatic channels to communicate with foreign governments (written documents, meetings, summits, diplomatic visits, etc). This type of diplomacy is conducted by diplomats of one nation with diplomats and other officials of another nation or international organisation.",
+            "TA07"
+        ],
+        [
+            "T0111",
+            "Traditional Media",
+            "Examples include TV, Newspaper, Radio, etc.",
+            "TA07"
+        ],
+        [
+            "T0111.001",
+            "TV",
+            "TV",
+            "TA07"
+        ],
+        [
+            "T0111.002",
+            "Newspaper",
+            "Newspaper",
+            "TA07"
+        ],
+        [
+            "T0111.003",
+            "Radio",
+            "Radio",
+            "TA07"
+        ],
+        [
+            "T0112",
+            "Email",
+            "Delivering content and narratives via email. This can include using list management or high-value individually targeted messaging.",
+            "TA07"
+        ],
+        [
+            "T0113",
+            "Employ Commercial Analytic Firms",
+            "Commercial analytic firms collect data on target audience activities and evaluate the data to detect trends, such as content receiving high click-rates. An influence operation may employ commercial analytic firms to facilitate external collection on its target audience, complicating attribution efforts and better tailoring the content to audience preferences.",
+            "TA15"
+        ],
+        [
+            "T0114",
+            "Deliver Ads",
+            "Delivering content via any form of paid media or advertising.",
+            "TA09"
+        ],
+        [
+            "T0114.001",
+            "Social Media",
+            "Social Media",
+            "TA09"
+        ],
+        [
+            "T0114.002",
+            "Traditional Media",
+            "Examples include TV, Radio, Newspaper, billboards",
+            "TA09"
+        ],
+        [
+            "T0115",
+            "Post Content",
+            "Delivering content by posting via owned media (assets that the operator controls).",
+            "TA09"
+        ],
+        [
+            "T0115.001",
+            "Share Memes",
+            "Memes are one of the most important single artefact types in all of computational propaganda. Memes in this framework denotes the narrow image-based definition. But that naming is no accident, as these items have most of the important properties of Dawkins' original conception as a self-replicating unit of culture. Memes pull together reference and commentary; image and narrative; emotion and message. Memes are a powerful tool and the heart of modern influence campaigns.",
+            "TA09"
+        ],
+        [
+            "T0115.002",
+            "Post Violative Content to Provoke Takedown and Backlash",
+            "Post Violative Content to Provoke Takedown and Backlash.",
+            "TA09"
+        ],
+        [
+            "T0115.003",
+            "One-Way Direct Posting",
+            "Direct posting refers to a method of posting content via a one-way messaging service, where the recipient cannot directly respond to the poster’s messaging. An influence operation may post directly to promote operation narratives to the target audience without allowing opportunities for fact-checking or disagreement, creating a false sense of support for the narrative.",
+            "TA09"
+        ],
+        [
+            "T0116",
+            "Comment or Reply on Content",
+            "Delivering content by replying or commenting via owned media (assets that the operator controls).",
+            "TA09"
+        ],
+        [
+            "T0116.001",
+            "Post Inauthentic Social Media Comment",
+            "Use government-paid social media commenters, astroturfers, chat bots (programmed to reply to specific key words/hashtags) influence online conversations, product reviews, web-site comment forums.",
+            "TA09"
+        ],
+        [
+            "T0117",
+            "Attract Traditional Media",
+            "Deliver content by attracting the attention of traditional media (earned media).",
+            "TA09"
+        ],
+        [
+            "T0118",
+            "Amplify Existing Narrative",
+            "An influence operation may amplify existing narratives that align with its narratives to support operation objectives.",
+            "TA17"
+        ],
+        [
+            "T0119",
+            "Cross-Posting",
+            "Cross-posting refers to posting the same message to multiple internet discussions, social media platforms or accounts, or news groups at one time. An influence operation may post content online in multiple communities and platforms to increase the chances of content exposure to the target audience.",
+            "TA17"
+        ],
+        [
+            "T0119.001",
+            "Post across Groups",
+            "An influence operation may post content across groups to spread narratives and content to new communities within the target audiences or to new target audiences.",
+            "TA17"
+        ],
+        [
+            "T0119.002",
+            "Post across Platform",
+            "An influence operation may post content across platforms to spread narratives and content to new communities within the target audiences or to new target audiences. Posting across platforms can also remove opposition and context, helping the narrative spread with less opposition on the cross-posted platform.",
+            "TA17"
+        ],
+        [
+            "T0119.003",
+            "Post across Disciplines",
+            "Post Across Disciplines",
+            "TA17"
+        ],
+        [
+            "T0120",
+            "Incentivize Sharing",
+            "Incentivizing content sharing refers to actions that encourage users to share content themselves, reducing the need for the operation itself to post and promote its own content.",
+            "TA17"
+        ],
+        [
+            "T0120.001",
+            "Use Affiliate Marketing Programmes",
+            "Use Affiliate Marketing Programmes",
+            "TA17"
+        ],
+        [
+            "T0120.002",
+            "Use Contests and Prizes",
+            "Use Contests and Prizes",
+            "TA17"
+        ],
+        [
+            "T0121",
+            "Manipulate Platform Algorithm",
+            "Manipulating a platform algorithm refers to conducting activity on a platform in a way that intentionally targets its underlying algorithm. After analysing a platform’s algorithm (see: Select Platforms), an influence operation may use a platform in a way that increases its content exposure, avoids content removal, or otherwise benefits the operation’s strategy. For example, an influence operation may use bots to amplify its posts so that the platform’s algorithm recognises engagement with operation content and further promotes the content on user timelines.",
+            "TA17"
+        ],
+        [
+            "T0121.001",
+            "Bypass Content Blocking",
+            "Bypassing content blocking refers to actions taken to circumvent network security measures that prevent users from accessing certain servers, resources, or other online spheres. An influence operation may bypass content blocking to proliferate its content on restricted areas of the internet. Common strategies for bypassing content blocking include: - Altering IP addresses to avoid IP filtering - Using a Virtual Private Network (VPN) to avoid IP filtering - Using a Content Delivery Network (CDN) to avoid IP filtering - Enabling encryption to bypass packet inspection blocking - Manipulating text to avoid filtering by keywords - Posting content on multiple platforms to avoid platform-specific removals - Using local facilities or modified DNS servers to avoid DNS filtering",
+            "TA17"
+        ],
+        [
+            "T0122",
+            "Direct Users to Alternative Platforms",
+            "Direct users to alternative platforms refers to encouraging users to move from the platform on which they initially viewed operation content and engage with content on alternate information channels, including separate social media channels and inauthentic websites. An operation may drive users to alternative platforms to diversify its information channels and ensure the target audience knows where to access operation content if the initial platform suspends, flags, or otherwise removes original operation assets and content.",
+            "TA17"
+        ],
+        [
+            "T0123",
+            "Control Information Environment through Offensive Cyberspace Operations",
+            "Controlling the information environment through offensive cyberspace operations uses cyber tools and techniques to alter the trajectory of content in the information space to either prioritise operation messaging or block opposition messaging.",
+            "TA18"
+        ],
+        [
+            "T0123.001",
+            "Delete Opposing Content",
+            "Deleting opposing content refers to the removal of content that conflicts with operational narratives from selected platforms. An influence operation may delete opposing content to censor contradictory information from the target audience, allowing operation narratives to take priority in the information space.",
+            "TA18"
+        ],
+        [
+            "T0123.002",
+            "Block Content",
+            "Content blocking refers to actions taken to restrict internet access or render certain areas of the internet inaccessible. An influence operation may restrict content based on both network and content attributes.",
+            "TA18"
+        ],
+        [
+            "T0123.003",
+            "Destroy Information Generation Capabilities",
+            "Destroying information generation capabilities refers to actions taken to limit, degrade, or otherwise incapacitate an actor’s ability to generate conflicting information. An influence operation may destroy an actor’s information generation capabilities by physically dismantling the information infrastructure, disconnecting resources needed for information generation, or redirecting information generation personnel. An operation may destroy an adversary’s information generation capabilities to limit conflicting content exposure to the target audience and crowd the information space with its own narratives.",
+            "TA18"
+        ],
+        [
+            "T0123.004",
+            "Conduct Server Redirect",
+            "A server redirect, also known as a URL redirect, occurs when a server automatically forwards a user from one URL to another using server-side or client-side scripting languages. An influence operation may conduct a server redirect to divert target audience members from one website to another without their knowledge. The redirected website may pose as a legitimate source, host malware, or otherwise aid operation objectives.",
+            "TA18"
+        ],
+        [
+            "T0124",
+            "Suppress Opposition",
+            "Operators can suppress the opposition by exploiting platform content moderation tools and processes like reporting non-violative content to platforms for takedown and goading opposition actors into taking actions that result in platform action or target audience disapproval.",
+            "TA18"
+        ],
+        [
+            "T0124.001",
+            "Report Non-Violative Opposing Content",
+            "Reporting opposing content refers to notifying and providing an instance of a violation of a platform’s guidelines and policies for conduct on the platform. In addition to simply reporting the content, an operation may leverage copyright regulations to trick social media and web platforms into removing opposing content by manipulating the content to appear in violation of copyright laws. Reporting opposing content facilitates the suppression of contradictory information and allows operation narratives to take priority in the information space.",
+            "TA18"
+        ],
+        [
+            "T0124.002",
+            "Goad People into Harmful Action (Stop Hitting Yourself)",
+            "Goad people into actions that violate terms of service or will lead to having their content or accounts taken down.",
+            "TA18"
+        ],
+        [
+            "T0124.003",
+            "Exploit Platform TOS/Content Moderation",
+            "Exploit Platform TOS/Content Moderation",
+            "TA18"
+        ],
+        [
+            "T0125",
+            "Platform Filtering",
+            "Platform filtering refers to the decontextualization of information as claims cross platforms (from Joan Donovan https://www.hks.harvard.edu/publications/disinformation-design-use-evidence-collages-and-platform-filtering-media-manipulation)",
+            "TA18"
+        ],
+        [
+            "T0126",
+            "Encourage Attendance at Events",
+            "Operation encourages attendance at existing real world event.",
+            "TA10"
+        ],
+        [
+            "T0126.001",
+            "Call to Action to Attend",
+            "Call to action to attend an event",
+            "TA10"
+        ],
+        [
+            "T0126.002",
+            "Facilitate Logistics or Support for Attendance",
+            "Facilitate logistics or support for travel, food, housing, etc.",
+            "TA10"
+        ],
+        [
+            "T0127",
+            "Physical Violence",
+            "Physical violence refers to the use of force to injure, abuse, damage, or destroy. An influence operation may conduct or encourage physical violence to discourage opponents from promoting conflicting content or draw attention to operation narratives using shock value.",
+            "TA10"
+        ],
+        [
+            "T0127.001",
+            "Conduct Physical Violence",
+            "An influence operation may directly Conduct Physical Violence to achieve campaign goals.",
+            "TA10"
+        ],
+        [
+            "T0127.002",
+            "Encourage Physical Violence",
+            "An influence operation may Encourage others to engage in Physical Violence to achieve campaign goals.",
+            "TA10"
+        ],
+        [
+            "T0128",
+            "Conceal Information Assets",
+            "Conceal the identity or provenance of campaign information assets such as accounts, channels, pages etc. to avoid takedown and attribution.",
+            "TA11"
+        ],
+        [
+            "T0128.001",
+            "Use Pseudonyms",
+            "An operation may use pseudonyms, or fake names, to mask the identity of operational accounts, channels, pages etc., publish anonymous content, or otherwise use falsified personas to conceal the identity of the operation. An operation may coordinate pseudonyms across multiple platforms, for example, by writing an article under a pseudonym and then posting a link to the article on social media on an account, channel, or page with the same falsified name.",
+            "TA11"
+        ],
+        [
+            "T0128.002",
+            "Conceal Network Identity",
+            "Concealing network identity aims to hide the existence an influence operation’s network completely. Unlike concealing sponsorship, concealing network identity denies the existence of any sort of organisation.",
+            "TA11"
+        ],
+        [
+            "T0128.003",
+            "Distance Reputable Individuals from Operation",
+            "Distancing reputable individuals from the operation occurs when enlisted individuals, such as celebrities or subject matter experts, actively disengage themselves from operation activities and messaging. Individuals may distance themselves from the operation by deleting old posts or statements, unfollowing operation information assets, or otherwise detaching themselves from the operation’s timeline. An influence operation may want reputable individuals to distance themselves from the operation to reduce operation exposure, particularly if the operation aims to remove all evidence.",
+            "TA11"
+        ],
+        [
+            "T0128.004",
+            "Launder Information Assets",
+            "Laundering occurs when an influence operation acquires control of previously legitimate information assets such as accounts, channels, pages etc. from third parties through sale or exchange and often in contravention of terms of use. Influence operations use laundered assets to reach target audience members from within an existing information community and to complicate attribution.",
+            "TA11"
+        ],
+        [
+            "T0128.005",
+            "Change Names of Information Assets",
+            "Changing names or brand names of information assets such as accounts, channels, pages etc. An operation may change the names or brand names of its assets throughout an operation to avoid detection or alter the names of newly acquired or repurposed assets to fit operational narratives.",
+            "TA11"
+        ],
+        [
+            "T0129",
+            "Conceal Operational Activity",
+            "Conceal the campaign's operational activity to avoid takedown and attribution.",
+            "TA11"
+        ],
+        [
+            "T0129.001",
+            "Conceal Network Identity",
+            "Concealing network identity aims to hide the existence an influence operation’s network completely. Unlike concealing sponsorship, concealing network identity denies the existence of any sort of organisation.",
+            "TA11"
+        ],
+        [
+            "T0129.002",
+            "Generate Content Unrelated to Narrative",
+            "An influence operation may mix its own operation content with legitimate news or external unrelated content to disguise operational objectives, narratives, or existence. For example, an operation may generate \"lifestyle\" or \"cuisine\" content alongside regular operation content.",
+            "TA11"
+        ],
+        [
+            "T0129.003",
+            "Break Association with Content",
+            "Breaking association with content occurs when an influence operation actively separates itself from its own content. An influence operation may break association with content by unfollowing, unliking, or unsharing its content, removing attribution from its content, or otherwise taking actions that distance the operation from its messaging. An influence operation may break association with its content to complicate attribution or regain credibility for a new operation.",
+            "TA11"
+        ],
+        [
+            "T0129.004",
+            "Delete URLs",
+            "URL deletion occurs when an influence operation completely removes its website registration, rendering the URL inaccessible. An influence operation may delete its URLs to complicate attribution or remove online documentation that the operation ever occurred.",
+            "TA11"
+        ],
+        [
+            "T0129.005",
+            "Coordinate on Encrypted/Closed Networks",
+            "Coordinate on encrypted/ closed networks",
+            "TA11"
+        ],
+        [
+            "T0129.006",
+            "Deny Involvement",
+            "Without \"smoking gun\" proof (and even with proof), incident creator can or will deny involvement. This technique also leverages the attacker advantages outlined in \"Demand insurmountable proof\", specifically the asymmetric disadvantage for truth-tellers in a \"firehose of misinformation\" environment.",
+            "TA11"
+        ],
+        [
+            "T0129.007",
+            "Delete Accounts/Account Activity",
+            "Deleting accounts and account activity occurs when an influence operation removes its online social media assets, including social media accounts, posts, likes, comments, and other online artefacts. An influence operation may delete its accounts and account activity to complicate attribution or remove online documentation that the operation ever occurred.",
+            "TA11"
+        ],
+        [
+            "T0129.008",
+            "Redirect URLs",
+            "An influence operation may redirect its falsified or typosquatted URLs to legitimate websites to increase the operation's appearance of legitimacy, complicate attribution, and avoid detection.",
+            "TA11"
+        ],
+        [
+            "T0129.009",
+            "Remove Post Origins",
+            "Removing post origins refers to the elimination of evidence that indicates the initial source of operation content, often to complicate attribution. An influence operation may remove post origins by deleting watermarks, renaming files, or removing embedded links in its content.",
+            "TA11"
+        ],
+        [
+            "T0129.010",
+            "Misattribute Activity",
+            "Misattributed activity refers to incorrectly attributed operation activity. For example, a state sponsored influence operation may conduct operation activity in a way that mimics another state so that external entities misattribute activity to the incorrect state. An operation may misattribute their activities to complicate attribution, avoid detection, or frame an adversary for negative behaviour.",
+            "TA11"
+        ],
+        [
+            "T0130",
+            "Conceal Infrastructure",
+            "Conceal the campaign's infrastructure to avoid takedown and attribution.",
+            "TA11"
+        ],
+        [
+            "T0130.001",
+            "Conceal Sponsorship",
+            "Concealing sponsorship aims to mislead or obscure the identity of the hidden sponsor behind an operation rather than entity publicly running the operation. Operations that conceal sponsorship may maintain visible falsified groups, news outlets, non-profits, or other organisations, but seek to mislead or obscure the identity sponsoring, funding, or otherwise supporting these entities. Influence operations may use a variety of techniques to mask the location of their social media accounts to complicate attribution and conceal evidence of foreign interference. Operation accounts may set their location to a false place, often the location of the operation’s target audience, and post in the region’s language",
+            "TA11"
+        ],
+        [
+            "T0130.002",
+            "Utilise Bulletproof Hosting",
+            "Hosting refers to services through which storage and computing resources are provided to an individual or organisation for the accommodation and maintenance of one or more websites and related services. Services may include web hosting, file sharing, and email distribution. Bulletproof hosting refers to services provided by an entity, such as a domain hosting or web hosting firm, that allows its customer considerable leniency in use of the service. An influence operation may utilise bulletproof hosting to maintain continuity of service for suspicious, illegal, or disruptive operation activities that stricter hosting services would limit, report, or suspend.",
+            "TA11"
+        ],
+        [
+            "T0130.003",
+            "Use Shell Organisations",
+            "Use Shell Organisations to conceal sponsorship.",
+            "TA11"
+        ],
+        [
+            "T0130.004",
+            "Use Cryptocurrency",
+            "Use Cryptocurrency to conceal sponsorship. Examples include Bitcoin, Monero, and Etherium.",
+            "TA11"
+        ],
+        [
+            "T0130.005",
+            "Obfuscate Payment",
+            "Obfuscate Payment",
+            "TA11"
+        ],
+        [
+            "T0131",
+            "Exploit TOS/Content Moderation",
+            "Exploiting weaknesses in platforms' terms of service and content moderation policies to avoid takedowns and platform actions.",
+            "TA11"
+        ],
+        [
+            "T0131.001",
+            "Legacy Web Content",
+            "Make incident content visible for a long time, e.g. by exploiting platform terms of service, or placing it where it's hard to remove or unlikely to be removed.",
+            "TA11"
+        ],
+        [
+            "T0131.002",
+            "Post Borderline Content",
+            "Post Borderline Content",
+            "TA11"
+        ],
+        [
+            "T0132",
+            "Measure Performance",
+            "A metric used to determine the accomplishment of actions. “Are the actions being executed as planned?”",
+            "TA12"
+        ],
+        [
+            "T0132.001",
+            "People Focused",
+            "Measure the performance individuals in achieving campaign goals",
+            "TA12"
+        ],
+        [
+            "T0132.002",
+            "Content Focused",
+            "Measure the performance of campaign content",
+            "TA12"
+        ],
+        [
+            "T0132.003",
+            "View Focused",
+            "View Focused",
+            "TA12"
+        ],
+        [
+            "T0133",
+            "Measure Effectiveness",
+            "A metric used to measure a current system state. “Are we on track to achieve the intended new system state within the planned timescale?”",
+            "TA12"
+        ],
+        [
+            "T0133.001",
+            "Behaviour Changes",
+            "Monitor and evaluate behaviour changes from misinformation incidents.",
+            "TA12"
+        ],
+        [
+            "T0133.002",
+            "Content",
+            "Measure current system state with respect to the effectiveness of campaign content.",
+            "TA12"
+        ],
+        [
+            "T0133.003",
+            "Awareness",
+            "Measure current system state with respect to the effectiveness of influencing awareness.",
+            "TA12"
+        ],
+        [
+            "T0133.004",
+            "Knowledge",
+            "Measure current system state with respect to the effectiveness of influencing knowledge.",
+            "TA12"
+        ],
+        [
+            "T0133.005",
+            "Action/Attitude",
+            "Measure current system state with respect to the effectiveness of influencing action/attitude.",
+            "TA12"
+        ],
+        [
+            "T0134",
+            "Measure Effectiveness Indicators (or KPIs)",
+            "Ensuring that Key Performance Indicators are identified and tracked, so that the performance and effectiveness of campaigns, and elements of campaigns, can be measured, during and after their execution.",
+            "TA12"
+        ],
+        [
+            "T0134.001",
+            "Message Reach",
+            "Monitor and evaluate message reach in misinformation incidents.",
+            "TA12"
+        ],
+        [
+            "T0134.002",
+            "Social Media Engagement",
+            "Monitor and evaluate social media engagement in misinformation incidents.",
+            "TA12"
+        ],
+        [
+            "T0135",
+            "Undermine",
+            "Weaken, debilitate, or subvert a target or their actions. An influence operation may be designed to disparage an opponent; sabotage an opponent’s systems or processes; compromise an opponent’s relationships or support system; impair an opponent’s capability; or thwart an opponent’s initiative.",
+            "TA02"
+        ],
+        [
+            "T0135.001",
+            "Smear",
+            "Denigrate, disparage, or discredit an opponent. This is a common tactical objective in political campaigns with a larger strategic goal. It differs from efforts to harm a target through defamation. If there is no ulterior motive and the sole aim is to cause harm to the target, then choose sub-technique “Defame” of technique “Cause Harm” instead.",
+            "TA02"
+        ],
+        [
+            "T0135.002",
+            "Thwart",
+            "Prevent the successful outcome of a policy, operation, or initiative. Actors conduct influence operations to stymie or foil proposals, plans, or courses of action which are not in their interest.",
+            "TA02"
+        ],
+        [
+            "T0135.003",
+            "Subvert",
+            "Sabotage, destroy, or damage a system, process, or relationship. The classic example is the Soviet strategy of “active measures” involving deniable covert activities such as political influence, the use of front organisations, the orchestration of domestic unrest, and the spread of disinformation.",
+            "TA02"
+        ],
+        [
+            "T0135.004",
+            "Polarise",
+            "To cause a target audience to divide into two completely opposing groups. This is a special case of subversion. To divide and conquer is an age-old approach to subverting and overcoming an enemy.",
+            "TA02"
+        ],
+        [
+            "T0136",
+            "Cultivate Support",
+            "Grow or maintain the base of support for the actor, ally, or action. This includes hard core recruitment, managing alliances, and generating or maintaining sympathy among a wider audience, including reputation management and public relations.  Sub-techniques assume support for actor (self) unless otherwise specified.",
+            "TA02"
+        ],
+        [
+            "T0136.001",
+            "Defend Reputaton",
+            "Preserve a positive perception in the public’s mind following an accusation or adverse event. When accused of a wrongful act, an actor may engage in denial, counter accusations, whataboutism, or conspiracy theories to distract public attention and attempt to maintain a positive image.",
+            "TA02"
+        ],
+        [
+            "T0136.002",
+            "Justify Action",
+            "To convince others to exonerate you of a perceived wrongdoing. When an actor finds it untenable to deny doing something, they may attempt to exonerate themselves with disinformation which claims the action was reasonable. This is a special case of “Defend Reputation”.",
+            "TA02"
+        ],
+        [
+            "T0136.003",
+            "Energise Supporters",
+            "Raise the morale of those who support the organisation or group. Invigorate constituents with zeal for the mission or activity. Terrorist groups, political movements, and cults may indoctrinate their supporters with ideologies that are based on warped versions of religion or cause harm to others.",
+            "TA02"
+        ],
+        [
+            "T0136.004",
+            "Boost Reputation",
+            "Elevate the estimation of the actor in the public’s mind. Improve their image or standing. Public relations professionals use persuasive overt communications to achieve this goal; manipulators use covert disinformation.",
+            "TA02"
+        ],
+        [
+            "T0136.005",
+            "Cultvate Support for Initiative",
+            "Elevate or fortify the public backing for a policy, operation, or idea. Domestic and foreign actors can use artificial means to fabricate or amplify public support for a proposal or action.",
+            "TA02"
+        ],
+        [
+            "T0136.006",
+            "Cultivate Support for Ally",
+            "Elevate or fortify the public backing for a partner. Governments may interfere in other countries’ elections by covertly favouring a party or candidate aligned with their interests. They may also mount an influence operation to bolster the reputation of an ally under attack.",
+            "TA02"
+        ],
+        [
+            "T0136.007",
+            "Recruit Members",
+            "Motivate followers to join or subscribe as members of the team. Organisations may mount recruitment drives that use propaganda to entice sympathisers to sign up.",
+            "TA02"
+        ],
+        [
+            "T0136.008",
+            "Increase Prestige",
+            "Improve personal standing within a community. Gain fame, approbation, or notoriety. Conspiracy theorists, those with special access, and ideologues can gain prominence in a community by propagating disinformation, leaking confidential documents, or spreading hate.",
+            "TA02"
+        ],
+        [
+            "T0137",
+            "Make Money",
+            "Profit from disinformation, conspiracy theories, or online harm. In some cases, the sole objective is financial gain, in other cases the objective is both financial and political. Making money may also be a way to sustain a political campaign.",
+            "TA02"
+        ],
+        [
+            "T0137.001",
+            "Generate Ad Revenue",
+            "Earn income from digital advertisements published alongside inauthentic content. Conspiratorial, false, or provocative content drives internet traffic. Content owners earn money from impressions of, or clicks on, or conversions of ads published on their websites, social media profiles, or streaming services, or ads published when their content appears in search engine results. Fraudsters simulate impressions, clicks, and conversions, or they spin up inauthentic sites or social media profiles just to generate ad revenue. Conspiracy theorists and political operators generate ad revenue as a byproduct of their operation or as a means of sustaining their campaign.",
+            "TA02"
+        ],
+        [
+            "T0137.002",
+            "Scam",
+            "Defraud a target or trick a target into doing something that benefits the attacker. A typical scam is where a fraudster convinces a target to pay for something without the intention of ever delivering anything in return. Alternatively, the fraudster may promise benefits which never materialise, such as a fake cure. Criminals often exploit a fear or crisis or generate a sense of urgency. They may use deepfakes to impersonate authority figures or individuals in distress.",
+            "TA02"
+        ],
+        [
+            "T0137.003",
+            "Raise Funds",
+            "Solicit donations for a cause. Popular conspiracy theorists can attract financial contributions from their followers. Fighting back against the establishment is a popular crowdfunding narrative.",
+            "TA02"
+        ],
+        [
+            "T0137.004",
+            "Sell Items under False Pretences",
+            "Offer products for sale under false pretences. Campaigns may hijack or create causes built on disinformation to sell promotional merchandise. Or charlatans may amplify victims’ unfounded fears to sell them items of questionable utility such as supplements or survival gear.",
+            "TA02"
+        ],
+        [
+            "T0137.005",
+            "Extort",
+            "Coerce money or favours from a target by threatening to expose or corrupt information. Ransomware criminals typically demand money. Intelligence agencies demand national secrets. Sexual predators demand favours. The leverage may be critical, sensitive, or embarrassing information.",
+            "TA02"
+        ],
+        [
+            "T0137.006",
+            "Manipulate Stocks",
+            "Artificially inflate or deflate the price of stocks or other financial instruments and then trade on these to make profit. The most common securities fraud schemes are called “pump and dump” and “poop and scoop”.",
+            "TA02"
+        ],
+        [
+            "T0138",
+            "Motivate to Act",
+            "Persuade, impel, or provoke the target to behave in a specific manner favourable to the attacker. Some common behaviours are joining, subscribing, voting, buying, demonstrating, fighting, retreating, resigning, boycotting.",
+            "TA02"
+        ],
+        [
+            "T0138.001",
+            "Encourage",
+            "Inspire, animate, or exhort a target to act. An actor can use propaganda, disinformation, or conspiracy theories to stimulate a target to act in its interest.",
+            "TA02"
+        ],
+        [
+            "T0138.002",
+            "Provoke",
+            "Instigate, incite, or arouse a target to act. Social media manipulators exploit moral outrage to propel targets to spread hate, take to the streets to protest, or engage in acts of violence.",
+            "TA02"
+        ],
+        [
+            "T0138.003",
+            "Compel",
+            "Force target to take an action or to stop taking an action it has already started. Actors can use the threat of reputational damage alongside military or economic threats to compel a target.",
+            "TA02"
+        ],
+        [
+            "T0139",
+            "Dissuade from Acting",
+            "Discourage, deter, or inhibit the target from actions which would be unfavourable to the attacker. The actor may want the target to refrain from voting, buying, fighting, or supplying.",
+            "TA02"
+        ],
+        [
+            "T0139.001",
+            "Discourage",
+            "To make a target disinclined or reluctant to act. Manipulators use disinformation to cause targets to question the utility, legality, or morality of taking an action.",
+            "TA02"
+        ],
+        [
+            "T0139.002",
+            "Silence",
+            "Intimidate or incentivise target into remaining silent or prevent target from speaking out. A threat actor may cow a target into silence as a special case of deterrence. Or they may buy the target’s silence. Or they may repress or restrict the target’s speech.",
+            "TA02"
+        ],
+        [
+            "T0139.003",
+            "Deter",
+            "Prevent target from taking an action for fear of the consequences. Deterrence occurs in the mind of the target, who fears they will be worse off if they take an action than if they don’t. When making threats, aggressors may bluff, feign irrationality, or engage in brinksmanship.",
+            "TA02"
+        ],
+        [
+            "T0140",
+            "Cause Harm",
+            "Persecute, malign, or inflict pain upon a target. The objective of a campaign may be to cause fear or emotional distress in a target. In some cases, harm is instrumental to achieving a primary objective, as in coercion, repression, or intimidation. In other cases, harm may be inflicted for the satisfaction of the perpetrator, as in revenge or sadistic cruelty.",
+            "TA02"
+        ],
+        [
+            "T0140.001",
+            "Defame",
+            "Attempt to damage the target’s personal reputation by impugning their character. This can range from subtle attempts to misrepresent or insinuate, to obvious attempts to denigrate or disparage, to blatant attempts to malign or vilify. Slander applies to oral expression. Libel applies to written or pictorial material. Defamation is often carried out by online trolls. The sole aim here is to cause harm to the target. If the threat actor uses defamation as a means of undermining the target, then choose sub-technique “Smear” of technique “Undermine” instead.",
+            "TA02"
+        ],
+        [
+            "T0140.002",
+            "Intimidate",
+            "Coerce, bully, or frighten the target. An influence operation may use intimidation to compel the target to act against their will. Or the goal may be to frighten or even terrify the target into silence or submission. In some cases, the goal is simply to make the victim suffer.",
+            "TA02"
+        ],
+        [
+            "T0140.003",
+            "Spread Hate",
+            "Publish and/or propagate demeaning, derisive, or humiliating content targeting an individual or group of individuals with the intent to cause emotional, psychological, or physical distress. Hate speech can cause harm directly or incite others to harm the target. It often aims to stigmatise the target by singling out immutable characteristics such as colour, race, religion, national or ethnic origin, gender, gender identity, sexual orientation, age, disease, or mental or physical disability. Thus, promoting hatred online may involve racism, antisemitism, Islamophobia, xenophobia, sexism, misogyny, homophobia, transphobia, ageism, ableism, or any combination thereof. Motivations for hate speech range from group preservation to ideological superiority to the unbridled infliction of suffering.",
+            "TA02"
+        ],
+        [
+            "T0141",
+            "Acquire Compromised Asset",
+            "Threat Actors may take over existing assets not owned by them through nefarious means, such as using technical exploits, hacking, purchasing compromised accounts from the dark web, or social engineering.",
+            "TA15"
+        ],
+        [
+            "T0141.001",
+            "Acquire Compromised Account",
+            "Threat Actors can take over existing users’ accounts to distribute campaign content. The actor may maintain the asset’s previous identity to capitalise on the perceived legitimacy its previous owner had cultivated. The actor may completely rebrand the account to exploit its existing reach, or relying on the account’s history to avoid more stringent automated content moderation rules applied to new accounts. See also [Mitre ATT&CK’s T1586 Compromise Accounts](https://attack.mitre.org/techniques/T1586/) for more technical information on how threat actors may achieve this objective. This Technique was previously called Compromise Legitimate Accounts, and used the ID T0011.",
+            "TA15"
+        ],
+        [
+            "T0141.002",
+            "Acquire Compromised Website",
+            "Threat Actors may take over existing websites to publish or amplify inauthentic narratives. This includes the defacement of websites, and cases where websites’ personas are maintained to add credence to threat actors’ narratives. See also [Mitre ATT&CK’s T1584 Compromise Infrastructure](https://attack.mitre.org/techniques/T1584/) for more technical information on how threat actors may achieve this objective.",
+            "TA15"
+        ],
+        [
+            "T0143",
+            "Persona Legitimacy",
+            "This Technique contains sub-techniques which analysts can use to assert whether an account is presenting an authentic, fabricated, or parody persona: T0143.001: Authentic Persona T0143.002: Fabricated Persona T0143.003: Impersonated Persona T0143.004: Parody Persona",
+            "TA16"
+        ],
+        [
+            "T0143.001",
+            "Authentic Persona",
+            "An individual or institution presenting a persona that legitimately matches who or what they are is presenting an authentic persona. For example, an account which presents as being managed by a member of a country’s military, and is legitimately managed by that person, would be presenting an authentic persona (T0143.001: Authentic Persona, T0097.105: Military Personnel). Sometimes people can authentically present themselves as who they are while still participating in malicious/inauthentic activity; a legitimate journalist (T0143.001: Authentic Persona, T0097.102: Journalist Persona) may accept bribes to promote products, or they could be tricked by threat actors into sharing an operation’s narrative.",
+            "TA16"
+        ],
+        [
+            "T0143.002",
+            "Fabricated Persona",
+            "An individual or institution pretending to have a persona without any legitimate claim to that persona is presenting a fabricated persona, such as a person who presents themselves as a member of a country’s military without having worked in any capacity with the military (T0143.002: Fabricated Persona, T0097.105: Military Personnel). Sometimes real people can present entirely fabricated personas; they can use real names and photos on social media while also pretending to have credentials or traits they don’t have in real life.",
+            "TA16"
+        ],
+        [
+            "T0143.003",
+            "Impersonated Persona",
+            "Threat actors may impersonate existing individuals or institutions to conceal their network identity, add legitimacy to content, or harm the impersonated target’s reputation. This Technique covers situations where an actor presents themselves as another existing individual or institution. This Technique was previously called Prepare Assets Impersonating Legitimate Entities and used the ID T0099. Associated Techniques and Sub-techniques T0097: Presented Persona: Analysts can use the sub-techniques of T0097: Presented Persona to categorise the type of impersonation. For example, a document developed by a threat actor which falsely presented as a letter from a government department could be documented using T0085.004: Develop Document, T0143.003: Impersonated Persona, and T0097.206: Government Institution Persona. T0145.001: Copy Account Imagery: Actors may take existing accounts’ profile pictures as part of their impersonation efforts.",
+            "TA16"
+        ],
+        [
+            "T0143.004",
+            "Parody Persona",
+            "Parody is a form of artistic expression that imitates the style or characteristics of a particular work, genre, or individual in a humorous or satirical way, often to comment on or critique the original work or subject matter. People may present as parodies to create humour or make a point by exaggerating or altering elements of the original, while still maintaining recognizable elements. The use of parody is not an indication of inauthentic or malicious behaviour; parody allows people to present ideas or criticisms in a comedic or exaggerated manner, softening the impact of sensitive or contentious topics. Because parody is often protected as a form of free speech or artistic expression, it provides a legal and social framework for discussing controversial issues. However, parody personas may be perceived as authentic personas, leading to people mistakenly believing that a parody account’s statements represent the real opinions of a parodied target. Threat actors may also use the guise of parody to spread campaign content. Parody personas may disclaim that they are operating as a parody, however this is not always the case, and is not always given prominence. Associated Techniques and Sub-techniques T0097: Presented Persona: Analysts can use the sub-techniques of T0097: Presented Persona to categorise the type of parody. For example, an account presenting as a parody of a business could be documented using T0097.205: Business Persona and T0143.003: Parody Persona. T0145.001: Copy Account Imagery: Actors may take existing accounts’ profile pictures as part of their parody efforts.",
+            "TA16"
+        ],
+        [
+            "T0144",
+            "Persona Legitimacy Evidence",
+            "This Technique contains behaviours which might indicate whether a persona is legitimate, a fabrication, or a parody. For example, the same persona being consistently presented across platforms is consistent with how authentic users behave on social media. However, threat actors have also displayed this behaviour as a way to increase the perceived legitimacy of their fabricated personas (aka “backstopping”).",
+            "TA16"
+        ],
+        [
+            "T0144.001",
+            "Present Persona across Platforms",
+            "This sub-technique covers situations where analysts have identified the same persona being presented across multiple platforms. Having multiple accounts presenting the same persona is not an indicator of inauthentic behaviour; many people create accounts and present as themselves on multiple platforms. However, threat actors are known to present the same persona across multiple platforms, benefiting from an increase in perceived legitimacy.",
+            "TA16"
+        ],
+        [
+            "T0144.002",
+            "Persona Template",
+            "Threat actors have been observed following a template when filling their accounts’ online profiles. This may be done to enable account holders to quickly present themselves as a real person with a targeted persona. For example, an actor may be instructed to create many fabricated local accounts for use in an operation using a template of “[flag emojis], [location], [personal quote], [political party] supporter” in their account’s description. Associated Techniques and Sub-techniques T0143.002: Fabricated Persona: The use of a templated account biography in a collection of accounts may be an indicator that the personas have been fabricated.",
+            "TA16"
+        ],
+        [
+            "T0145",
+            "Establish Account Imagery",
+            "Introduce visual elements to an account where a platform allows this functionality (e.g. a profile picture, a cover photo, etc).  Threat Actors who don’t want to use pictures of themselves in their social media accounts may use alternate imagery to make their account appear more legitimate.",
+            "TA15"
+        ],
+        [
+            "T0145.001",
+            "Copy Account Imagery",
+            "Account imagery copied from an existing account. Analysts may use reverse image search tools to try to identify previous uses of account imagery (e.g. a profile picture) by other accounts. Threat Actors have been known to copy existing accounts’ imagery to impersonate said accounts, or to provide imagery for unrelated accounts which aren’t intended to impersonate the original assets’ owner. Associated Techniques and Sub-techniques T0143.003: Impersonated Persona: Actors may copy existing accounts’ imagery in an attempt to impersonate them. T0143.004: Parody Persona: Actors may copy existing accounts’ imagery as part of a parody of that account.",
+            "TA15"
+        ],
+        [
+            "T0145.002",
+            "AI-Generated Account Imagery",
+            "AI Generated images used in account imagery. An influence operation might flesh out its account by uploading account imagery (e.g. a profile picture), increasing its perceived legitimacy. By using an AI-generated picture for this purpose, they are able to present themselves as a real person without compromising their own identity, or risking detection by taking a real person’s existing profile picture. Associated Techniques and Sub-techniques T0086.002: Develop AI-Generated Images (Deepfakes): Analysts should use this sub-technique to document use of AI generated imagery used to support narratives.",
+            "TA15"
+        ],
+        [
+            "T0145.003",
+            "Animal Account Imagery",
+            "Animal used in account imagery. An influence operation might flesh out its account by uploading a profile picture, increasing its perceived authenticity. People sometimes legitimately use images of animals as their profile pictures (e.g. of their pets), and threat actors can mimic this behaviour to avoid the risk of detection associated with stealing or AI-generating profile pictures (see T0145.001: Copy Account Imagery and T0145.002: AI-Generated Account Imagery). This Technique is often used by Coordinated Inauthentic Behaviour accounts (CIBs). A collection of accounts displaying the same behaviour using similar account imagery can indicate the presence of CIB.",
+            "TA15"
+        ],
+        [
+            "T0145.004",
+            "Scenery Account Imagery",
+            "Scenery or nature used in account imagery. An influence operation might flesh out its account by uploading account imagery (e.g. a profile picture), increasing its perceived authenticity. People sometimes legitimately use images of scenery as their profile picture, and threat actors can mimic this behaviour to avoid the risk of detection associated with stealing or AI-generating profile pictures (see T0145.001: Copy Account Imagery and T0145.002: AI-Generated Account Imagery). This Technique is often used by Coordinated Inauthentic Behaviour accounts (CIBs). A collection of accounts displaying the same behaviour using similar account imagery can indicate the presence of CIB.",
+            "TA15"
+        ],
+        [
+            "T0145.005",
+            "Illustrated Character Account Imagery",
+            "A cartoon/illustrated/anime character used in account imagery. An influence operation might flesh out its account by uploading account imagery (e.g. a profile picture), increasing its perceived authenticity. People sometimes legitimately use images of illustrated characters as their profile picture, and threat actors can mimic this behaviour to avoid the risk of detection associated with stealing or AI-generating profile pictures (see T0145.001: Copy Account Imagery and T0145.002: AI-Generated Account Imagery). This Technique is often used by Coordinated Inauthentic Behaviour accounts (CIBs). A collection of accounts displaying the same behaviour using similar account imagery can indicate the presence of CIB.",
+            "TA15"
+        ],
+        [
+            "T0145.006",
+            "Attractive Person Account Imagery",
+            "Attractive person used in account imagery. An influence operation might flesh out its account by uploading account imagery (e.g. a profile picture), increasing its perceived authenticity. Pictures of physically attractive people can benefit threat actors by increasing attention given to their posts. People sometimes legitimately use images of attractive people as their profile picture, and threat actors can mimic this behaviour to avoid the risk of detection associated with stealing or AI-generating profile pictures (see T0145.001: Copy Account Imagery and T0145.002: AI-Generated Account Imagery). This Technique is often used by Coordinated Inauthentic Behaviour accounts (CIBs). A collection of accounts displaying the same behaviour using similar account imagery can indicate the presence of CIB. Associated Techniques and Sub-techniques T0097.109: Romantic Suitor Persona: Accounts presenting as a romantic suitor may use an attractive person in their account imagery. T0104.002: Dating App: Analysts can use this sub-technique for tagging cases where an account has been identified as using a dating platform.",
+            "TA15"
+        ],
+        [
+            "T0145.007",
+            "Stock Image Account Imagery",
+            "Stock images used in account imagery. Stock image websites produce photos of people in various situations. Threat Actors can purchase or appropriate these images for use in their account imagery, increasing perceived legitimacy while avoiding the risk of detection associated with stealing or AI-generating profile pictures (see T0145.001: Copy Account Imagery and T0145.002: AI-Generated Account Imagery).  Stock images tend to include physically attractive people, and this can benefit threat actors by increasing attention given to their posts. This Technique is often used by Coordinated Inauthentic Behaviour accounts (CIBs). A collection of accounts displaying the same behaviour using similar account imagery can indicate the presence of CIB.",
+            "TA15"
+        ]
+    ]
+]
