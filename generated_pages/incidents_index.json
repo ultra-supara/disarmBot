@@ -1,0 +1,610 @@
+[
+    [
+        [
+            "I00001",
+            "Blacktivists facebook group",
+            "incident",
+            "2016.0",
+            "USA"
+        ],
+        [
+            "I00002",
+            "#VaccinateUS",
+            "campaign",
+            "2014.0",
+            "World"
+        ],
+        [
+            "I00003",
+            "Beyonce protest rallies",
+            "incident",
+            "2016.0",
+            "USA"
+        ],
+        [
+            "I00004",
+            "#Macrongate",
+            "incident",
+            "2017.0",
+            "France"
+        ],
+        [
+            "I00005",
+            "Brexit vote",
+            "campaign",
+            "2016.0",
+            "UK"
+        ],
+        [
+            "I00006",
+            "Columbian Chemicals",
+            "incident",
+            "2014.0",
+            "USA"
+        ],
+        [
+            "I00007",
+            "Incirlik terrorists",
+            "incident",
+            "2016.0",
+            "USA"
+        ],
+        [
+            "I00008",
+            "Bujic",
+            "incident",
+            "2017.0",
+            "Serbia"
+        ],
+        [
+            "I00009",
+            "PhilippinesExpert",
+            "incident",
+            "2017.0",
+            "Philippines"
+        ],
+        [
+            "I00010",
+            "ParklandTeens",
+            "incident",
+            "2018.0",
+            "USA"
+        ],
+        [
+            "I00011",
+            "CovingtonTeen",
+            "incident",
+            "2019.0",
+            "USA"
+        ],
+        [
+            "I00012",
+            "ChinaSmog",
+            "incident",
+            "2011.0",
+            "China"
+        ],
+        [
+            "I00013",
+            "FranceBlacktivists",
+            "incident",
+            "2014.0",
+            "France"
+        ],
+        [
+            "I00014",
+            "GiletsJaunePileon",
+            "incident",
+            "2018.0",
+            "France"
+        ],
+        [
+            "I00015",
+            "ConcordDiscovery",
+            "incident",
+            "2019.0",
+            "USA"
+        ],
+        [
+            "I00016",
+            "LithuanianElves",
+            "campaign",
+            "2014.0",
+            "Lithuania"
+        ],
+        [
+            "I00017",
+            "US presidential elections",
+            "campaign",
+            "2016.0",
+            "USA",
+            "OII"
+        ],
+        [
+            "I00018",
+            "DNC email leak incident",
+            "tactic",
+            "2016.0",
+            "USA",
+            "OII"
+        ],
+        [
+            "I00019",
+            "MacronTiphaine",
+            "incident",
+            "2017.0",
+            "France",
+            "OII"
+        ],
+        [
+            "I00020",
+            "3000 tanks",
+            "incident",
+            "2017.0",
+            "World",
+            "OII"
+        ],
+        [
+            "I00021",
+            "Armenia elections",
+            "campaign",
+            "2017.0",
+            "Armenia",
+            "OII"
+        ],
+        [
+            "I00022",
+            "#Macronleaks",
+            "incident",
+            "2017.0",
+            "France",
+            "OII"
+        ],
+        [
+            "I00023",
+            "#dislikemacron",
+            "incident",
+            "2017.0",
+            "France",
+            "OII"
+        ],
+        [
+            "I00024",
+            "#syriahoax",
+            "incident",
+            "2017.0",
+            "USA",
+            "OII"
+        ],
+        [
+            "I00025",
+            "EU Army",
+            "incident",
+            "2018.0",
+            "EU",
+            "OII"
+        ],
+        [
+            "I00026",
+            "Netherlands referendum on Ukraine",
+            "incident",
+            "2016.0",
+            "Netherlands",
+            "OII"
+        ],
+        [
+            "I00027",
+            "crucifiedboy",
+            "incident",
+            "2014.0",
+            "Ukraine",
+            "OII"
+        ],
+        [
+            "I00028",
+            "mh17 downed",
+            "incident",
+            "2014.0",
+            "Ukraine",
+            "OII"
+        ],
+        [
+            "I00029",
+            "MH17 investigation",
+            "campaign",
+            "2016.0",
+            "Ukraine",
+            "OII"
+        ],
+        [
+            "I00030",
+            "LastJedi",
+            "incident",
+            "2018.0",
+            "World",
+            "OII"
+        ],
+        [
+            "I00031",
+            "antivax",
+            "apt",
+            "2018.0",
+            "World",
+            "OII"
+        ],
+        [
+            "I00032",
+            "Kavanaugh",
+            "incident",
+            "2018.0",
+            "USA",
+            "OII"
+        ],
+        [
+            "I00033",
+            "China 50cent Army",
+            "apt",
+            "2014.0",
+            "China",
+            "OII"
+        ],
+        [
+            "I00034",
+            "DibaFacebookExpedition",
+            "incident",
+            "2016.0",
+            "Taiwan",
+            "OII"
+        ],
+        [
+            "I00035",
+            "Brazilelections",
+            "campaign",
+            "2014.0",
+            "Brazil",
+            "OII"
+        ],
+        [
+            "I00036",
+            "BrazilPresDebate",
+            "incident",
+            "2014.0",
+            "Brazil",
+            "OII"
+        ],
+        [
+            "I00037",
+            "Rioelections",
+            "incident",
+            "2016.0",
+            "Brazil",
+            "OII"
+        ],
+        [
+            "I00038",
+            "Brazilimpeachment",
+            "incident",
+            "2016.0",
+            "Brazil",
+            "OII"
+        ],
+        [
+            "I00039",
+            "MerkelFacebook",
+            "incident",
+            "2017.0",
+            "Germany",
+            "OII"
+        ],
+        [
+            "I00040",
+            "modamaniSelfie",
+            "incident",
+            "2015.0",
+            "Germany",
+            "OII"
+        ],
+        [
+            "I00041",
+            "Refugee crime map",
+            "incident",
+            "2017.0",
+            "Germany",
+            "OII"
+        ],
+        [
+            "I00042",
+            "Saudi/Qatar bot dispute",
+            "incident",
+            "2017.0",
+            "Qatar",
+            "MIS"
+        ],
+        [
+            "I00043",
+            "FCC comments",
+            "incident",
+            "2017.0",
+            "USA",
+            "MIS"
+        ],
+        [
+            "I00044",
+            "JadeHelm exercise",
+            "incident",
+            "2015.0",
+            "USA",
+            "MIS"
+        ],
+        [
+            "I00045",
+            "Skripal",
+            "incident",
+            "2018.0",
+            "UK"
+        ],
+        [
+            "I00046",
+            "North Macedonia",
+            "incident",
+            "2018.0",
+            "Macedonia"
+        ],
+        [
+            "I00047",
+            "Sea of Azov",
+            "incident",
+            "2018.0",
+            "World"
+        ],
+        [
+            "I00048",
+            "White Helmets",
+            "campaign",
+            "2015.0",
+            "World"
+        ],
+        [
+            "I00049",
+            "White Helmets: Chemical Weapons",
+            "incident",
+            "2017.0",
+            "World"
+        ],
+        [
+            "I00050",
+            "#HandsOffVenezuela",
+            "incident",
+            "2019.0",
+            "World"
+        ],
+        [
+            "I00051",
+            "Integrity Initiative",
+            "incident",
+            "2018.0",
+            "World"
+        ],
+        [
+            "I00052",
+            "China overiew",
+            "campaign",
+            "2015.0",
+            "World"
+        ],
+        [
+            "I00053",
+            "China Huawei CFO Arrest",
+            "incident",
+            "2018.0",
+            "World"
+        ],
+        [
+            "I00054",
+            "China Muslims",
+            "incident",
+            "2018.0",
+            "World"
+        ],
+        [
+            "I00055",
+            "50 Cent Army",
+            "campaign",
+            "2008.0",
+            "World"
+        ],
+        [
+            "I00056",
+            "Iran Influence Operations",
+            "campaign",
+            "2012.0",
+            "World"
+        ],
+        [
+            "I00057",
+            "Mexico Election",
+            "incident",
+            "2018.0",
+            "Mexico"
+        ],
+        [
+            "I00058",
+            "Chemnitz",
+            "incident",
+            "2018.0",
+            "Germany"
+        ],
+        [
+            "I00059",
+            "Myanmar - Rohingya",
+            "campaign",
+            "2014.0",
+            "Myanmar"
+        ],
+        [
+            "I00060",
+            "White Genocide",
+            "campaign",
+            "2018.0",
+            "World"
+        ],
+        [
+            "I00061",
+            "Military veterans Targetting",
+            "campaign",
+            "2017.0",
+            "US"
+        ],
+        [
+            "I00062",
+            "Brexit/UK ongoing",
+            "campaign",
+            "2015.0",
+            "UK"
+        ],
+        [
+            "I00063",
+            "Olympic Doping Scandal",
+            "campaign",
+            "2016.0",
+            "World"
+        ],
+        [
+            "I00064",
+            "Tinder nightmares: the promise and peril of political bots",
+            "incident",
+            "2017.0",
+            "UK"
+        ],
+        [
+            "I00065",
+            "'Ghostwriter' Influence Campaign: Unknown Actors Leverage Website Compromises and Fabricated Content to Push Narratives Aligned With Russian Security Interests",
+            "campaign",
+            "2020.0",
+            "Lithuania, Latvia, Poland"
+        ],
+        [
+            "I00066",
+            "The online war between Qatar and Saudi Arabia",
+            "incident",
+            "2017.0",
+            "Qatar"
+        ],
+        [
+            "I00067",
+            "Understanding Information disorder"
+        ],
+        [
+            "I00068",
+            "Attempted Audio Deepfake Call Targets LastPass Employee"
+        ],
+        [
+            "I00069",
+            "Uncharmed: Untangling Iran's APT42 Operations"
+        ],
+        [
+            "I00070",
+            "Eli Lilly Clarifies It’s Not Offering Free Insulin After Tweet From Fake Verified Account—As Chaos Unfolds On Twitter"
+        ],
+        [
+            "I00071",
+            "Russia-aligned hacktivists stir up anti-Ukrainian sentiments in Poland"
+        ],
+        [
+            "I00072",
+            "Behind the Dutch Terror Threat Video: The St. Petersburg \"Troll Factory\" Connection"
+        ],
+        [
+            "I00073",
+            "Disinformation campaign removed by Facebook linked to Russia’s Internet Research Agency"
+        ],
+        [
+            "I00074",
+            "The Tactics & Tropes of the Internet Research Agency"
+        ],
+        [
+            "I00075",
+            "How Russia Meddles Abroad for Profit: Cash, Trolls and a Cult Leader"
+        ],
+        [
+            "I00076",
+            "Network of Social Media Accounts Impersonates U.S. Political Candidates, Leverages U.S. and Israeli Media in Support of Iranian Interests"
+        ],
+        [
+            "I00077",
+            "Fronts & Friends: An Investigation into Two Twitter Networks Linked to Russian Actors"
+        ],
+        [
+            "I00078",
+            "Meta’s September 2020 Removal of Coordinated Inauthentic Behavior"
+        ],
+        [
+            "I00079",
+            "Three thousand fake tanks"
+        ],
+        [
+            "I00080",
+            "Hundreds Of Propaganda Accounts Targeting Iran And Qatar Have Been Removed From Facebook"
+        ],
+        [
+            "I00081",
+            "Belarus KGB created fake accounts to criticize Poland during border crisis, Facebook parent company says"
+        ],
+        [
+            "I00082",
+            "Meta’s November 2021 Adversarial Threat Report"
+        ],
+        [
+            "I00083",
+            "Fake Think Tanks Fuel Fake News—And the President's Tweets"
+        ],
+        [
+            "I00084",
+            "Russia turns its diplomats into disinformation warriors"
+        ],
+        [
+            "I00085",
+            "China’s large-scale media push: Attempts to influence Swedish media"
+        ],
+        [
+            "I00086",
+            "#WeAreNotSafe – Exposing How a Post-October 7th Disinformation Network Operates on Israeli Social Media"
+        ],
+        [
+            "I00087",
+            "Challenging Truth and Trust: A Global Inventory of Organized Social Media Manipulation"
+        ],
+        [
+            "I00088",
+            "Much Ado About ‘Somethings’ - China-Linked Influence Operation Endures Despite Takedown"
+        ],
+        [
+            "I00089",
+            "Hackers Use Fake Facebook Profiles of Attractive Women to Spread Viruses, Steal Passwords"
+        ],
+        [
+            "I00090",
+            "Fake: US Intelligence Officer Says Poland Contributes to Ukraine’s Armed Forces Destruction"
+        ],
+        [
+            "I00091",
+            "Facebook uncovers Chinese network behind fake expert"
+        ],
+        [
+            "I00092",
+            "The Most Influential Spreader of Coronavirus Misinformation Online"
+        ],
+        [
+            "I00093",
+            "China Falsely Denies Disinformation Campaign Targeting Canada’s Prime Minister"
+        ],
+        [
+            "I00094",
+            "A glimpse inside a Chinese influence campaign: How bogus news websites blur the line between true and false"
+        ],
+        [
+            "I00095",
+            "Meta: Chinese disinformation network was behind London front company recruiting content creators"
+        ]
+    ]
+]

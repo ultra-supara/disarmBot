@@ -1,0 +1,21 @@
+[
+    [
+        [
+            "https://www.newsweek.com/hackers-use-fake-profiles-attractive-women-facebook-spread-viruses-814293",
+            "2018/02/21",
+            "Jason Murdock",
+            "Newsweek",
+            "https://web.archive.org/web/20240116034006/https://www.newsweek.com/hackers-use-fake-profiles-attractive-women-facebook-spread-viruses-814293"
+        ]
+    ],
+    [
+        [
+            "T0143.002 Fabricated Persona",
+            "IT00000314 “On Facebook, Rita, Alona and Christina appeared to be just like the millions of other U.S citizens sharing their lives with the world. They discussed family outings, shared emojis and commented on each other's photographs. “In reality, the three accounts were part of a highly-targeted cybercrime operation, used to spread malware that was able to steal passwords and spy on victims. “Hackers with links to Lebanon likely ran the covert scheme using a strain of malware dubbed \"Tempting Cedar Spyware,\" according to researchers from Prague-based anti-virus company Avast, which detailed its findings in a report released on Wednesday. “In a honey trap tactic as old as time, the culprits' targets were mostly male, and lured by fake attractive women.  “In the attack, hackers would send flirtatious messages using Facebook to the chosen victims, encouraging them to download a second , booby-trapped, chat application known as Kik Messenger to have \"more secure\" conversations. Upon analysis, Avast experts found that \"many fell for the trap.”” In this example threat actors took on the persona of a romantic suitor on Facebook, directing their targets to another platform (T0097:109 Romantic Suitor Persona, T0145.006: Attractive Person Account Imagery, T0143.002: Fabricated Persona)."
+        ],
+        [
+            "T0145.006 Attractive Person Account Imagery",
+            "IT00000312 “On Facebook, Rita, Alona and Christina appeared to be just like the millions of other U.S citizens sharing their lives with the world. They discussed family outings, shared emojis and commented on each other's photographs. “In reality, the three accounts were part of a highly-targeted cybercrime operation, used to spread malware that was able to steal passwords and spy on victims. “Hackers with links to Lebanon likely ran the covert scheme using a strain of malware dubbed \"Tempting Cedar Spyware,\" according to researchers from Prague-based anti-virus company Avast, which detailed its findings in a report released on Wednesday. “In a honey trap tactic as old as time, the culprits' targets were mostly male, and lured by fake attractive women.  “In the attack, hackers would send flirtatious messages using Facebook to the chosen victims, encouraging them to download a second , booby-trapped, chat application known as Kik Messenger to have \"more secure\" conversations. Upon analysis, Avast experts found that \"many fell for the trap.”” In this example threat actors took on the persona of a romantic suitor on Facebook, directing their targets to another platform (T0097:109 Romantic Suitor Persona, T0145.006: Attractive Person Account Imagery, T0143.002: Fabricated Persona)."
+        ]
+    ]
+]

@@ -1,0 +1,92 @@
+[
+    [
+        [
+            "TK0019 anchor trust / credibility"
+        ],
+        [
+            "TK0020 insert themes"
+        ],
+        [
+            "TK0038 OPSEC for TA08"
+        ]
+    ],
+    [
+        [
+            "T0020 Trial Content"
+        ],
+        [
+            "T0042 Seed Kernel of Truth"
+        ],
+        [
+            "T0044 Seed Distortions"
+        ],
+        [
+            "T0045 Use Fake Experts"
+        ],
+        [
+            "T0046 Use Search Engine Optimisation"
+        ]
+    ],
+    [
+        [
+            "C00112 \"Prove they are not an op!\"",
+            "D02"
+        ],
+        [
+            "C00113 Debunk and defuse a fake expert / credentials.",
+            "D02"
+        ],
+        [
+            "C00114 Don't engage with payloads",
+            "D02"
+        ],
+        [
+            "C00115 Expose actor and intentions",
+            "D02"
+        ],
+        [
+            "C00116 Provide proof of involvement",
+            "D02"
+        ],
+        [
+            "C00154 Ask media not to report false information",
+            "D02"
+        ],
+        [
+            "C00100 Hashtag jacking",
+            "D03"
+        ],
+        [
+            "C00136 Microtarget most likely targets then send them countermessages",
+            "D03"
+        ],
+        [
+            "C00188 Newsroom/Journalist training to counter influence moves",
+            "D03"
+        ],
+        [
+            "C00117 Downgrade / de-amplify so message is seen by fewer people",
+            "D04"
+        ],
+        [
+            "C00118 Repurpose images with new text",
+            "D04"
+        ],
+        [
+            "C00184 Media exposure",
+            "D04"
+        ],
+        [
+            "C00119 Engage payload and debunk.",
+            "D07"
+        ],
+        [
+            "C00120 Open dialogue about design of platforms to produce different outcomes",
+            "D07"
+        ],
+        [
+            "C00121 Tool transparency and literacy for channels people follow.",
+            "D07"
+        ]
+    ]
+]

@@ -1,0 +1,170 @@
+[
+    [
+        [
+            "I00005 Brexit vote",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00007 Incirlik terrorists",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00010 ParklandTeens",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00017 US presidential elections",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00022 #Macronleaks",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00029 MH17 investigation",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00032 Kavanaugh",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00042 Saudi/Qatar bot dispute",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00044 JadeHelm exercise",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00047 Sea of Azov",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00049 White Helmets: Chemical Weapons",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00050 #HandsOffVenezuela",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00051 Integrity Initiative",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00056 Iran Influence Operations",
+            "Twitter bots amplify & manipulate"
+        ],
+        [
+            "I00063 Olympic Doping Scandal",
+            "Twitter bots amplify & manipulate"
+        ]
+    ],
+    [
+        [
+            "C00006 Charge for social media",
+            "D02"
+        ],
+        [
+            "C00012 Platform regulation",
+            "D02"
+        ],
+        [
+            "C00016 Censorship",
+            "D02"
+        ],
+        [
+            "C00044 Keep people from posting to social media immediately",
+            "D03"
+        ],
+        [
+            "C00046 Marginalise and discredit extremist groups",
+            "D04"
+        ],
+        [
+            "C00048 Name and Shame Influencers",
+            "D07"
+        ],
+        [
+            "C00074 Identify and delete or rate limit identical content",
+            "D02"
+        ],
+        [
+            "C00081 Highlight flooding and noise, and explain motivations",
+            "D03"
+        ],
+        [
+            "C00082 Ground truthing as automated response to pollution",
+            "D03"
+        ],
+        [
+            "C00085 Mute content",
+            "D03"
+        ],
+        [
+            "C00086 Distract from noise with addictive content",
+            "D04"
+        ],
+        [
+            "C00087 Make more noise than the disinformation",
+            "D04"
+        ],
+        [
+            "C00091 Honeypot social community",
+            "D05"
+        ],
+        [
+            "C00092 Establish a truth teller reputation score for influencers",
+            "D07"
+        ],
+        [
+            "C00097 Require use of verified identities to contribute to poll or comment",
+            "D02"
+        ],
+        [
+            "C00101 Create friction by rate-limiting engagement",
+            "D04"
+        ],
+        [
+            "C00120 Open dialogue about design of platforms to produce different outcomes",
+            "D07"
+        ],
+        [
+            "C00122 Content moderation",
+            "D02"
+        ],
+        [
+            "C00123 Remove or rate limit botnets",
+            "D03"
+        ],
+        [
+            "C00125 Prebunking",
+            "D03"
+        ],
+        [
+            "C00126 Social media amber alert",
+            "D03"
+        ],
+        [
+            "C00128 Create friction by marking content with ridicule or other \"decelerants\"",
+            "D03"
+        ],
+        [
+            "C00131 Seize and analyse botnet servers",
+            "D02"
+        ],
+        [
+            "C00153 Take pre-emptive action against actors' infrastructure",
+            "D03"
+        ],
+        [
+            "C00176 Improve Coordination amongst stakeholders: public and private",
+            "D07"
+        ],
+        [
+            "C00182 Redirection / malware detection/ remediation",
+            "D02"
+        ]
+    ]
+]

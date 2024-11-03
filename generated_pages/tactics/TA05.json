@@ -1,0 +1,52 @@
+[
+    [
+        [
+            "TK0035 OPSEC for TA05"
+        ]
+    ],
+    [
+        [
+            "T0016 Create Clickbait"
+        ],
+        [
+            "T0018 Purchase Targeted Advertisements"
+        ],
+        [
+            "T0101 Create Localised Content"
+        ],
+        [
+            "T0102 Leverage Echo Chambers/Filter Bubbles"
+        ],
+        [
+            "T0102.001 Use Existing Echo Chambers/Filter Bubbles"
+        ],
+        [
+            "T0102.002 Create Echo Chambers/Filter Bubbles"
+        ],
+        [
+            "T0102.003 Exploit Data Voids"
+        ]
+    ],
+    [
+        [
+            "C00216 Use advertiser controls to stem flow of funds to bad actors",
+            "D02"
+        ],
+        [
+            "C00065 Reduce political targeting",
+            "D03"
+        ],
+        [
+            "C00066 Co-opt a hashtag and drown it out (hijack it back)",
+            "D03"
+        ],
+        [
+            "C00178 Fill information voids with non-disinformation content",
+            "D04"
+        ],
+        [
+            "C00130 Mentorship: elders, youth, credit. Learn vicariously.",
+            "D07"
+        ]
+    ]
+]

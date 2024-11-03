@@ -48,8 +48,8 @@ def convert_md_to_html_in_directory(directory):
                 if len(table_list) > 0:
                    pass
                    #os.remove(md_path)
-                   #with open(md_path.replace('.md', '.json'), 'w', encoding='utf-8') as f:
-                   #     f.write(json.dumps(table_list, ensure_ascii=False, indent=4))
+                   with open(md_path.replace('.md', '.json'), 'w', encoding='utf-8') as f:
+                        f.write(json.dumps(table_list, ensure_ascii=False, indent=4))
     return lists
 
 

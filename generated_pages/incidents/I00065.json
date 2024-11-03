@@ -1,0 +1,17 @@
+[
+    [
+        [
+            "https://www.mandiant.com/resources/blog/ghostwriter-influence-campaign",
+            "2020/07/28",
+            "Lee Foster, Sam Riddell, David Mainor, Gabby Roncone",
+            "Mandiant",
+            "https://web.archive.org/web/20240621162043/https://cloud.google.com/blog/topics/threat-intelligence/ghostwriter-influence-campaign/"
+        ]
+    ],
+    [
+        [
+            "T0141.001 Acquire Compromised Account",
+            "IT00000215 ”Overall, narratives promoted in the five operations appear to represent a concerted effort to discredit the ruling political coalition, widen existing domestic political divisions and project an image of coalition disunity in Poland. In each incident, content was primarily disseminated via Twitter, Facebook, and/ or Instagram accounts belonging to Polish politicians, all of whom have publicly claimed their accounts were compromised at the times the posts were made.\"  This example demonstrates how threat actors can use T0141.001: Acquire Compromised Account to distribute inauthentic content while exploiting the legitimate account holder’s persona."
+        ]
+    ]
+]

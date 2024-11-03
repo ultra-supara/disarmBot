@@ -1,0 +1,150 @@
+[
+    [
+        [
+            "TK0001 Goal setting"
+        ],
+        [
+            "TK0002 Population research / audience analysis (centre of gravity)"
+        ],
+        [
+            "TK0003 Campaign design (objective design)"
+        ],
+        [
+            "TK0031 OPSEC for TA01"
+        ]
+    ],
+    [
+        [
+            "T0073 Determine Target Audiences"
+        ],
+        [
+            "T0074 Determine Strategic Ends"
+        ],
+        [
+            "T0074.001 Geopolitical Advantage"
+        ],
+        [
+            "T0074.002 Domestic Political Advantage"
+        ],
+        [
+            "T0074.003 Economic Advantage"
+        ],
+        [
+            "T0074.004 Ideological Advantage"
+        ]
+    ],
+    [
+        [
+            "C00006 Charge for social media",
+            "D02"
+        ],
+        [
+            "C00010 Enhanced privacy regulation for social media",
+            "D02"
+        ],
+        [
+            "C00012 Platform regulation",
+            "D02"
+        ],
+        [
+            "C00013 Rating framework for news",
+            "D02"
+        ],
+        [
+            "C00016 Censorship",
+            "D02"
+        ],
+        [
+            "C00073 Inoculate populations through media literacy training",
+            "D02"
+        ],
+        [
+            "C00174 Create a healthier news environment",
+            "D02"
+        ],
+        [
+            "C00017 Repair broken social connections",
+            "D03"
+        ],
+        [
+            "C00019 Reduce effect of division-enablers",
+            "D03"
+        ],
+        [
+            "C00153 Take pre-emptive action against actors' infrastructure",
+            "D03"
+        ],
+        [
+            "C00159 Have a disinformation response plan",
+            "D03"
+        ],
+        [
+            "C00170 elevate information as a critical domain of statecraft",
+            "D03"
+        ],
+        [
+            "C00190 open engagement with civil society",
+            "D03"
+        ],
+        [
+            "C00205 strong dialogue between the federal government and private sector to encourage better reporting",
+            "D03"
+        ],
+        [
+            "C00212 build public resilience by making civil society more vibrant",
+            "D03"
+        ],
+        [
+            "C00220 Develop a monitoring and intelligence plan",
+            "D03"
+        ],
+        [
+            "C00221 Run a disinformation red team, and design mitigation factors",
+            "D03"
+        ],
+        [
+            "C00223 Strengthen Trust in social media platforms",
+            "D03"
+        ],
+        [
+            "C00008 Create shared fact-checking database",
+            "D04"
+        ],
+        [
+            "C00021 Encourage in-person communication",
+            "D04"
+        ],
+        [
+            "C00022 Innoculate. Positive campaign to promote feeling of safety",
+            "D04"
+        ],
+        [
+            "C00024 Promote healthy narratives",
+            "D04"
+        ],
+        [
+            "C00026 Shore up democracy based messages",
+            "D04"
+        ],
+        [
+            "C00111 Reduce polarisation by connecting and presenting sympathetic renditions of opposite views",
+            "D04"
+        ],
+        [
+            "C00027 Create culture of civility",
+            "D07"
+        ],
+        [
+            "C00096 Strengthen institutions that are always truth tellers",
+            "D07"
+        ],
+        [
+            "C00161 Coalition Building with stakeholders and Third-Party Inducements",
+            "D07"
+        ],
+        [
+            "C00176 Improve Coordination amongst stakeholders: public and private",
+            "D07"
+        ]
+    ]
+]

@@ -1,0 +1,212 @@
+[
+    [
+        [
+            "TK0004 Identify target subgroups"
+        ],
+        [
+            "TK0005 Analyse subgroups"
+        ],
+        [
+            "TK0006 create master narratives"
+        ],
+        [
+            "TK0007 Decide on techniques (4Ds etc)"
+        ],
+        [
+            "TK0008 Create subnarratives"
+        ],
+        [
+            "TK0009 4chan/8chan coordinating content"
+        ],
+        [
+            "TK0032 OPSEC for TA02"
+        ]
+    ],
+    [
+        [
+            "T0002 Facilitate State Propaganda"
+        ],
+        [
+            "T0066 Degrade Adversary"
+        ],
+        [
+            "T0075 Dismiss"
+        ],
+        [
+            "T0075.001 Discredit Credible Sources"
+        ],
+        [
+            "T0076 Distort"
+        ],
+        [
+            "T0077 Distract"
+        ],
+        [
+            "T0078 Dismay"
+        ],
+        [
+            "T0079 Divide"
+        ],
+        [
+            "T0135 Undermine"
+        ],
+        [
+            "T0135.001 Smear"
+        ],
+        [
+            "T0135.002 Thwart"
+        ],
+        [
+            "T0135.003 Subvert"
+        ],
+        [
+            "T0135.004 Polarise"
+        ],
+        [
+            "T0136 Cultivate Support"
+        ],
+        [
+            "T0136.001 Defend Reputaton"
+        ],
+        [
+            "T0136.002 Justify Action"
+        ],
+        [
+            "T0136.003 Energise Supporters"
+        ],
+        [
+            "T0136.004 Boost Reputation"
+        ],
+        [
+            "T0136.005 Cultvate Support for Initiative"
+        ],
+        [
+            "T0136.006 Cultivate Support for Ally"
+        ],
+        [
+            "T0136.007 Recruit Members"
+        ],
+        [
+            "T0136.008 Increase Prestige"
+        ],
+        [
+            "T0137 Make Money"
+        ],
+        [
+            "T0137.001 Generate Ad Revenue"
+        ],
+        [
+            "T0137.002 Scam"
+        ],
+        [
+            "T0137.003 Raise Funds"
+        ],
+        [
+            "T0137.004 Sell Items under False Pretences"
+        ],
+        [
+            "T0137.005 Extort"
+        ],
+        [
+            "T0137.006 Manipulate Stocks"
+        ],
+        [
+            "T0138 Motivate to Act"
+        ],
+        [
+            "T0138.001 Encourage"
+        ],
+        [
+            "T0138.002 Provoke"
+        ],
+        [
+            "T0138.003 Compel"
+        ],
+        [
+            "T0139 Dissuade from Acting"
+        ],
+        [
+            "T0139.001 Discourage"
+        ],
+        [
+            "T0139.002 Silence"
+        ],
+        [
+            "T0139.003 Deter"
+        ],
+        [
+            "T0140 Cause Harm"
+        ],
+        [
+            "T0140.001 Defame"
+        ],
+        [
+            "T0140.002 Intimidate"
+        ],
+        [
+            "T0140.003 Spread Hate"
+        ]
+    ],
+    [
+        [
+            "C00009 Educate high profile influencers on best practices",
+            "D02"
+        ],
+        [
+            "C00011 Media literacy. Games to identify fake news",
+            "D02"
+        ],
+        [
+            "C00070 Block access to disinformation resources",
+            "D02"
+        ],
+        [
+            "C00028 Make information provenance available",
+            "D03"
+        ],
+        [
+            "C00029 Create fake website to issue counter narrative and counter narrative through physical merchandise",
+            "D03"
+        ],
+        [
+            "C00030 Develop a compelling counter narrative (truth based)",
+            "D03"
+        ],
+        [
+            "C00031 Dilute the core narrative - create multiple permutations, target / amplify",
+            "D03"
+        ],
+        [
+            "C00060 Legal action against for-profit engagement factories",
+            "D03"
+        ],
+        [
+            "C00156 Better tell your country or organisation story",
+            "D03"
+        ],
+        [
+            "C00164 compatriot policy",
+            "D03"
+        ],
+        [
+            "C00169 develop a creative content hub",
+            "D03"
+        ],
+        [
+            "C00222 Tabletop simulations",
+            "D03"
+        ],
+        [
+            "C00144 Buy out troll farm employees / offer them jobs",
+            "D04"
+        ],
+        [
+            "C00092 Establish a truth teller reputation score for influencers",
+            "D07"
+        ],
+        [
+            "C00207 Run a competing disinformation campaign - not recommended",
+            "D07"
+        ]
+    ]
+]
