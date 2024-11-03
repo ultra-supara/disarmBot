@@ -47,7 +47,7 @@ def read_md_files(md_files):
             print(f"Error reading {file_path}: {e}")
     return content
 
-def run_assistant():
+def run_assistant(msg :str):
     # JSONファイルからMarkdownファイルのリストを取得
     json_file_path = os.path.join("./generated_pages", "md_files.json")  # JSONファイルのパスを指定
     md_files = load_md_files_from_json(json_file_path)
@@ -75,7 +75,7 @@ def run_assistant():
     )
 
     # タスクの依頼
-    c = user_proxy.initiate_chat(assistant, message=f"{md_content} すべてのデータを学習分析し、偽情報に関する議論を行ってください")
+    c = user_proxy.initiate_chat(assistant, message=f"{md_content} すべてのデータを学習分析し、以下のユーザーのメッセージに対して偽情報に関連して議論を行ってください:\n {msg}")
 
     return c
 
@@ -92,7 +92,13 @@ async def on_ready():
 @bot.command(name="discuss", description="discuss")
 async def discuss(ctx: discord.ApplicationContext, msg: str):
     await ctx.respond("AIアシスタントがデータを学習分析し、偽情報に関する議論を行います...")
-    c = run_assistant()
+    c = run_assistant(msg)
+    color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
+    color_per_person = dict()
+    for i,hist in enumerate(c.chat_history):
+        name = hist['name']
+        if name not in color_per_person:
+            color_per_person[name] = color_candidates[i % len(color_candidates)]
     for hist in c.chat_history:
         name = hist['name']
         content = hist['content']
@@ -100,25 +106,12 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
         for line in lines:
             while True:
                 if len(line) <= 2000:
-                    await ctx.send(embed=discord.Embed(title=name, description=line))
+                    await ctx.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
                     break
                 else:
-                    await ctx.send(embed=discord.Embed(title=name, description=line[:2000]))
+                    await ctx.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
                     line = line[2000:]
-        await ctx.send(embed=discord.Embed(title=name, description=content))
-    text = str(c)
-    print(text)
-    lines = text.split("\n")
-    # split lines into 2000 characters
-    # discord has a limit of 2000 characters per message
-    for line in lines:
-        while True:
-            if len(line) <= 2000:
-                await ctx.send(line)
-                break
-            else:
-                await ctx.send(line[:2000])
-                line = line[2000:]
+
 
 # Botを起動
 bot.run(DISCORD_TOKEN)
