@@ -1,5 +1,7 @@
 # disarmBot
 
+![image](https://github.com/user-attachments/assets/047ae510-c961-4b9a-b7c5-fa62c0a6b09f)
+
 <div id="top"></div>
 
 ## 使用技術一覧
@@ -44,22 +46,17 @@
 
 ## 環境
 
-<!-- 言語、フレームワーク、ミドルウェア、インフラの一覧とバージョンを記載 -->
-
 | 言語・フレームワーク  | バージョン |
 | --------------------- | ---------- |
 | Python                | 3.12.7     |
 | autogen-agentchat     | 0.2.37     |
-
-
-その他のパッケージのバージョンは pyproject.toml と package.json を参照してください
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
 ## ディレクトリ構成
 
 <!-- Treeコマンドを使ってディレクトリ構成を記載 -->
-
+```
 ❯ tree -L 2
 .
 ├── README.md
@@ -106,6 +103,7 @@
     └── techniques_index.md
 
 10 directories, 33 files
+```
 
 <p align="right">(<a href="#top">トップへ</a>)</p>
 
@@ -114,6 +112,7 @@
 .env ファイルを以下の環境変数例と[環境変数の一覧](#環境変数の一覧)を元に作成
 
 .env
+
 ```bash
 OPENAI_API_KEY=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 DISCORD_TOKEN=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
