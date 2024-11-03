@@ -5,13 +5,14 @@ import json
 
 API_KEY = os.getenv("OPENAI_API_KEY")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
+BASE_URL = os.getenv("BASE_URL")
 
 # LLMコンフィグ設定
 llm_config = {
     "config_list": [
         {
             "model": "gpt-35-turbo",
-            "base_url": "https://ai-ai.openai.azure.com/",
+            "base_url": BASE_URL,
             "api_key": API_KEY,
             "api_type": "azure",
             "api_version": "2024-05-01-preview",
