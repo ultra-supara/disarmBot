@@ -24,46 +24,6 @@ llm_config = {
     ],
 }
 
-# def load_md_files_from_json(json_file_path):
-#     """JSONファイルからMarkdownファイルのリストを読み込む"""
-#     try:
-#         with open(json_file_path, 'r', encoding='utf-8') as f:
-#             data = json.load(f)
-#             return data.get("md_files", [])
-#     except FileNotFoundError:
-#         print(f"JSON file not found: {json_file_path}")
-#         return []
-#     except json.JSONDecodeError:
-#         print(f"Error decoding JSON from file: {json_file_path}")
-#         return []
-
-# def read_md_files():
-#     # """Markdownファイルの内容を読み込む"""
-#     # content = ""
-#     # for md_file in md_files:
-#     #     file_path = os.path.join("./generated_pages", md_file)
-#     #     try:
-#     #         with open(file_path, 'r', encoding='utf-8') as f:
-#     #             content += f.read() + "\n\n"  # Add double newline for separation
-#     #     except FileNotFoundError:
-#     #         print(f"File not found: {file_path}")
-#     #     except Exception as e:
-#     #         print(f"Error reading {file_path}: {e}")
-#     # return content
-#     content = ""
-#     for root, _, files in os.walk('./generated_pages'):
-#         for file in files:
-#             if file.endswith('.json'):
-#                 md_path = os.path.join(root, file)
-                
-#                 # .mdファイルを読み込む
-#                 with open(md_path, 'r', encoding='utf-8') as f:
-#                     l = json.loads(f.read())
-#                     markdown_text = json.dumps(l,indent=None)  
-#                 content += markdown_text + "\n\n"
-#         break # only read the first directory
-#     return content
-
 red_framework =""
 blue_framework = ""
 
@@ -102,12 +62,10 @@ with open("generated_pages/disarm_blue_framework.json", 'r', encoding='utf-8') a
 
 
 with open("generated_pages/red_framework.txt", 'w', encoding='utf-8') as f:
-     f.write(red_framework)
+    f.write(red_framework)
 
 with open("generated_pages/blue_framework.txt", 'w', encoding='utf-8') as f:
-     f.write(blue_framework)
-
-# os.exit(0)
+    f.write(blue_framework)
 
 def run_assistant(msg :str):
     # Markdownファイルの内容を読み込む
@@ -128,7 +86,7 @@ def run_assistant(msg :str):
         max_consecutive_auto_reply=5,
     )
 
-     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
+    # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
         system_message="偽情報に関する具体的な技術的議論を行います。",
@@ -138,7 +96,7 @@ def run_assistant(msg :str):
         max_consecutive_auto_reply=5,
         code_execution_config={"use_docker": False, "work_dir": "./generated_pages"},
     )
-    
+
 
     group_chat = autogen.GroupChat(
         agents=[user_proxy, attacker_assistant,defender_assistant], messages=[], max_round=10
@@ -148,8 +106,6 @@ def run_assistant(msg :str):
 
     # タスクの依頼
     c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関連して議論を行ってください:\n {msg}")
-
-    
 
     return c
 
@@ -190,7 +146,6 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
                 else:
                     await ctx.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
                     line = line[2000:]
-
 
 # Botを起動
 bot.run(DISCORD_TOKEN)

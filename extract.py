@@ -23,11 +23,11 @@ def convert_md_to_html_in_directory(directory):
         for file in files:
             if file.endswith('.md'):
                 md_path = os.path.join(root, file)
-                
+
                 # .mdファイルを読み込む
                 with open(md_path, 'r', encoding='utf-8') as f:
                     markdown_text = f.read()
-                
+
                 html = markdown.markdown(markdown_text,extensions=['tables'])
 
                 # print(html)
@@ -44,16 +44,12 @@ def convert_md_to_html_in_directory(directory):
                     table_json = table_to_json(table)
                     if len(table_json) > 0:
                         table_list.append(table_json)
-                
+
                 if len(table_list) > 0:
-                   pass
-                   #os.remove(md_path)
-                   with open(md_path.replace('.md', '.json'), 'w', encoding='utf-8') as f:
+                    pass
+                    with open(md_path.replace('.md', '.json'), 'w', encoding='utf-8') as f:
                         f.write(json.dumps(table_list, ensure_ascii=False, indent=4))
     return lists
-
-
-                
 
 # 使用例：現在のディレクトリから開始
 converted = convert_md_to_html_in_directory('.')
