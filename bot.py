@@ -2,9 +2,6 @@ import autogen
 import discord
 import os
 import json
-from autogen.agentchat.contrib.retrieve_user_proxy_agent import (
-    RetrieveUserProxyAgent,
-)
 from more_itertools import flatten
 
 API_KEY = os.getenv("OPENAI_API_KEY")
