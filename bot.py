@@ -151,6 +151,8 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
         content = hist['content']
         lines = str(content).split("\n")
         for line in lines:
+            if line == "":
+                continue
             while True:
                 if len(line) <= 2000:
                     await ctx.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
