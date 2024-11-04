@@ -71,14 +71,14 @@ def run_assistant(msg :str):
     # AIアシスタントの設定
     attacker_assistant = autogen.AssistantAgent(
         name="atacker_assistant",
-        system_message=f"""{red_framework}\nあなたは偽情報の攻撃者側の視点に立って具体的な戦術(TA1 Plan Strategyなど)を参照し議論を行います。""",
+        system_message=f"""{red_framework}\nあなたは偽情報の攻撃者側の視点に立って具体的な戦術(TA1 Plan Strategy, T73 Determine Target Audiencesなど)を複数参照し議論を行います。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
 
     defender_assistant = autogen.AssistantAgent(
         name="defender_assistant",
-        system_message=f"""{blue_framework}\nあなたは偽情報の防御者側の視点に立って具体的な戦術(TA1 Plan Strategyなど)を参照し議論を行います。""",
+        system_message=f"""{blue_framework}\nあなたは偽情報の防御者側の視点に立って具体的な戦術(TA2 Plan Objectives, C211 Use humorous counter-narrativesなど)を複数参照し議論を行います。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
@@ -102,7 +102,7 @@ def run_assistant(msg :str):
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=llm_config)
 
     # タスクの依頼
-    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関連して議論を行ってください:\n {msg}")
+    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関して議論を行ってください。:\n {msg}")
 
     return c
 
