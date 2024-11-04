@@ -71,28 +71,28 @@ def run_assistant(msg :str):
     # AIアシスタントの設定
     attacker_assistant_1 = autogen.AssistantAgent(
         name="atacker_assistant_1",
-        system_message=f"""Red Team Framework\n{red_framework}\n\nあなたは前の発言者の提示したコードに関連する英語の攻撃の戦略/戦術について更に具体的に補足を行ってください。参照はTA1からTA18の戦略もしくはCで始まるコードの戦術です。""",
+        system_message=f"""事実のみを述べてください\n\nRed Framework\n{red_framework}\n\nあなたは前の発言者の提示したコードに関連する(MUST)英語の攻撃の戦略/戦術について更に具体的に補足を行ってください。TA1からTA18の戦略もしくはTで始まり数値が続くコードの戦術を参照すること。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
 
     attacker_assistant_2 = autogen.AssistantAgent(
         name="atacker_assistant_2",
-        system_message=f"""Red Team Framework\n{red_framework}\n\nあなたは偽情報の攻撃者役として具体的な戦略/戦術(TAＸ, TＸ (ＸはRed Team Framework内の数値))を必ず(MUST)複数参照し議論を行います。参照はTA1からTA18の戦略もしくはTで始まるコードの戦術です。""",
+        system_message=f"""事実のみを述べてください\n\nRed Framework\n{red_framework}\n\nあなたは偽情報の攻撃者役として具体的な戦略/戦術を必ず(MUST)複数参照し議論を行います。TA1からTA18の戦略もしくはTで始まり数値が続くコードの戦術を参照すること。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
 
     defender_assistant_1 = autogen.AssistantAgent(
         name="defender_assistant_1",
-        system_message=f"""Blue Team Framework\n{blue_framework}\n\nあなたは前の発言者の提示したコードに関連する英語の防御の戦略/戦術について更に具体的に補足を行ってください。参照はTA1からTA18の戦略もしくはCで始まるコードの戦術です。""",
+        system_message=f"""事実のみを述べてください\n\nBlue Framework\n{blue_framework}\n\nあなたは前の発言者の提示したコードに関連する(MUST)英語の防御の戦略/戦術について更に具体的に補足を行ってください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
 
     defender_assistant_2 = autogen.AssistantAgent(
         name="defender_assistant_2",
-        system_message=f"""Blue Team Framework\n{blue_framework}\n\nあなたは偽情報の防御者役として具体的な戦略/戦術(TAＸ, CＸ (ＸはBlue Team Framework内の数値))を必ず(MUST)複数参照し議論を行います。攻撃者に対して倫理面の問題ではなく具体的な技術的戦略/戦術で対抗してください。参照はTA1からTA18の戦略もしくはCで始まるコードの戦術です。""",
+        system_message=f"""事実のみを述べてください\n\nBlue Framework\n{blue_framework}\n\nあなたは偽情報の防御者役として具体的な戦略/戦術を必ず(MUST)複数参照し議論を行います。攻撃者に対して倫理面の問題ではなく具体的な技術的戦略/戦術で対抗してください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
@@ -100,7 +100,7 @@ def run_assistant(msg :str):
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
-        system_message="偽情報に関する具体的な戦術/技術的議論のみに着目して質問を行います。TAX, TX, CX (Xは任意の数値)などのChat中で言及された戦術を参照してください。",
+        system_message="事実のみを述べてください\n\n偽情報に関する具体的な攻撃及び防御の戦術/技術的議論のみに着目してChat中で言及された具体的な戦略/戦術とそのコードを用いてまとめてください",
         is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("タスク完了"),
         human_input_mode="NEVER",
         llm_config=llm_config,
@@ -117,7 +117,7 @@ def run_assistant(msg :str):
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=llm_config)
 
     # タスクの依頼
-    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関して具体的な戦術/技術的対話を行ってください。:\n {msg}")
+    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関して提供されたコンテキストのみに基づき具体的な戦術/技術的対話を行ってください。:\n {msg}")
 
     return c
 
