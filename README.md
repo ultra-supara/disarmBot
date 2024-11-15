@@ -6,15 +6,13 @@
 
 ## プロジェクト概要
 
-※プロジェクト概要: 修正必要！！
-**disarmBot**は、偽情報に関する技術的な議論を支援するDiscordボットです。<br>
-戦術・技法・手順（TTP）に基づいた専門的な会話を可能にし、情報セキュリティ分野での学習や意見交換に役立ちます。<br>
+**disarmBot**は、AutoGenを使用し複数のAI Agentを立て、偽情報に関する議論を行った後、ユーザに返答を返すBotです。
 
-![image](対話の画像を入れる)
+偽情報対策のフレームワークである[DISARM Disinformation TTP Framework](https://github.com/DISARMFoundation/DISARMframeworks?tab=readme-ov-file)に基づいた情報を提供します。
 
----
+【AI Agentとの対話イメージ】
+![disarmbot](https://github.com/user-attachments/assets/6506ce32-7c50-4758-ac96-7a040e7ba8ea)
 
-## 使用イメージ
 
 
 ---
@@ -52,7 +50,7 @@
 
 ## ディレクトリ構成
 
-このプロジェクトのディレクトリ構成は以下の通りです：
+**プロジェクトのディレクトリ構成**
 
 ```plaintext
 .
