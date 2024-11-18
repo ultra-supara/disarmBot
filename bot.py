@@ -70,14 +70,14 @@ def run_assistant(msg :str):
 
     # AIアシスタントの設定
     attacker_assistant_1 = autogen.AssistantAgent(
-        name="atacker_assistant_1",
+        name="attacker_assistant_1",
         system_message=f"""事実のみを述べてください\n\nRed Framework\n{red_framework}\n\nあなたは前の発言者の提示したコードに関連する(MUST)英語の攻撃の戦略/戦術について更に具体的に補足を行ってください。TA1からTA18の戦略もしくはTで始まり数値が続くコードの戦術を参照すること。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
 
     attacker_assistant_2 = autogen.AssistantAgent(
-        name="atacker_assistant_2",
+        name="attacker_assistant_2",
         system_message=f"""事実のみを述べてください\n\nRed Framework\n{red_framework}\n\nあなたは偽情報の攻撃者役として具体的な戦略/戦術を必ず(MUST)複数参照し議論を行います。TA1からTA18の戦略もしくはTで始まり数値が続くコードの戦術を参照すること。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
