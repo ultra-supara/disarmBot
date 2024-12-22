@@ -143,33 +143,34 @@ async def on_ready():
 
 @bot.command(name="discuss", description="discuss")
 async def discuss(ctx: discord.ApplicationContext, msg: str):
-    await ctx.respond("AIアシスタントがデータを学習分析し、偽情報に関する議論を行います...")
     try:
-        c = run_assistant(msg)
+        await ctx.respond("AIアシスタントがデータを学習分析し、偽情報に関する議論を行います...")
+        th = await ctx.send("disarmBot 議事録")
+        channel = await th.create_thread(name="disarmBot 議事録")
+        c = await run_assistant(msg)
+        color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
+        color_per_person = dict()        
+        for i,hist in enumerate(c.chat_history):
+            name = hist['name']
+            if name not in color_per_person:
+                color_per_person[name] = color_candidates[i % len(color_candidates)]
+            content = hist['content']
+            lines = str(content).split("\n")
+
+            for line in lines:
+                if line == "":
+                    continue
+                while True:
+                    if len(line) <= 2000:
+                        await channel.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
+                        break
+                    else:
+                        await channel.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
+                        line = line[2000:]
     except Exception as e:
+        print(e)
         await ctx.respond(f"エラーが発生しました: {e}。もう一度お試しください。")
         return
-
-    color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
-    color_per_person = dict()
-    for i,hist in enumerate(c.chat_history):
-        name = hist['name']
-        if name not in color_per_person:
-            color_per_person[name] = color_candidates[i % len(color_candidates)]
-    for hist in c.chat_history:
-        name = hist['name']
-        content = hist['content']
-        lines = str(content).split("\n")
-        for line in lines:
-            if line == "":
-                continue
-            while True:
-                if len(line) <= 2000:
-                    await ctx.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
-                    break
-                else:
-                    await ctx.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
-                    line = line[2000:]
 
 # Botを起動
 bot.run(DISCORD_TOKEN)
