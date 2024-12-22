@@ -23,6 +23,7 @@ llm_config = {
             "api_version": VERSION,
         }
     ],
+    "stream": True,
 }
 
 red_framework =""
@@ -68,7 +69,7 @@ with open("generated_pages/red_framework.txt", 'w', encoding='utf-8') as f:
 with open("generated_pages/blue_framework.txt", 'w', encoding='utf-8') as f:
     f.write(blue_framework)
 
-def run_assistant(msg :str):
+async def run_assistant(msg :str):
     # Markdownファイルの内容を読み込む
     #md_content = read_md_files()
 
@@ -123,7 +124,10 @@ def run_assistant(msg :str):
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=llm_config)
 
     # タスクの依頼
-    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的議論を行ってください。重複した回答をしないようにしてください\n {msg}")
+    c = await user_proxy.a_initiate_chat(
+        manager,
+        message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的議論を行ってください。重複した回答をしないようにしてください\n {msg}"
+    )
 
     return c
 
