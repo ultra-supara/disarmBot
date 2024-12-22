@@ -26,13 +26,38 @@ llm_config = {
     "stream": True,
 }
 
+def search(query: str):
+    payload = json.dumps(
+        {
+            "search": query,
+            "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
+            "queryType": "semantic",
+            "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
+            "captions": "extractive",
+            "answers": "extractive|count-3",
+            "queryLanguage": "en-US",
+        }
+    )
+
+    response = list(client.search(payload))
+
+    output = []
+    for result in response:
+        result.pop("titleVector")
+        result.pop("contentVector")
+        output.append(result)
+
+    return output
+
+autogen.register_function(search)
+
 red_framework =""
 blue_framework = ""
 
 def load_and_flatten_json(framework :str) -> str:
     framework = json.loads(framework)
     framework = list(flatten(flatten(framework)))
-    framework = framework[:len(framework) - int(len(framework) / 3.5)]
+    #framework = framework[:len(framework) - int(len(framework) / 3.5)]
     framework = ' '.join(framework)
     return framework
 
