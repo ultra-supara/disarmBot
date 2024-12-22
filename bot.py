@@ -23,7 +23,33 @@ llm_config = {
             "api_version": VERSION,
         }
     ],
+    "stream": True,
 }
+
+def search(query: str):
+    payload = json.dumps(
+        {
+            "search": query,
+            "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
+            "queryType": "semantic",
+            "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
+            "captions": "extractive",
+            "answers": "extractive|count-3",
+            "queryLanguage": "en-US",
+        }
+    )
+
+    response = list(client.search(payload))
+
+    output = []
+    for result in response:
+        result.pop("titleVector")
+        result.pop("contentVector")
+        output.append(result)
+
+    return output
+
+autogen.register_function(search)
 
 red_framework =""
 blue_framework = ""
@@ -31,7 +57,7 @@ blue_framework = ""
 def load_and_flatten_json(framework :str) -> str:
     framework = json.loads(framework)
     framework = list(flatten(flatten(framework)))
-    framework = framework[:len(framework) - int(len(framework) / 3.5)]
+    #framework = framework[:len(framework) - int(len(framework) / 3.5)]
     framework = ' '.join(framework)
     return framework
 
@@ -68,7 +94,7 @@ with open("generated_pages/red_framework.txt", 'w', encoding='utf-8') as f:
 with open("generated_pages/blue_framework.txt", 'w', encoding='utf-8') as f:
     f.write(blue_framework)
 
-def run_assistant(msg :str):
+async def run_assistant(msg :str):
     # Markdownファイルの内容を読み込む
     #md_content = read_md_files()
 
@@ -123,7 +149,10 @@ def run_assistant(msg :str):
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=llm_config)
 
     # タスクの依頼
-    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的議論を行ってください。重複した回答をしないようにしてください\n {msg}")
+    c = await user_proxy.a_initiate_chat(
+        manager,
+        message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的議論を行ってください。重複した回答をしないようにしてください\n {msg}"
+    )
 
     return c
 
@@ -139,33 +168,34 @@ async def on_ready():
 
 @bot.command(name="discuss", description="discuss")
 async def discuss(ctx: discord.ApplicationContext, msg: str):
-    await ctx.respond("AIアシスタントがデータを学習分析し、偽情報に関する議論を行います...")
     try:
-        c = run_assistant(msg)
+        await ctx.respond("AIアシスタントがデータを学習分析し、偽情報に関する議論を行います...")
+        th = await ctx.send("disarmBot 議事録")
+        channel = await th.create_thread(name="disarmBot 議事録")
+        c = await run_assistant(msg)
+        color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
+        color_per_person = dict()        
+        for i,hist in enumerate(c.chat_history):
+            name = hist['name']
+            if name not in color_per_person:
+                color_per_person[name] = color_candidates[i % len(color_candidates)]
+            content = hist['content']
+            lines = str(content).split("\n")
+
+            for line in lines:
+                if line == "":
+                    continue
+                while True:
+                    if len(line) <= 2000:
+                        await channel.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
+                        break
+                    else:
+                        await channel.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
+                        line = line[2000:]
     except Exception as e:
+        print(e)
         await ctx.respond(f"エラーが発生しました: {e}。もう一度お試しください。")
         return
-
-    color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
-    color_per_person = dict()
-    for i,hist in enumerate(c.chat_history):
-        name = hist['name']
-        if name not in color_per_person:
-            color_per_person[name] = color_candidates[i % len(color_candidates)]
-    for hist in c.chat_history:
-        name = hist['name']
-        content = hist['content']
-        lines = str(content).split("\n")
-        for line in lines:
-            if line == "":
-                continue
-            while True:
-                if len(line) <= 2000:
-                    await ctx.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
-                    break
-                else:
-                    await ctx.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
-                    line = line[2000:]
 
 # Botを起動
 bot.run(DISCORD_TOKEN)
