@@ -75,7 +75,7 @@ def run_assistant(msg :str):
     # AIアシスタントの設定
     attacker_assistant_1 = autogen.AssistantAgent(
         name="attacker_assistant_1",
-        system_message=f"""変数\nred_framework='''\n{red_framework}\n'''\nあなたは前の発言者の提示したred_frameworkに関連する(MUST)英語の攻撃の戦略/戦術について更に具体的に補足を行ってください。TA1からTA18は""",
+        system_message=f"""変数\nred_framework='''\n{red_framework}\n'''\nあなたは前の発言者の提示したred_frameworkに関連する(MUST)攻撃の戦略/戦術について更に具体例などをだして議論を深めてください。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
@@ -89,7 +89,7 @@ def run_assistant(msg :str):
 
     defender_assistant_1 = autogen.AssistantAgent(
         name="defender_assistant_1",
-        system_message=f"""変数\nblue_framework='''\n{blue_framework}\n'''\nあなたは前の発言者の提示したblue_frameworkに関連する(MUST)英語の防御の戦略/戦術について更に具体的に補足を行ってください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
+        system_message=f"""変数\nblue_framework='''\n{blue_framework}\n'''\nあなたは前の発言者の提示したblue_frameworkに関連する(MUST)英語の防御の戦略/戦術について更に具体例などをだして議論を深めてください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
     )
@@ -104,24 +104,26 @@ def run_assistant(msg :str):
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
-        system_message="偽情報に関する具体的な攻撃及び防御の戦術/技術的議論のみに着目してChat中で言及された具体的な戦略/戦術とそのコードを用いてまとめてください",
+        system_message="偽情報に関する具体的な攻撃及び防御の戦術/技術的議論のみに着目してChat中で言及された具体的な戦略/戦術とそのコードを用いてStep by Stepでまとめてください",
         is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("タスク完了"),
         human_input_mode="NEVER",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
+        
         # code_execution_config={"use_docker": False, "work_dir": "./generated_pages"},
     )
 
 
     group_chat = autogen.GroupChat(
         agents=[user_proxy,attacker_assistant_2, attacker_assistant_1,defender_assistant_2,defender_assistant_1], messages=[], max_round=10,
-        speaker_selection_method="round_robin"
+        speaker_selection_method="round_robin",
+        
     )
 
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=llm_config)
 
     # タスクの依頼
-    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的対話を行ってください。\n {msg}")
+    c = user_proxy.initiate_chat(manager, message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的議論を行ってください。重複した回答をしないようにしてください\n {msg}")
 
     return c
 
