@@ -6,7 +6,6 @@ from more_itertools import flatten
 import aiohttp
 import bs4
 import traceback
-
 import chromadb as cdb
 import pathlib as pl
 
@@ -16,7 +15,7 @@ client = cdb.PersistentClient("./chroma_db")
 with open("./generated_pages/README.md") as f:
     readMe = f.read()
 
-collection = client.get_or_create_collection("disarm_framework") 
+collection = client.get_or_create_collection("disarm_framework")
 
 if not exists:
     for dirpath,dirnames,files in os.walk("./generated_pages"):
@@ -35,8 +34,6 @@ if not exists:
             except Exception as e:
                 print(e)
                 continue
-
-
 
 API_KEY = os.getenv("OPENAI_API_KEY")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -73,7 +70,7 @@ llm_config = {
     "config_list": [
         config
     ],
-     "functions": [
+    "functions": [
         {
             "name": "searchDisarmFramework",
             "description": """
@@ -95,7 +92,7 @@ DISARM is a framework designed for describing and understanding disinformation i
             "name": "searchTheInternet",
             "description": """
             Search the internet for information.
-            You should first search in search engines and 
+            You should first search in search engines and
             then goto specific websites to find information.
             """,
             "parameters": {
@@ -207,8 +204,7 @@ async def run_assistant(msg :str):
     group_chat = autogen.GroupChat(
         agents=assistants + [user_proxy],
         messages=[], max_round=15,
-        speaker_selection_method="round_robin",   
-             
+        speaker_selection_method="round_robin", # ラウンドロビン方式で話者を選択
     )
 
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config={
@@ -243,7 +239,7 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
         channel = await th.create_thread(name="disarmBot 議事録")
         c = await run_assistant(msg)
         color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
-        color_per_person = dict()        
+        color_per_person = dict()
         for i,hist in enumerate(c.chat_history):
             name = hist['name']
             if name not in color_per_person:
@@ -272,7 +268,7 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
     except Exception as e:
         print(e)
         print(traceback.format_exc())
-        
+
         await ctx.respond(f"エラーが発生しました: {e}。もう一度お試しください。")
         return
 
