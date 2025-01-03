@@ -3,6 +3,31 @@ import discord
 import os
 import json
 from more_itertools import flatten
+import chromadb as cdb
+client = cdb.Client()
+
+with open("./generated_pages/README.md") as f:
+    readMe = f.read()
+
+collection = client.create_collection("disarm-framework")
+
+
+for dirpath,dirnames,files in os.walk("./generated_pages"):
+    for file in files:
+        try:
+            print(f"adding {dirpath}/{file}")
+            with open(f"{dirpath}/{file}", 'r', encoding='utf-8') as f:
+                content = f.read()
+                collection.add(
+                    documents=[content],
+                    metadatas=[{"source": dirpath}],
+                    ids=[file],
+                )
+        except Exception as e:
+            print(e)
+            continue
+
+
 
 API_KEY = os.getenv("OPENAI_API_KEY")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -26,106 +51,95 @@ llm_config = {
     "stream": True,
 }
 
-def search(query: str):
-    payload = json.dumps(
-        {
-            "search": query,
-            "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
-            "queryType": "semantic",
-            "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
-            "captions": "extractive",
-            "answers": "extractive|count-3",
-            "queryLanguage": "en-US",
-        }
+def searchDisarmFramework(query: str):
+    global collection
+    result = collection.query(
+        query_texts=[query],
+        top_k_retriever=5,
+        n_results=5,
     )
 
-    response = list(client.search(payload))
+    return result["documents"][0][0] # temporary
 
-    output = []
-    for result in response:
-        result.pop("titleVector")
-        result.pop("contentVector")
-        output.append(result)
+autogen.register_function(searchDisarmFramework)
 
-    return output
+def omit():
+    red_framework =""
+    blue_framework = ""
 
-autogen.register_function(search)
+    def load_and_flatten_json(framework :str) -> str:
+        framework = json.loads(framework)
+        framework = list(flatten(flatten(framework)))
+        #framework = framework[:len(framework) - int(len(framework) / 3.5)]
+        framework = ' '.join(framework)
+        return framework
 
-red_framework =""
-blue_framework = ""
+    def trim_tokens(framework :str) -> str:
+        framework =  framework.replace("TA0","TA")
+        framework =  framework.replace("(", "")
+        framework =  framework.replace(")", "")
+        framework = framework.replace(" a "," ")
+        framework = framework.replace(" an "," ")
+        framework = framework.replace(" / ","/")
+        framework = framework.replace(" - ","-")
+        framework = framework.replace(".00",".")
+        return framework
 
-def load_and_flatten_json(framework :str) -> str:
-    framework = json.loads(framework)
-    framework = list(flatten(flatten(framework)))
-    #framework = framework[:len(framework) - int(len(framework) / 3.5)]
-    framework = ' '.join(framework)
-    return framework
-
-def trim_tokens(framework :str) -> str:
-    framework =  framework.replace("TA0","TA")
-    framework =  framework.replace("(", "")
-    framework =  framework.replace(")", "")
-    framework = framework.replace(" a "," ")
-    framework = framework.replace(" an "," ")
-    framework = framework.replace(" / ","/")
-    framework = framework.replace(" - ","-")
-    framework = framework.replace(".00",".")
-    return framework
-
-with open("generated_pages/disarm_red_framework.json", 'r', encoding='utf-8') as f:
-    red_framework = f.read()
-    red_framework = load_and_flatten_json(red_framework)
-    red_framework =  red_framework.replace("T00","T")
-    red_framework =  red_framework.replace("T0","T")
-    red_framework = trim_tokens(red_framework)
+    with open("generated_pages/disarm_red_framework.json", 'r', encoding='utf-8') as f:
+        red_framework = f.read()
+        red_framework = load_and_flatten_json(red_framework)
+        red_framework =  red_framework.replace("T00","T")
+        red_framework =  red_framework.replace("T0","T")
+        red_framework = trim_tokens(red_framework)
 
 
-with open("generated_pages/disarm_blue_framework.json", 'r', encoding='utf-8') as f:
-    blue_framework = f.read()
-    blue_framework = load_and_flatten_json(blue_framework)
-    blue_framework =  blue_framework.replace("C00","C")
-    blue_framework =  blue_framework.replace("C0","C")
-    blue_framework = trim_tokens(blue_framework)
+    with open("generated_pages/disarm_blue_framework.json", 'r', encoding='utf-8') as f:
+        blue_framework = f.read()
+        blue_framework = load_and_flatten_json(blue_framework)
+        blue_framework =  blue_framework.replace("C00","C")
+        blue_framework =  blue_framework.replace("C0","C")
+        blue_framework = trim_tokens(blue_framework)
 
 
-with open("generated_pages/red_framework.txt", 'w', encoding='utf-8') as f:
-    f.write(red_framework)
+    with open("generated_pages/red_framework.txt", 'w', encoding='utf-8') as f:
+        f.write(red_framework)
 
-with open("generated_pages/blue_framework.txt", 'w', encoding='utf-8') as f:
-    f.write(blue_framework)
+    with open("generated_pages/blue_framework.txt", 'w', encoding='utf-8') as f:
+        f.write(blue_framework)
+
+assistantQueries = [
+    {
+        "name": "searchDisarmFramework",
+        "prompt": f"以下のREADME.mdの内容を元にクエリを生成しseachDisarmFramework関数で検索をして要約してください\n#### README.md\n {readMe}",
+    },
+    {
+        "name": "attackers",
+        "prompt": "あなたは偽情報を使う攻撃者の専門家です。searchDisarmFramework関数を使ってred_frameworkに関連する戦略/戦術を検索し、それについて議論してください"
+    },
+    {
+        "name": "defenders",
+        "prompt": "あなたは偽情報を防ぐ防御者の専門家です。searchDisarmFramework関数を使ってblue_frameworkに関連する戦略/戦術を検索し、それについて議論してください"
+    },
+    {
+        "name": "Skeptics",
+        "prompt": "あなたは懐疑論者です。あなたの役目は悪魔の代弁者であり他のエージェントの発言に対する批判的視点を提供することです。他のエージェントの発言について懐疑的な質問を述べてください"
+    }
+]
 
 async def run_assistant(msg :str):
     # Markdownファイルの内容を読み込む
     #md_content = read_md_files()
 
     # AIアシスタントの設定
-    attacker_assistant_1 = autogen.AssistantAgent(
-        name="attacker_assistant_1",
-        system_message=f"""変数\nred_framework='''\n{red_framework}\n'''\nあなたは前の発言者の提示したred_frameworkに関連する(MUST)攻撃の戦略/戦術について更に具体例などをだして議論を深めてください。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
-    attacker_assistant_2 = autogen.AssistantAgent(
-        name="attacker_assistant_2",
-        system_message=f"""変数\nred_framework='''\n{red_framework}\n'''\nあなたは偽情報の攻撃者役としてred_framework内の具体的な戦略/戦術を必ず(MUST)複数参照し議論を行います。TA1からTA18の戦略もしくはTで始まり数値が続くコードの戦術を参照すること。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
-    defender_assistant_1 = autogen.AssistantAgent(
-        name="defender_assistant_1",
-        system_message=f"""変数\nblue_framework='''\n{blue_framework}\n'''\nあなたは前の発言者の提示したblue_frameworkに関連する(MUST)英語の防御の戦略/戦術について更に具体例などをだして議論を深めてください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
-    defender_assistant_2 = autogen.AssistantAgent(
-        name="defender_assistant_2",
-        system_message=f"""変数\nblue_framework='''\n{blue_framework}\n'''\nあなたは偽情報の防御者役としてblue_frameworkの具体的な戦略/戦術を必ず(MUST)複数参照し議論を行います。攻撃者に対して倫理面の問題ではなく具体的な技術的戦略/戦術で対抗してください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
+    assistants = []
+    for query in assistantQueries:
+        assistant = autogen.AssistantAgent(
+            name=query["name"],
+            system_message=query["prompt"],
+            llm_config=llm_config,
+            max_consecutive_auto_reply=5,
+        )
+        assistants.append(assistant)
 
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
@@ -141,9 +155,9 @@ async def run_assistant(msg :str):
 
 
     group_chat = autogen.GroupChat(
-        agents=[user_proxy,attacker_assistant_2, attacker_assistant_1,defender_assistant_2,defender_assistant_1], messages=[], max_round=10,
-        speaker_selection_method="round_robin",
-        
+        agents=[user_proxy]+assistants,
+        messages=[], max_round=10,
+        speaker_selection_method="round_robin",        
     )
 
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=llm_config)
@@ -151,7 +165,7 @@ async def run_assistant(msg :str):
     # タスクの依頼
     c = await user_proxy.a_initiate_chat(
         manager,
-        message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的議論を行ってください。重複した回答をしないようにしてください\n {msg}"
+        message=f"以下のユーザーからの質問に対して偽情報対策のエキスパート集団として回答をしてください\n {msg}"
     )
 
     return c
