@@ -1,3 +1,6 @@
 more-itertools==10.5.0
 py-cord==2.6.1
 autogen_agentchat==0.2.37
+aiohttp==3.10.10
+chromadb==0.5.3
+beautifulsoup4==4.12.3
