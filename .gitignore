@@ -1,3 +1,4 @@
 .env
 .cache
 .venv
+chroma_db
