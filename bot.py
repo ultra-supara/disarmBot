@@ -3,6 +3,40 @@ import discord
 import os
 import json
 from more_itertools import flatten
+import aiohttp
+import bs4
+import traceback
+
+import chromadb as cdb
+import pathlib as pl
+
+exists = pl.Path("./chroma_db").exists()
+client = cdb.PersistentClient("./chroma_db")
+
+with open("./generated_pages/README.md") as f:
+    readMe = f.read()
+
+collection = client.get_or_create_collection("disarm_framework") 
+
+if not exists:
+    for dirpath,dirnames,files in os.walk("./generated_pages"):
+        for file in files:
+            if file.endswith(".json") or file.endswith(".txt"):
+                continue
+            try:
+                print(f"adding {dirpath}/{file}")
+                with open(f"{dirpath}/{file}", 'r', encoding='utf-8') as f:
+                    content = f.read()
+                    collection.add(
+                        documents=[content],
+                        metadatas=[{"source": dirpath}],
+                        ids=[file],
+                    )
+            except Exception as e:
+                print(e)
+                continue
+
+
 
 API_KEY = os.getenv("OPENAI_API_KEY")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -10,148 +44,183 @@ BASE_URL = os.getenv("BASE_URL")
 DEPLOYMENT=os.getenv("DEPLOYMENT")
 MODEL=os.getenv("MODEL")
 VERSION=os.getenv("VERSION")
+API_TYPE=os.getenv("API_TYPE")
+
+AZURE_CONFIG = {
+    "model": MODEL,
+    "azure_deployment": DEPLOYMENT,
+    "base_url": BASE_URL,
+    "api_key": API_KEY,
+    "api_type": "azure",
+    "api_version": VERSION,
+}
+
+OAI_CONFIG ={
+    "model": MODEL,
+    "api_key": API_KEY,
+    "api_type": "openai",
+}
+
+if API_TYPE == "azure":
+    config = AZURE_CONFIG
+elif API_TYPE == "openai":
+    config = OAI_CONFIG
+else:
+    raise ValueError("API_TYPE must be either azure or openai")
 
 # LLMコンフィグ設定
 llm_config = {
     "config_list": [
+        config
+    ],
+     "functions": [
         {
-            "model": MODEL,
-            "azure_deployment": DEPLOYMENT,
-            "base_url": BASE_URL,
-            "api_key": API_KEY,
-            "api_type": "azure",
-            "api_version": VERSION,
+            "name": "searchDisarmFramework",
+            "description": """
+Search in the DISARM Disinformation TTP (Tactics, Techniques and Procedures) Framework
+DISARM is a framework designed for describing and understanding disinformation incidents. DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms, and is designed to fit existing infosec practices and tools.
+""",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "question": {
+                        "type": "string",
+                        "description": "Disarm Frameworkに関連する情報を検索するためのクエリ",
+                    }
+                },
+                "required": ["question"],
+            },
+        },
+        {
+            "name": "searchTheInternet",
+            "description": """
+            Search the internet for information.
+            You should first search in search engines and 
+            then goto specific websites to find information.
+            """,
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "URL to search. You can use any search engine or website.",
+                    }
+                },
+                "required": ["url"],
+            },
         }
     ],
     "stream": True,
 }
 
-def search(query: str):
-    payload = json.dumps(
-        {
-            "search": query,
-            "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
-            "queryType": "semantic",
-            "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
-            "captions": "extractive",
-            "answers": "extractive|count-3",
-            "queryLanguage": "en-US",
-        }
+def searchDisarmFramework(question: str):
+    global collection
+    result = collection.query(
+        query_texts=[question],
+        n_results=5,
     )
 
-    response = list(client.search(payload))
+    return json.dumps({"sources": result["ids"],  "documents": result["documents"]}) # temporary
 
-    output = []
-    for result in response:
-        result.pop("titleVector")
-        result.pop("contentVector")
-        output.append(result)
+async def searchTheInternet(url: str):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url,timeout=aiohttp.ClientTimeout(total=10)) as response:
+            content = await response.text()
+            soup = bs4.BeautifulSoup(content, "html.parser")
+            text = soup.findChild("body").get_text()
+            return text
 
-    return output
-
-autogen.register_function(search)
-
-red_framework =""
-blue_framework = ""
-
-def load_and_flatten_json(framework :str) -> str:
-    framework = json.loads(framework)
-    framework = list(flatten(flatten(framework)))
-    #framework = framework[:len(framework) - int(len(framework) / 3.5)]
-    framework = ' '.join(framework)
-    return framework
-
-def trim_tokens(framework :str) -> str:
-    framework =  framework.replace("TA0","TA")
-    framework =  framework.replace("(", "")
-    framework =  framework.replace(")", "")
-    framework = framework.replace(" a "," ")
-    framework = framework.replace(" an "," ")
-    framework = framework.replace(" / ","/")
-    framework = framework.replace(" - ","-")
-    framework = framework.replace(".00",".")
-    return framework
-
-with open("generated_pages/disarm_red_framework.json", 'r', encoding='utf-8') as f:
-    red_framework = f.read()
-    red_framework = load_and_flatten_json(red_framework)
-    red_framework =  red_framework.replace("T00","T")
-    red_framework =  red_framework.replace("T0","T")
-    red_framework = trim_tokens(red_framework)
-
-
-with open("generated_pages/disarm_blue_framework.json", 'r', encoding='utf-8') as f:
-    blue_framework = f.read()
-    blue_framework = load_and_flatten_json(blue_framework)
-    blue_framework =  blue_framework.replace("C00","C")
-    blue_framework =  blue_framework.replace("C0","C")
-    blue_framework = trim_tokens(blue_framework)
-
-
-with open("generated_pages/red_framework.txt", 'w', encoding='utf-8') as f:
-    f.write(red_framework)
-
-with open("generated_pages/blue_framework.txt", 'w', encoding='utf-8') as f:
-    f.write(blue_framework)
+assistantQueries = [
+    {
+        "name": "searchDisarmFramework",
+        "prompt": f"You are information search expert. Please generate a query based on the contents of the README.md below and user query, search using the searchDisarmFramework function, and summarize it.\n#### README.md\n {readMe}",
+        "function": {
+            "searchDisarmFramework": searchDisarmFramework
+        }
+    },
+    {
+        "name": "searchTheInternet",
+        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the searchTheInternet function to search the Internet and summarize the information.",
+        "function": {
+            "searchTheInternet": searchTheInternet
+        }
+    },
+    {
+        "name": "Attackers",
+        "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function to search for strategies/tactics related to the red framework and discuss them.",
+        "function": {
+            "searchDisarmFramework": searchDisarmFramework,
+            "searchTheInternet": searchTheInternet
+        }
+    },
+    {
+        "name": "Defenders",
+        "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function to search for strategies/tactics related to blue framework and discuss them.",
+        "function": {
+            "searchDisarmFramework": searchDisarmFramework,
+            "searchTheInternet": searchTheInternet
+        }
+    },
+    {
+        "name": "Skeptics",
+        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Use the `searchDisarmFramework` function to search for what other agents say and ask your skeptical questions.",
+        "function": {
+            "searchDisarmFramework": searchDisarmFramework,
+            "searchTheInternet": searchTheInternet
+        }
+    },
+    {
+        "name": "SolutionArchitects",
+        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Use the `searchDisarmFramework` functions to provide a solution.",
+        "function": {
+            "searchDisarmFramework": searchDisarmFramework,
+            "searchTheInternet": searchTheInternet
+        }
+    },
+]
 
 async def run_assistant(msg :str):
-    # Markdownファイルの内容を読み込む
-    #md_content = read_md_files()
 
     # AIアシスタントの設定
-    attacker_assistant_1 = autogen.AssistantAgent(
-        name="attacker_assistant_1",
-        system_message=f"""変数\nred_framework='''\n{red_framework}\n'''\nあなたは前の発言者の提示したred_frameworkに関連する(MUST)攻撃の戦略/戦術について更に具体例などをだして議論を深めてください。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
-    attacker_assistant_2 = autogen.AssistantAgent(
-        name="attacker_assistant_2",
-        system_message=f"""変数\nred_framework='''\n{red_framework}\n'''\nあなたは偽情報の攻撃者役としてred_framework内の具体的な戦略/戦術を必ず(MUST)複数参照し議論を行います。TA1からTA18の戦略もしくはTで始まり数値が続くコードの戦術を参照すること。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
-    defender_assistant_1 = autogen.AssistantAgent(
-        name="defender_assistant_1",
-        system_message=f"""変数\nblue_framework='''\n{blue_framework}\n'''\nあなたは前の発言者の提示したblue_frameworkに関連する(MUST)英語の防御の戦略/戦術について更に具体例などをだして議論を深めてください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
-    defender_assistant_2 = autogen.AssistantAgent(
-        name="defender_assistant_2",
-        system_message=f"""変数\nblue_framework='''\n{blue_framework}\n'''\nあなたは偽情報の防御者役としてblue_frameworkの具体的な戦略/戦術を必ず(MUST)複数参照し議論を行います。攻撃者に対して倫理面の問題ではなく具体的な技術的戦略/戦術で対抗してください。TA1からTA18の戦略もしくはCで始まり数値が続くコードの戦術を参照すること。""",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
+    assistants = []
+    for query in assistantQueries:
+        assistant = autogen.AssistantAgent(
+            name=query["name"],
+            system_message=query["prompt"],
+            llm_config=llm_config,
+            max_consecutive_auto_reply=5,
+        )
+        assistants.append(assistant)
+        if "function" in query:
+            assistant.register_function(query["function"])
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
-        system_message="偽情報に関する具体的な攻撃及び防御の戦術/技術的議論のみに着目してChat中で言及された具体的な戦略/戦術とそのコードを用いてStep by Stepでまとめてください",
+        system_message="You are moderator. Summarize the discussion and provide feedback to the assistants in Japanese. Organize whether it matches the user's question and provide feedback to the assistants.",
         is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("タスク完了"),
         human_input_mode="NEVER",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
-        
-        # code_execution_config={"use_docker": False, "work_dir": "./generated_pages"},
     )
 
 
     group_chat = autogen.GroupChat(
-        agents=[user_proxy,attacker_assistant_2, attacker_assistant_1,defender_assistant_2,defender_assistant_1], messages=[], max_round=10,
-        speaker_selection_method="round_robin",
-        
+        agents=assistants + [user_proxy],
+        messages=[], max_round=15,
+        speaker_selection_method="round_robin",   
+             
     )
 
-    manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=llm_config)
+    manager = autogen.GroupChatManager(groupchat=group_chat, llm_config={
+        "config_list": llm_config["config_list"],
+        "stream": True,
+    })
+
 
     # タスクの依頼
     c = await user_proxy.a_initiate_chat(
         manager,
-        message=f"以下のユーザーのメッセージに対して偽情報に関してred_frameworkとblue_framework基づき具体的な戦術/技術的議論を行ってください。重複した回答をしないようにしてください\n {msg}"
+        message=f"以下のユーザーからの質問に対して偽情報対策のエキスパート集団として回答をしてください\n########\nユーザーからの質問\n{msg}\n########\n",
     )
 
     return c
@@ -180,6 +249,13 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
             if name not in color_per_person:
                 color_per_person[name] = color_candidates[i % len(color_candidates)]
             content = hist['content']
+            role = hist['role']
+            if role == "function" and name== "searchDisarmFramework":
+                content = json.loads(content)
+                content = flatten(content["sources"])
+                content = "\n".join(content)
+                content = f"以下の情報源から情報を取得しました\n{content}"
+
             lines = str(content).split("\n")
 
             for line in lines:
@@ -192,8 +268,11 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
                     else:
                         await channel.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
                         line = line[2000:]
+        await ctx.send("議論が終了しました")
     except Exception as e:
         print(e)
+        print(traceback.format_exc())
+        
         await ctx.respond(f"エラーが発生しました: {e}。もう一度お試しください。")
         return
 
