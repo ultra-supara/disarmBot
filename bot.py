@@ -20,8 +20,6 @@ collection = client.get_or_create_collection("disarm_framework")
 if not exists:
     for dirpath,dirnames,files in os.walk("./generated_pages"):
         for file in files:
-            if file.endswith(".json") or file.endswith(".txt"):
-                continue
             try:
                 print(f"adding {dirpath}/{file}")
                 with open(f"{dirpath}/{file}", 'r', encoding='utf-8') as f:
@@ -74,9 +72,11 @@ llm_config = {
         {
             "name": "searchDisarmFramework",
             "description": """
-Search in the DISARM Disinformation TTP (Tactics, Techniques and Procedures) Framework
-DISARM is a framework designed for describing and understanding disinformation incidents. DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms, and is designed to fit existing infosec practices and tools.
-""",
+                Search in the DISARM Disinformation TTP (Tactics, Techniques and Procedures) Framework
+                DISARM is a framework designed for describing and understanding disinformation incidents.
+                DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
+                and is designed to fit existing infosec practices and tools.
+                """,
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -200,7 +200,6 @@ async def run_assistant(msg :str):
         max_consecutive_auto_reply=5,
     )
 
-
     group_chat = autogen.GroupChat(
         agents=assistants + [user_proxy],
         messages=[], max_round=15,
@@ -211,7 +210,6 @@ async def run_assistant(msg :str):
         "config_list": llm_config["config_list"],
         "stream": True,
     })
-
 
     # タスクの依頼
     c = await user_proxy.a_initiate_chat(
