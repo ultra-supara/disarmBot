@@ -193,8 +193,8 @@ async def run_assistant(msg :str):
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
-        system_message="You are moderator. Summarize the discussion and provide feedback to the assistants in Japanese. Organize whether it matches the user's question and provide feedback to the assistants.",
-        is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("タスク完了"),
+        system_message="You are moderator. Summarize the discussion and provide feedback to the assistants in Chinese. Organize whether it matches the user's question and provide feedback to the assistants.",
+        is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("任务完成"),
         human_input_mode="NEVER",
         llm_config=llm_config,
         max_consecutive_auto_reply=5,
