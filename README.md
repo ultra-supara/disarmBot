@@ -2,21 +2,19 @@
 
 ## Demonstration
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ee-JfL17L40" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![YouTube Video](https://img.youtube.com/vi/Ee-JfL17L40/0.jpg)](https://www.youtube.com/watch?v=Ee-JfL17L40)
 
 
 <div id="top"></div>
 
 ## プロジェクト概要
 
-**disarmBot**は、AutoGenを使用し複数のAI Agentを立て、偽情報に関する議論を行った後、ユーザに返答を返すBotです。
+**disarmBot**は、AutoGenを使用し複数のAI Agentを立て、偽情報に関する議論を行った後、ユーザに返答を返すBotです。日本語・英語・中国語に対応しています。
 
 偽情報対策のフレームワークである[DISARM Disinformation TTP Framework](https://github.com/DISARMFoundation/DISARMframeworks?tab=readme-ov-file)に基づいた情報を提供します。
 
 【AI Agentとの対話イメージ】
 ![disarmbot](https://github.com/user-attachments/assets/6506ce32-7c50-4758-ac96-7a040e7ba8ea)
-
-
 
 ---
 
@@ -63,8 +61,8 @@
 └── generated_pages      # DISARM Frameworksのデータ
     ├── actortypes
     ├── counters
-    ├── detections_index.json
-    ├── disarm_blue_framework.json
+    ├── detections_index.md
+    ├── disarm_blue_framework.md
     ├── その他のファイル...
 10 directories, 33 files
 ```
@@ -99,7 +97,7 @@
    ```bash
    pip install -r requirements.txt
    ```
-
+4. **OpenAIのAPI（GPT-4）かazure APIを取得してください**
 ---
 
 ## 実行方法
