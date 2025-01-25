@@ -1,20 +1,37 @@
 # disarmBot
 
-## Demonstration
+## Abstruct
+**disarmBot**は、Microsoftが開発しているOSSのAIエージェントフレームワーク：AutoGenを使用し複数のAI Agentを立て、RAG技術により引き出されたMITRE ATT&CKの戦略に基づいて偽情報に関する議論を自動生成した後、ユーザに結論を返すBotです。
 
-[![YouTube Video](https://img.youtube.com/vi/Ee-JfL17L40/0.jpg)](https://www.youtube.com/watch?v=Ee-JfL17L40)
-
-
-<div id="top"></div>
-
-## プロジェクト概要
-
-**disarmBot**は、AutoGenを使用し複数のAI Agentを立て、偽情報に関する議論を行った後、ユーザに返答を返すBotです。日本語・英語・中国語に対応しています。
+日本語・英語・中国語に対応しています。
 
 偽情報対策のフレームワークである[DISARM Disinformation TTP Framework](https://github.com/DISARMFoundation/DISARMframeworks?tab=readme-ov-file)に基づいた情報を提供します。
 
-【AI Agentとの対話イメージ】
-![disarmbot](https://github.com/user-attachments/assets/6506ce32-7c50-4758-ac96-7a040e7ba8ea)
+<img width="1166" alt="Image" src="https://github.com/user-attachments/assets/4401a4ce-1148-4045-bea5-0c92d1591986" />
+
+## Demonstration Movie
+
+[![YouTube Video](https://img.youtube.com/vi/Ee-JfL17L40/0.jpg)](https://www.youtube.com/watch?v=Ee-JfL17L40)
+
+## Presentation
+
+[[JSAC 2025 LT] Introduction to MITRE ATT&CK utilization tools by multiple LLM agents and RAG](https://speakerdeck.com/4su_para/jsac-2025-lt-introduction-to-mitre-att-and-ck-utilization-tools-by-multiple-llm-agents-and-rag)
+
+<div id="top"></div>
+
+## what is aim for?
+
+disarmBotは、Discord上に導入できるBotです。ユーザがコマンドを入力することで複数のLLMエージェント(GPT-4)が自動的に立ち上がり、応答します。また、DISARM（Disinformation Analysis and Response Measures）TTP Frameworksに基づいており、DISARMはCTIの「理論」にあたるMITRE ATT&CKに基づいています。つまり、理論から公助に向けたLLMによる実践的CTI利活用のための施策です。
+
+複数の異なる戦術を学習したLLMエージェントが協力し、attacker_assistant、defender_assistant、user、skeptics、solution architect、OSINT Specialistの視点から偽情報フレームワークに基づいた戦術的・技術的な対話を行います。対話を通じてエージェント同士の議論を通じた情報の深堀りを行います。disarmBotは、これらの条件を満たし、ユーザーが多様な意見に触れることができる情報環境を提供します。これにより、ユーザーは自ら考え、情報を消化するクリティカルな能力を高めることができます。仮に、想定ユーザーの要求が異なる立場や抽象度であっても個別最適化可能で、かつ4A(Accurate,Audience Focused,Actionable,Adequate Timing)条件が整った質の高いインテリジェンスを、防衛マインドから脱却し、プロアクティブな形で提供できることを示します。
+
+【5つのAI Agentのイメージ】
+
+<img width="1166" alt="Image" src="https://github.com/user-attachments/assets/16b9cd1b-c010-4052-8c2e-9972afb83734" />
+
+【AutoGenにおけるGroup Chatのイメージ】
+
+<img width="1166" alt="Image" src="https://github.com/user-attachments/assets/4a77c096-2b14-4def-abd9-ec388000521a" />
 
 ---
 
@@ -56,7 +73,9 @@
 ```plaintext
 .
 ├── README.md
-├── bot.py               # disarm botのメインプログラム
+├── bot.py               # disarm botの日本語版プログラム
+├── bot_en.py            # disarm botの英語版プログラム
+├── bot_ch.py            # disarm botの中国語版プログラム
 ├── extract.py           # データ処理スクリプト
 └── generated_pages      # DISARM Frameworksのデータ
     ├── actortypes
@@ -66,7 +85,6 @@
     ├── その他のファイル...
 10 directories, 33 files
 ```
-
 ---
 
 ## インストール方法
@@ -98,29 +116,36 @@
    pip install -r requirements.txt
    ```
 4. **OpenAIのAPI（GPT-4）かazure APIを取得してください**
+   [API keys - OpenAI API](https://platform.openai.com/settings/organization/api-keys)
+
+5. **実行する**
+   日本語版か英語版か中国語版を選択して実行してください。
+
+   ```bash
+   dotenv run python3 bot_en.py
+   ```
+
+6. **Discordでの動作確認**  
+   Discord上で`/discuss msg`コマンドを入力し、msg内にメッセージを入力してください。
+   自動でスレッドが生成され、ボットが会話を開始するか確認してください。
 ---
 
-## 実行方法
+## 事前準備
 
 1. **環境変数ファイル（.env）の作成**  
    プロジェクトフォルダに`.env`ファイルを作成し、以下のように記述します（詳細は[環境変数の設定](#環境変数の設定)を参照）。
+   OpenAIのAPIを使う場合
 
    ```bash
-   OPENAI_API_KEY=YOUR_OPENAI_API_KEY
-   DISCORD_TOKEN=YOUR_DISCORD_TOKEN
-   BASE_URL=https://<something>.openai.azure.com/
+   OPENAI_API_KEY=xxxxx
+   DISCORD_TOKEN=xxxxx
+   BASE_URL=https://xxxxxxxx.openai.azure.com/
+   DEPLOYMENT=
+   MODEL=gpt-4o-mini
+   VERSION=2024-08-01-preview
+   API_TYPE=openai
+   AUTOGEN_USE_DOCKER=0
    ```
-
-2. **ボットの起動**  
-   次のコマンドでボットを起動します。
-
-   ```bash
-   python3 bot.py
-   ```
-
-3. **Discordでの動作確認**  
-   Discord上で`/discuss msg`コマンドを入力し、ボットが会話を開始するか確認してください。
-
 ---
 
 ## 環境変数の設定
