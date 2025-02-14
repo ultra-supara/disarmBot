@@ -1,11 +1,17 @@
 # disarmBot
 
+![Image](https://github.com/user-attachments/assets/d569bb26-38ea-4a9f-ac7d-590d5ccddf36)
+
+## Join our [LLM AgentBot Discord Community](https://discord.gg/rHUMFYbS) !!
+
+<img width="861" alt="Image" src="https://github.com/user-attachments/assets/3ade408b-aa5d-4216-8b1c-6ec69e985838" />
+
 ## Abstruct
-**disarmBot**は、Microsoftが開発しているOSSのAIエージェントフレームワーク：AutoGenを使用し複数のAI Agentを立て、RAG技術により引き出されたMITRE ATT&CKの戦略に基づいて偽情報に関する議論を自動生成した後、ユーザに結論を返すBotです。
+**disarmBot** is a bot that uses AutoGen, an OSS AI agent framework developed by Microsoft, to create multiple AI Agents, automatically generate arguments about false information based on MITRE ATT&CK strategies drawn from RAG technology, and then return conclusions to the user. The bot automatically generates arguments about disinformation based on the MITRE ATT&CK strategy drawn from RAG technology and returns conclusions to the user.
 
-日本語・英語・中国語に対応しています。
+Japanese, English, and Chinese are supported.
 
-偽情報対策のフレームワークである[DISARM Disinformation TTP Framework](https://github.com/DISARMFoundation/DISARMframeworks?tab=readme-ov-file)に基づいた情報を提供します。
+The framework for countermeasures against disinformation, the [DISARM Disinformation TTP Framework](https://github.com/DISARMFoundation/DISARMframeworks?tab=readme-ov-file) ,which is a framework for countermeasures against disinformation.
 
 <img width="1166" alt="Image" src="https://github.com/user-attachments/assets/4401a4ce-1148-4045-bea5-0c92d1591986" />
 
@@ -21,15 +27,15 @@
 
 ## what is aim for?
 
-disarmBotは、Discord上に導入できるBotです。ユーザがコマンドを入力することで複数のLLMエージェント(GPT-4)が自動的に立ち上がり、応答します。また、DISARM（Disinformation Analysis and Response Measures）TTP Frameworksに基づいており、DISARMはCTIの「理論」にあたるMITRE ATT&CKに基づいています。つまり、理論から公助に向けたLLMによる実践的CTI利活用のための施策です。
+disarmBot is a bot that can be deployed on Discord. Multiple LLM agents (GPT-4) are automatically launched and respond when a user enters a command. It is also based on the DISARM (Disinformation Analysis and Response Measures) TTP Frameworks, and DISARM is based on MITRE ATT&CK, the “theory” of CTI. In other words, these are measures for practical CTI utilization by LLM from theory to public assistance.
 
-複数の異なる戦術を学習したLLMエージェントが協力し、attacker_assistant、defender_assistant、user、skeptics、solution architect、OSINT Specialistの視点から偽情報フレームワークに基づいた戦術的・技術的な対話を行います。対話を通じてエージェント同士の議論を通じた情報の深堀りを行います。disarmBotは、これらの条件を満たし、ユーザーが多様な意見に触れることができる情報環境を提供します。これにより、ユーザーは自ら考え、情報を消化するクリティカルな能力を高めることができます。仮に、想定ユーザーの要求が異なる立場や抽象度であっても個別最適化可能で、かつ4A(Accurate,Audience Focused,Actionable,Adequate Timing)条件が整った質の高いインテリジェンスを、防衛マインドから脱却し、プロアクティブな形で提供できることを示します。
+LLM agents, who have learned several different tactics, cooperate with each other and work together to develop a tactical and technical dialogue based on the disinformation framework from the perspective of an attacker_assistant, defender_assistant, user, skeptics, solution architect, and OSINT Specialist. Tactical and technical dialogues based on the disinformation framework will be conducted. Through the dialogues, agents discuss and deepen information with each other. disarmBot fulfills these requirements and provides an information environment that allows users to be exposed to a variety of opinions. This allows users to think for themselves and enhance their critical ability to digest information. Even if the assumed users' requirements are different positions and levels of abstraction, it is possible to optimize them individually and provide high-quality intelligence that meets the 4A (Accurate, Audience Focused, Actionable, and Adequate Timing) conditions in a proactive manner by breaking free from a defensive mindset. The 4As (Accurate, Audience Focused, Actionable, Adequate Timing) and can be provided in a proactive manner.
 
-【5つのAI Agentのイメージ】
+【Image of 5 AI Agents】
 
 <img width="1166" alt="Image" src="https://github.com/user-attachments/assets/16b9cd1b-c010-4052-8c2e-9972afb83734" />
 
-【AutoGenにおけるGroup Chatのイメージ】
+【Image of Group Chat in AutoGen】
 
 <img width="1166" alt="Image" src="https://github.com/user-attachments/assets/4a77c096-2b14-4def-abd9-ec388000521a" />
 
@@ -48,125 +54,129 @@ disarmBotは、Discord上に導入できるBotです。ユーザがコマンド�
 
 ## 目次
 
-1. [動作環境](#動作環境)
-2. [ファイル構成](#ファイル構成)
-3. [インストール方法](#インストール方法)
-4. [実行方法](#実行方法)
-5. [環境変数の設定](#環境変数の設定)
-6. [トラブルシューティング](#トラブルシューティング)
+1. [Operating Environment](#Operating Environment)
+2. [File Structure](#File Structure)
+3. [Installation Method](#Installation Method) 
+4. [How to Execute](#How to Execute) 
+5. [Environment Variable Settings](#Environment Variable Settings)
+6. [Troubleshooting](#Troubleshooting)
 
 ---
 
 ## 動作環境
 
-| ソフトウェア           | バージョン |
+| Software           | version |
 | ---------------------- | ---------- |
 | Python                 | 3.12.7     |
 | autogen-agentchat      | 0.2.37     |
 
 ---
 
-## ディレクトリ構成
+## Directory structure
 
-**プロジェクトのディレクトリ構成**
+**Project Directory Structure**
 
 ```plaintext
 .
 ├── README.md
-├── bot.py               # disarm botの日本語版プログラム
-├── bot_en.py            # disarm botの英語版プログラム
-├── bot_ch.py            # disarm botの中国語版プログラム
-├── extract.py           # データ処理スクリプト
+├── bot.py               # Japanese version of disarm bot program
+├── bot_en.py            # English version of disarm bot program
+├── bot_ch.py            # China version of disarm bot program
+├── extract.py           # data processing script
 └── generated_pages      # DISARM Frameworksのデータ
     ├── actortypes
     ├── counters
     ├── detections_index.md
     ├── disarm_blue_framework.md
-    ├── その他のファイル...
+    ├── others...
 10 directories, 33 files
 ```
 ---
 
-## インストール方法
+## Installing Methods
 
-1. **仮想環境の作成**  
-   以下のコマンドで仮想環境を作成します。
+1. **Create a virtual environment**.  
+   Create a virtual environment with the following command
 
    ```bash
    python3 -m venv .venv
-   ```
+   ```` 
 
-2. **仮想環境の有効化**  
-   仮想環境をアクティブにします。
+2. **Activate the virtual environment**.  
+   Activate the virtual environment.
 
-   - Bashの場合:
+   - Bash:
      ```bash
      source ./.venv/bin/activate
      ```
 
-   - Fishの場合:
+   - Fish:
      ```fish
      . ./.venv/bin/activate.fish
      ```
 
-3. **依存パッケージのインストール**  
-   必要なパッケージをインストールします。
+3. **Install Dependent Packages**.  
+   Install the required packages.
 
    ```bash
    pip install -r requirements.txt
    ```
-4. **OpenAIのAPI（GPT-4）かazure APIを取得してください**
+
+4. **Get the OpenAI API (GPT-4) or azure API**
    [API keys - OpenAI API](https://platform.openai.com/settings/organization/api-keys)
 
-5. **実行する**
-   日本語版か英語版か中国語版を選択して実行してください。
+5. **Run it**.
+   Choose Japanese, English or Chinese version and run it.
 
    ```bash
    dotenv run python3 bot_en.py
-   ```
+   ````
 
-6. **Discordでの動作確認**  
-   Discord上で`/discuss msg`コマンドを入力し、msg内にメッセージを入力してください。
-   自動でスレッドが生成され、ボットが会話を開始するか確認してください。
+6. **Confirm that it works on Discord**.  
+   On Discord, type `/discuss msg` command and type your message in msg.
+   Check if a thread is automatically created and the bot starts a conversation.
+
 ---
 
-## 事前準備
+## Preparation
 
-1. **環境変数ファイル（.env）の作成**  
-   プロジェクトフォルダに`.env`ファイルを作成し、以下のように記述します（詳細は[環境変数の設定](#環境変数の設定)を参照）。
-   OpenAIのAPIを使う場合
+1. **Create an environment variable file (.env)**.  
+   Create a `.env` file in the project folder and describe it as follows (for details, see [Setting Environment Variables](#Environment Variables)).
+   When using OpenAI's API
 
    ```bash
-   OPENAI_API_KEY=xxxxx
-   DISCORD_TOKEN=xxxxx
+   OPENAI_API_KEY=xxxxxxx
+   DISCORD_TOKEN=xxxxxxx
    BASE_URL=https://xxxxxxxx.openai.azure.com/
    DEPLOYMENT=
    MODEL=gpt-4o-mini
    VERSION=2024-08-01-preview
-   API_TYPE=openai
+   api_type=openai
    AUTOGEN_USE_DOCKER=0
    ```
+---``
+
 ---
 
-## 環境変数の設定
+## Set environment variables
 
-| 環境変数名            | 説明                         | 取得方法                          |
+| Environment variable name | Description | How to get it |
 | ---------------------- | ---------------------------- | --------------------------------- |
-| OPENAI_API_KEY         | Azure Open AIのAPIキー       | [Azure Open AI Studio](https://azure.microsoft.com/) |
-| DISCORD_TOKEN          | DiscordのBotトークン         | [Discord Developer Portal](https://discord.com/developers/applications) |
-| BASE_URL               | AzureのエンドポイントURL     | Azure Open AIのDevelopタブ      |
+| OPENAI_API_KEY | API key for Azure Open AI | [Azure Open AI Studio](https://azure.microsoft.com/) |
+| DISCORD_TOKEN | Bot Token for Discord | [Discord Developer Portal](https://discord.com/developers/applications) |
+| BASE_URL | Azure endpoint URL | Develop tab of Azure Open AI |
 
 ---
 
-## トラブルシューティング
+## Troubleshooting
 
-### `.envファイルが見つからない` エラー
+### `.env file not found` error
 
-`.env`ファイルが存在しない場合は、上記の「[環境変数の設定](#環境変数の設定)」を参考にファイルを作成してください。
+If the `.env` file does not exist, please create a file by referring to “[Set Environment Variables](#set environment variables)” above.
 
-### その他の問題
+### Other problems
 
-- **仮想環境が起動しない**: 仮想環境が正しく作成されているか確認し、パスを再確認してください。
-- **依存パッケージのインストールエラー**: `requirements.txt`が最新か確認し、`pip install -r requirements.txt`を再度実行してください。
+- **Virtual environment does not start**: Please check if the virtual environment is created correctly and recheck the path.
+- **Dependent package installation error**: Please check if `requirements.txt` is up-to-date and run `pip install -r requirements.txt` again.
 
-<p align="right">(<a href="#top">トップへ</a>)</p>
+<p align="right">(<a href="#top">top</a>)</p>
