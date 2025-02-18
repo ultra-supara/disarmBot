@@ -7,7 +7,7 @@
 <img width="861" alt="Image" src="https://github.com/user-attachments/assets/3ade408b-aa5d-4216-8b1c-6ec69e985838" />
 
 ## Abstruct
-**disarmBot** is a bot that uses AutoGen, an OSS AI agent framework developed by Microsoft, to create multiple AI Agents, automatically generate arguments about false information based on MITRE ATT&CK strategies drawn from RAG technology, and then return conclusions to the user. The bot automatically generates arguments about disinformation based on the MITRE ATT&CK strategy drawn from RAG technology and returns conclusions to the user.
+**disarmBot** is a bot that uses [AG2](https://github.com/ag2ai/ag2?tab=readme-ov-file) (Formerly AutoGen), an OSS AI agent framework to create multiple AI Agents , automatically generate arguments about false information based on MITRE ATT&CK strategies drawn from RAG technology, and then return conclusions to the user. The bot automatically generates arguments about disinformation based on the MITRE ATT&CK strategy drawn from RAG technology and returns conclusions to the user.
 
 Japanese, English, and Chinese are supported.
 
