@@ -7,7 +7,7 @@
 <img width="861" alt="Image" src="https://github.com/user-attachments/assets/3ade408b-aa5d-4216-8b1c-6ec69e985838" />
 
 ## 概要
-**disarmBot**は、Microsoftが開発しているOSSのAIエージェントフレームワーク：AutoGenを使用し複数のAI Agentを立て、RAG技術により引き出されたMITRE ATT&CKの戦略に基づいて偽情報に関する議論を自動生成した後、ユーザに結論を返すBotです。
+**disarmBot**は、OSS AIエージェントフレームワークである[AG2](https://github.com/ag2ai/ag2?tab=readme-ov-file) (旧AutoGen)を使用し複数のAI Agentを立て、RAG技術により引き出されたMITRE ATT&CKの戦略に基づいて偽情報に関する議論を自動生成した後、ユーザに結論を返すBotです。
 
 日本語・英語・中国語に対応しています。
 
