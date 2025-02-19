@@ -6,7 +6,7 @@
 
 <img width="861" alt="Image" src="https://github.com/user-attachments/assets/3ade408b-aa5d-4216-8b1c-6ec69e985838" />
 
-## Abstruct
+## Abstract
 **disarmBot** is a bot that uses [AG2](https://github.com/ag2ai/ag2?tab=readme-ov-file) (Formerly AutoGen), an OSS AI agent framework to create multiple AI Agents , automatically generate arguments about false information based on MITRE ATT&CK strategies drawn from RAG technology, and then return conclusions to the user. The bot automatically generates arguments about disinformation based on the MITRE ATT&CK strategy drawn from RAG technology and returns conclusions to the user.
 
 Japanese, English, and Chinese are supported.
@@ -54,27 +54,28 @@ LLM agents, who have learned several different tactics, cooperate with each othe
 
 ## 目次
 
-1. [Operating Environment](#Operating Environment)
-2. [File Structure](#File Structure)
-3. [Installation Method](#Installation Method) 
-4. [How to Execute](#How to Execute) 
-5. [Environment Variable Settings](#Environment Variable Settings)
+1. [Operating_Environment](#Operating Environment)
+2. [File_Structure](#File Structure)
+3. [Installation_Method](#Installation Method) 
+4. [Preparation](#Preparation) 
+5. [Set_environment_variables](#Set environment variables)
 6. [Troubleshooting](#Troubleshooting)
+7. [Special_Thanks!](#Special Thanks!)
 
 ---
 
-## 動作環境
+## Operating Environment
 
 | Software           | version |
 | ---------------------- | ---------- |
 | Python                 | 3.12.7     |
-| autogen-agentchat      | 0.2.37     |
+| autogen                | 0.7.3      |
 
 ---
 
-## Directory structure
+## File Structure
 
-**Project Directory Structure**
+**Project File Structure**
 
 ```plaintext
 .
@@ -93,7 +94,7 @@ LLM agents, who have learned several different tactics, cooperate with each othe
 ```
 ---
 
-## Installing Methods
+## Installation Method
 
 1. **Create a virtual environment**.  
    Create a virtual environment with the following command
@@ -178,5 +179,8 @@ If the `.env` file does not exist, please create a file by referring to “[Set 
 
 - **Virtual environment does not start**: Please check if the virtual environment is created correctly and recheck the path.
 - **Dependent package installation error**: Please check if `requirements.txt` is up-to-date and run `pip install -r requirements.txt` again.
+
+## Special Thanks!
+Check out more projects built with AG2 at [Build with AG2](https://github.com/ag2ai/build-with-ag2)!
 
 <p align="right">(<a href="#top">top</a>)</p>
