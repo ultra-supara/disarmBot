@@ -2,7 +2,7 @@
 
 ![Image](https://github.com/user-attachments/assets/d569bb26-38ea-4a9f-ac7d-590d5ccddf36)
 
-## Join our [LLM AgentBot Discord Community](https://discord.gg/rHUMFYbS) !!
+## Join our [LLM AgentBot Discord Community](https://discord.gg/dBgUNXmYcP) !!
 
 <img width="861" alt="Image" src="https://github.com/user-attachments/assets/3ade408b-aa5d-4216-8b1c-6ec69e985838" />
 
