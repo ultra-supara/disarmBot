@@ -8,6 +8,11 @@ import bs4
 import traceback
 import chromadb as cdb
 import pathlib as pl
+from dotenv import load_dotenv
+from autogen.tools.experimental import DuckDuckGoSearchTool
+
+# Load environment variables from .env file
+load_dotenv()
 
 exists = pl.Path("./chroma_db").exists()
 client = cdb.PersistentClient("./chroma_db")
@@ -48,12 +53,14 @@ AZURE_CONFIG = {
     "api_key": API_KEY,
     "api_type": "azure",
     "api_version": VERSION,
+    "stream": True,
 }
 
 OAI_CONFIG ={
     "model": MODEL,
     "api_key": API_KEY,
     "api_type": "openai",
+    "stream": True,
 }
 
 if API_TYPE == "azure":
@@ -68,47 +75,34 @@ llm_config = {
     "config_list": [
         config
     ],
-    "functions": [
+    "tools": [
         {
-            "name": "searchDisarmFramework",
-            "description": """
-                Search in the DISARM Disinformation TTP (Tactics, Techniques and Procedures) Framework
-                DISARM is a framework designed for describing and understanding disinformation incidents.
-                DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
-                and is designed to fit existing infosec practices and tools.
-                """,
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "question": {
-                        "type": "string",
-                        "description": "Query for searching information related to the Disarm Framework",
-                    }
+            "type": "function",
+            "function": {
+                "name": "searchDisarmFramework",
+                "description": """
+                    Search in the DISARM Disinformation TTP (Tactics, Techniques and Procedures) Framework
+                    DISARM is a framework designed for describing and understanding disinformation incidents.
+                    DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
+                    and is designed to fit existing infosec practices and tools.
+                    """,
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "question": {
+                            "type": "string",
+                            "description": "Query for searching information related to the Disarm Framework",
+                        }
+                    },
+                    "required": ["question"],
                 },
-                "required": ["question"],
-            },
+            }
         },
-        {
-            "name": "searchTheInternet",
-            "description": """
-            Search the internet for information.
-            You should first search in search engines and
-            then goto specific websites to find information.
-            """,
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "url": {
-                        "type": "string",
-                        "description": "URL to search. You can use any search engine or website.",
-                    }
-                },
-                "required": ["url"],
-            },
-        }
     ],
-    "stream": True,
 }
+
+# Initialize DuckDuckGo search tool
+duckduckgo_search_tool = DuckDuckGoSearchTool()
 
 def searchDisarmFramework(question: str):
     global collection
@@ -137,41 +131,35 @@ assistantQueries = [
     },
     {
         "name": "searchTheInternet",
-        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the searchTheInternet function to search the Internet and summarize the information.",
-        "function": {
-            "searchTheInternet": searchTheInternet
-        }
+        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and summarize the information.",
+        "function": {}
     },
     {
         "name": "Attackers",
-        "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function to search for strategies/tactics related to the red framework and discuss them.",
+        "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to the red framework and discuss them.",
         "function": {
-            "searchDisarmFramework": searchDisarmFramework,
-            "searchTheInternet": searchTheInternet
+            "searchDisarmFramework": searchDisarmFramework
         }
     },
     {
         "name": "Defenders",
-        "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function to search for strategies/tactics related to blue framework and discuss them.",
+        "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to blue framework and discuss them.",
         "function": {
-            "searchDisarmFramework": searchDisarmFramework,
-            "searchTheInternet": searchTheInternet
+            "searchDisarmFramework": searchDisarmFramework
         }
     },
     {
         "name": "Skeptics",
-        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Use the `searchDisarmFramework` function to search for what other agents say and ask your skeptical questions.",
+        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and ask your skeptical questions.",
         "function": {
-            "searchDisarmFramework": searchDisarmFramework,
-            "searchTheInternet": searchTheInternet
+            "searchDisarmFramework": searchDisarmFramework
         }
     },
     {
         "name": "SolutionArchitects",
-        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Use the `searchDisarmFramework` functions to provide a solution.",
+        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Use the `searchDisarmFramework` functions and DuckDuckGo search tool to provide a solution.",
         "function": {
-            "searchDisarmFramework": searchDisarmFramework,
-            "searchTheInternet": searchTheInternet
+            "searchDisarmFramework": searchDisarmFramework
         }
     },
 ]
@@ -190,6 +178,11 @@ async def run_assistant(msg :str):
         assistants.append(assistant)
         if "function" in query:
             assistant.register_function(query["function"])
+
+        # Register DuckDuckGo search tool for agents that need internet search
+        if query["name"] in ["searchTheInternet", "Attackers", "Defenders", "Skeptics", "SolutionArchitects"]:
+            duckduckgo_search_tool.register_for_llm(assistant)
+
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
@@ -200,16 +193,20 @@ async def run_assistant(msg :str):
         max_consecutive_auto_reply=5,
     )
 
+    # Register DuckDuckGo search tool for execution
+    duckduckgo_search_tool.register_for_execution(user_proxy)
+
     group_chat = autogen.GroupChat(
         agents=assistants + [user_proxy],
         messages=[], max_round=15,
         speaker_selection_method="round_robin", # ラウンドロビン方式で話者を選択
     )
 
-    manager = autogen.GroupChatManager(groupchat=group_chat, llm_config={
-        "config_list": llm_config["config_list"],
-        "stream": True,
-    })
+    # GroupChatManager用の設定（toolsを除く）
+    manager_llm_config = {
+        "config_list": llm_config["config_list"]
+    }
+    manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=manager_llm_config)
 
     # タスクの依頼
     c = await user_proxy.a_initiate_chat(
