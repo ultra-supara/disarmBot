@@ -91,7 +91,7 @@ llm_config = autogen.LLMConfig(
                     DISARM is a framework designed for describing and understanding disinformation incidents.
                     DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
                     and is designed to fit existing infosec practices and tools.
-                    Note that this is only a fixed database, so if you need realtime information, please use internet search tools.
+                    Note that this is only a fixed English database, so if you need realtime information, please use searchDuckduckgo or fetchDirectURL instead
                     """,
                 "parameters": {
                     "type": "object",
@@ -182,7 +182,7 @@ def searchDuckduckgo(
         except Exception as e:
             print(f"DuckDuckGo Search failed: {e}")
             results = []
-    return json.dumps(results)
+    return json.dumps({"query": query,"results": results})
 
 def splitandclear(text :str):
    return [x.strip() for x in text.splitlines() if x.strip() != '']
@@ -204,12 +204,12 @@ func_list = {
 assistantQueries = [
     {
         "name": "Detective",
-        "prompt": f"You are an detective. you have to deep dive into what is the user's actual wants to know. If the question is too abstract, it's your job to use your imagination to make it into reality. answer MUST be related to DISARM framework described as below\n#### README.md\n {readMe}",
+        "prompt": f"You are an detective. you have to deep dive into what is the user's actual wants to know. guess the context of users question with 5W1H(What,When,Where,Why,Who,How) to make more searchable on the internet. answer MUST be related to DISARM framework described as below\n#### README.md\n {readMe}",
         "function": func_list
     },
     {
         "name": "searchTheInternet",
-        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and summarize the information. Consider the fact that searches don't work with keywords that are too common",
+        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and may follow the link by fetchDirectURL. Consider the fact that searches don't work with keywords that are too common",
         "function": func_list
     },
     {
@@ -219,22 +219,22 @@ assistantQueries = [
     },
     {
         "name": "Attackers",
-        "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to the red framework and discuss them.",
+        "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to the red framework and may follow the link by fetchDirectURL and discuss them.",
         "function": func_list
     },
     {
         "name": "Defenders",
-        "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to blue framework and discuss them.",
+        "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to blue framework and may follow the link by fetchDirectURL and discuss them.",
         "function": func_list
     },
     {
         "name": "Skeptics",
-        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and ask your skeptical questions.",
+        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and may follow the link by fetchDirectURL and ask your skeptical questions.",
         "function": func_list
     },
     {
         "name": "SolutionArchitects",
-        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Your role is providing an answer, not a question. Use the `searchDisarmFramework` functions and DuckDuckGo search tool to provide a solution.",
+        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Your role is providing an answer, not a question. Use the `searchDisarmFramework` functions and DuckDuckGo search tool and may follow the link by fetchDirectURL to provide a solution.",
         "function": func_list
     },
     {
@@ -364,10 +364,11 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
                     print("DEBUG: ",line,file=sys.stderr)
                     line = json.loads(line)
                     print("DEBUG: json ",line,file=sys.stderr)
-                    if isinstance(line,list):
+                    if line.get("query"):
+                        query = line.get("query")
                         # internet search result
-                        result += "Search Result\n"
-                        for news in line:
+                        result += f"Search: {query}\nResults:\n"
+                        for news in line.get("results"):
                             title = news["title"]
                             href = news["href"]
                             body = news["body"]
