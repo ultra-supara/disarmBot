@@ -10,7 +10,13 @@ import chromadb as cdb
 import pathlib as pl
 from dotenv import load_dotenv
 from autogen.tools.experimental import DuckDuckGoSearchTool
+from typing import Any
+from duckduckgo_search import DDGS
+from datetime import datetime
 
+
+
+import sys
 # Load environment variables from .env file
 load_dotenv()
 
@@ -71,11 +77,11 @@ else:
     raise ValueError("API_TYPE must be either azure or openai")
 
 # LLMコンフィグ設定
-llm_config = {
-    "config_list": [
+llm_config = autogen.LLMConfig(
+    config_list = [
         config
     ],
-    "tools": [
+    tools = [
         {
             "type": "function",
             "function": {
@@ -85,6 +91,7 @@ llm_config = {
                     DISARM is a framework designed for describing and understanding disinformation incidents.
                     DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
                     and is designed to fit existing infosec practices and tools.
+                    Note that this is only a fixed database, so if you need realtime information, please use internet search tools.
                     """,
                 "parameters": {
                     "type": "object",
@@ -98,13 +105,62 @@ llm_config = {
                 },
             }
         },
+        {
+            "type": "function",
+            "function": {
+                "name": "searchDuckDuckGo",
+                "description": """
+                    Search the internet with duckduckgo
+                    use region parameter to search accurate information for user region
+                    """,
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "query": {
+                            "type": "string",
+                            "description": "Query for searching information",
+                        },
+                        "num_results": {
+                            "type": "number",
+                            "description": "Number of search results. default is 5",
+                        }
+                        ,     
+                        "region": {
+                            "type": "string",
+                            "description": "Region information to search in. default is en-us",
+                        }
+                    },
+                    "required": ["query"],
+                },
+            }
+        },
+         {
+            "type": "function",
+            "function": {
+                "name": "fetchDirectURL",
+                "description": """
+                    Fetch content directly from URL. 
+                    You may use this after duckduckgo search
+                    """,
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string",
+                            "description": "URL to fetch",
+                        }
+                    },
+                    "required": ["url"],
+                },
+            }
+        },
     ],
-}
+)
 
 # Initialize DuckDuckGo search tool
 duckduckgo_search_tool = DuckDuckGoSearchTool()
-
 def searchDisarmFramework(question: str):
+    print("DEBUG: searchDisarmFramework ",question,file=sys.stderr)
     global collection
     result = collection.query(
         query_texts=[question],
@@ -113,54 +169,83 @@ def searchDisarmFramework(question: str):
 
     return json.dumps({"sources": result["ids"],  "documents": result["documents"]}) # temporary
 
-async def searchTheInternet(url: str):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url,timeout=aiohttp.ClientTimeout(total=10)) as response:
-            content = await response.text()
-            soup = bs4.BeautifulSoup(content, "html.parser")
-            text = soup.findChild("body").get_text()
-            return text
+def searchDuckduckgo(
+    query: str,
+    num_results: int = 5,
+    region :str = "en-us"
+):
+    print("DEBUG: searchDuckduckgo ",query,num_results,region,file=sys.stderr)
+    with DDGS() as ddgs:
+        try:
+            # region='wt-wt' means worldwide
+            results = list(ddgs.text(query, region=region, max_results=num_results))
+        except Exception as e:
+            print(f"DuckDuckGo Search failed: {e}")
+            results = []
+    return json.dumps(results)
 
+def splitandclear(text :str):
+   return [x.strip() for x in text.splitlines() if x.strip() != '']
+
+async def fetchDirectURL(url: str):
+     print("DEBUG: fetchDirectURL ",url,file=sys.stderr)
+     async with aiohttp.ClientSession() as session:
+         async with session.get(url,timeout=aiohttp.ClientTimeout(total=10)) as response:
+             content = await response.text()
+             soup = bs4.BeautifulSoup(content, "html.parser")
+             text = str(soup.findChild("body").get_text())
+             content = '\n'.join(splitandclear(text))
+             return f"fetch from: {url}\n###CONTENT BEGIN###\n{content}\n###CONTENT END###\n"
+func_list = {
+    "searchDisarmFramework": searchDisarmFramework,
+    "searchDuckDuckGo": searchDuckduckgo,
+    "fetchDirectURL": fetchDirectURL,
+}
 assistantQueries = [
     {
-        "name": "searchDisarmFramework",
-        "prompt": f"You are information search expert. Please generate a query based on the contents of the README.md below and user query, search using the searchDisarmFramework function, and summarize it.\n#### README.md\n {readMe}",
-        "function": {
-            "searchDisarmFramework": searchDisarmFramework
-        }
+        "name": "Detective",
+        "prompt": f"You are an detective. you have to deep dive into what is the user's actual wants to know. If the question is too abstract, it's your job to use your imagination to make it into reality. answer MUST be related to DISARM framework described as below\n#### README.md\n {readMe}",
+        "function": func_list
     },
     {
         "name": "searchTheInternet",
-        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and summarize the information.",
-        "function": {}
+        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and summarize the information. Consider the fact that searches don't work with keywords that are too common",
+        "function": func_list
+    },
+    {
+        "name": "searchDisarmFramework",
+        "prompt": f"You are information search expert. Please generate a query based on the contents of the README.md below and user query, search using the searchDisarmFramework function, and summarize it.\n#### README.md\n {readMe}",
+        "function": func_list
     },
     {
         "name": "Attackers",
         "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to the red framework and discuss them.",
-        "function": {
-            "searchDisarmFramework": searchDisarmFramework
-        }
+        "function": func_list
     },
     {
         "name": "Defenders",
         "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to blue framework and discuss them.",
-        "function": {
-            "searchDisarmFramework": searchDisarmFramework
-        }
+        "function": func_list
     },
     {
         "name": "Skeptics",
         "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and ask your skeptical questions.",
-        "function": {
-            "searchDisarmFramework": searchDisarmFramework
-        }
+        "function": func_list
     },
     {
         "name": "SolutionArchitects",
-        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Use the `searchDisarmFramework` functions and DuckDuckGo search tool to provide a solution.",
-        "function": {
-            "searchDisarmFramework": searchDisarmFramework
-        }
+        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Your role is providing an answer, not a question. Use the `searchDisarmFramework` functions and DuckDuckGo search tool to provide a solution.",
+        "function": func_list
+    },
+    {
+        "name": "OrdinalyPerson",
+        "prompt": "You are an ordinaly person. So what? you can say anything non related or you should questions to expert in simple perspective. Your role is questioning, not answering",
+        "function": func_list
+    },
+    {
+        "name": "TheGeniusOfReasoning",
+        "prompt": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent.",
+        "function": func_list,
     },
 ]
 
@@ -171,7 +256,7 @@ async def run_assistant(msg :str):
     for query in assistantQueries:
         assistant = autogen.AssistantAgent(
             name=query["name"],
-            system_message=query["prompt"],
+            system_message="Before you talk, you must say your role. Remind your role. it is not good to use tools if your role not required it. DO NOT VIOLATE YOUR ROLE\n" + query["prompt"],
             llm_config=llm_config,
             max_consecutive_auto_reply=5,
         )
@@ -180,8 +265,8 @@ async def run_assistant(msg :str):
             assistant.register_function(query["function"])
 
         # Register DuckDuckGo search tool for agents that need internet search
-        if query["name"] in ["searchTheInternet", "Attackers", "Defenders", "Skeptics", "SolutionArchitects"]:
-            duckduckgo_search_tool.register_for_llm(assistant)
+        #if query["name"] in ["searchTheInternet", "Attackers", "Defenders", "Skeptics", "SolutionArchitects"]:
+        #    duckduckgo_search_tool.register_for_llm(assistant)
 
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
@@ -196,10 +281,38 @@ async def run_assistant(msg :str):
     # Register DuckDuckGo search tool for execution
     duckduckgo_search_tool.register_for_execution(user_proxy)
 
+    last_messages = []
+
+    def select_speaker(
+        last_speaker: autogen.Agent, groupchat: autogen.GroupChat
+    ):
+        print("DEBUG:",len(groupchat.messages),file=sys.stderr)
+        removal = []
+        for (i,msg) in enumerate(groupchat.messages):
+            if msg.get("tool_responses"):
+                if "error" in str(msg["content"]).lower():
+                    removal.append(i-1)
+                    removal.append(i)
+                    print("DEBUG: removing ",msg,groupchat.messages[i-1],file=sys.stderr)
+        groupchat.messages = [x for (i,x) in enumerate(groupchat.messages) if i not in removal]
+
+
+        next_agent = None
+        for (i,cand) in enumerate(assistantQueries):
+            if cand["name"] == last_speaker.name:
+                next_agent = groupchat.agents[(i + 1) % len(groupchat.agents)]
+                print("Selected: ",next_agent.name,file=sys.stderr)
+                break
+        if next_agent is None:
+            next_agent = groupchat.agents[0]
+        nonlocal last_messages
+        last_messages = groupchat.messages
+        return next_agent
+
     group_chat = autogen.GroupChat(
         agents=assistants + [user_proxy],
-        messages=[], max_round=15,
-        speaker_selection_method="round_robin", # ラウンドロビン方式で話者を選択
+        messages=[], max_round=30,
+        speaker_selection_method=select_speaker,
     )
 
     # GroupChatManager用の設定（toolsを除く）
@@ -209,12 +322,13 @@ async def run_assistant(msg :str):
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=manager_llm_config)
 
     # タスクの依頼
+    now = datetime.now()
     c = await user_proxy.a_initiate_chat(
         manager,
-        message=f"Please respond to the following user's question as a group of experts in disinformation countermeasures.\n########\nUser's question\n{msg}\n########\n",
+        message=f"Please respond to the following user's question as a group of experts in disinformation countermeasures. User questions are only one-off, so please do not leave the conclusion to the other party if you ask for a reply.\n########\nUser's question\n{msg}\n########\nAnswer in language user asked. Now is {now}",
     )
 
-    return c
+    return (c,last_messages)
 
 # Botの大元となるオブジェクトを生成する
 bot = discord.Bot(
@@ -232,22 +346,40 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
         await ctx.respond("The AI assistant will learn and analyze the data to engage in a discussion about disinformation...")
         th = await ctx.send("disarmBot Minutes")
         channel = await th.create_thread(name="disarmBot Minutes")
-        c = await run_assistant(msg)
+        (c,last_messages) = await run_assistant(msg)
         color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
         color_per_person = dict()
-        for i,hist in enumerate(c.chat_history):
-            name = hist['name']
+        for i,hist in enumerate(last_messages):
+            name = hist.get("name","unknown")
             if name not in color_per_person:
                 color_per_person[name] = color_candidates[i % len(color_candidates)]
-            content = hist['content']
+            content = hist.get("content","")
             role = hist['role']
-            if role == "function" and name== "searchDisarmFramework":
-                content = json.loads(content)
-                content = flatten(content["sources"])
-                content = "\n".join(content)
-                content = f"Information was retrieved from the following sources\n{content}"
+            lines = splitandclear(content)
+            if str(lines[0]).startswith("fetch from:") if len(lines) != 0 else False:
+                lines = [lines[0]]
+            try:
+                result = ""
+                for line in lines:
+                    print("DEBUG: ",line,file=sys.stderr)
+                    line = json.loads(line)
+                    print("DEBUG: json ",line,file=sys.stderr)
+                    if isinstance(line,list):
+                        # internet search result
+                        result += "Search Result\n"
+                        for news in line:
+                            title = news["title"]
+                            href = news["href"]
+                            body = news["body"]
+                            result += f"### [{title}]({href})\n{body}\n"
+                    else:
+                        line = flatten(line["sources"])
+                        line = "\n".join(line)
+                        result += f"Information was retrieved from the following sources\n{line}"
+                lines = result.splitlines()
+            except Exception as e:
+                print(e,"non json, only a text",file=sys.stderr)
 
-            lines = str(content).split("\n")
 
             for line in lines:
                 if line == "":
