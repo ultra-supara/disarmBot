@@ -95,7 +95,7 @@ llm_config = autogen.LLMConfig(
                     DISARM is a framework designed for describing and understanding disinformation incidents.
                     DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
                     and is designed to fit existing infosec practices and tools.
-                    Note that this is only a fixed English database, so if you need realtime information, please use searchDuckduckgo or fetchDirectURL instead
+                    Note that this is only a fixed English database, so if you need realtime information, please use searchDuckDuckGo or fetchDirectURL instead
                     This is NOT connected to the internet.
                     """,
                 "parameters": {
@@ -129,7 +129,7 @@ llm_config = autogen.LLMConfig(
                             "type": "number",
                             "description": "Number of search results. default is 5",
                         }
-                        ,     
+                        ,
                         "region": {
                             "type": "string",
                             "description": f"Region information to search in. default is us-en. candidates are {local_info}",
@@ -152,7 +152,7 @@ llm_config = autogen.LLMConfig(
             "function": {
                 "name": "fetchDirectURL",
                 "description": """
-                    Fetch content directly from URL. 
+                    Fetch content directly from URL.
                     You may use this after duckduckgo search
                     """,
                 "parameters": {
@@ -184,14 +184,14 @@ def searchDisarmFramework(question: str):
 
     return json.dumps({"question": question, "sources": result["ids"],  "documents": result["documents"]}) # temporary
 
-def searchDuckduckgo(
+def searchDuckDuckGo(
     query: str,
     num_results: int = 5,
     page :int = 1,
     region :str = "en-us",
     timelimit :str | None = None,
 ):
-    print("DEBUG: searchDuckduckgo ",query,num_results,region,page,timelimit,file=sys.stderr)
+    print("DEBUG: searchDuckDuckGo ",query,num_results,region,page,timelimit,file=sys.stderr)
     with DDGS() as ddgs:
         try:
             results = list(ddgs.text(query, region=region, max_results=num_results,page=page,timelimit=timelimit))
@@ -218,7 +218,7 @@ async def fetchDirectURL(url: str):
              return f"fetch from: {url}\n###CONTENT BEGIN###\n{content}\n###CONTENT END###\n"
 func_list = {
     "searchDisarmFramework": searchDisarmFramework,
-    "searchDuckDuckGo": searchDuckduckgo,
+    "searchDuckDuckGo": searchDuckDuckGo,
     "fetchDirectURL": fetchDirectURL,
 }
 assistantQueries = [
