@@ -17,6 +17,16 @@ import io
 
 
 import sys
+
+try:
+  bot_ui_lang = sys.argv[1]
+except Exception:
+  bot_ui_lang = "en" # default to English
+ 
+with open("bot_ui_template.json") as fp:
+    bot_ui_message = json.loads(fp.read())
+    bot_ui_message = bot_ui_message[bot_ui_lang]
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -284,10 +294,6 @@ async def run_assistant(msg :str):
         if "function" in query:
             assistant.register_function(query["function"])
 
-        # Register DuckDuckGo search tool for agents that need internet search
-        #if query["name"] in ["searchTheInternet", "Attackers", "Defenders", "Skeptics", "SolutionArchitects"]:
-        #    duckduckgo_search_tool.register_for_llm(assistant)
-
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
@@ -352,6 +358,8 @@ async def run_assistant(msg :str):
 
     return (last_messages,None)
 
+
+
 # Botの大元となるオブジェクトを生成する
 bot = discord.Bot(
     intents=discord.Intents.all(),
@@ -365,9 +373,9 @@ async def on_ready():
 @bot.command(name="discuss", description="start agents discussion with query")
 async def discuss(ctx: discord.ApplicationContext, query: str):
     try:
-        await ctx.respond("The AI agents will analyze the query and discuss about disinformation...")
-        th = await ctx.send("disarmBot Minutes")
-        channel = await th.create_thread(name="disarmBot Minutes")
+        await ctx.respond(bot_ui_message["ACCEPT_MESSAGE"])
+        th = await ctx.send(bot_ui_message["RECORD_THREAD_TITLE"])
+        channel = await th.create_thread(name=bot_ui_message["RECORD_THREAD_TITLE"])
         (last_messages,exc) = await run_assistant(query)
         color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
         color_per_person = dict()
@@ -379,6 +387,7 @@ async def discuss(ctx: discord.ApplicationContext, query: str):
             role = hist['role']
             lines = splitandclear(content)
             if str(lines[0]).startswith("fetch from:") if len(lines) != 0 else False:
+                lines[0] = str(lines[0]).replace("fetch from",bot_ui_message["DIRECT_FETCH"],1)
                 lines = [lines[0]]
             try:
                 result = ""
@@ -391,7 +400,8 @@ async def discuss(ctx: discord.ApplicationContext, query: str):
                         region = line.get("region")
                         timelimit = line.get("timelimit")
                         # internet search result
-                        result += f"Search: {query} (region: {region} time limit: {timelimit})\nResults:\n"
+                        internet_result_msg = bot_ui_message["INTERNET_SEARCH_RESULT"]
+                        result += f"{internet_result_msg}\nSearch: {query} (region: {region} time limit: {timelimit})\nResults:\n"
                         for news in line.get("results"):
                             title = news["title"]
                             href = news["href"]
@@ -401,7 +411,8 @@ async def discuss(ctx: discord.ApplicationContext, query: str):
                         question = line["question"]
                         line = flatten(line["sources"])
                         line = "\n".join(line)
-                        result += f"Retrieved information from DISARM framework\nSearch: {question}\n{line}"
+                        disarm_result_msg = bot_ui_message["DISARM_SEARCH_RESULT"]
+                        result += f"{disarm_result_msg}\nSearch: {question}\n{line}"
                 lines = result.splitlines()
             except Exception as e:
                 print(e,"non json, only a text",file=sys.stderr)
@@ -419,12 +430,14 @@ async def discuss(ctx: discord.ApplicationContext, query: str):
                         line = line[2000:]
         if exc is not None:
             raise exc
-        await ctx.send("The discussion has concluded.")
+        await ctx.send(bot_ui_message["END_MESSAGE"])
     except Exception as e:
         print(e)
         print(traceback.format_exc())
         print(f"Error: {e}\n",traceback.format_exc(),file=sys.stderr)
-        await ctx.respond(f"An error occurred: {e}. Please try again.")
+        msg = str(bot_ui_message["ERROR_MESSAGE"])
+        msg = msg.replace("{error}",str(e))
+        await ctx.respond(msg)
         return
 
 # Botを起動
