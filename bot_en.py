@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 from typing import Any
 from ddgs import DDGS
 from datetime import datetime
+import io
 
 
 
@@ -136,9 +137,13 @@ llm_config = autogen.LLMConfig(
                         "page": {
                             "type": "number",
                             "description": "page to return. default is 1. If you want more deeper or specific information, increment pages to deep dive into"
+                        },
+                        "timelimit": {
+                            "type": "string",
+                            "description": "time limit for search. candidates are d, w, m, y. default is null. meanings are: d=last day,w=last week,m=last month,y=last year"
                         }
                     },
-                    "required": ["query"],
+                    "required": ["query","timelimit"],
                 },
             }
         },
@@ -183,16 +188,17 @@ def searchDuckduckgo(
     query: str,
     num_results: int = 5,
     page :int = 1,
-    region :str = "en-us"
+    region :str = "en-us",
+    timelimit :str | None = None,
 ):
-    print("DEBUG: searchDuckduckgo ",query,num_results,region,page,file=sys.stderr)
+    print("DEBUG: searchDuckduckgo ",query,num_results,region,page,timelimit,file=sys.stderr)
     with DDGS() as ddgs:
         try:
-            results = list(ddgs.text(query, region=region, max_results=num_results,page=page))
+            results = list(ddgs.text(query, region=region, max_results=num_results,page=page,timelimit=timelimit))
         except Exception as e:
             print(f"DuckDuckGo Search failed: {e}")
             results = []
-    return json.dumps({"query": query,"region": region,"results": results})
+    return json.dumps({"query": query,"region": region,"timelimit": timelimit,"results": results})
 
 def splitandclear(text :str):
    return [x.strip() for x in text.splitlines() if x.strip() != '']
@@ -200,10 +206,14 @@ def splitandclear(text :str):
 async def fetchDirectURL(url: str):
      print("DEBUG: fetchDirectURL ",url,file=sys.stderr)
      async with aiohttp.ClientSession() as session:
-         async with session.get(url,timeout=aiohttp.ClientTimeout(total=10)) as response:
+         async with session.get(url,timeout=aiohttp.ClientTimeout(total=10),allow_redirects=True) as response:
              content = await response.text()
-             soup = bs4.BeautifulSoup(content, "html.parser")
-             text = str(soup.findChild("body").get_text())
+             soup = bs4.BeautifulSoup(io.StringIO(content), "html.parser")
+             try:
+                 text = str(soup.findChild("body").get_text())
+             except Exception as e:
+                 print("DEBUG: get html body error ",e,file=sys.stderr)
+                 text = str(soup.findChild("html").get_text())
              content = '\n'.join(splitandclear(text))
              return f"fetch from: {url}\n###CONTENT BEGIN###\n{content}\n###CONTENT END###\n"
 func_list = {
@@ -214,7 +224,7 @@ func_list = {
 assistantQueries = [
     {
         "name": "Detective",
-        "prompt": f"You are an detective. you have to deep dive into what is the user's actual wants to know. guess the context of users question with 5W1H(What,When,Where,Why,Who,How) to make more searchable on the internet. answer MUST be related to DISARM framework described as below\n#### README.md\n {readMe}",
+        "prompt": f"You are an detective. you have to deep dive into what is the user's actual wants to know. guess the context of users question with 5W1H(What,When,Where,Why,Who,How) to make more searchable on the internet. Please also dig deeper into the subtle nuances of the question phrase. Consider that the phrase of the question may be common sense in this way, but this way of asking this question may be a different intent. Answer MUST be related to DISARM framework described as below. In DISARM framework, there are no recent information. so if you need recent information, use the internet\n#### README.md\n {readMe}",
         "function": func_list
     },
     {
@@ -254,7 +264,7 @@ assistantQueries = [
     },
     {
         "name": "TheGeniusOfReasoning",
-        "prompt": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent. Your are an expert, It's good to be inspired by the comments, but don't play together like clown",
+        "prompt": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent. Your are an expert, It's good to be inspired by the comments, but don't play together like clown. Your role is providing a bizarre and insightful opinion.",
         "function": func_list,
     },
 ]
@@ -281,7 +291,7 @@ async def run_assistant(msg :str):
     # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
     user_proxy = autogen.UserProxyAgent(
         name="user_proxy",
-        system_message="You are moderator. Summarize the discussion and provide feedback to the assistants in English. Organize whether it matches the user's question and provide feedback to the assistants.",
+        system_message= "Remind your role. Answer must follow the language user asked. You are moderator. Summarize the discussion and provide feedback to the assistants. Organize critically whether it matches the user's question  and provide feedback to the assistants.",
         is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("task complete"),
         human_input_mode="NEVER",
         llm_config=llm_config,
@@ -300,7 +310,7 @@ async def run_assistant(msg :str):
         removal = []
         for (i,msg) in enumerate(groupchat.messages):
             if msg.get("tool_responses"):
-                if "error" in str(msg["content"]).lower():
+                if str(msg["content"]).lower().startswith("error"):
                     removal.append(i-1)
                     removal.append(i)
                     print("DEBUG: removing ",msg,groupchat.messages[i-1],file=sys.stderr)
@@ -337,9 +347,10 @@ async def run_assistant(msg :str):
             message=f"Please respond to the following user's question as a group of experts in disinformation countermeasures. User questions are only one-off, so please do not leave the conclusion to the other party if you ask for a reply.\n########\nUser's question\n{msg}\n########\nAnswer in language user asked. Now is {now}",
         )
     except Exception as e:
-        return (c,last_messages,e)
+        print(f"Error occured {e}, respond first",file=sys.stderr)
+        return (last_messages,e)
 
-    return (c,last_messages,None)
+    return (last_messages,None)
 
 # Botの大元となるオブジェクトを生成する
 bot = discord.Bot(
@@ -351,13 +362,13 @@ bot = discord.Bot(
 async def on_ready():
     print("Ready disarm framework bot")
 
-@bot.command(name="discuss", description="discuss")
-async def discuss(ctx: discord.ApplicationContext, msg: str):
+@bot.command(name="discuss", description="start agents discussion with query")
+async def discuss(ctx: discord.ApplicationContext, query: str):
     try:
-        await ctx.respond("The AI assistant will learn and analyze the data to engage in a discussion about disinformation...")
+        await ctx.respond("The AI agents will analyze the query and discuss about disinformation...")
         th = await ctx.send("disarmBot Minutes")
         channel = await th.create_thread(name="disarmBot Minutes")
-        (c,last_messages,exc) = await run_assistant(msg)
+        (last_messages,exc) = await run_assistant(query)
         color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
         color_per_person = dict()
         for i,hist in enumerate(last_messages):
@@ -378,8 +389,9 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
                     if line.get("query"):
                         query = line.get("query")
                         region = line.get("region")
+                        timelimit = line.get("timelimit")
                         # internet search result
-                        result += f"Search: {query} (region: {region})\nResults:\n"
+                        result += f"Search: {query} (region: {region} time limit: {timelimit})\nResults:\n"
                         for news in line.get("results"):
                             title = news["title"]
                             href = news["href"]
@@ -411,7 +423,7 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
     except Exception as e:
         print(e)
         print(traceback.format_exc())
-
+        print(f"Error: {e}\n",traceback.format_exc(),file=sys.stderr)
         await ctx.respond(f"An error occurred: {e}. Please try again.")
         return
 
