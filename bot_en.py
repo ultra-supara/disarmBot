@@ -9,9 +9,8 @@ import traceback
 import chromadb as cdb
 import pathlib as pl
 from dotenv import load_dotenv
-from autogen.tools.experimental import DuckDuckGoSearchTool
 from typing import Any
-from duckduckgo_search import DDGS
+from ddgs import DDGS
 from datetime import datetime
 
 
@@ -69,6 +68,10 @@ OAI_CONFIG ={
     "stream": True,
 }
 
+with open("duckduckgo-locales.json") as fp:
+    local_info = json.loads(fp.read())
+    local_info = ','.join([x["locale"] for x in local_info])
+
 if API_TYPE == "azure":
     config = AZURE_CONFIG
 elif API_TYPE == "openai":
@@ -92,13 +95,14 @@ llm_config = autogen.LLMConfig(
                     DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
                     and is designed to fit existing infosec practices and tools.
                     Note that this is only a fixed English database, so if you need realtime information, please use searchDuckduckgo or fetchDirectURL instead
+                    This is NOT connected to the internet.
                     """,
                 "parameters": {
                     "type": "object",
                     "properties": {
                         "question": {
                             "type": "string",
-                            "description": "Query for searching information related to the Disarm Framework",
+                            "description": "Query for searching information related to the Disarm Framework. Query must be English. This database is not suitable for asking specific questions, so please search for general information using keywords.",
                         }
                     },
                     "required": ["question"],
@@ -127,7 +131,11 @@ llm_config = autogen.LLMConfig(
                         ,     
                         "region": {
                             "type": "string",
-                            "description": "Region information to search in. default is en-us",
+                            "description": f"Region information to search in. default is us-en. candidates are {local_info}",
+                        },
+                        "page": {
+                            "type": "number",
+                            "description": "page to return. default is 1. If you want more deeper or specific information, increment pages to deep dive into"
                         }
                     },
                     "required": ["query"],
@@ -158,31 +166,33 @@ llm_config = autogen.LLMConfig(
 )
 
 # Initialize DuckDuckGo search tool
-duckduckgo_search_tool = DuckDuckGoSearchTool()
+
 def searchDisarmFramework(question: str):
     print("DEBUG: searchDisarmFramework ",question,file=sys.stderr)
+    if not question.isascii():
+        return "only accepts English"
     global collection
     result = collection.query(
         query_texts=[question],
         n_results=5,
     )
 
-    return json.dumps({"sources": result["ids"],  "documents": result["documents"]}) # temporary
+    return json.dumps({"question": question, "sources": result["ids"],  "documents": result["documents"]}) # temporary
 
 def searchDuckduckgo(
     query: str,
     num_results: int = 5,
+    page :int = 1,
     region :str = "en-us"
 ):
-    print("DEBUG: searchDuckduckgo ",query,num_results,region,file=sys.stderr)
+    print("DEBUG: searchDuckduckgo ",query,num_results,region,page,file=sys.stderr)
     with DDGS() as ddgs:
         try:
-            # region='wt-wt' means worldwide
-            results = list(ddgs.text(query, region=region, max_results=num_results))
+            results = list(ddgs.text(query, region=region, max_results=num_results,page=page))
         except Exception as e:
             print(f"DuckDuckGo Search failed: {e}")
             results = []
-    return json.dumps({"query": query,"results": results})
+    return json.dumps({"query": query,"region": region,"results": results})
 
 def splitandclear(text :str):
    return [x.strip() for x in text.splitlines() if x.strip() != '']
@@ -209,7 +219,7 @@ assistantQueries = [
     },
     {
         "name": "searchTheInternet",
-        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and may follow the link by fetchDirectURL. Consider the fact that searches don't work with keywords that are too common",
+        "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and may follow the link by fetchDirectURL. use the internet power. Choose the best region for the information you are looking for",
         "function": func_list
     },
     {
@@ -229,7 +239,7 @@ assistantQueries = [
     },
     {
         "name": "Skeptics",
-        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and may follow the link by fetchDirectURL and ask your skeptical questions.",
+        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Also look critically at what they don't say and mention it. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and may follow the link by fetchDirectURL and ask your skeptical questions.",
         "function": func_list
     },
     {
@@ -238,13 +248,13 @@ assistantQueries = [
         "function": func_list
     },
     {
-        "name": "OrdinalyPerson",
-        "prompt": "You are an ordinaly person. So what? you can say anything non related or you should questions to expert in simple perspective. Your role is questioning, not answering",
+        "name": "Clown",
+        "prompt": "You are a clown. So what? you can say anything non related or you should questions to expert in simple perspective. Your role is questioning, not answering",
         "function": func_list
     },
     {
         "name": "TheGeniusOfReasoning",
-        "prompt": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent.",
+        "prompt": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent. Your are an expert, It's good to be inspired by the comments, but don't play together like clown",
         "function": func_list,
     },
 ]
@@ -256,7 +266,7 @@ async def run_assistant(msg :str):
     for query in assistantQueries:
         assistant = autogen.AssistantAgent(
             name=query["name"],
-            system_message="Before you talk, you must say your role. Remind your role. it is not good to use tools if your role not required it. DO NOT VIOLATE YOUR ROLE\n" + query["prompt"],
+            system_message="Before you talk, you must say your role. Remind your role. it is not good to use tools if your role not required it. DO NOT VIOLATE YOUR ROLE. Note that for realtime information, use the internet proior to searchDisarmFramework. searchDisarmFramework function only accepts English keywords, not general question. so pass the keyword in English. But answer must follow the language user asked.\n" + query["prompt"],
             llm_config=llm_config,
             max_consecutive_auto_reply=5,
         )
@@ -279,7 +289,7 @@ async def run_assistant(msg :str):
     )
 
     # Register DuckDuckGo search tool for execution
-    duckduckgo_search_tool.register_for_execution(user_proxy)
+    user_proxy.register_function(func_list)
 
     last_messages = []
 
@@ -316,19 +326,20 @@ async def run_assistant(msg :str):
     )
 
     # GroupChatManager用の設定（toolsを除く）
-    manager_llm_config = {
-        "config_list": llm_config["config_list"]
-    }
+    manager_llm_config =llm_config
     manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=manager_llm_config)
 
     # タスクの依頼
     now = datetime.now()
-    c = await user_proxy.a_initiate_chat(
-        manager,
-        message=f"Please respond to the following user's question as a group of experts in disinformation countermeasures. User questions are only one-off, so please do not leave the conclusion to the other party if you ask for a reply.\n########\nUser's question\n{msg}\n########\nAnswer in language user asked. Now is {now}",
-    )
+    try:
+        c = await user_proxy.a_initiate_chat(
+            manager,
+            message=f"Please respond to the following user's question as a group of experts in disinformation countermeasures. User questions are only one-off, so please do not leave the conclusion to the other party if you ask for a reply.\n########\nUser's question\n{msg}\n########\nAnswer in language user asked. Now is {now}",
+        )
+    except Exception as e:
+        return (c,last_messages,e)
 
-    return (c,last_messages)
+    return (c,last_messages,None)
 
 # Botの大元となるオブジェクトを生成する
 bot = discord.Bot(
@@ -346,7 +357,7 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
         await ctx.respond("The AI assistant will learn and analyze the data to engage in a discussion about disinformation...")
         th = await ctx.send("disarmBot Minutes")
         channel = await th.create_thread(name="disarmBot Minutes")
-        (c,last_messages) = await run_assistant(msg)
+        (c,last_messages,exc) = await run_assistant(msg)
         color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
         color_per_person = dict()
         for i,hist in enumerate(last_messages):
@@ -366,17 +377,19 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
                     print("DEBUG: json ",line,file=sys.stderr)
                     if line.get("query"):
                         query = line.get("query")
+                        region = line.get("region")
                         # internet search result
-                        result += f"Search: {query}\nResults:\n"
+                        result += f"Search: {query} (region: {region})\nResults:\n"
                         for news in line.get("results"):
                             title = news["title"]
                             href = news["href"]
                             body = news["body"]
                             result += f"### [{title}]({href})\n{body}\n"
                     else:
+                        question = line["question"]
                         line = flatten(line["sources"])
                         line = "\n".join(line)
-                        result += f"Information was retrieved from the following sources\n{line}"
+                        result += f"Retrieved information from DISARM framework\nSearch: {question}\n{line}"
                 lines = result.splitlines()
             except Exception as e:
                 print(e,"non json, only a text",file=sys.stderr)
@@ -392,6 +405,8 @@ async def discuss(ctx: discord.ApplicationContext, msg: str):
                     else:
                         await channel.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
                         line = line[2000:]
+        if exc is not None:
+            raise exc
         await ctx.send("The discussion has concluded.")
     except Exception as e:
         print(e)
