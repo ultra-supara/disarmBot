@@ -384,7 +384,6 @@ async def discuss(ctx: discord.ApplicationContext, query: str):
             if name not in color_per_person:
                 color_per_person[name] = color_candidates[i % len(color_candidates)]
             content = hist.get("content","")
-            role = hist['role']
             lines = splitandclear(content)
             if str(lines[0]).startswith("fetch from:") if len(lines) != 0 else False:
                 lines[0] = str(lines[0]).replace("fetch from",bot_ui_message["DIRECT_FETCH"],1)
