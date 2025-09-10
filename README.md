@@ -27,9 +27,9 @@ The framework for countermeasures against disinformation, the [DISARM Disinforma
 
 ## what is aim for?
 
-disarmBot is a bot that can be deployed on Discord. Multiple LLM agents (GPT-4) are automatically launched and respond when a user enters a command. It is also based on the DISARM (Disinformation Analysis and Response Measures) TTP Frameworks, and DISARM is based on MITRE ATT&CK, the “theory” of CTI. In other words, these are measures for practical CTI utilization by LLM from theory to public assistance.
+disarmBot is a bot that can be deployed on Discord. Multiple LLM agents (mainly GPT-4) are automatically launched and respond when a user enters a command. It is also based on the DISARM (Disinformation Analysis and Response Measures) TTP Frameworks, and DISARM is based on MITRE ATT&CK, the “theory” of CTI. In other words, these are measures for practical CTI utilization by LLM from theory to public assistance.
 
-LLM agents, who have learned several different tactics, cooperate with each other and work together to develop a tactical and technical dialogue based on the disinformation framework from the perspective of an attacker_assistant, defender_assistant, user, skeptics, solution architect, and OSINT Specialist. Tactical and technical dialogues based on the disinformation framework will be conducted. Through the dialogues, agents discuss and deepen information with each other. disarmBot fulfills these requirements and provides an information environment that allows users to be exposed to a variety of opinions. This allows users to think for themselves and enhance their critical ability to digest information. Even if the assumed users' requirements are different positions and levels of abstraction, it is possible to optimize them individually and provide high-quality intelligence that meets the 4A (Accurate, Audience Focused, Actionable, and Adequate Timing) conditions in a proactive manner by breaking free from a defensive mindset. The 4As (Accurate, Audience Focused, Actionable, Adequate Timing) and can be provided in a proactive manner.
+LLM agents, who have learned several different tactics, cooperate with each other and work together to develop a tactical and technical dialogue based on the disinformation framework from the perspective of an attacker, defender, searchTheInternet, user, skeptics, solution architect, OSINT Specialist ,detective, clown and TheGeniusOfReasoning. Tactical and technical dialogues based on the disinformation framework will be conducted. Through the dialogues, agents discuss and deepen information with each other. disarmBot fulfills these requirements and provides an information environment that allows users to be exposed to a variety of opinions. This allows users to think for themselves and enhance their critical ability to digest information. Even if the assumed users' requirements are different positions and levels of abstraction, it is possible to optimize them individually and provide high-quality intelligence that meets the 4A (Accurate, Audience Focused, Actionable, and Adequate Timing) conditions in a proactive manner by breaking free from a defensive mindset. The 4As (Accurate, Audience Focused, Actionable, Adequate Timing) and can be provided in a proactive manner.
 
 【Image of 5 AI Agents】
 
@@ -54,22 +54,12 @@ LLM agents, who have learned several different tactics, cooperate with each othe
 
 ## 目次
 
-1. [Operating_Environment](#Operating Environment)
-2. [File_Structure](#File Structure)
-3. [Installation_Method](#Installation Method) 
-4. [Preparation](#Preparation) 
-5. [Set_environment_variables](#Set environment variables)
-6. [Troubleshooting](#Troubleshooting)
-7. [Special_Thanks!](#Special Thanks!)
-
----
-
-## Operating Environment
-
-| Software           | version |
-| ---------------------- | ---------- |
-| Python                 | 3.12.7     |
-| autogen                | 0.7.3      |
+1. [File_Structure](#File Structure)
+2. [Installation_Method](#Installation Method) 
+3. [Preparation](#Preparation) 
+4. [Set_environment_variables](#Set environment variables)
+5. [Troubleshooting](#Troubleshooting)
+6. [Special_Thanks!](#Special Thanks!)
 
 ---
 
@@ -80,17 +70,14 @@ LLM agents, who have learned several different tactics, cooperate with each othe
 ```plaintext
 .
 ├── README.md
-├── bot.py               # Japanese version of disarm bot program
-├── bot_en.py            # English version of disarm bot program
-├── bot_ch.py            # China version of disarm bot program
-├── extract.py           # data processing script
+├── bot.py               # disarm bot program
+├── bot_ui_template.json # bot ui template
 └── generated_pages      # DISARM Frameworksのデータ
     ├── actortypes
     ├── counters
     ├── detections_index.md
     ├── disarm_blue_framework.md
     ├── others...
-10 directories, 33 files
 ```
 ---
 
@@ -130,7 +117,9 @@ LLM agents, who have learned several different tactics, cooperate with each othe
    Choose Japanese, English or Chinese version and run it.
 
    ```bash
-   dotenv run python3 bot_en.py
+   dotenv run python3 bot.py ja # japanese version of disarm bot program
+   dotenv run python3 bot.py en # english version of disarm bot program
+   dotenv run python3 bot.py ch # chinese version of disarm bot program
    ````
 
 6. **Confirm that it works on Discord**.  
