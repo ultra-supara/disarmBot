@@ -4,3 +4,4 @@ ag2[openai,duckduckgo]
 aiohttp==3.10.10
 chromadb==0.5.3
 beautifulsoup4==4.12.3
+ddgs==9.5.5
