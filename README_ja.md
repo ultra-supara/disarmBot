@@ -2,12 +2,12 @@
 
 ![Image](https://github.com/user-attachments/assets/d569bb26-38ea-4a9f-ac7d-590d5ccddf36)
 
-## Join our [LLM AgentBot Discord Community](https://discord.gg/rHUMFYbS) !!
+## [LLM AgentBot Discord Community](https://discord.gg/dBgUNXmYcP) に参加してください !!
 
 <img width="861" alt="Image" src="https://github.com/user-attachments/assets/3ade408b-aa5d-4216-8b1c-6ec69e985838" />
 
 ## 概要
-**disarmBot**は、OSS AIエージェントフレームワークである[AG2](https://github.com/ag2ai/ag2?tab=readme-ov-file) (旧AutoGen)を使用し複数のAI Agentを立て、RAG技術により引き出されたMITRE ATT&CKの戦略に基づいて偽情報に関する議論を自動生成した後、ユーザに結論を返すBotです。
+**disarmBot**は、OSS AIエージェントフレームワークである[AG2](https://github.com/ag2ai/ag2?tab=readme-ov-file) (旧AutoGen)を使用し複数のAI Agentを自律的に立て、RAG技術により引き出されたMITRE ATT&CKの戦略に基づいて偽情報に関する議論を自動生成した後、ユーザに結論を返すBotです。
 
 日本語・英語・中国語に対応しています。
 
@@ -25,17 +25,17 @@
 
 <div id="top"></div>
 
-## 目的は何ですか？
+## 目的は？
 
-disarmBotは、Discord上に導入できるBotです。ユーザがコマンドを入力することで複数のLLMエージェント(GPT-4)が自動的に立ち上がり、応答します。また、DISARM（Disinformation Analysis and Response Measures）TTP Frameworksに基づいており、DISARMはCTIの「理論」にあたるMITRE ATT&CKに基づいています。つまり、理論から公助に向けたLLMによる実践的CTI利活用のための施策です。
+disarmBotは、Discord上に導入できる偽情報対策のためのBotです。ユーザがコマンドを入力することで複数のLLMエージェント(GPT-4)が自動的に立ち上がり、応答します。また、DISARM（Disinformation Analysis and Response Measures）TTP Frameworksに基づいており、DISARMはCTIの「理論」にあたるMITRE ATT&CKに基づいています。つまり、理論から公助に向けたLLMによる実践的CTI利活用のための施策です。
 
-複数の異なる戦術を学習したLLMエージェントが協力し、attacker_assistant、defender_assistant、user、skeptics、solution architect、OSINT Specialistの視点から偽情報フレームワークに基づいた戦術的・技術的な対話を行います。対話を通じてエージェント同士の議論を通じた情報の深堀りを行います。disarmBotは、これらの条件を満たし、ユーザーが多様な意見に触れることができる情報環境を提供します。これにより、ユーザーは自ら考え、情報を消化するクリティカルな能力を高めることができます。仮に、想定ユーザーの要求が異なる立場や抽象度であっても個別最適化可能で、かつ4A(Accurate,Audience Focused,Actionable,Adequate Timing)条件が整った質の高いインテリジェンスを、防衛マインドから脱却し、プロアクティブな形で提供できることを示します。
+複数の異なる戦術を学習したLLMエージェントが協力し、attacker、defender、user、skeptics、solution architect、searchTheInternet、OSINT Specialist、detective、clown、TheGeniusOfReasoningの視点から偽情報フレームワークに基づいた戦術的・技術的な対話を行います。対話を通じてエージェント同士の議論を通じた情報の深堀りを行います。disarmBotは、これらの条件を満たし、ユーザーが多様な意見に触れることができる情報環境を提供します。これにより、ユーザーは自ら考え、情報を消化するクリティカルな能力を高めることができます。仮に、想定ユーザーの要求が異なる立場や抽象度であっても個別最適化可能で、かつ4A(Accurate,Audience Focused,Actionable,Adequate Timing)条件が整った質の高いインテリジェンスを、防衛マインドから脱却し、プロアクティブな形で提供できることを示します。
 
 【5つのAI Agentのイメージ】
 
 <img width="1166" alt="Image" src="https://github.com/user-attachments/assets/16b9cd1b-c010-4052-8c2e-9972afb83734" />
 
-【AutoGenにおけるGroup Chatのイメージ】
+【AG2におけるGroup Chatのイメージ】
 
 <img width="1166" alt="Image" src="https://github.com/user-attachments/assets/4a77c096-2b14-4def-abd9-ec388000521a" />
 
@@ -54,43 +54,30 @@ disarmBotは、Discord上に導入できるBotです。ユーザがコマンド�
 
 ## 目次
 
-1. [動作環境](#動作環境)
-2. [ファイル構成](#ファイル構成)
-3. [インストール方法](#インストール方法)
-4. [事前準備](#事前準備)
-5. [環境変数の設定](#環境変数の設定)
-6. [トラブルシューティング](#トラブルシューティング)
-7. [感謝](#感謝)
+1. [ファイル構成](#ファイル構成)
+2. [インストール方法](#インストール方法)
+3. [事前準備](#事前準備)
+4. [環境変数の設定](#環境変数の設定)
+5. [トラブルシューティング](#トラブルシューティング)
+6. [感謝](#感謝)
 
 ---
 
-## 動作環境
+## ファイル構成
 
-| Software           | version |
-| ---------------------- | ---------- |
-| Python                 | 3.12.7     |
-| autogen                | 0.7.3      |
-
----
-
-## ディレクトリ構成
-
-**プロジェクトのディレクトリ構成**
+**プロジェクトのファイル構成**
 
 ```plaintext
 .
 ├── README.md
-├── bot.py               # disarm botの日本語版プログラム
-├── bot_en.py            # disarm botの英語版プログラム
-├── bot_ch.py            # disarm botの中国語版プログラム
-├── extract.py           # データ処理スクリプト
+├── bot.py               # disarm bot program
+├── bot_ui_template.json # bot ui template
 └── generated_pages      # DISARM Frameworksのデータ
     ├── actortypes
     ├── counters
     ├── detections_index.md
     ├── disarm_blue_framework.md
-    ├── その他のファイル...
-10 directories, 33 files
+    ├── others...
 ```
 ---
 
@@ -129,7 +116,9 @@ disarmBotは、Discord上に導入できるBotです。ユーザがコマンド�
    日本語版か英語版か中国語版を選択して実行してください。
 
    ```bash
-   dotenv run python3 bot_en.py
+   dotenv run python3 bot.py ja # japanese version of disarm bot program
+   dotenv run python3 bot.py en # english version of disarm bot program
+   dotenv run python3 bot.py ch # chinese version of disarm bot program
    ```
 
 6. **Discordでの動作確認**  
