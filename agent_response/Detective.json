@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for 5W1H and Guesses",
+  "description": "Defines the object structure for describing the 5W1H (What, When, Where, Why, Who, How) and two guesses (superficial, deep).",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response."
+    },
+    "what": {
+      "type": "string",
+      "description": "Describes 'What'."
+    },
+    "when": {
+      "type": "string",
+      "description": "Describes 'When'."
+    },
+    "where": {
+      "type": "string",
+      "description": "Describes 'Where'."
+    },
+    "why": {
+      "type": "string",
+      "description": "Describes 'Why'."
+    },
+    "who": {
+      "type": "string",
+      "description": "Describes 'Who'."
+    },
+    "how": {
+      "type": "string",
+      "description": "Describes 'How'."
+    },
+    "superficial_guess": {
+      "type": "string",
+      "description": "A guess about the superficial intent of the question."
+    },
+    "deep_guess": {
+      "type": "string",
+      "description": "A guess about the deep or underlying intent of the question."
+    },
+    "mentioned_url": {
+      "type":"array",
+      "description": "The URL that the user directly mentioned (or if empty array if none)."
+    },
+    "keyword": {
+      "type": "array",
+      "description": "Key words summarizing the reasoning"
+    }
+  },
+  "additionalItems": false,
+  "required": [
+    "role",
+    "lang",
+    "what",
+    "when",
+    "where",
+    "why",
+    "who",
+    "how",
+    "superficial_guess",
+    "deep_guess",
+    "mentioned_url",
+    "keyword"
+  ]
+}
