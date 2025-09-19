@@ -1,0 +1,29 @@
+{
+    "en": {
+        "ACCEPT_MESSAGE": "The AI agents will analyze the query and discuss about disinformation...",
+        "RECORD_THREAD_TITLE": "disarmBot Minutes",
+        "DIRECT_FETCH": "fetch from",
+        "INTERNET_SEARCH_RESULT": "Retrieved information from the Internet",
+        "DISARM_SEARCH_RESULT": "Retrieved information from DISARM framework",
+        "END_MESSAGE": "The discussion has concluded.",
+        "ERROR_MESSAGE": "An error occurred: {error}. Please try again."
+    },
+    "ja": {
+        "ACCEPT_MESSAGE": "ユーザーのクエリを元にAIエージェントたちが偽情報について議論をしています...",
+        "RECORD_THREAD_TITLE": "disarmBot 議事録",
+        "END_MESSAGE": "議論が終了しました",
+        "ERROR_MESSAGE": "エラーが発生しました:  {error}. もう一度お試しください。",
+        "DIRECT_FETCH": "次のURLから取得",
+        "INTERNET_SEARCH_RESULT": "インターネットから情報を検索しました",
+        "DISARM_SEARCH_RESULT": "DISARMフレームワークから情報を検索しました"
+    },
+    "ch": {
+        "ACCEPT_MESSAGE": "AI代理将分析查询并讨论虚假信息......",
+        "RECORD_THREAD_TITLE": "disarmBot 議事録",
+        "END_MESSAGE": "讨论结束了",
+        "ERROR_MESSAGE": "发生错误:  {error}。请再试一次。",
+        "DIRECT_FETCH": "从以下网址获取",
+        "INTERNET_SEARCH_RESULT": "我在网上搜索了相关信息",
+        "DISARM_SEARCH_RESULT": "从 DISARM 框架中检索信息"
+    }
+}

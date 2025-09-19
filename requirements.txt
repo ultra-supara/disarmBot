@@ -1,6 +1,7 @@
 more-itertools==10.5.0
 py-cord==2.6.1
-autogen==0.7.3
+ag2[openai,duckduckgo]
 aiohttp==3.10.10
 chromadb==0.5.3
 beautifulsoup4==4.12.3
+ddgs==9.5.5
