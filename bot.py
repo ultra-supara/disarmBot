@@ -69,14 +69,14 @@ AZURE_CONFIG = {
     "api_key": API_KEY,
     "api_type": "azure",
     "api_version": VERSION,
-    "stream": True,
+    #"stream": True,
 }
 
 OAI_CONFIG ={
     "model": MODEL,
     "api_key": API_KEY,
     "api_type": "openai",
-    "stream": True,
+    #"stream": True,
 }
 
 with open("duckduckgo-locales.json") as fp:
@@ -385,33 +385,36 @@ async def discuss(ctx: discord.ApplicationContext, query: str):
                 color_per_person[name] = color_candidates[i % len(color_candidates)]
             content = hist.get("content","")
             lines = splitandclear(content)
-            if str(lines[0]).startswith("fetch from:") if len(lines) != 0 else False:
+            if str(lines[0]).strip().startswith("fetch from:") if len(lines) != 0 else False:
                 lines[0] = str(lines[0]).replace("fetch from",bot_ui_message["DIRECT_FETCH"],1)
                 lines = [lines[0]]
             try:
                 result = ""
                 for line in lines:
-                    print("DEBUG: ",line,file=sys.stderr)
-                    line = json.loads(line)
-                    print("DEBUG: json ",line,file=sys.stderr)
-                    if line.get("query"):
-                        query = line.get("query")
-                        region = line.get("region")
-                        timelimit = line.get("timelimit")
-                        # internet search result
-                        internet_result_msg = bot_ui_message["INTERNET_SEARCH_RESULT"]
-                        result += f"{internet_result_msg}\nSearch: {query} (region: {region} time limit: {timelimit})\nResults:\n"
-                        for news in line.get("results"):
-                            title = news["title"]
-                            href = news["href"]
-                            body = news["body"]
-                            result += f"### [{title}]({href})\n{body}\n"
-                    else:
-                        question = line["question"]
-                        line = flatten(line["sources"])
-                        line = "\n".join(line)
-                        disarm_result_msg = bot_ui_message["DISARM_SEARCH_RESULT"]
-                        result += f"{disarm_result_msg}\nSearch: {question}\n{line}"
+                        print("DEBUG: ",line,file=sys.stderr)
+                        line = json.loads(line)
+                        print("DEBUG: json ",line,file=sys.stderr)
+                        try:
+                            if line.get("query"):
+                                query = line.get("query")
+                                region = line.get("region")
+                                timelimit = line.get("timelimit")
+                                # internet search result
+                                internet_result_msg = bot_ui_message["INTERNET_SEARCH_RESULT"]
+                                result += f"{internet_result_msg}\nSearch: {query} (region: {region} time limit: {timelimit})\nResults:\n"
+                                for news in line.get("results"):
+                                    title = news["title"]
+                                    href = news["href"]
+                                    body = news["body"]
+                                    result += f"### [{title}]({href})\n{body}\n"
+                            else:
+                                question = line["question"]
+                                line = flatten(line["sources"])
+                                line = "\n".join(line)
+                                disarm_result_msg = bot_ui_message["DISARM_SEARCH_RESULT"]
+                                result += f"{disarm_result_msg}\nSearch: {question}\n{line}"
+                        except Exception as e:
+                            result += f"Error: {e}, line skipped\n"
                 lines = result.splitlines()
             except Exception as e:
                 print(e,"non json, only a text",file=sys.stderr)
