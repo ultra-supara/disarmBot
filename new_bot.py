@@ -205,7 +205,7 @@ func_list = {
 discussionActor = [ 
     {
         "name": "DisarmFramework",
-        "role_description": f"You are information search expert. Please generate a query based on the contents of the README.md, file list below, user query, and perspective of question.\n#### README.md\n {readMe}\n#### File list\n{'\n'.join(disarm_files)}",
+        "role_description": f"You are information search expert. Please generate a query based on the contents of the README.md, file list below, user query, and perspective(Attacker or Defender) of question.\n#### README.md\n {readMe}\n#### File list\n{'\n'.join(disarm_files)}",
     },
     {
         "name": "Skeptics",
@@ -568,58 +568,16 @@ bot = discord.Bot(
 async def on_ready():
     print("Ready disarm framework bot")
 
-async def print_exception(response :Exception):
+def print_exception(response :Exception):
     print(response)
     print(traceback.format_exc())
     print(f"Error: {response}\n",traceback.format_exc(),file=sys.stderr)
     msg = str(bot_ui_message["ERROR_MESSAGE"])
     msg = msg.replace("{error}",str(response))
     return msg
-# --- 1. 送信内容を受け取るモーダルを定義 ---
-# このモーダル自体は、データを渡すだけであり、使い捨てです
-class HumanInTheLoopModal(discord.ui.Modal):
-    additional_input = discord.ui.InputText(label="additional input", style=discord.InputTextStyle.multiline)
-
-    def __init__(self):
-        super().__init__(self.additional_input,title="Human in the Loop",timeout=None)
-
-    # on_submitはinteractionを返すだけで、ここではメッセージを編集しない
-    async def on_submit(self, interaction: discord.Interaction):
-        await interaction.response.defer() # deferで応答を一旦保留
-
-# --- 2. ボタンを持ち、モーダルを呼び出すViewを定義 ---
-class HumanInTheLoopView(discord.ui.View):
-
-    def __init__(self,output_queue :asyncio.Queue):
-        super().__init__(timeout=None) # タイムアウトを無効化
-        self.output_queue = output_queue
-
-    @discord.ui.button(label="Human in the Loop", style=discord.ButtonStyle.primary)
-    async def open_modal_button(self, button: discord.ui.Button, interaction: discord.Interaction):
-        try:
-            # ボタンが押されたらモーダルを作成
-            modal = HumanInTheLoopModal()
-            
-            # send_modalでモーダルを表示
-            await interaction.response.send_modal(modal)
-            
-            # modal.wait() でユーザーがモーダルを送信するまで待機する
-            # これがこのパターンの重要な部分！
-            await modal.wait()
-            
-            # 記録リストに入力内容を追加
-            await self.output_queue.put(modal.additional_input.value)
-            
-            # メッセージを編集して、記録を追記していく
-            # interaction.edit_original_response() で元のメッセージを編集
-            # view=self を付け忘れないように！
-            await interaction.edit_original_response(view=self)
-        except Exception as e:
-            await print_exception(e)
-            pass
 
 async def send_exception(response :Exception,ctx :discord.ApplicationContext):
-    await ctx.respond(await print_exception(response))
+    await ctx.respond(print_exception(response))
 
 async def send_to_user(user_input_queue :asyncio.Queue, response_queue :asyncio.Queue,ctx :discord.ApplicationContext,channel :discord.Thread):
     color_per_person = dict()
@@ -658,25 +616,86 @@ async def send_to_user(user_input_queue :asyncio.Queue, response_queue :asyncio.
         await send_exception(e,ctx)
     user_input_queue.shutdown(immediate=True)
 
+global_user_map = {}
+recent_discussion = {}
+global_counter = 0
+def register_discussion(user_name :str, user_map :asyncio.Queue):
+    global global_counter
+    global global_user_map
+    global recent_discussion
+    global_counter += 1
+    global_counter = global_counter % 100000
+    discuss = global_counter
+    if global_user_map.get((user_name,discuss)):
+        return None
+    global_user_map[(user_name,discuss)] = user_map
+    if recent_discussion.get(user_name):
+        recent_discussion[user_name].append(discuss)
+    else:
+        recent_discussion[user_name] = [discuss]
+    return discuss
+
+def get_discussion(user_name :str,discuss :int|None) -> asyncio.Queue|None:
+    global global_user_map
+    global recent_discussion
+    if discuss is None:
+        recent = recent_discussion.get(user_name)
+        if recent is None:
+            return None
+        discuss = recent
+    return global_user_map.get((user_name,discuss))
+    
+def unregister_discussion(user_name :str,discuss :int):
+    global global_user_map
+    global recent_discussion
+    del global_user_map[(user_name,discuss)]
+    for i,x in enumerate(recent_discussion[user_name]):
+        if x == discuss:
+            del recent_discussion[user_name][i]
+            if len(recent_discussion[user_name]) == 0:
+                del recent_discussion[user_name]
+
+@bot.command(name="hitl",description="human in the loop interaction")
+async def human_in_the_loop(ctx: discord.ApplicationContext,query :str,id :int|None = None):
+    try: 
+        queue = get_discussion(ctx.user.name,id)
+        if queue is None:
+            await ctx.respond("No human in the loop queue found")
+            return
+        await queue.put(query)
+        await ctx.respond("Enqueued human in the loop query")
+    except Exception as e:
+        await send_exception(e,ctx)
+
 @bot.command(name="discuss", description="start agents discussion with query")
 async def discuss(ctx: discord.ApplicationContext, query: str):
     user_input_queue = asyncio.Queue()
     response_queue = asyncio.Queue()
+    human_in_the_loop_id = None
+    user_name = ctx.user.name
     try:
-        await ctx.respond(bot_ui_message["ACCEPT_MESSAGE"])
-        th = await ctx.send(bot_ui_message["RECORD_THREAD_TITLE"])
-        modal = await ctx.send(view=HumanInTheLoopView(user_input_queue))
-        channel = await th.create_thread(name=bot_ui_message["RECORD_THREAD_TITLE"])
-        tasks = [
-            asyncio.create_task(run_assistants(query,user_input_queue,response_queue)),
-            asyncio.create_task(send_to_user(user_input_queue,response_queue,ctx,channel))
-        ]
-        await asyncio.gather(*tasks)
-        await ctx.send(bot_ui_message["END_MESSAGE"])
-        await modal.edit(embed=discord.Embed(description="Human in the loop closed."))
+        try:
+            await ctx.respond(bot_ui_message["ACCEPT_MESSAGE"])
+            human_in_the_loop_id = register_discussion(user_name,user_input_queue)
+            if human_in_the_loop_id is None:
+                await ctx.respond("Sorry, human in the loop is not usable")
+            else:
+                await ctx.respond(f"Your human in the loop id is {human_in_the_loop_id}")
+            th = await ctx.send(bot_ui_message["RECORD_THREAD_TITLE"])
+            channel = await th.create_thread(name=bot_ui_message["RECORD_THREAD_TITLE"])
+            tasks = [
+                asyncio.create_task(run_assistants(query,user_input_queue,response_queue)),
+                asyncio.create_task(send_to_user(user_input_queue,response_queue,ctx,channel))
+            ]
+            await asyncio.gather(*tasks)
+            await ctx.send(bot_ui_message["END_MESSAGE"])
+        except Exception as e:
+            await send_exception(e,ctx)
     except Exception as e:
-        await send_exception(e,ctx)
-        return
+        print_exception(e,ctx) # final fallback
+    if human_in_the_loop_id is not None:
+        unregister_discussion(user_name,human_in_the_loop_id)
+    
 
 # Botを起動
 bot.run(DISCORD_TOKEN)
