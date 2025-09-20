@@ -10,7 +10,7 @@
     },
     "lang": {
       "type": "string",
-      "description": "The language to be used in the response."
+      "description": "The language to be used in the response. should be formal form, like `English`"
     },
     "what": {
       "type": "string",

@@ -2,7 +2,6 @@ import autogen
 import discord
 import os
 import json
-from more_itertools import flatten
 import aiohttp
 import bs4
 import traceback
@@ -16,7 +15,6 @@ import jsonschema
 import re
 import asyncio
 import sys
-
 try:
   bot_ui_lang = sys.argv[1]
 except Exception:
@@ -275,6 +273,9 @@ assistantQueries = {
     },
     "Selector": {
         "prompt": "Your role is url candidate selector. Please select urls that related to user requirement. Do not select prefetched informations."
+    },
+    "Translater": {
+        "prompt": "Your role is translate json text into natural plain text. Do not omit the original information but be natural for human reading. You can use markdown for translated content. You can omit meaningless message, like error flags(internally used) and role name. Summarize all in requested language even if each is diffrent language. Please try to use simple and easy-to-understand language (not necessarily avoiding technical terms, but rather focusing on writing in a way that is easy to read)."
     }   
 }
 
@@ -333,145 +334,106 @@ def dumpjson(obj,indent="  "):
 
 url_regex = re.compile(r"https?://[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)")
 
-async def run_assistants(msg :str):
-    response = [
-        {"name": "user_proxy","content": msg},
-    ]
-    try:
-        urls = re.findall(url_regex, msg)
-        directContent = []
-        async def doFetchDirectContet(urls :list[str]):
-            nonlocal directContent
-            for url in urls:
-                content = await fetchDirectURL(url)
-                summarized = await askAgent(content,"Summarizer")
-                if summarized["is_error"]:
+async def send_progress(resp : asyncio.Queue, agent_name :str,what_to_do: str):
+    await resp.put([{"name":agent_name,"content":what_to_do}])
+
+async def run_assistants(msg :str,user_input_queue :asyncio.Queue,response_queue :asyncio.Queue):
+    async def search_assistants(msg :str):
+        try:
+            response = []
+            urls = re.findall(url_regex, msg)
+            directContent = []
+            async def doFetchDirectContet(urls :list[str]):
+                nonlocal directContent
+                concurrent = asyncio.Queue(5)
+                async def fetchURL(q :asyncio.Queue):
+                    nonlocal directContent
+                    try:
+                        while True:
+                            i,url = await q.get()
+                            content = await fetchDirectURL(url)
+                            await send_progress(response_queue,"Summarizer",f"Fetched: {url} ({i}/{len(urls)})")
+                            summarized = await askAgent(content,"Summarizer")
+                            if summarized["is_error"]:
+                                await send_progress(response_queue,"Summarizer",f"Error detected, ignore: {url} ({i}/{len(urls)})")
+                                return
+                            await send_progress(response_queue,"Summarizer",f"Summaraized: {url} ({i}/{len(urls)})")
+                            response.append({"name": "Summarizer","content":summarized})
+                            directContent.append(summarized)
+                    except asyncio.QueueShutDown:
+                        pass
+                urlFetcher = []
+                for _ in range(5):
+                    urlFetcher.append(asyncio.create_task(fetchURL(concurrent)))
+                if len(urls) != 0:
+                    await send_progress(response_queue,"Summarizer",f"Total {len(urls)} to fetch\n")
+                for i,url in enumerate(urls):
+                    await concurrent.put((i+1,url))
+                    await send_progress(response_queue,"Summarizer",f"Enqueued ({i+1}/{len(urls)})")
+                concurrent.shutdown()
+                await send_progress(response_queue,"Summarizer","All enqueued, waiting for completion...")
+                await asyncio.gather(*urlFetcher)
+                await send_progress(response_queue,"Summarizer","All tasks completed")
+            if urls:
+                await doFetchDirectContet(urls)
+            query = dumpjson({
+                "user_query": msg,
+                "prefetched_resource": directContent
+            })
+            await send_progress(response_queue,"Detective","Analyzing user queries...")
+            userQueryDetected = await askAgent(query,"Detective")
+            await send_progress(response_queue,"Detective","User query analysis done.")
+            response.append({"name":"Detective","content":userQueryDetected})
+            query = json.dumps({
+                "answer_lang": userQueryDetected["lang"],
+                "about": userQueryDetected["what"],
+                "hypothesis": userQueryDetected["why"],
+                "want_to_know": userQueryDetected["superficial_guess"],
+                "prefetched_information": directContent,
+                "keywords": userQueryDetected["keyword"]
+            },ensure_ascii=False)
+            await send_progress(response_queue,"Search","Generatiing search query...")
+            loaded = await askAgent(query,"Search")
+            await send_progress(response_queue,"Search","Search query generated. Now searching...")
+            response.append({"name":"Search","content":loaded})
+            queryResult = []
+            for q in loaded["candidates"]:
+                await send_progress(response_queue,"Search",f"Searching: {q["query"]} (region: {q["region"]} timelimit: {q["timelimit"]})")
+                for p in range(q["page_min"],q["page_max"]+1):
+                    result = searchDuckDuckGo(q["query"],q["num_results"],p,q["region"],q["timelimit"])
+                    queryResult.append(result)
                     await asyncio.sleep(0.5)
-                    continue 
-                response.append({"name": "Summarizer","content":dumpjson(summarized)})
-                directContent.append(summarized)
-                await asyncio.sleep(0.5)
-        if urls:
-            await doFetchDirectContet(urls)
-        query = dumpjson({
-            "user_query": msg,
-            "prefetched_resource": directContent
-        })
-        userQueryDetected = await askAgent(query,"Detective")
-        response.append({"name":"Detective","content":dumpjson(userQueryDetected)})
-
-        query = json.dumps({
-            "answer_lang": userQueryDetected["lang"],
-            "about": userQueryDetected["what"],
-            "hypothesis": userQueryDetected["why"],
-            "want_to_know": userQueryDetected["superficial_guess"],
-            "prefetched_information": directContent,
-            "keywords": userQueryDetected["keyword"]
-        },ensure_ascii=False)
-        loaded = await askAgent(query,"Search")
-        response.append({"name":"searchTheInternet","content":dumpjson(loaded)})
-        queryResult = []
-        for q in loaded["candidates"]:
-            for p in range(q["page_min"],q["page_max"]+1):
-               result = searchDuckDuckGo(q["query"],q["num_results"],p,q["region"],q["timelimit"])
-               queryResult.append(result)
-               await asyncio.sleep(0.5)
-        query = json.dumps({
-             "answer_lang": userQueryDetected["lang"],
-            "about": userQueryDetected["what"],
-            "hypothesis": userQueryDetected["why"],
-            "want_to_know": userQueryDetected["superficial_guess"],
-            "prefetched_information": directContent,
-            "keywords": userQueryDetected["keyword"],
-            "candidates": queryResult
-        })
-        selected = await askAgent(query,"Selector")
-        await doFetchDirectContet(selected["candidate_urls"])
-    except Exception as e:
-        return response,e
-    return response,None
-
-
-async def old_run_assistant(msg :str):
-
-    # AIアシスタントの設定
-    assistants = []
-    for query in assistantQueries:
-        internetNote ="Note that for realtime information, use the internet proior to searchDisarmFramework. searchDisarmFramework function only accepts English keywords, not general question. so pass the keyword in English. But answer must follow the language user asked."
-        prompt = "Remind your role. it is not good to use tools if your role not required it. DO NOT VIOLATE YOUR ROLE.\n" + query["prompt"]
-        if query["name"] == "Detective":
-            prompt = "answer in following format (with code block) and follwing instructions.\n" + detecitve_response + "\n" + prompt
-        assistant = autogen.AssistantAgent(
-            name=query["name"],
-            system_message=prompt,
-            llm_config=llm_config,
-            max_consecutive_auto_reply=5,
-        )
-        assistant.register_function(func_list)
-        assistants.append(assistant)
-
-
-    # ユーザプロキシの設定（コード実行やアシスタントへのフィードバック）
-    user_proxy = autogen.UserProxyAgent(
-        name="user_proxy",
-        system_message= "Remind your role. Answer must follow the language user asked. You are moderator. Summarize the discussion and provide feedback to the assistants. Organize critically whether it matches the user's question  and provide feedback to the assistants.",
-        is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("task complete"),
-        human_input_mode="NEVER",
-        llm_config=llm_config,
-        max_consecutive_auto_reply=5,
-    )
-
-    # Register DuckDuckGo search tool for execution
-    user_proxy.register_function(func_list)
-
-    last_messages = []
-
-    def select_speaker(
-        last_speaker: autogen.Agent, groupchat: autogen.GroupChat
-    ):
-        print("DEBUG:",len(groupchat.messages),file=sys.stderr)
-        removal = []
-        for (i,msg) in enumerate(groupchat.messages):
-            if msg.get("tool_responses"):
-                if str(msg["content"]).lower().startswith("error"):
-                    removal.append(i-1)
-                    removal.append(i)
-                    print("DEBUG: removing ",msg,groupchat.messages[i-1],file=sys.stderr)
-        groupchat.messages = [x for (i,x) in enumerate(groupchat.messages) if i not in removal]
-
-
-        next_agent = None
-        for (i,cand) in enumerate(assistantQueries):
-            if cand["name"] == last_speaker.name:
-                next_agent = groupchat.agents[(i + 1) % len(groupchat.agents)]
-                print("Selected: ",next_agent.name,file=sys.stderr)
-                break
-        if next_agent is None:
-            next_agent = groupchat.agents[0]
-        nonlocal last_messages
-        last_messages = groupchat.messages
-        return next_agent
-
-    group_chat = autogen.GroupChat(
-        agents=assistants + [user_proxy],
-        messages=[], max_round=30,
-        speaker_selection_method=select_speaker,
-    )
-
-    # GroupChatManager用の設定（toolsを除く）
-    manager_llm_config =llm_config
-    manager = autogen.GroupChatManager(groupchat=group_chat, llm_config=manager_llm_config)
-
-
-    # タスクの依頼
-    now = datetime.now()
-    c = await user_proxy.a_initiate_chat(
-        manager,
-        clear_history=True,
-        message=f"Please respond to the following user's question as a group of experts in disinformation countermeasures. User questions are only one-off, so please do not leave the conclusion to the other party if you ask for a reply.\n########\nUser's question\n{msg}\n########\nAnswer in language user asked. Now is {now}",
-    )
-    return last_messages
-
+            await send_progress(response_queue,"Search","All search done")
+            query = json.dumps({
+                "answer_lang": userQueryDetected["lang"],
+                "about": userQueryDetected["what"],
+                "hypothesis": userQueryDetected["why"],
+                "want_to_know": userQueryDetected["superficial_guess"],
+                "prefetched_information": directContent,
+                "keywords": userQueryDetected["keyword"],
+                "candidates": queryResult
+            })
+            await send_progress(response_queue,"Selector","Selecting fetch candidate...")
+            selected = await askAgent(query,"Selector")
+            await send_progress(response_queue,"Selector","Candidate selection done")
+            await doFetchDirectContet(selected["candidate_urls"])
+            query = dumpjson({
+               "request_language": userQueryDetected["lang"],
+               "translation_target": response
+            })
+            await send_progress(response_queue,"Translater","Summarizing the conversations...")
+            translated_response = await askAgent(query,"Translater")
+            fileContent = "Discussion Summery\n"
+            for content in translated_response["translated"]:
+                fileContent += "# "+ content["name"]+"\n"
+                fileContent += content["content"]
+                fileContent += "## For five years old\n"
+                fileContent += content["five_years_old_content"]
+            await response_queue.put([{"file": fileContent,"filename": "summary.txt"}])
+        except Exception as e:
+            await response_queue.put(e)
+    await search_assistants(msg) # first loop
+    response_queue.shutdown()
 
 
 
@@ -485,76 +447,114 @@ bot = discord.Bot(
 async def on_ready():
     print("Ready disarm framework bot")
 
+async def print_exception(response :Exception):
+    print(response)
+    print(traceback.format_exc())
+    print(f"Error: {response}\n",traceback.format_exc(),file=sys.stderr)
+    msg = str(bot_ui_message["ERROR_MESSAGE"])
+    msg = msg.replace("{error}",str(response))
+    return msg
+# --- 1. 送信内容を受け取るモーダルを定義 ---
+# このモーダル自体は、データを渡すだけであり、使い捨てです
+class HumanInTheLoopModal(discord.ui.Modal):
+    additional_input = discord.ui.InputText(label="additional input", style=discord.InputTextStyle.multiline)
+
+    def __init__(self):
+        super().__init__(self.additional_input,title="Human in the Loop",timeout=None)
+
+    # on_submitはinteractionを返すだけで、ここではメッセージを編集しない
+    async def on_submit(self, interaction: discord.Interaction):
+        await interaction.response.defer() # deferで応答を一旦保留
+
+# --- 2. ボタンを持ち、モーダルを呼び出すViewを定義 ---
+class HumanInTheLoopView(discord.ui.View):
+
+    def __init__(self,output_queue :asyncio.Queue):
+        super().__init__(timeout=None) # タイムアウトを無効化
+        self.output_queue = output_queue
+
+    @discord.ui.button(label="Human in the Loop", style=discord.ButtonStyle.primary)
+    async def open_modal_button(self, button: discord.ui.Button, interaction: discord.Interaction):
+        try:
+            # ボタンが押されたらモーダルを作成
+            modal = HumanInTheLoopModal()
+            
+            # send_modalでモーダルを表示
+            await interaction.response.send_modal(modal)
+            
+            # modal.wait() でユーザーがモーダルを送信するまで待機する
+            # これがこのパターンの重要な部分！
+            await modal.wait()
+            
+            # 記録リストに入力内容を追加
+            await self.output_queue.put(modal.additional_input.value)
+            
+            # メッセージを編集して、記録を追記していく
+            # interaction.edit_original_response() で元のメッセージを編集
+            # view=self を付け忘れないように！
+            await interaction.edit_original_response(view=self)
+        except Exception as e:
+            await print_exception(e)
+            pass
+
+async def send_exception(response :Exception,ctx :discord.ApplicationContext):
+    await ctx.respond(await print_exception(response))
+
+async def send_to_user(user_input_queue :asyncio.Queue, response_queue :asyncio.Queue,ctx :discord.ApplicationContext,channel :discord.Thread):
+    color_per_person = dict()
+    color_index = 0
+    try:
+        while True:
+            response = await response_queue.get()
+            if isinstance(response,Exception):
+                await send_exception(response,ctx)
+                continue
+            color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
+            for i,hist in enumerate(response):
+                file = hist.get("file")
+                if file:
+                    await channel.send(hist.get("filename"),file=discord.File(fp=io.BytesIO(str(file).encode()),filename=hist.get("filename")))
+                    continue
+                name = hist.get("name","unknown")
+                if name not in color_per_person:
+                    color_per_person[name] = color_candidates[color_index % len(color_candidates)]
+                    color_index+=1
+                content = hist.get("content","")
+                lines = splitandclear(content)
+                for line in lines:
+                    if line == "":
+                        continue
+                    while True:
+                        if len(line) <= 2000:
+                            await channel.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
+                            break
+                        else:
+                            await channel.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
+                            line = line[2000:]
+    except asyncio.QueueShutDown:
+        pass # normal ending
+    except Exception as e:
+        await send_exception(e,ctx)
+    user_input_queue.shutdown(immediate=True)
+
 @bot.command(name="discuss", description="start agents discussion with query")
 async def discuss(ctx: discord.ApplicationContext, query: str):
+    user_input_queue = asyncio.Queue()
+    response_queue = asyncio.Queue()
     try:
         await ctx.respond(bot_ui_message["ACCEPT_MESSAGE"])
         th = await ctx.send(bot_ui_message["RECORD_THREAD_TITLE"])
+        modal = await ctx.send(view=HumanInTheLoopView(user_input_queue))
         channel = await th.create_thread(name=bot_ui_message["RECORD_THREAD_TITLE"])
-        (last_messages,exc) = await run_assistants(query)
-        color_candidates = [0x00FF00, 0xFF0000, 0x0000FF, 0xFFFF00, 0x00FFFF]
-        color_per_person = dict()
-        for i,hist in enumerate(last_messages):
-            name = hist.get("name","unknown")
-            if name not in color_per_person:
-                color_per_person[name] = color_candidates[i % len(color_candidates)]
-            content = hist.get("content","")
-            lines = splitandclear(content)
-            if str(lines[0]).strip().startswith("fetch from:") if len(lines) != 0 else False:
-                lines[0] = str(lines[0]).replace("fetch from",bot_ui_message["DIRECT_FETCH"],1)
-                lines = [lines[0]]
-            try:
-                result = ""
-                for line in lines:
-                        print("DEBUG: ",line,file=sys.stderr)
-                        line = json.loads(line)
-                        print("DEBUG: json ",line,file=sys.stderr)
-                        try:
-                            if line.get("query"):
-                                query = line.get("query")
-                                region = line.get("region")
-                                timelimit = line.get("timelimit")
-                                # internet search result
-                                internet_result_msg = bot_ui_message["INTERNET_SEARCH_RESULT"]
-                                result += f"{internet_result_msg}\nSearch: {query} (region: {region} time limit: {timelimit})\nResults:\n"
-                                for news in line.get("results"):
-                                    title = news["title"]
-                                    href = news["href"]
-                                    body = news["body"]
-                                    result += f"### [{title}]({href})\n{body}\n"
-                            else:
-                                question = line["question"]
-                                line = flatten(line["sources"])
-                                line = "\n".join(line)
-                                disarm_result_msg = bot_ui_message["DISARM_SEARCH_RESULT"]
-                                result += f"{disarm_result_msg}\nSearch: {question}\n{line}"
-                        except Exception as e:
-                            result += f"Error: {e}, line skipped\n"
-                lines = result.splitlines()
-            except Exception as e:
-                print(e,"non json, only a text",file=sys.stderr)
-
-
-            for line in lines:
-                if line == "":
-                    continue
-                while True:
-                    if len(line) <= 2000:
-                        await channel.send(embed=discord.Embed(title=name, description=line,color=color_per_person[name]))
-                        break
-                    else:
-                        await channel.send(embed=discord.Embed(title=name, description=line[:2000],color=color_per_person[name]))
-                        line = line[2000:]
-        if exc is not None:
-            raise exc
+        tasks = [
+            asyncio.create_task(run_assistants(query,user_input_queue,response_queue)),
+            asyncio.create_task(send_to_user(user_input_queue,response_queue,ctx,channel))
+        ]
+        await asyncio.gather(*tasks)
         await ctx.send(bot_ui_message["END_MESSAGE"])
+        await modal.edit(embed=discord.Embed(description="Human in the loop closed."))
     except Exception as e:
-        print(e)
-        print(traceback.format_exc())
-        print(f"Error: {e}\n",traceback.format_exc(),file=sys.stderr)
-        msg = str(bot_ui_message["ERROR_MESSAGE"])
-        msg = msg.replace("{error}",str(e))
-        await ctx.respond(msg)
+        await send_exception(e,ctx)
         return
 
 # Botを起動

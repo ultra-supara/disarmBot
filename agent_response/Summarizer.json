@@ -54,7 +54,7 @@
     },
     "is_error": {
       "type": "boolean",
-      "description": "Tell wether content is not meaningful or errored"
+      "description": "Tell wether content is not meaningful or errored. if this is true, other field should be empty string or empty vector"
     }
   },
   "additionalItems": false,
@@ -70,6 +70,7 @@
     "superficial_guess",
     "deep_guess",
     "url",
-    "keyword"
+    "keyword",
+    "is_error"
   ]
 }

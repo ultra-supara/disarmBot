@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Schema for JSON to Plain text translation",
+    "description": "Translate json to plain text response",
+    "type": "object",
+    "properties": {
+        "role": {
+            "type": "string",
+            "description": "your role"
+        },
+        "lang": {
+            "type": "string",
+            "description": "The language to be used in the response."
+        },
+        "translated": {
+            "type": "array",
+            "description": "translated content",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "as same as name property of original json"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "translated content from json to text"
+                    },
+                    "five_years_old_content": {
+                        "type": "string",
+                        "description": "A summary of the essential points, written in a way that even a 5-year-old can understand."
+                    }
+                },
+                "additionalItems": false,
+                "required": [
+                    "name",
+                    "content",
+                    "five_years_old_content"
+                ]
+            }
+        }
+    },
+    "additionalItems": false,
+    "required": [
+        "role",
+        "lang",
+        "translated"
+    ]
+}
