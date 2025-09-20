@@ -219,11 +219,12 @@ discussionActor = [
         "name": "Clown",
         "role_description": "You are a clown. So what? you can say anything non related or you should questions to expert in simple perspective. Your role is questioning, not answering",
     },
-    {
+]
+
+old = [    {
         "name": "TheGeniusOfReasoning",
         "role_description": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent. Your are an expert, It's good to be inspired by the comments, but don't play together like clown. Your role is providing a bizarre and insightful opinion.",
-    },
-]
+    },]
 
 assistantQueries = {
     "Detective":   {
@@ -411,17 +412,46 @@ async def search_assistants(response_queue :asyncio.Queue, msg :str):
     await send_progress(response_queue,"Selector","Candidate selection done")
     await doFetchDirectContet(selected["candidate_urls"])
     return translate(response_queue,userQueryDetected["lang"],response,"search"),userQueryDetected["lang"]
- 
+
+def collect_related_documents(keywords :list):
+    result = []
+    for keyword in keywords:
+        result.append(searchDisarmFramework(keyword["word"],keyword["directory"]))
+    return result
+
 async def disarm_assistants(response_queue :asyncio.Queue, msg :str):
-    frameworks = await askAgent(dumpjson({
+    await send_progress(response_queue,"DisarmFramework","Generating query for attacker...")
+    attacker_frameworks = await askAgent(dumpjson({
         "answer_language": "English",
         "prompt": msg,
         "perspective": "Attacker"
     }),"DisarmFramework")
-    keywords = frameworks["keyword"]
-    attacker_keywords = []
-    for keyword in keywords:
-        searchDisarmFramework(keyword["word"],keyword["directory"])
+    await send_progress(response_queue,"DisarmFramework","Query for attacker generated")
+    await send_progress(response_queue,"Attacker","Asking attacker's opinion...")
+    attacker_opinion = await askAgent(dumpjson({
+        "user_prompt": msg,
+        "resource": collect_related_documents(attacker_frameworks["keyword"]),
+    }),"Attacker")
+    await send_progress(response_queue,"Attacker","Attacker's opinion generated")
+    await send_progress(response_queue,"DisarmFramework","Generating query for defender...")
+    defender_frameworks = await askAgent(dumpjson({
+        "answer_language": "English",
+        "prompt": msg,
+        "perspective": "Defender",
+        "attacker_opinion": attacker_opinion,
+    }))
+    await send_progress(response_queue,"DisarmFramework","Query for defender generated")
+    await send_progress(response_queue,"Defender","Asking defender's opinion...")
+    defender_optinion = await askAgent(dumpjson({
+        "user_prompt": msg,
+        "resource": collect_related_documents(defender_frameworks["keyword"]),
+        "attacker_opinion": attacker_opinion,
+    }),"Defender")
+    await send_progress(response_queue,"Defender","Defender's opinion generated")
+    return {
+        "attacker": attacker_opinion,
+        "defender": defender_optinion,
+    }
     
 
 
@@ -468,7 +498,7 @@ async def run_expert(resposne_queue :asyncio.Queue,prompt :str,history :list,nam
     if name == "SearchInternet":
         result = await search_assistants(resposne_queue,ask)
     elif name =="DisarmFramework":
-        result = await disarm_assistants(ask)
+        result = await disarm_assistants(resposne_queue, ask)
     else:
         result = await askAgent(ask,name)
     await send_progress(resposne_queue,name,"Answer generated")

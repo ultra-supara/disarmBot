@@ -46,6 +46,10 @@
                 "type": "string",
                 "description": "Estimating the effects and their basis"
             },
+            "risk_assesment": {
+                "type": "string",
+                "description": "Total risk assesment"
+            },
             "related_framework": {
                 "type": "array",
                 "description": "related DISARM framework id"
