@@ -204,16 +204,16 @@ func_list = {
 
 discussionActor = [ 
     {
-        "name": "DisarmFramework",
-        "role_description": f"You are information search expert. Please generate a query based on the contents of the README.md, file list below, user query, and perspective(Attacker or Defender) of question.\n#### README.md\n {readMe}\n#### File list\n{'\n'.join(disarm_files)}",
+        "name": "DisarmFrameworkMaster",
+        "role_description": "You are an expert of DISARM Disinformation TTP (Tactics, Techniques and Procedures) Framework. You can provide both attacker and defender insight about systematic approach to combating disinformation"
     },
     {
         "name": "Skeptics",
-        "role_description": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Also look critically at what they don't say and mention it. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and may follow the link by fetchDirectURL and ask your skeptical questions.",
+        "role_description": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Also look critically at what they don't say and mention it. ",
     },
     {
         "name": "SolutionArchitects",
-        "role_description": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Your role is providing an answer, not a question. Use the `searchDisarmFramework` functions and DuckDuckGo search tool and may follow the link by fetchDirectURL to provide a solution.",
+        "role_description": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Your role is providing an answer, not a question. ",
     },
     {
         "name": "Clown",
@@ -250,6 +250,9 @@ assistantQueries = {
     },
     "Defender": {
         "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case.",
+    },
+    "DisarmFramework": {
+        "prompt": f"You are information search expert. Please generate a query based on the contents of the README.md, file list below, user query, and perspective(Attacker or Defender) of question.\n#### README.md\n {readMe}\n#### File list\n{'\n'.join(disarm_files)}",
     },
 }
 
@@ -439,7 +442,7 @@ async def disarm_assistants(response_queue :asyncio.Queue, msg :str):
         "prompt": msg,
         "perspective": "Defender",
         "attacker_opinion": attacker_opinion,
-    }))
+    }),"DisarmFramework")
     await send_progress(response_queue,"DisarmFramework","Query for defender generated")
     await send_progress(response_queue,"Defender","Asking defender's opinion...")
     defender_optinion = await askAgent(dumpjson({
@@ -497,7 +500,7 @@ async def run_expert(resposne_queue :asyncio.Queue,prompt :str,history :list,nam
     await send_progress(resposne_queue,name,"Answering to prompt: "+prompt)
     if name == "SearchInternet":
         result = await search_assistants(resposne_queue,ask)
-    elif name =="DisarmFramework":
+    elif name =="DisarmFrameworkMaster":
         result = await disarm_assistants(resposne_queue, ask)
     else:
         result = await askAgent(ask,name)
