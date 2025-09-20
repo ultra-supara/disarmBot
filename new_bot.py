@@ -311,6 +311,7 @@ async def do_action(msg :str,name :str,response_format :str,agent_prompt :str):
     assistant = make_assistant(name,system_prompt)
     user_proxy = make_user_proxy()
     c = await user_proxy.a_initiate_chat(assistant,message=msg)
+    print(f"Cost: {dumpjson(c.cost)}",file=sys.stderr)
     return c.chat_history[1]["content"]
 
 async def askAgent(msg :str,name :str):
