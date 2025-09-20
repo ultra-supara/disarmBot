@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for DISARM framework attack",
+  "description": "Schema for attacker framework",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response. should be formal form, like `English`"
+    },
+    "defend_plans": {
+      "type": "array",
+      "description": "Candidates of attack",
+      "items" :{
+        "type": "object",
+        "properties": {
+            "defence_type": {
+                "type": "string",
+                "description": "A general classification of defence methods"
+            },
+            "plan_purpose": {
+                "type": "string",
+                "description": "The purpose of the defense plan. should be related to attack scenario"
+            },
+            "plan_method": {
+                "type": "string",
+                "description": "The methods of the defence plan"
+            },
+            "best_case": {
+                "type": "string",
+                "description": "The best possible scenario that could happen"
+            },
+            "realistic_case": {
+                "type": "string",
+                "description": "A more realistic scenario than the best possible outcome."
+            },
+            "difficulty": {
+                "type": "string",
+                "description": "Defence difficulty"
+            },
+            "effect_estimation": {
+                "type": "string",
+                "description": "Estimating the effects and their basis"
+            },
+            "risk_assesment": {
+                "type": "string",
+                "description": "Total risk assesment"
+            },
+            "related_framework": {
+                "type": "array",
+                "description": "related DISARM framework id"
+            }
+        },
+        "additionalItems": false,
+        "required": [
+            "word",
+            "directory"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "role",
+    "lang",
+    "defend_plans"
+  ]
+}

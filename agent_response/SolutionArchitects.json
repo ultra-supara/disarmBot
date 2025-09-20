@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for SolutionArchitects",
+  "description": "Schema for SolutionArchitects thinking framework",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response. should be formal form, like `English`"
+    },
+    "opinions": {
+      "type": "array",
+      "description": "Opinions for discussion",
+      "items" :{
+        "type": "object",
+        "properties": {
+            "known_problem": {
+                "type": "string",
+                "description": "known problems"
+            },
+            "non_trivial_problem": {
+                "type": "string",
+                "description": "non trivial problems"
+            },
+            "already_implemented_methods": {
+                "type": "string",
+                "description": "measures that have already been implemented"
+            },
+            "already_implemented_problems": {
+                "type": "string",
+                "description": "Problems with the measures that have already been implemented"
+            },
+            "other_options": {
+                "type": "string",
+                "description": "Other options that were considered"
+            },
+            "selected_option": {
+                "type": "string",
+                "description": "The solution we ultimately chose"
+            },
+            "trade_off": {
+                "type": "string",
+                "description": "The trade-offs resulting from choosing that solution"
+            },
+            "priority": {
+                "type": "string",
+                "description": "Priority of solution and its basis"
+            }
+        },
+        "additionalItems": false,
+        "required": [
+            "known_problem",
+            "non_trivial_problem",
+            "already_implemented_methods",
+            "already_implemented_problems",
+            "other_options",
+            "selected_option",
+            "trade_off",
+            "priority"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "role",
+    "lang",
+    "opinions"
+  ]
+}

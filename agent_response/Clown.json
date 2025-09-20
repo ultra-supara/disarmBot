@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for Clown",
+  "description": "Schema for Clown playing framework",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response. should be formal form, like `English`"
+    },
+    "jokes": {
+      "type": "array",
+      "description": "Jokes for discussion",
+      "items" :{
+        "type": "object",
+        "properties": {
+            "joke": {
+                "type": "string",
+                "description": "funny joke. be childish. easy way to understand. not to force laugh."
+            },
+            "serious_explaination": {
+                "type": "string",
+                "description": "A serious explanation of how the joke relates to the current discussion, and what the hidden meaning of the joke is."
+            }
+        },
+        "additionalItems": false,
+        "required": [
+            "joke",
+            "serious_explaination"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "role",
+    "lang",
+    "jokes"
+  ]
+}
