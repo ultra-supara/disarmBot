@@ -445,7 +445,7 @@ async def disarm_assistants(response_queue :asyncio.Queue, msg :str):
     }),"DisarmFramework")
     await send_progress(response_queue,"DisarmFramework","Query for defender generated")
     await send_progress(response_queue,"Defender","Asking defender's opinion...")
-    defender_optinion = await askAgent(dumpjson({
+    defender_opinion = await askAgent(dumpjson({
         "user_prompt": msg,
         "resource": collect_related_documents(defender_frameworks["keyword"]),
         "attacker_opinion": attacker_opinion,
@@ -453,7 +453,7 @@ async def disarm_assistants(response_queue :asyncio.Queue, msg :str):
     await send_progress(response_queue,"Defender","Defender's opinion generated")
     return {
         "attacker": attacker_opinion,
-        "defender": defender_optinion,
+        "defender": defender_opinion,
     }
     
 
