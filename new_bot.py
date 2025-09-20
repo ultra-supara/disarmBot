@@ -15,6 +15,7 @@ import jsonschema
 import re
 import asyncio
 import sys
+from pathlib import Path
 try:
   bot_ui_lang = sys.argv[1]
 except Exception:
@@ -35,6 +36,49 @@ with open("./generated_pages/README.md") as f:
 
 collection = client.get_or_create_collection("disarm_framework")
 
+def create_overlapping_chunks(text :str,chunk_size :int, overlap_lines :int,file :str,key :str):
+    """
+    複数行を1ブロックとしてチャンキングし、各ブロックの前後にオーバーラップを追加する関数
+
+    Args:
+        text (str): 元のテキストデータ
+        chunk_size (int): 1つのメインブロックに含める行数
+        overlap_lines (int): ブロックの前後に含めるオーバーラップ行数
+
+    Returns:
+        list: チャンクのテキストとメタデータを含む辞書のリスト
+    """
+    lines = text.strip().splitlines()
+    documents = []
+    metadatas = []
+    ids = []
+    
+
+    
+    # chunk_size ごとにループを回す (例: 0, 5, 10, 15...)
+    for i in range(0, len(lines), chunk_size):
+        # 1. メインとなるブロックの範囲を定義
+        block_start = i
+        block_end = i + chunk_size
+        
+        # 2. オーバーラップを含めた最終的なチャンクの範囲を計算
+        #    max() と min() でドキュメントの最初と最後を超えないように調整
+        context_start = max(0, block_start - overlap_lines)
+        context_end = min(len(lines), block_end + overlap_lines)
+        
+        # 3. 範囲内の行をスライスして1つのテキストチャンクに結合
+        chunk_lines = lines[context_start:context_end]
+        chunk_text = "\n".join(chunk_lines)
+        
+        
+        # 元のデータが何行目だったかをメタデータとして保持すると便利
+        documents.append(chunk_text)
+        metadatas.append({"file": file, "directory": key, "main_chunk_start_line": block_start + 1,"main_chunk_end_line": min(block_end, len(lines))})
+        ids.append(f"{file}.{i+1}")
+        
+    return documents,metadatas,ids
+
+
 if not exists:
     for dirpath,dirnames,files in os.walk("./generated_pages"):
         for file in files:
@@ -42,14 +86,22 @@ if not exists:
                 print(f"adding {dirpath}/{file}")
                 with open(f"{dirpath}/{file}", 'r', encoding='utf-8') as f:
                     content = f.read()
+                    key = Path(dirpath).relative_to("./generated_pages").as_posix()
+                    print("key: ",key)
+                    documents,metadatas,ids = create_overlapping_chunks(content,20,3,file,key)
+                    print(f"chunks: {len(documents)}")
                     collection.add(
-                        documents=[content],
-                        metadatas=[{"source": dirpath}],
-                        ids=[file],
+                        documents=documents,
+                        metadatas=metadatas,
+                        ids=ids,
                     )
             except Exception as e:
                 print(e)
                 continue
+
+base_path = Path("generated_pages")
+disarm_files = [p.relative_to(base_path).as_posix() for p in base_path.rglob('*') if p.is_file()]
+print(disarm_files)
 
 API_KEY = os.getenv("OPENAI_API_KEY")
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -96,7 +148,7 @@ llm_config = autogen.LLMConfig(
 
 # Initialize DuckDuckGo search tool
 
-def searchDisarmFramework(question: str):
+def searchDisarmFramework(question: str,directory :str):
     print("DEBUG: searchDisarmFramework ",question,file=sys.stderr)
     if not question.isascii():
         return "only accepts English"
@@ -104,6 +156,7 @@ def searchDisarmFramework(question: str):
     result = collection.query(
         query_texts=[question],
         n_results=5,
+        where={"directory": directory}
     )
 
     return json.dumps({"question": question, "sources": result["ids"],  "documents": result["documents"]}) # temporary
@@ -151,16 +204,8 @@ func_list = {
 
 discussionActor = [ 
     {
-        "name": "searchDisarmFramework",
-        "role_description": f"You are information search expert. Please generate a query based on the contents of the README.md below and user query, search using the searchDisarmFramework function, and summarize it.\n#### README.md\n {readMe}",
-    },
-    {
-        "name": "Attackers",
-        "role_description": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to the red framework and may follow the link by fetchDirectURL and discuss them.",
-    },
-    {
-        "name": "Defenders",
-        "role_description": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to blue framework and may follow the link by fetchDirectURL and discuss them.",
+        "name": "DisarmFramework",
+        "role_description": f"You are information search expert. Please generate a query based on the contents of the README.md, file list below, user query, and perspective of question.\n#### README.md\n {readMe}\n#### File list\n{'\n'.join(disarm_files)}",
     },
     {
         "name": "Skeptics",
@@ -197,12 +242,18 @@ assistantQueries = {
         "prompt": "Your role is translate json text into natural plain text. Do not omit the original information but be natural for human reading. You can use markdown for translated content. You can omit meaningless message, like error flags(internally used) and role name. Summarize all in requested language even if each is diffrent language. Please try to use simple and easy-to-understand language (not necessarily avoiding technical terms, but rather focusing on writing in a way that is easy to read)."
     },
     "DecisionMaker": {
-        "prompt": "Your role is decision maker. Choose actor and request the task. Do NOT do as same as current_context do; it is already done. Do NOT Finish at first iteration."
-    }
+        "prompt": "Your role is decision maker. Choose actor and request the task according to current context. Do NOT do as same as current_context do; it is already done. Do NOT Finish at first iteration."
+    },
+    "Attacker":{
+        "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case.",
+    },
+    "Defender": {
+        "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case.",
+    },
 }
 
 assistantQueries.update([
-    {x["name"]:  {"prompt": x["role_description"]}} for x in discussionActor
+    (x["name"],  {"prompt": x["role_description"]}) for x in discussionActor
 ])
 
 for format in  assistantQueries:
@@ -324,7 +375,7 @@ async def search_assistants(response_queue :asyncio.Queue, msg :str):
     })
     await send_progress(response_queue,"Detective","Analyzing user queries...")
     userQueryDetected = await askAgent(query,"Detective")
-    await send_progress(response_queue,"Detective","User query analysis done.")
+    await send_progress(response_queue,"Detective",f"User query analysis done.\nGuessed: user want to know \"{userQueryDetected["superficial_guess"]}\" and \"{userQueryDetected["deep_guess"]}\"")
     response.append({"name":"Detective","content":userQueryDetected})
     query = json.dumps({
         "answer_lang": userQueryDetected["lang"],
@@ -361,6 +412,18 @@ async def search_assistants(response_queue :asyncio.Queue, msg :str):
     await doFetchDirectContet(selected["candidate_urls"])
     return translate(response_queue,userQueryDetected["lang"],response,"search"),userQueryDetected["lang"]
  
+async def disarm_assistants(response_queue :asyncio.Queue, msg :str):
+    frameworks = await askAgent(dumpjson({
+        "answer_language": "English",
+        "prompt": msg,
+        "perspective": "Attacker"
+    }),"DisarmFramework")
+    keywords = frameworks["keyword"]
+    attacker_keywords = []
+    for keyword in keywords:
+        searchDisarmFramework(keyword["word"],keyword["directory"])
+    
+
 
 async def make_decision(iteration :int,currentContext :str,userInputs :asyncio.Queue,response_queue :asyncio.Queue):
     user_input = []
@@ -368,12 +431,18 @@ async def make_decision(iteration :int,currentContext :str,userInputs :asyncio.Q
         user_input.append(userInputs.get_nowait())
     if len(user_input) > 0:
         await send_progress(response_queue,"DecisionMaker",f"Human In the Loop: Accepted {len(user_input)} user input")
+    copied = discussionActor.copy()
+    if iteration != 1:
+        copied.append({
+            "name": "SearchInternet",
+            "role_description": "Internet search expert. ask question then search on the internet!"
+        })
     deceition_candidate = dumpjson({
         "current_context": currentContext,
         "additional_user_input": user_input,
         "action_limit": 5,
         "actors": {
-            "experts": discussionActor,
+            "experts": copied,
             "commands": [
                 {
                     "name": "Finish",
@@ -396,7 +465,12 @@ async def run_expert(resposne_queue :asyncio.Queue,prompt :str,history :list,nam
         "prompt": prompt,
     })
     await send_progress(resposne_queue,name,"Answering to prompt: "+prompt)
-    result = await askAgent(ask,name)
+    if name == "SearchInternet":
+        result = await search_assistants(resposne_queue,ask)
+    elif name =="DisarmFramework":
+        result = await disarm_assistants(ask)
+    else:
+        result = await askAgent(ask,name)
     await send_progress(resposne_queue,name,"Answer generated")
     return {
         "name": name,
