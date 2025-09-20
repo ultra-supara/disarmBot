@@ -92,89 +92,6 @@ llm_config = autogen.LLMConfig(
     config_list = [
         config
     ],
-    tools = [
-        {
-            "type": "function",
-            "function": {
-                "name": "searchDisarmFramework",
-                "description": """
-                    Search in the DISARM Disinformation TTP (Tactics, Techniques and Procedures) Framework
-                    DISARM is a framework designed for describing and understanding disinformation incidents.
-                    DISARM is part of work on adapting information security (infosec) practices to help track and counter disinformation and other information harms,
-                    and is designed to fit existing infosec practices and tools.
-                    Note that this is only a fixed English database, so if you need realtime information, please use searchDuckDuckGo or fetchDirectURL instead
-                    This is NOT connected to the internet.
-                    """,
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "question": {
-                            "type": "string",
-                            "description": "Query for searching information related to the Disarm Framework. Query must be English. This database is not suitable for asking specific questions, so please search for general information using keywords.",
-                        }
-                    },
-                    "required": ["question"],
-                },
-            }
-        },
-        {
-            "type": "function",
-            "function": {
-                "name": "searchDuckDuckGo",
-                "description": """
-                    Search the internet with duckduckgo
-                    use region parameter to search accurate information for user region
-                    """,
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "query": {
-                            "type": "string",
-                            "description": "Query for searching information",
-                        },
-                        "num_results": {
-                            "type": "number",
-                            "description": "Number of search results. default is 5",
-                        }
-                        ,
-                        "region": {
-                            "type": "string",
-                            "description": f"Region information to search in. default is us-en. candidates are {locale_info}",
-                        },
-                        "page": {
-                            "type": "number",
-                            "description": "page to return. default is 1. If you want more deeper or specific information, increment pages to deep dive into"
-                        },
-                        "timelimit": {
-                            "type": "string",
-                            "description": "time limit for search. candidates are d, w, m, y. default is null. meanings are: d=last day,w=last week,m=last month,y=last year"
-                        }
-                    },
-                    "required": ["query","timelimit"],
-                },
-            }
-        },
-         {
-            "type": "function",
-            "function": {
-                "name": "fetchDirectURL",
-                "description": """
-                    Fetch content directly from URL.
-                    You may use this after duckduckgo search
-                    """,
-                "parameters": {
-                    "type": "object",
-                    "properties": {
-                        "url": {
-                            "type": "string",
-                            "description": "URL to fetch",
-                        }
-                    },
-                    "required": ["url"],
-                },
-            }
-        },
-    ],
 )
 
 # Initialize DuckDuckGo search tool
@@ -232,38 +149,40 @@ func_list = {
     "fetchDirectURL": fetchDirectURL,
 }
 
-oldAssistant = [ {
+discussionActor = [ 
+    {
         "name": "searchDisarmFramework",
-        "prompt": f"You are information search expert. Please generate a query based on the contents of the README.md below and user query, search using the searchDisarmFramework function, and summarize it.\n#### README.md\n {readMe}",
+        "role_description": f"You are information search expert. Please generate a query based on the contents of the README.md below and user query, search using the searchDisarmFramework function, and summarize it.\n#### README.md\n {readMe}",
     },
     {
         "name": "Attackers",
-        "prompt": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to the red framework and may follow the link by fetchDirectURL and discuss them.",
+        "role_description": "You are an expert in disinformation attacks. Your role is to use your expertise in disinformation attacks to find vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to the red framework and may follow the link by fetchDirectURL and discuss them.",
     },
     {
         "name": "Defenders",
-        "prompt": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to blue framework and may follow the link by fetchDirectURL and discuss them.",
+        "role_description": "You are a disinformation countermeasure/defense expert. It is your role to use your expertise on the disinformation defense side to think about responses to the vulnerabilities in the case. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for strategies/tactics related to blue framework and may follow the link by fetchDirectURL and discuss them.",
     },
     {
         "name": "Skeptics",
-        "prompt": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Also look critically at what they don't say and mention it. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and may follow the link by fetchDirectURL and ask your skeptical questions.",
+        "role_description": "You are a skeptic. Your role is to act as devil's advocate and provide a critical perspective on what other agents say. Also look critically at what they don't say and mention it. Use the `searchDisarmFramework` function and DuckDuckGo search tool to search for what other agents say and may follow the link by fetchDirectURL and ask your skeptical questions.",
     },
     {
         "name": "SolutionArchitects",
-        "prompt": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Your role is providing an answer, not a question. Use the `searchDisarmFramework` functions and DuckDuckGo search tool and may follow the link by fetchDirectURL to provide a solution.",
+        "role_description": "You are a solution architect. Your role is to provide a solution to the problem using expert's information. Your role is providing an answer, not a question. Use the `searchDisarmFramework` functions and DuckDuckGo search tool and may follow the link by fetchDirectURL to provide a solution.",
     },
     {
         "name": "Clown",
-        "prompt": "You are a clown. So what? you can say anything non related or you should questions to expert in simple perspective. Your role is questioning, not answering",
+        "role_description": "You are a clown. So what? you can say anything non related or you should questions to expert in simple perspective. Your role is questioning, not answering",
     },
     {
         "name": "TheGeniusOfReasoning",
-        "prompt": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent. Your are an expert, It's good to be inspired by the comments, but don't play together like clown. Your role is providing a bizarre and insightful opinion.",
-    },]
+        "role_description": "Let's have a very detailed inference about existing facts and think clearly about logic that will defeat your opponent. Your are an expert, It's good to be inspired by the comments, but don't play together like clown. Your role is providing a bizarre and insightful opinion.",
+    },
+]
 
 assistantQueries = {
     "Detective":   {
-        "prompt": f"You are a detective. you have to deep dive into what is the user's actual wants to know. guess the context of users question with 5W1H(What,When,Where,Why,Who,How) to make more searchable on the internet. Please also dig deeper into the subtle nuances of the question phrase. Consider that the phrase of the question may be common sense in this way, but this way of asking this question may be a different intent. You haven't been given any specific search skills, but your initial guess is very important for the subsequent internet search. Please do NOT mention about what you cannot do.",
+        "prompt": "You are a detective. you have to deep dive into what is the user's actual wants to know. guess the context of users question with 5W1H(What,When,Where,Why,Who,How) to make more searchable on the internet. Please also dig deeper into the subtle nuances of the question phrase. Consider that the phrase of the question may be common sense in this way, but this way of asking this question may be a different intent. You haven't been given any specific search skills, but your initial guess is very important for the subsequent internet search. Please do NOT mention about what you cannot do.",
     },
     "Search":{
         "prompt": "You are an Internet search expert. Your role is to introduce outside information and stimulate discussion. You must use the DuckDuckGo search tool to search the Internet and may follow the link by fetchDirectURL. use the internet power. Choose the best region for the information you are looking for. Please exclude information that already in prefetched information.",
@@ -276,9 +195,15 @@ assistantQueries = {
     },
     "Translater": {
         "prompt": "Your role is translate json text into natural plain text. Do not omit the original information but be natural for human reading. You can use markdown for translated content. You can omit meaningless message, like error flags(internally used) and role name. Summarize all in requested language even if each is diffrent language. Please try to use simple and easy-to-understand language (not necessarily avoiding technical terms, but rather focusing on writing in a way that is easy to read)."
-    }   
+    },
+    "DecisionMaker": {
+        "prompt": "Your role is decision maker. Choose actor and request the task. Do NOT do as same as current_context do; it is already done. Do NOT Finish at first iteration."
+    }
 }
 
+assistantQueries.update([
+    {x["name"]:  {"prompt": x["role_description"]}} for x in discussionActor
+])
 
 for format in  assistantQueries:
     with open(f"agent_response/{format}.json") as fp:
@@ -295,7 +220,7 @@ def make_user_proxy():
         system_message= "Remind your role. Answer must follow the language user asked. You are moderator. Summarize the discussion and provide feedback to the assistants. Organize critically whether it matches the user's question  and provide feedback to the assistants.",
         is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("task complete"),
         human_input_mode="NEVER",
-        llm_config={"config_list": llm_config["config_list"]},
+        llm_config=llm_config,
         max_consecutive_auto_reply=1,
     )
 
@@ -303,7 +228,7 @@ def make_assistant(name :str, system_prompt :str):
     return autogen.AssistantAgent(
         name=name,
         system_message=system_prompt,
-        llm_config={"config_list": llm_config["config_list"]},
+        llm_config=llm_config,
         max_consecutive_auto_reply=2,
     )
 async def do_action(msg :str,name :str,response_format :str,agent_prompt :str):
@@ -338,102 +263,193 @@ url_regex = re.compile(r"https?://[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1
 async def send_progress(resp : asyncio.Queue, agent_name :str,what_to_do: str):
     await resp.put([{"name":agent_name,"content":what_to_do}])
 
+async def translate(response_queue :asyncio.Queue,requestLang :str,history :list,action :str):
+    query = dumpjson({
+        "request_language": requestLang,
+        "translation_target": history
+    })
+    await send_progress(response_queue,"Translater",f"Summarizing the {action} result...")
+    translated_response = await askAgent(query,"Translater")
+    fileContent = f"{action[0].upper() + action[1:] } Summery\n"
+    for content in translated_response["translated"]:
+        fileContent += "# "+ content["name"]+"\n"
+        fileContent += content["content"]
+        fileContent += "## For five years old\n"
+        fileContent += content["five_years_old_content"]
+    await response_queue.put([{"file": fileContent,"filename": "summary.txt"}])
+    return fileContent
+
+async def search_assistants(response_queue :asyncio.Queue, msg :str):
+    response = [{
+        "user": msg,
+    }]
+    urls = re.findall(url_regex, msg)
+    directContent = []
+    async def doFetchDirectContet(urls :list[str]):
+        nonlocal directContent
+        concurrent = asyncio.Queue(5)
+        async def fetchURL(q :asyncio.Queue):
+            nonlocal directContent
+            try:
+                while True:
+                    i,url = await q.get()
+                    content = await fetchDirectURL(url)
+                    await send_progress(response_queue,"Summarizer",f"Fetched: {url} ({i}/{len(urls)})")
+                    summarized = await askAgent(content,"Summarizer")
+                    if summarized["is_error"]:
+                        await send_progress(response_queue,"Summarizer",f"Error detected, ignore: {url} ({i}/{len(urls)})")
+                        return
+                    await send_progress(response_queue,"Summarizer",f"Summaraized: {url} ({i}/{len(urls)})")
+                    response.append({"name": "Summarizer","content":summarized})
+                    directContent.append(summarized)
+            except asyncio.QueueShutDown:
+                pass
+        urlFetcher = []
+        for _ in range(5):
+            urlFetcher.append(asyncio.create_task(fetchURL(concurrent)))
+        if len(urls) != 0:
+            await send_progress(response_queue,"Summarizer",f"Total {len(urls)} to fetch\n")
+        for i,url in enumerate(urls):
+            await concurrent.put((i+1,url))
+            await send_progress(response_queue,"Summarizer",f"Enqueued ({i+1}/{len(urls)})")
+        concurrent.shutdown()
+        await send_progress(response_queue,"Summarizer","All enqueued, waiting for completion...")
+        await asyncio.gather(*urlFetcher)
+        await send_progress(response_queue,"Summarizer","All tasks completed")
+    if urls:
+        await doFetchDirectContet(urls)
+    query = dumpjson({
+        "user_query": msg,
+        "prefetched_resource": directContent
+    })
+    await send_progress(response_queue,"Detective","Analyzing user queries...")
+    userQueryDetected = await askAgent(query,"Detective")
+    await send_progress(response_queue,"Detective","User query analysis done.")
+    response.append({"name":"Detective","content":userQueryDetected})
+    query = json.dumps({
+        "answer_lang": userQueryDetected["lang"],
+        "about": userQueryDetected["what"],
+        "hypothesis": userQueryDetected["why"],
+        "want_to_know": userQueryDetected["superficial_guess"],
+        "prefetched_information": directContent,
+        "keywords": userQueryDetected["keyword"]
+    },ensure_ascii=False)
+    await send_progress(response_queue,"Search","Generatiing search query...")
+    loaded = await askAgent(query,"Search")
+    await send_progress(response_queue,"Search","Search query generated. Now searching...")
+    response.append({"name":"Search","content":loaded})
+    queryResult = []
+    for q in loaded["candidates"]:
+        await send_progress(response_queue,"Search",f"Searching: {q["query"]} (region: {q["region"]} timelimit: {q["timelimit"]})")
+        for p in range(q["page_min"],q["page_max"]+1):
+            result = searchDuckDuckGo(q["query"],q["num_results"],p,q["region"],q["timelimit"])
+            queryResult.append(result)
+            await asyncio.sleep(0.5)
+    await send_progress(response_queue,"Search","All search done")
+    query = json.dumps({
+        "answer_lang": userQueryDetected["lang"],
+        "about": userQueryDetected["what"],
+        "hypothesis": userQueryDetected["why"],
+        "want_to_know": userQueryDetected["superficial_guess"],
+        "prefetched_information": directContent,
+        "keywords": userQueryDetected["keyword"],
+        "candidates": queryResult
+    })
+    await send_progress(response_queue,"Selector","Selecting fetch candidate...")
+    selected = await askAgent(query,"Selector")
+    await send_progress(response_queue,"Selector","Candidate selection done")
+    await doFetchDirectContet(selected["candidate_urls"])
+    return translate(response_queue,userQueryDetected["lang"],response,"search"),userQueryDetected["lang"]
+ 
+
+async def make_decision(iteration :int,currentContext :str,userInputs :asyncio.Queue,response_queue :asyncio.Queue):
+    user_input = []
+    while not userInputs.empty():
+        user_input.append(userInputs.get_nowait())
+    if len(user_input) > 0:
+        await send_progress(response_queue,"DecisionMaker",f"Human In the Loop: Accepted {len(user_input)} user input")
+    deceition_candidate = dumpjson({
+        "current_context": currentContext,
+        "additional_user_input": user_input,
+        "action_limit": 5,
+        "actors": {
+            "experts": discussionActor,
+            "commands": [
+                {
+                    "name": "Finish",
+                    "description": "finish actions. If no Finish is specified, next decition maker is called after all actions are finished and continue operations."
+                },
+                {
+                    "name":"WaitForConcurrent",
+                    "description":"wait for current concurrent tasks. If no concurrent task is run, this is nop. If no WaitForConcurrent is specified, all tasks are waited at the end of all actions."
+                },
+            ]
+        },
+        "iteration": iteration
+    })
+    decision = await askAgent(deceition_candidate,"DecisionMaker")
+    return decision["actions"]
+
+async def run_expert(resposne_queue :asyncio.Queue,prompt :str,history :list,name :str):
+    ask = dumpjson({
+        "history": history,
+        "prompt": prompt,
+    })
+    await send_progress(resposne_queue,name,"Answering to prompt: "+prompt)
+    result = await askAgent(ask,name)
+    await send_progress(resposne_queue,name,"Answer generated")
+    return {
+        "name": name,
+        "prompt": prompt,
+        "result": result,
+    }
+
+async def run_actions(response_queue :asyncio.Queue, actions :list):
+    currentTasks = []
+    history = []
+    prevIsConcurrent = False
+    fullHistory = []
+    finalPhase = False
+    for action in actions:
+        if action["name"] == "Finish":
+            finalPhase = True
+            break
+        if action["name"] == "WaitForConcurrent":
+            if len(currentTasks) > 0:
+                records = await asyncio.gather(*currentTasks)
+                currentTasks.clear()
+                history.extend(records)
+            continue
+        if not action["inherit_history"]:
+            history.clear()
+        if action["concurrent"]:
+            currentTasks.append(asyncio.create_task(run_expert(response_queue,action["prompt"],history,action["name"])))
+            prevIsConcurrent = True
+        else:
+            if prevIsConcurrent:
+                history.clear()
+            record = await run_expert(response_queue, action["prompt"],history,action["name"])
+            history.append(record)
+            fullHistory.append(record)
+            prevIsConcurrent = False
+    if len(currentTasks) > 0:
+        records = await asyncio.gather(*currentTasks)
+        fullHistory.extend(records)
+    return fullHistory,finalPhase
+
 async def run_assistants(msg :str,user_input_queue :asyncio.Queue,response_queue :asyncio.Queue):
-    async def search_assistants(msg :str):
-        try:
-            response = []
-            urls = re.findall(url_regex, msg)
-            directContent = []
-            async def doFetchDirectContet(urls :list[str]):
-                nonlocal directContent
-                concurrent = asyncio.Queue(5)
-                async def fetchURL(q :asyncio.Queue):
-                    nonlocal directContent
-                    try:
-                        while True:
-                            i,url = await q.get()
-                            content = await fetchDirectURL(url)
-                            await send_progress(response_queue,"Summarizer",f"Fetched: {url} ({i}/{len(urls)})")
-                            summarized = await askAgent(content,"Summarizer")
-                            if summarized["is_error"]:
-                                await send_progress(response_queue,"Summarizer",f"Error detected, ignore: {url} ({i}/{len(urls)})")
-                                return
-                            await send_progress(response_queue,"Summarizer",f"Summaraized: {url} ({i}/{len(urls)})")
-                            response.append({"name": "Summarizer","content":summarized})
-                            directContent.append(summarized)
-                    except asyncio.QueueShutDown:
-                        pass
-                urlFetcher = []
-                for _ in range(5):
-                    urlFetcher.append(asyncio.create_task(fetchURL(concurrent)))
-                if len(urls) != 0:
-                    await send_progress(response_queue,"Summarizer",f"Total {len(urls)} to fetch\n")
-                for i,url in enumerate(urls):
-                    await concurrent.put((i+1,url))
-                    await send_progress(response_queue,"Summarizer",f"Enqueued ({i+1}/{len(urls)})")
-                concurrent.shutdown()
-                await send_progress(response_queue,"Summarizer","All enqueued, waiting for completion...")
-                await asyncio.gather(*urlFetcher)
-                await send_progress(response_queue,"Summarizer","All tasks completed")
-            if urls:
-                await doFetchDirectContet(urls)
-            query = dumpjson({
-                "user_query": msg,
-                "prefetched_resource": directContent
-            })
-            await send_progress(response_queue,"Detective","Analyzing user queries...")
-            userQueryDetected = await askAgent(query,"Detective")
-            await send_progress(response_queue,"Detective","User query analysis done.")
-            response.append({"name":"Detective","content":userQueryDetected})
-            query = json.dumps({
-                "answer_lang": userQueryDetected["lang"],
-                "about": userQueryDetected["what"],
-                "hypothesis": userQueryDetected["why"],
-                "want_to_know": userQueryDetected["superficial_guess"],
-                "prefetched_information": directContent,
-                "keywords": userQueryDetected["keyword"]
-            },ensure_ascii=False)
-            await send_progress(response_queue,"Search","Generatiing search query...")
-            loaded = await askAgent(query,"Search")
-            await send_progress(response_queue,"Search","Search query generated. Now searching...")
-            response.append({"name":"Search","content":loaded})
-            queryResult = []
-            for q in loaded["candidates"]:
-                await send_progress(response_queue,"Search",f"Searching: {q["query"]} (region: {q["region"]} timelimit: {q["timelimit"]})")
-                for p in range(q["page_min"],q["page_max"]+1):
-                    result = searchDuckDuckGo(q["query"],q["num_results"],p,q["region"],q["timelimit"])
-                    queryResult.append(result)
-                    await asyncio.sleep(0.5)
-            await send_progress(response_queue,"Search","All search done")
-            query = json.dumps({
-                "answer_lang": userQueryDetected["lang"],
-                "about": userQueryDetected["what"],
-                "hypothesis": userQueryDetected["why"],
-                "want_to_know": userQueryDetected["superficial_guess"],
-                "prefetched_information": directContent,
-                "keywords": userQueryDetected["keyword"],
-                "candidates": queryResult
-            })
-            await send_progress(response_queue,"Selector","Selecting fetch candidate...")
-            selected = await askAgent(query,"Selector")
-            await send_progress(response_queue,"Selector","Candidate selection done")
-            await doFetchDirectContet(selected["candidate_urls"])
-            query = dumpjson({
-               "request_language": userQueryDetected["lang"],
-               "translation_target": response
-            })
-            await send_progress(response_queue,"Translater","Summarizing the conversations...")
-            translated_response = await askAgent(query,"Translater")
-            fileContent = "Discussion Summery\n"
-            for content in translated_response["translated"]:
-                fileContent += "# "+ content["name"]+"\n"
-                fileContent += content["content"]
-                fileContent += "## For five years old\n"
-                fileContent += content["five_years_old_content"]
-            await response_queue.put([{"file": fileContent,"filename": "summary.txt"}])
-        except Exception as e:
-            await response_queue.put(e)
-    await search_assistants(msg) # first loop
+    try:
+        i = 1
+        current_context, lang = await search_assistants(response_queue, msg) # first loop
+        while True:
+            actions = await make_decision(i,current_context,user_input_queue)
+            fullHistory, finish = await run_actions(response_queue, actions)
+            current_context = await translate(response_queue,lang,fullHistory,"disscussion")
+            if finish:
+                break
+            i+=1
+    except Exception as e:
+        await response_queue.put(e)
     response_queue.shutdown()
 
 
