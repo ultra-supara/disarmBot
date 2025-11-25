@@ -29,15 +29,15 @@ The framework for countermeasures against disinformation, the [DISARM Disinforma
 
 disarmBot is a bot that can be deployed on Discord. Multiple LLM agents (mainly GPT-4) are automatically launched and respond when a user enters a command. It is also based on the DISARM (Disinformation Analysis and Response Measures) TTP Frameworks, and DISARM is based on MITRE ATT&CK, the “theory” of CTI. In other words, these are measures for practical CTI utilization by LLM from theory to public assistance.
 
-LLM agents, who have learned several different tactics, cooperate with each other and work together to develop a tactical and technical dialogue based on the disinformation framework from the perspective of an attacker, defender, searchTheInternet, user, skeptics, solution architect, OSINT Specialist ,detective, clown and TheGeniusOfReasoning. Tactical and technical dialogues based on the disinformation framework will be conducted. Through the dialogues, agents discuss and deepen information with each other. disarmBot fulfills these requirements and provides an information environment that allows users to be exposed to a variety of opinions. This allows users to think for themselves and enhance their critical ability to digest information. Even if the assumed users' requirements are different positions and levels of abstraction, it is possible to optimize them individually and provide high-quality intelligence that meets the 4A (Accurate, Audience Focused, Actionable, and Adequate Timing) conditions in a proactive manner by breaking free from a defensive mindset. The 4As (Accurate, Audience Focused, Actionable, Adequate Timing) and can be provided in a proactive manner.
+LLM agents, who have learned several different tactics, cooperate with each other and work together to develop a tactical and technical dialogue based on the disinformation framework from the perspective of an attacker, defender, searchTheInternet, user, skeptics, solution architect, OSINT Specialist ,detective, clown and TheGeniusOfReasoning. Tactical and technical dialogues based on the disinformation framework will be conducted. Through the dialogues, agents discuss and deepen information with each other. disarmBot fulfills these requirements and provides an information environment that allows users to be exposed to a variety of opinions. This allows users to think for themselves and enhance their critical ability to digest information. Even if the assumed users' requirements are different positions and levels of abstraction, it is possible to optimize them individually and provide high-quality intelligence that meets the 4A (Accurate, Audience Focused, Actionable, and Adequate Timing) conditions in a proactive manner by breaking free from a defensive mindset.
 
-【Image of 5 AI Agents】
+【Image of 5+ AI Agents】
 
-<img width="1166" alt="Image" src="https://github.com/user-attachments/assets/16b9cd1b-c010-4052-8c2e-9972afb83734" />
+<img width="1092" height="621" alt="Image" src="https://github.com/user-attachments/assets/c4562564-1849-4869-ac32-44ba3f876b48" />
 
-【Image of Group Chat in AutoGen】
+【Image of Group Chat in AG2】
 
-<img width="1166" alt="Image" src="https://github.com/user-attachments/assets/4a77c096-2b14-4def-abd9-ec388000521a" />
+<img width="1092" height="621" alt="Image" src="https://github.com/user-attachments/assets/255adff6-96a2-414d-b74b-e673abdf4a59" />
 
 ---
 
