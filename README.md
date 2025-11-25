@@ -17,7 +17,7 @@ The framework for countermeasures against disinformation, the [DISARM Disinforma
 
 ## Demonstration Movie
 
-[![YouTube Video](https://img.youtube.com/vi/Ee-JfL17L40/0.jpg)](https://www.youtube.com/watch?v=Ee-JfL17L40)
+[![YouTube Video](https://img.youtube.com/vi/EjFtkn6rOZA/0.jpg)](https://youtu.be/EjFtkn6rOZA)
 
 ## Presentation
 
