@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for DISARM framework search",
+  "description": "Schema for searching DISARM framework",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response. should be formal form, like `English`"
+    },
+    "keyword": {
+      "type": "array",
+      "description": "Key words to search in context. Word or short(about 1-5 words) phrase, not a sentence.",
+      "items" :{
+        "type": "object",
+        "properties": {
+            "word": {
+                "type": "string",
+                "description": "keyword itself"
+            },
+            "directory": {
+                "type": "string",
+                "description": "directory name to search in. if you want to search in root direcotry, use `.`"
+            }
+        },
+        "additionalItems": false,
+        "required": [
+            "word",
+            "directory"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "role",
+    "lang",
+    "keyword"
+  ]
+}

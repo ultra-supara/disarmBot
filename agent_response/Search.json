@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for Internet search",
+  "description": "Provide what to search on the internet",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response."
+    },
+    "candidates": {
+        "type": "array",
+        "description": "search query candidates",
+        "items": {
+            "type": "object",
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "search query string"
+                },
+                "page_min": {
+                    "type": "integer",
+                    "description": "minimum page to get (usually 1)"
+                },
+                "page_max": {
+                    "type": "integer",
+                    "description": "maximum page to get"
+                },
+                "region": {
+                    "type": "string",
+                    "description": "region to search. candidates are: xa-ar,xa-en,ar-es,au-en,at-de,be-fr,be-nl,br-pt,bg-bg,ca-en,ca-fr,ct-ca,cl-es,cn-zh,co-es,hr-hr,cz-cs,dk-da,ee-et,fi-fi,fr-fr,de-de,gr-el,hk-tzh,hu-hu,in-en,id-id,id-en,ie-en,il-he,it-it,jp-jp,kr-kr,lv-lv,lt-lt,xl-es,my-ms,my-en,mx-es,nl-nl,nz-en,no-no,pe-es,ph-en,ph-tl,pl-pl,pt-pt,ro-ro,ru-ru,sg-en,sk-sk,sl-sl,za-en,es-es,se-sv,ch-de,ch-fr,ch-it,tw-tzh,th-th,tr-tr,ua-uk,uk-en,us-en,ue-es,ve-es,vn-vi,wt-wt"
+                },
+                "timelimit": {
+                    "type": "string",
+                    "description": "time limit to search. candidates are d, w, m, y. meanings are: d=last day,w=last week,m=last month,y=last year"
+                },
+                "num_results": {
+                    "type": "number",
+                    "description": "Number of search results. default is 5"
+                }
+            },
+            "required": [
+                "query",
+                "page_min",
+                "page_max",
+                "region",
+                "timelimit",
+                "num_results"
+            ],
+            "additionalItems": false
+        }
+    }
+  },
+  "required": [
+    "role",
+    "lang",
+    "candidates"
+  ],
+  "additionalItems": false
+}

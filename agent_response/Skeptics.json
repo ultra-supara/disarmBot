@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for Skeptics",
+  "description": "Schema for Skeptics thinking framework",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response. should be formal form, like `English`"
+    },
+    "opinions": {
+      "type": "array",
+      "description": "Opinions for discussion",
+      "items" :{
+        "type": "object",
+        "properties": {
+            "premise": {
+                "type": "string",
+                "description": "Detected premise of discussion"
+            },
+            "validity_assesment": {
+                "type": "string",
+                "description": "An assessment of the validity of an argument based on its underlying premise"
+            },
+            "skepticism": {
+                "type": "string",
+                "description": "Skepticism towards preconditions"
+            },
+            "paradim_shift": {
+                "type": "string",
+                "description": "Perspective shift based on skepticism"
+            },
+            "doubt_skepticism": {
+                "type": "string",
+                "description": "Doubt about the validity of skepticism itself"
+            },
+            "short_term": {
+                "type": "string",
+                "description": "The validity of skepticism in the short term"
+            },
+            "long_term": {
+                "type": "string",
+                "description": "The validity of skepticism in the long term."
+            },
+            "final_thought": {
+                "type": "string",
+                "description": "The insights gained by overcoming skeptical doubts."
+            }
+        },
+        "additionalItems": false,
+        "required": [
+            "premise",
+            "validity_assesment",
+            "skepticism",
+            "paradim_shift",
+            "doubt_skepticism",
+            "short_term",
+            "long_term",
+            "final_thought"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "role",
+    "lang",
+    "opinions"
+  ]
+}

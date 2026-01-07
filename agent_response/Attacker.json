@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for DISARM framework attack",
+  "description": "Schema for attacker framework",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response. should be formal form, like `English`"
+    },
+    "candidates": {
+      "type": "array",
+      "description": "Candidates of attack",
+      "items" :{
+        "type": "object",
+        "properties": {
+            "attack_type": {
+                "type": "string",
+                "description": "A general classification of attack methods"
+            },
+            "vulnerability": {
+                "type": "string",
+                "description": "Potentially existing vulnerabilities within the scenario"
+            },
+            "worst_case": {
+                "type": "string",
+                "description": "The worst possible scenario that could happen"
+            },
+            "realistic_case": {
+                "type": "string",
+                "description": "A more realistic scenario than the worst possible outcome."
+            },
+            "difficulty": {
+                "type": "string",
+                "description": "Attack difficulty"
+            },
+            "occurrence_probability": {
+                "type": "string",
+                "description": "Estimating the probability of occurrence description"
+            },
+            "occurrence_probability_num": {
+                "type": "number",
+                "description": "Estimating the probability of occurrence in percentage"
+            },
+            "related_framework": {
+                "type": "array",
+                "description": "related DISARM framework id"
+            }
+        },
+        "additionalItems": false,
+        "required": [
+            "word",
+            "directory"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "role",
+    "lang",
+    "candidates"
+  ]
+}

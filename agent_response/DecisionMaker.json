@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Schema for 5W1H and Guesses",
+  "description": "Defines the object structure for describing the 5W1H (What, When, Where, Why, Who, How) and two guesses (superficial, deep).",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "your role"
+    },
+    "lang": {
+      "type": "string",
+      "description": "The language to be used in the response. should be formal form, like `English`"
+    },
+    "actions": {
+        "type":"array",
+        "description": "Actions list to do next. Scheduler starts execution of these action in order",
+        "items": {
+            "type":"object",
+            "properties": {
+                "name": {
+                    "type":"string",
+                    "description": "Name of the actor or command. if name is command, other fields are ignored"
+                },
+                "prompt": {
+                    "type": "string",
+                    "description": "What action the actor should do"
+                },
+                "concurrent": {
+                    "type": "boolean",
+                    "description": "Actor can concurrently act with other action. If this is false, actor will block until it completed"
+                },
+                "inherit_history": {
+                    "type": "boolean",
+                    "description": "inherit previous action history if in sequential. If previous action's concurrent field is true, this is simply ignored"
+                }
+            },
+            "additionalItems": false,
+            "required": [
+                "name",
+                "prompt",
+                "concurrent",
+                "inherit_history"
+            ]
+        }
+    }
+  },
+  "additionalItems": false,
+  "required": [
+    "role",
+    "lang",
+    "actions"
+  ]
+}
